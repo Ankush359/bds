@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="mr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>अपलोड तपासणी</title>
+<style>body{margin:0;padding:16px;background:#050B1C;color:#fff;font:16px/1.5 'Mukta','Noto Sans Devanagari',system-ui,sans-serif}.b{max-width:640px;margin:auto}h1{color:#FFD23F;font-size:1.3rem;margin:0 0 6px}.s{color:#A9B8DA;margin:0 0 14px}.st{padding:12px 14px;border-radius:12px;margin-bottom:12px;font-weight:700}.ok{background:#0b3d2a;color:#7ff0b4}.er{background:#4a1414;color:#ff9a9a}.it{padding:12px;margin:10px 0;border:1px solid #fff3;border-radius:14px;background:#0E1B45}.it b{display:block;word-break:break-word}.v{margin-top:4px;font-weight:700}.v.g{color:#7ff0b4}.v.w{color:#FFD23F}.m{color:#A9B8DA;font-size:.85rem;word-break:break-all}button{padding:12px 20px;border:0;border-radius:99px;background:#FFD23F;color:#13204A;font:800 1rem inherit;cursor:pointer}</style></head><body><div class="b">
+<h1>🔍 अपलोड तपासणी</h1><p class="s">हे पान Google Sheet मधील नवीनतम नोंदी वाचते आणि प्रत्येक नोंद website वर कुठे दिसेल (किंवा का दिसणार नाही) ते सांगते.</p>
+<button id="r">🔄 पुन्हा तपासा</button><div id="o" style="margin-top:14px">तपासत आहे… ⏳</div></div>
+<script>
+var URL_='https://script.google.com/macros/s/AKfycbz79eNQIFNCaW913ap6uKVep2RmznTYhw0n0_Eo9TMUcMa5SuR0-1XtdbVSXjpWczA5/exec',MK='\u2063';
+function jp(){return new Promise(function(res){var cb='__c'+Date.now(),s=document.createElement('script'),d=false;function fin(v){if(d)return;d=true;try{delete window[cb]}catch(e){}s.remove();res(v)}window[cb]=fin;s.onerror=function(){fin(null)};s.src=URL_+'?callback='+cb+'&_='+Date.now();setTimeout(function(){fin(null)},15000);document.head.appendChild(s)})}
+function pi(s){if(!s)return null;s=String(s).trim();var m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);if(m)return new Date(+m[1],m[2]-1,+m[3]);var d=new Date(s);if(isNaN(d))return null;d.setHours(0,0,0,0);return d}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function verdict(x){var t=new Date();t.setHours(0,0,0,0);var d=pi(x.date),e=pi(x.end),ttl=String(x.title||'');
+ if(x.type==='gallery')return['g','📷 फोटो गॅलरी → नवीन अपलोड मध्ये दिसेल'];
+ if(x.type==='result')return['g','🏆 निकाल विभागात दिसेल'];
+ if(x.type==='event'&&ttl.charAt(0)===MK)return['g','🆕 फोटो गॅलरी → नवीन अपलोड मध्ये दिसेल'];
+ if(x.type==='event'){var en=e||d;return en&&en<t?['w','⏳ तारीख होऊन गेली, म्हणून "आगामी कार्यक्रम" मध्ये नाही (जुने कार्यक्रम मध्ये दिसेल)']:['g','🎉 आगामी कार्यक्रम मध्ये दिसेल']}
+ if(e&&e<t)return['w','⏳ "पर्यंत" तारीख होऊन गेली, म्हणून सूचना फलकावर दिसत नाही. "पर्यंत" रिकामे ठेवा.'];
+ return['g','📌 सूचना फलकावर दिसेल (महत्त्वाचे असल्यास वरच्या पट्टीतही)']}
+async function run(){var o=document.getElementById('o');o.textContent='तपासत आहे… ⏳';var j=await jp();
+ if(!j||!j.items){o.innerHTML='<div class="st er">❌ Google Sheet कडून माहिती मिळाली नाही. Apps Script चा deployment "Anyone" access सह आहे का व नवीन version deploy केले आहे का ते पाहा.</div>';return}
+ var L=j.items.slice().sort(function(a,b){return b.t-a.t}).slice(0,15);
+ o.innerHTML='<div class="st ok">✅ Sheet मध्ये एकूण '+j.items.length+' नोंदी आहेत. खाली नवीनतम '+L.length+':</div>'+(L.length?L.map(function(x){var v=verdict(x),tt=String(x.title||'(फोटो)').replace(/\u2063/g,'');
+  return'<div class="it"><b>'+esc(tt)+'</b><div class="v '+v[0]+'">'+v[1]+'</div><div class="m">प्रकार: '+esc(x.type)+' · तारीख: '+esc(x.date||'-')+' · पर्यंत: '+esc(x.end||'-')+' · वेळ: '+esc(new Date(x.t).toLocaleString('mr-IN'))+'</div></div>'}).join(''):'<div class="it">अजून काहीही नाही.</div>')}
+document.getElementById('r').onclick=run;run();
+</script></body></html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="mr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6A1327">
+<title>रजा अर्ज – बापूसाहेब देशमुख शिवाजी हायस्कूल</title>
+<style>
+:root{--maroon:#6A1327;--gold:#C99A2E;--paper:#F6F3EE;--card:#fff;--chip:#f1ece4;--ink:#2A1A20;--muted:#6b5a60;--line:#e5dfd6}
+@media (prefers-color-scheme:dark){:root{--paper:#150a0f;--card:#221218;--chip:#33202a;--ink:#f3eaec;--muted:#bba7ae;--line:#43303a}}
+*{box-sizing:border-box}body{margin:0;font-family:'Noto Sans Devanagari','Mukta','Segoe UI',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#36081A,#6A1327 60%,#8a1d36);color:#fff;padding:calc(12px + env(safe-area-inset-top,0)) 14px 12px;display:flex;align-items:center;gap:10px}
+header img{width:42px;height:42px;object-fit:contain;background:#fff;border-radius:50%;padding:2px}
+header b{display:block;font-size:16px}header small{opacity:.85}
+main{max-width:720px;margin:0 auto;padding:14px 12px 60px}
+select{font:inherit;padding:11px 12px;border:1.5px solid #cfc6b8;border-radius:10px;background:var(--card);color:var(--ink);width:100%}
+.hw{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:12px;padding:10px 12px;margin:10px 0}
+.hw b{color:var(--maroon)}@media (prefers-color-scheme:dark){.hw b{color:#f0c6d0}}
+input,textarea{font:inherit;padding:11px 12px;border:1.5px solid #cfc6b8;border-radius:10px;background:var(--card);color:var(--ink);width:100%;margin-bottom:10px}label{display:block;font-size:14px;margin:4px 0}button{font:inherit;font-weight:700;padding:12px 20px;border:0;border-radius:99px;background:var(--gold);color:#2A1A20;width:100%}.ok{background:#e4f6ea;color:#14532d;padding:12px;border-radius:12px}.er{color:#b3261e}.note{color:var(--muted);font-size:14px}
+a{color:var(--maroon)}
+</style></head><body>
+<header><img src="img/logo.webp" alt=""><div><b>रजा अर्ज</b><small>बापूसाहेब देशमुख शिवाजी हायस्कूल व कनिष्ठ महाविद्यालय, चांदूर रेल्वे</small></div></header>
+<main>
+<form id="f" novalidate>
+<label for="cls">वर्ग</label><select id="cls" required><option value="">— वर्ग निवडा —</option></select>
+<label for="roll">हजेरी क्रमांक</label><input id="roll" type="number" inputmode="numeric" min="1" max="499" required>
+<label for="sn">विद्यार्थ्याचे पूर्ण नाव</label><input id="sn" maxlength="60" required>
+<label for="pn">पालकाचे नाव</label><input id="pn" maxlength="60" required>
+<label for="pp">पालकाचा मोबाईल</label><input id="pp" type="tel" inputmode="tel" maxlength="15" required>
+<label for="ty">रजेचा प्रकार</label><select id="ty"><option value="V">रजा</option><option value="M">वैद्यकीय रजा (आजारपण)</option></select>
+<label for="fr">पासून</label><input id="fr" type="date" required>
+<label for="to">पर्यंत</label><input id="to" type="date" required>
+<label for="rs">कारण</label><textarea id="rs" rows="3" maxlength="300" required></textarea>
+<button id="go" type="submit">अर्ज पाठवा</button>
+<p id="msg" role="alert"></p>
+</form>
+<p class="note">अर्ज वर्गशिक्षक तपासून मंजूर/नामंजूर करतील. मंजूर रजेच्या दिवशी हजेरीत विद्यार्थी "रजा" म्हणून नोंदला जातो.</p>
+<p class="note"><a href="index.html">← शाळेच्या मुख्य संकेतस्थळाकडे</a></p>
+</main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+const FB={apiKey:"AIzaSyDZG-v3w_7NAtWmlkZgZbqpXWCbGXrq1vw",authDomain:"bapusaheb-school.firebaseapp.com",projectId:"bapusaheb-school",storageBucket:"bapusaheb-school.firebasestorage.app",messagingSenderId:"521170776952",appId:"1:521170776952:web:20bbc4042fb5218cf64e8d"};
+const STDS=[5,6,7,8,9,10],DIVS={A:'अ',B:'ब',C:'क'},SR=[11,12];
+const CL=[];STDS.forEach(s=>Object.keys(DIVS).forEach(d=>CL.push([s+'-'+d,s+' वी - '+DIVS[d]])));SR.forEach(s=>CL.push([s+'-ARTS',s+' वी (कला)']));
+const sel=document.getElementById('cls');
+CL.forEach(([k,l])=>{const o=document.createElement('option');o.value=k;o.textContent=l;sel.append(o)});
+const $=id=>document.getElementById(id),msg=$('msg');
+let db;try{firebase.initializeApp(FB);db=firebase.firestore()}catch(e){msg.textContent='सेवा सुरू होऊ शकली नाही.';msg.className='er'}
+const t=new Date(),iso=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+$('fr').min=$('to').min=iso;
+$('f').addEventListener('submit',async e=>{e.preventDefault();msg.className='er';msg.textContent='';
+ const v=id=>$(id).value.trim(),roll=parseInt(v('roll'),10);
+ if(!v('cls')||!(roll>0)||v('sn').length<2||!v('pn')||!/^[0-9+ -]{10,15}$/.test(v('pp'))||!v('fr')||!v('to')||v('rs').length<3){msg.textContent='कृपया सर्व माहिती योग्य भरा.';return}
+ if(v('to')<v('fr')){msg.textContent='"पर्यंत" तारीख "पासून" नंतरची हवी.';return}
+ try{if(Date.now()-(+localStorage.getItem('lvT')||0)<60000){msg.textContent='कृपया एक मिनिटाने पुन्हा प्रयत्न करा.';return}}catch(x){}
+ const b=$('go');b.disabled=true;
+ try{await db.collection('leaveRequests').add({classKey:v('cls'),roll,studentName:v('sn'),parentName:v('pn'),parentPhone:v('pp'),from:v('fr'),to:v('to'),type:v('ty'),reason:v('rs'),status:'pending',createdAt:firebase.firestore.FieldValue.serverTimestamp()});
+  try{localStorage.setItem('lvT',Date.now())}catch(x){}
+  $('f').reset();msg.className='ok';msg.textContent='✅ अर्ज पाठवला. शिक्षक तो तपासतील.'}
+ catch(x){console.error(x);msg.textContent='अर्ज पाठवता आला नाही. नंतर पुन्हा प्रयत्न करा.'}
+ b.disabled=false});
+</script></body></html>

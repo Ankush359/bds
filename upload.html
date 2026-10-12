@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="mr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>माहिती / फोटो टाका</title>
+<style>
+:root{--bg:#050B1C;--card:#0E1B45;--gold:#FFD23F;--mut:#A9B8DA;--line:rgba(255,255,255,.18)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font:17px/1.5 'Mukta','Noto Sans Devanagari',system-ui,sans-serif;padding:16px}
+.box{max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
+h1{margin:0 0 4px;font-size:1.35rem;color:var(--gold)}p.s{margin:0 0 14px;color:var(--mut);font-size:.95rem}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}.tabs button{margin:0;padding:11px;font-size:1rem;background:transparent;color:#fff;border:1px solid var(--line);box-shadow:none}
+.tabs button.on{background:var(--gold);color:#13204A;border-color:var(--gold)}
+label{display:block;margin:14px 0 6px;font-weight:700}
+input,textarea{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:#071235;color:#fff;font:inherit;min-width:0}
+textarea{min-height:90px}.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.types{display:grid;grid-template-columns:1fr 1fr;gap:8px}.types input{display:none}.types label{margin:0}
+.types span{display:block;text-align:center;padding:12px 4px;border-radius:12px;border:1px solid var(--line);font-weight:700;cursor:pointer}
+.types input:checked+span{background:var(--gold);color:#13204A;border-color:var(--gold)}
+.chk{display:flex;gap:8px;align-items:center;margin-top:14px}.chk input{width:auto}.chk label{margin:0;font-weight:600}
+#th{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}#th img{width:68px;height:68px;object-fit:cover;border-radius:10px}
+button{width:100%;margin-top:20px;padding:15px;border:0;border-radius:999px;background:linear-gradient(135deg,#FFE066,#F8C81C);color:#13204A;font:800 1.05rem inherit;cursor:pointer}
+button:disabled{opacity:.6}#msg,#msg2{margin-top:14px;text-align:center;font-weight:700}.ok{color:#34D399}.er{color:#FF8080}.hide{display:none}
+.it{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px;margin-top:10px;border:1px solid var(--line);border-radius:14px;background:#071235}
+.it b{display:block;word-break:break-word}.it small{color:var(--mut)}.it button{width:auto;margin:0;padding:9px 16px;background:#E5484D;color:#fff;font-size:.95rem;flex:none}
+h3.g{margin:18px 0 0;color:var(--gold);font-size:1rem}
+.types small{display:block;font-weight:400;font-size:.78rem;opacity:.85;line-height:1.3;margin-top:2px}.types.big{margin-bottom:4px}.types.big span{padding:14px 6px}</style></head><body><div class="box">
+<h1>🏫 शाळेच्या website वर माहिती टाका</h1><p class="s">भरा, फोटो निवडा आणि "पाठवा" दाबा. काही मिनिटांत website वर दिसेल.</p>
+<div class="tabs"><button type="button" id="t1" class="on">➕ नवीन टाका</button><button type="button" id="t2">🗑️ काढा</button></div>
+
+<form id="f">
+<label>काय टाकायचे आहे?</label>
+<div class="types big"><label><input type="radio" name="type" value="event" checked><span>🎉 आगामी कार्यक्रम<small>वेबसाईटवर "आगामी कार्यक्रम" मध्ये दिसेल</small></span></label><label><input type="radio" name="type" value="upload"><span>🆕 नवीन अपलोड<small>फोटो गॅलरी → "नवीन अपलोड" मध्ये दिसेल</small></span></label></div>
+<label>इतर</label><div class="types"><label><input type="radio" name="type" value="notice"><span>📌 सूचना</span></label><label><input type="radio" name="type" value="result"><span>🏆 निकाल</span></label><label><input type="radio" name="type" value="gallery"><span>📷 फक्त फोटो</span></label></div>
+<label id="lt">शीर्षक</label><input id="title" placeholder="उदा. वार्षिक स्नेहसंमेलन">
+<div id="rx" class="hide">
+ <label>इयत्ता / परीक्षा</label><input id="ecl" placeholder="उदा. इयत्ता १० वी, मार्च २०२६">
+ <div class="row3"><div><label>एकूण निकाल</label><input id="tot" placeholder="९८%"></div><div><label>प्रविष्ट</label><input id="app" inputmode="numeric" placeholder="120"></div><div><label>उत्तीर्ण</label><input id="pas" inputmode="numeric" placeholder="118"></div></div>
+ <label>गुणवंत विद्यार्थी (असल्यास)</label>
+ <div class="row"><input id="n1" placeholder="नाव १"><input id="p1" placeholder="टक्के"></div>
+ <div class="row" style="margin-top:8px"><input id="n2" placeholder="नाव २"><input id="p2" placeholder="टक्के"></div>
+ <div class="row" style="margin-top:8px"><input id="n3" placeholder="नाव ३"><input id="p3" placeholder="टक्के"></div>
+</div>
+<div class="row" id="dates"><div><label>तारीख</label><input id="date" type="date"></div><div><label>पर्यंत (असल्यास)</label><input id="end" type="date"></div></div>
+<div id="dt"><label id="ld">तपशील</label><textarea id="details" placeholder="थोडक्यात माहिती लिहा"></textarea></div>
+<label>फोटो (असल्यास)</label><input id="photos" type="file" accept="image/*" multiple><div id="th"></div>
+<div class="chk" id="imp"><input type="checkbox" id="important"><label for="important">⚠️ महत्त्वाचे (वर लाल पट्टीत दिसेल)</label></div>
+<label>PIN</label><input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="शाळेने दिलेला PIN">
+<button id="go" type="submit">पाठवा ➤</button><div id="msg" role="status"></div>
+</form>
+
+<div id="del" class="hide">
+ <p class="s">काढायचे असेल त्यापुढील <b>काढा</b> दाबा. फोटो असतील तर तेही काढले जातील. (फोटो-बॅच असेल तर एकत्र काढला जातो.)</p>
+ <label>PIN</label><input id="pin2" type="password" inputmode="numeric" autocomplete="off" placeholder="शाळेने दिलेला PIN">
+ <div id="list"><p class="s" style="margin-top:14px">यादी येत आहे…</p></div><div id="msg2" role="status"></div>
+</div>
+</div>
+<script>
+var URL_='https://script.google.com/macros/s/AKfycbz79eNQIFNCaW913ap6uKVep2RmznTYhw0n0_Eo9TMUcMa5SuR0-1XtdbVSXjpWczA5/exec';
+function jp(){return new Promise(function(res){var cb='__u'+Date.now()+Math.floor(Math.random()*1e4),s=document.createElement('script'),d=false;function fin(v){if(d)return;d=true;try{delete window[cb]}catch(e){}s.remove();res(v)}window[cb]=fin;s.onerror=function(){fin(null)};s.src=URL_+'?callback='+cb+'&_='+Date.now();setTimeout(function(){fin(null)},12000);document.head.appendChild(s)})}
+var $=function(i){return document.getElementById(i)},imgs=[],ICON={notice:'📌',event:'🎉',result:'🏆',gallery:'📷'};
+var sleep=function(ms){return new Promise(function(z){setTimeout(z,ms)})};
+function mode(){var t=document.querySelector('[name=type]:checked').value,g=t==='gallery',r=t==='result',ev=t==='event',up=t==='upload';
+ $('lt').textContent=g?'फोटोचे वर्णन (कॅप्शन)':r?'निकालाचे शीर्षक':ev?'कार्यक्रमाचे नाव':'शीर्षक';$('ld').textContent=r?'अधिक माहिती (असल्यास)':'तपशील';
+ $('date').previousElementSibling.textContent=ev?'कार्यक्रमाची तारीख *':up?'तारीख (असल्यास)':'तारीख';$('end').parentNode.classList.toggle('hide',up);
+ $('dates').classList.toggle('hide',g);$('dt').classList.toggle('hide',g);$('imp').classList.toggle('hide',g||up);$('rx').classList.toggle('hide',!r);}
+document.querySelectorAll('[name=type]').forEach(function(r){r.onchange=mode});mode();
+function shrink(file){return new Promise(function(ok,no){var im=new Image(),fr=new FileReader();fr.onerror=no;fr.onload=function(){im.onerror=no;im.onload=function(){
+ var s=Math.min(1,1400/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);
+ c.getContext('2d').drawImage(im,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.78))};im.src=fr.result};fr.readAsDataURL(file)})}
+$('photos').onchange=async function(){imgs=[];$('th').innerHTML='';var fs=[].slice.call(this.files).slice(0,12);
+ for(var i=0;i<fs.length;i++){var d=await shrink(fs[i]);imgs.push(d);var e=document.createElement('img');e.src=d;$('th').appendChild(e)}};
+$('f').onsubmit=async function(e){e.preventDefault();var m=$('msg'),b=$('go'),ui=document.querySelector('[name=type]:checked').value,t=ui==='upload'?'event':ui,ttl=$('title').value.trim(),sent=ui==='upload'&&ttl?'\u2063'+ttl:ttl;
+ m.className='';
+ if(!ttl&&!(t==='gallery'&&imgs.length)){m.className='er';m.textContent='शीर्षक लिहा';return}
+ if(t==='gallery'&&!imgs.length){m.className='er';m.textContent='कृपया फोटो निवडा';return}
+ if(ui==='event'&&!$('date').value){m.className='er';m.textContent='कार्यक्रमाची तारीख निवडा';return}
+ var extra=null;if(t==='result'){var tp=[];for(var k=1;k<=3;k++){if($('n'+k).value.trim())tp.push({name:$('n'+k).value.trim(),percent:$('p'+k).value.trim()})}
+  extra={examClass:$('ecl').value.trim(),total:$('tot').value.trim(),appeared:$('app').value.trim(),passed:$('pas').value.trim(),toppers:tp}}
+ b.disabled=true;m.textContent='पाठवत आहे… कृपया थांबा ⏳';
+ try{await fetch(URL_,{method:'POST',mode:'no-cors',credentials:'omit',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({pin:$('pin').value,type:t,title:sent,date:$('date').value,end:$('end').value,details:$('details').value.trim(),important:$('important').checked,extra:extra,photos:imgs})});
+  m.textContent='तपासत आहे… ⏳';var seen=false;
+  for(var k=0;k<10&&!seen;k++){m.textContent='तपासत आहे… ⏳ ('+(k+1)+'/10)';await sleep(k?4000:3000);var j=await jp();
+   if(j&&j.items)seen=j.items.some(function(x){return Math.abs(Date.now()-x.t)<900000&&(x.title===sent||(t==='gallery'&&x.type==='gallery'))})}
+  if(seen){m.className='ok';m.textContent='✅ पाठवले! थोड्या वेळात website वर दिसेल.';$('f').reset();imgs=[];$('th').innerHTML='';mode()}
+  else{m.className='er';m.textContent='⚠️ पाठवल्याची खात्री झाली नाही. फोटो मोठे असतील तर वेळ लागतो. आधी 1-2 मिनिटांनी website तपासा; दिसत नसेल तरच PIN तपासून पुन्हा पाठवा (दोनदा पाठवू नका).'}
+ }catch(x){m.className='er';m.textContent='❌ इंटरनेट/कनेक्शन तपासा आणि पुन्हा प्रयत्न करा'}
+ b.disabled=false};
+/* ---- काढा ---- */
+function tab(n){$('t1').className=n==1?'on':'';$('t2').className=n==2?'on':'';$('f').classList.toggle('hide',n!=1);$('del').classList.toggle('hide',n!=2);if(n==2)load()}
+$('t1').onclick=function(){tab(1)};$('t2').onclick=function(){tab(2)};
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var DATA=[];
+async function load(){var L=$('list');L.innerHTML='<p class="s" style="margin-top:14px">यादी येत आहे…</p>';var j=await jp();
+ if(!j||!j.items){L.innerHTML='<p class="er">यादी मिळाली नाही. पुन्हा प्रयत्न करा.</p>';return}
+ DATA=j.items.slice().sort(function(a,b){return b.t-a.t});
+ L.innerHTML=DATA.length?DATA.map(function(x,i){return '<div class="it"><div><b>'+(String(x.title||'').charAt(0)==='\u2063'?'🆕':(ICON[x.type]||''))+' '+esc(String(x.title||'').replace(/\u2063/g,'')||'(फोटो)')+'</b><small>'+(x.date?esc(x.date)+' · ':'')+(x.photos&&x.photos.length?x.photos.length+' फोटो':'')+'</small></div><button type="button" data-i="'+i+'">काढा</button></div>'}).join(''):'<p class="s" style="margin-top:14px">काहीही नाही.</p>'}
+$('list').onclick=async function(e){var bt=e.target.closest('button[data-i]');if(!bt)return;var x=DATA[bt.dataset.i],m=$('msg2');m.className='';
+ if(!$('pin2').value){m.className='er';m.textContent='आधी PIN टाका';return}
+ if(!confirm('हे काढायचे? \n'+(x.title||'फोटो')))return;
+ bt.disabled=true;m.textContent='काढत आहे… ⏳';
+ try{await fetch(URL_,{method:'POST',mode:'no-cors',credentials:'omit',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'delete',pin:$('pin2').value,id:x.t,title:x.title})});
+  var gone=false;for(var k=0;k<4&&!gone;k++){await sleep(k?3000:2500);var j=await jp();if(j&&j.items)gone=!j.items.some(function(y){return y.t===x.t&&y.title===x.title})}
+  if(gone){m.className='ok';m.textContent='✅ काढले';load()}else{m.className='er';m.textContent='❌ काढता आले नाही. PIN तपासा.';bt.disabled=false}
+ }catch(err){m.className='er';m.textContent='❌ कनेक्शन तपासा';bt.disabled=false}};
+</script></body></html>

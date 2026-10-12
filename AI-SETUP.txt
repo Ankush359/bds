@@ -1,0 +1,13 @@
+AI सहाय्यक + फोटो गृहपाठ – सेटअप (एकदाच)
+
+A) Gemini key (free): aistudio.google.com/apikey
+B) Firebase service account key:
+   Firebase Console -> bapusaheb-school -> Project settings (गियर) -> Service accounts
+   -> "Generate new private key" -> JSON फाइल डाउनलोड होईल. ती फाइल कोणालाही देऊ नका.
+C) Netlify -> Site configuration -> Environment variables:
+   GEMINI_API_KEY            = (A मधील key)
+   FIREBASE_SERVICE_ACCOUNT  = (B मधील JSON फाइल Notepad मध्ये उघडून संपूर्ण मजकूर paste करा)
+D) Firebase -> Firestore Database -> Rules -> या zip मधील firestore.rules paste -> Publish
+E) ही संपूर्ण folder Netlify वर deploy करा (Deploys -> drag & drop). Functions tab मध्ये
+   ai, hw-submit, hw-grade दिसले पाहिजेत.
+F) admin ने login करून "विद्यार्थी" tab -> "नसलेल्यांना PIN बनवा" -> "PIN यादी (प्रिंट)".

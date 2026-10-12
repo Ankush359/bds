@@ -1,0 +1,1516 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#6A1327">
+<title>शिक्षक विभाग – बापूसाहेब देशमुख शिवाजी हायस्कूल</title>
+<style>
+:root{--maroon:#6A1327;--maroon-deep:#36081A;--gold:#C99A2E;--paper:#F6F3EE;--card:#fff;--chip:#f1ece4;--ink:#2A1A20;--muted:#6b5a60;--green:#1f8a4c;--red:#c62828;--amber:#d98a00;--blue:#2a6fb0;--line:#e5dfd6;--sh:0 2px 10px rgba(54,8,26,.07)}
+@media (prefers-color-scheme:dark){:root{--paper:#150a0f;--card:#221218;--chip:#33202a;--ink:#f3eaec;--muted:#bba7ae;--line:#43303a;--sh:0 2px 10px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Noto Sans Devanagari','Mukta','Segoe UI',system-ui,sans-serif;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.5;padding-bottom:env(safe-area-inset-bottom,0)}
+header.top{background:linear-gradient(135deg,var(--maroon-deep),var(--maroon) 60%,#8a1d36);color:#fff;padding:calc(10px + env(safe-area-inset-top,0)) 14px 10px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.top img{width:42px;height:42px;object-fit:contain;background:#fff;border-radius:50%;padding:2px}
+header.top .t{flex:1;min-width:0;font-weight:700;font-size:15px;line-height:1.25}
+header.top .t small{display:block;font-weight:400;opacity:.85;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+button,.btn{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 16px;font-weight:700;transition:transform .12s,opacity .2s}
+button:active{transform:scale(.97)}
+.btn{background:var(--maroon);color:#fff}
+.btn.gold{background:linear-gradient(135deg,#e0b348,var(--gold));color:#2b1a00}
+.btn.ghost{background:var(--card);color:var(--maroon);border:1.5px solid var(--maroon)}
+@media (prefers-color-scheme:dark){.btn.ghost{color:#f0c6d0;border-color:#f0c6d0}}
+.btn.red{background:var(--red);color:#fff}
+.btn.sm{padding:6px 10px;font-size:13px;border-radius:8px}
+.btn:disabled{opacity:.55;cursor:default}
+header.top .out{background:rgba(255,255,255,.16);color:#fff;padding:7px 12px;font-size:13px}
+nav.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 12px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:calc(62px + env(safe-area-inset-top,0));z-index:19;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{background:var(--chip);color:var(--ink);white-space:nowrap;padding:8px 14px;border-radius:20px;font-size:14px}
+nav.tabs button.on{background:var(--maroon);color:#fff;box-shadow:0 2px 8px rgba(106,19,39,.35)}
+main{max-width:900px;margin:0 auto;padding:14px 12px 70px;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:14px;box-shadow:var(--sh)}
+.card h3{margin:0 0 8px;font-size:16px;color:var(--maroon)}
+@media (prefers-color-scheme:dark){.card h3{color:#f0c6d0}}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+select,input,textarea{font:inherit;padding:10px 12px;border:1.5px solid #cfc6b8;border-radius:10px;background:var(--card);color:var(--ink);max-width:100%}
+@media (prefers-color-scheme:dark){select,input,textarea{border-color:#5a4350}}
+select:focus,input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+input.bad{border-color:var(--red);background:#fff1f1;color:#000}
+textarea{width:100%;min-height:130px}
+label.f{display:block;margin:8px 0 4px;font-weight:600;font-size:14px}
+.note{color:var(--muted);font-size:14px}
+.err{color:var(--red);font-weight:600;min-height:1.4em;margin:6px 0}
+.sum{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.sum span{padding:6px 12px;border-radius:20px;font-weight:700;font-size:14px;color:#fff}
+.sum .p{background:var(--green)}.sum .a{background:var(--red)}.sum .l{background:var(--amber)}.sum .b{background:var(--blue)}
+.stu{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1.5px solid var(--line);margin-bottom:6px;padding:10px 12px;border-radius:12px;font-weight:600}
+.stu .r{min-width:34px;height:34px;border-radius:50%;background:var(--chip);display:flex;align-items:center;justify-content:center;font-size:14px}
+.stu .n{flex:1}
+.stu .s{padding:4px 12px;border-radius:16px;color:#fff;font-size:13px;min-width:78px;text-align:center}
+.stu.P .s{background:var(--green)}
+.stu.A{border-color:var(--red)}.stu.A .s{background:var(--red)}
+.stu.L{border-color:var(--amber)}.stu.L .s{background:var(--amber)}
+.stu.H{border-color:#2f6fd6}.stu.H .s{background:#2f6fd6}
+.stu.V{border-color:#8e5bd6}.stu.V .s{background:#8e5bd6}
+.stu.M{border-color:#c2418a}.stu.M .s{background:#c2418a}
+.stu.D{border-color:#168f8f}.stu.D .s{background:#168f8f}
+.srow{display:flex;gap:6px;align-items:flex-start}.srow .stu{flex:1;margin-bottom:6px}.srow select{width:auto;max-width:112px;padding:8px 4px;font-size:13px;margin-bottom:6px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;white-space:nowrap}
+th{background:var(--chip)}
+tr.lv1 td{background:rgba(217,138,0,.10)}tr.lv2 td{background:rgba(230,100,0,.16);font-weight:700}tr.lv3 td{background:rgba(198,40,40,.18);color:var(--red);font-weight:700}
+.lnk{background:none;color:var(--maroon);padding:0;text-decoration:underline;font-weight:700;text-align:left}
+@media (prefers-color-scheme:dark){.lnk{color:#f0c6d0}}
+.badge{display:inline-block;padding:2px 10px;border-radius:14px;font-size:12px;font-weight:700;color:#fff;background:var(--muted)}
+.badge.pending{background:var(--amber)}.badge.sent{background:var(--green)}.badge.failed{background:var(--red)}.badge.cancelled{background:#888}
+.ins{border-color:var(--gold);background:linear-gradient(180deg,rgba(201,154,46,.10),transparent)}
+.ins li{margin:6px 0}
+tr.low td{background:rgba(198,40,40,.12);color:var(--red);font-weight:700}
+td.fail{color:var(--red);font-weight:700}
+.chk{display:flex;flex-wrap:wrap;gap:6px}
+.chk label{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px;cursor:pointer;user-select:none}
+.chk input{margin-right:4px;padding:0}
+.row2{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}
+.row2:last-child{border:0}
+.ok{color:var(--green);font-weight:700}.no{color:var(--red);font-weight:700}
+.login{max-width:400px;margin:40px auto;padding:0 14px}
+.login .card{padding:20px}
+.login h2{margin:0 0 4px;color:var(--maroon)}
+a.wa{display:inline-block;background:#25D366;color:#fff;text-decoration:none;border-radius:8px;padding:6px 12px;font-size:13px;font-weight:700}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0));transform:translateX(-50%);background:#222;color:#fff;padding:10px 18px;border-radius:24px;font-size:14px;z-index:300;opacity:0;pointer-events:none;transition:opacity .25s}
+#toast.on{opacity:1}
+/* charts */
+.donut{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.donut svg{width:140px;height:140px;flex:none}
+.donut circle.seg{transition:stroke-dasharray .9s ease}
+.leg{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:600}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.hb{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:14px}
+.hb .lb{width:92px;flex:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hb .tr{flex:1;height:14px;background:var(--chip);border-radius:8px;overflow:hidden}
+.hb .fl{height:100%;border-radius:8px;width:0;transition:width .8s ease}
+.hb .vl{width:48px;text-align:right;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:rgba(198,40,40,.12);color:var(--red);border-radius:14px;padding:3px 10px;font-size:13px;font-weight:600}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.kpi div{flex:1;min-width:110px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:var(--sh)}
+.kpi b{display:block;font-size:22px;color:var(--maroon)}
+@media (prefers-color-scheme:dark){.kpi b{color:#f0c6d0}}
+.kpi small{color:var(--muted)}
+.hw{border-left:4px solid var(--gold);padding:8px 10px;margin:8px 0;background:var(--chip);border-radius:0 10px 10px 0}
+/* progress card preview / print */
+#pv{position:fixed;inset:0;overflow:auto;background:#d9d4cc;z-index:200;padding:10px}
+.pvbar{display:flex;gap:8px;justify-content:center;margin-bottom:10px;position:sticky;top:0;z-index:2}
+.pc{background:#fff;color:#000;max-width:760px;margin:0 auto 14px;padding:26px 28px;border:3px double #6A1327;font-size:14px}
+.pc h1{margin:0;font-size:19px;text-align:center;color:#6A1327}
+.pc h2{margin:2px 0 12px;font-size:15px;text-align:center}
+.pc table{font-size:13px}
+.pc th{background:#f3ece0;color:#000}
+.pc th,.pc td{border:1px solid #999;padding:5px 8px}
+.pc .sig{display:flex;justify-content:space-between;margin-top:46px;font-size:13px}
+.pc .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+@media print{
+  body>#app,#toast{display:none!important}
+  #pv{position:static;background:#fff;padding:0;overflow:visible}
+  .pvbar{display:none}
+  .pc{margin:0;border:3px double #6A1327;page-break-after:always;max-width:none}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<datalist id="sublist"></datalist>
+<datalist id="examlist"></datalist>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* ===== सेटिंग्ज (गरज असल्यास येथेच बदला) ===== */
+const CONFIG = {
+  ADMIN_EMAIL: "diliprajnekar@gmail.com",
+  FIREBASE: {
+    apiKey: "AIzaSyDZG-v3w_7NAtWmlkZgZbqpXWCbGXrq1vw",
+    authDomain: "bapusaheb-school.firebaseapp.com",
+    projectId: "bapusaheb-school",
+    storageBucket: "bapusaheb-school.firebasestorage.app",
+    messagingSenderId: "521170776952",
+    appId: "1:521170776952:web:20bbc4042fb5218cf64e8d"
+  },
+  SCHOOL: 'बापूसाहेब देशमुख शिवाजी हायस्कूल व कनिष्ठ महाविद्यालय, चांदूर रेल्वे',
+  STDS: [5, 6, 7, 8, 9, 10],
+  DIVS: { A: 'अ', B: 'ब', C: 'क' },
+  SR: [11, 12],
+  LOW_PCT: 75,      /* पातळी १ (सूचना): यापेक्षा कमी */
+  SERIOUS_PCT: 65,  /* पातळी २ (गंभीर इशारा) */
+  CRIT_PCT: 50,     /* पातळी ३ (अतिगंभीर) */
+  PASS_PCT: 35,     /* विषयात उत्तीर्ण होण्यासाठी किमान % */
+  SUBJECTS: ['मराठी', 'हिंदी', 'इंग्रजी', 'गणित', 'विज्ञान', 'सामाजिक शास्त्रे', 'इतिहास', 'भूगोल', 'संस्कृत', 'संगणक', 'कला', 'शारीरिक शिक्षण', 'राज्यशास्त्र', 'अर्थशास्त्र', 'समाजशास्त्र', 'तत्त्वज्ञान'],
+  EXAMS: ['घटक चाचणी १', 'घटक चाचणी २', 'प्रथम सत्र परीक्षा', 'द्वितीय सत्र परीक्षा', 'सराव परीक्षा']
+};
+const CLASSES = [];
+CONFIG.STDS.forEach(s => Object.keys(CONFIG.DIVS).forEach(d => CLASSES.push({ key: s + '-' + d, label: s + ' वी - ' + CONFIG.DIVS[d] })));
+CONFIG.SR.forEach(s => CLASSES.push({ key: s + '-ARTS', label: s + ' वी (कला)' }));
+const clsLabel = k => (CLASSES.find(c => c.key === k) || { label: k }).label;
+CONFIG.SUBJECTS.forEach(s => $dl('sublist', s)); CONFIG.EXAMS.forEach(s => $dl('examlist', s));
+function $dl(id, v) { const o = document.createElement('option'); o.value = v; document.getElementById(id).append(o); }
+
+/* ===== helpers (innerHTML नाही → सुरक्षित) ===== */
+const $ = s => document.querySelector(s);
+function h(tag, props, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(props || {})) {
+    if (k === 'class') e.className = v;
+    else if (k === 'text') e.textContent = v;
+    else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+    else if (v !== false && v != null) e.setAttribute(k, v === true ? '' : v);
+  }
+  for (const c of kids.flat()) { if (c == null || c === false) continue; e.append(c.nodeType ? c : document.createTextNode(String(c))); }
+  return e;
+}
+const NS = 'http://www.w3.org/2000/svg';
+function sv(tag, props, ...kids) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(props || {})) e.setAttribute(k, v);
+  for (const c of kids.flat()) { if (c == null) continue; e.append(c.nodeType ? c : document.createTextNode(String(c))); }
+  return e;
+}
+function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); }
+let tt;
+function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 2600); }
+const pad = n => String(n).padStart(2, '0');
+function iso(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+function today() { return iso(new Date()); }
+function lastDays(n) { const a = []; const d = new Date(); d.setDate(d.getDate() - (n - 1)); for (let i = 0; i < n; i++) { a.push(iso(d)); d.setDate(d.getDate() + 1); } return a; }
+function dmy(s) { const p = s.split('-'); return p[2] + '-' + p[1] + '-' + p[0]; }
+const loading = () => h('p', { class: 'note', text: 'लोड होत आहे…' });
+const pctOf = x => (x && x.total) ? Math.round(((x.present || 0) + (x.late || 0)) * 100 / x.total) : null;
+const colorPct = p => p === null ? '#999' : p >= CONFIG.LOW_PCT ? 'var(--green)' : 'var(--red)';
+const gradeOf = p => p >= 90 ? 'A+' : p >= 80 ? 'A' : p >= 70 ? 'B+' : p >= 60 ? 'B' : p >= 50 ? 'C' : p >= CONFIG.PASS_PCT ? 'D' : 'E';
+const slug = s => s.trim().replace(/[\/\s]+/g, '-');
+
+/* ===== शैक्षणिक वर्ष (१ जून – ३१ मे) ===== */
+const LEGACY_YEAR = '2026-27'; /* 'year' नसलेले जुने गुण याच वर्षाचे धरले जातात */
+const ayOf = d => { const p = d.split('-'), y = +p[0], m = +p[1], st = m >= 6 ? y : y - 1; return st + '-' + String(st + 1).slice(2); };
+const curYear = () => ayOf(today());
+const ayFrom = yr => yr.slice(0, 4) + '-06-01';
+const ayTo = yr => (parseInt(yr.slice(0, 4), 10) + 1) + '-05-31';
+const nextYear = yr => { const y = parseInt(yr.slice(0, 4), 10) + 1; return y + '-' + String(y + 1).slice(2); };
+const prevYear = yr => { const y = parseInt(yr.slice(0, 4), 10) - 1; return y + '-' + String(y + 1).slice(2); };
+function yearList() { const out = [], c = parseInt(curYear().slice(0, 4), 10); for (let y = c; y >= Math.min(2026, c); y--) out.push(y + '-' + String(y + 1).slice(2)); return out; }
+function yearSel(val, onch) { const e = h('select', { 'aria-label': 'शैक्षणिक वर्ष' }); yearList().forEach(y => e.append(h('option', { value: y, text: 'वर्ष ' + y }))); e.value = val; e.addEventListener('change', () => onch(e.value)); return e; }
+
+/* ===== छोटे ग्राफिक्स (SVG / CSS) ===== */
+function donut(P, L, A, centerText, emptyText) {
+  const R = 52, C = 2 * Math.PI * R, tot = P + L + A;
+  const svg = sv('svg', { viewBox: '0 0 140 140', role: 'img', 'aria-label': 'हजेरी वर्तुळ आलेख' }, sv('circle', { cx: 70, cy: 70, r: R, fill: 'none', stroke: 'var(--chip)', 'stroke-width': 18 }));
+  const segs = tot ? [[P, 'var(--green)'], [L, 'var(--amber)'], [A, 'var(--red)']] : [];
+  let acc = 0;
+  segs.forEach(([v, col]) => {
+    if (!v) return; const len = C * v / tot;
+    const c = sv('circle', { class: 'seg', cx: 70, cy: 70, r: R, fill: 'none', stroke: col, 'stroke-width': 18, 'stroke-dasharray': '0 ' + C, 'stroke-dashoffset': -acc, transform: 'rotate(-90 70 70)' });
+    svg.append(c); acc += len; requestAnimationFrame(() => requestAnimationFrame(() => c.setAttribute('stroke-dasharray', len + ' ' + (C - len))));
+  });
+  svg.append(sv('text', { x: 70, y: tot ? 76 : 74, 'text-anchor': 'middle', 'font-size': tot ? 24 : 12, 'font-weight': 700, fill: 'currentColor' }, tot ? centerText : (emptyText || '—')));
+  return svg;
+}
+function legend(P, L, A) {
+  const li = (c, t) => h('div', {}, h('i', { style: 'background:' + c }), t);
+  return h('div', { class: 'leg' }, li('var(--green)', 'उपस्थित ' + P), li('var(--amber)', 'उशीर ' + L), li('var(--red)', 'गैरहजर ' + A));
+}
+function hbar(label, pct, suffix, color) {
+  const f = h('div', { class: 'fl', style: 'background:' + (color || colorPct(pct)) });
+  requestAnimationFrame(() => requestAnimationFrame(() => f.style.width = (pct || 0) + '%'));
+  return h('div', { class: 'hb' }, h('span', { class: 'lb', text: label, title: label }), h('div', { class: 'tr' }, f), h('span', { class: 'vl', text: pct === null ? '-' : (suffix === undefined ? pct + '%' : suffix) }));
+}
+function trend(points) { /* points: [{l, v}] v=% */
+  const W = 320, H = 150, bw = Math.min(34, (W - 20) / Math.max(points.length, 1) - 8);
+  const svg = sv('svg', { viewBox: '0 0 ' + W + ' ' + H, style: 'width:100%;height:auto', role: 'img', 'aria-label': 'गेल्या दिवसांची हजेरी' });
+  [0, 50, 100].forEach(g => { const y = 118 - g * 0.9; svg.append(sv('line', { x1: 10, x2: W - 6, y1: y, y2: y, stroke: 'var(--line)' })); svg.append(sv('text', { x: 0, y: y + 3, 'font-size': 8, fill: 'var(--muted)' }, g)); });
+  const step = (W - 24) / Math.max(points.length, 1);
+  points.forEach((p, i) => {
+    const x = 20 + i * step + (step - bw) / 2, v = p.v === null ? 0 : p.v, hh = Math.max(v * 0.9, 2);
+    svg.append(sv('rect', { x, y: 118 - hh, width: bw, height: hh, rx: 4, fill: p.v === null ? '#999' : (p.v >= CONFIG.LOW_PCT ? '#1f8a4c' : '#c62828') }));
+    svg.append(sv('text', { x: x + bw / 2, y: 112 - hh, 'text-anchor': 'middle', 'font-size': 9, 'font-weight': 700, fill: 'currentColor' }, p.v === null ? '' : p.v + '%'));
+    svg.append(sv('text', { x: x + bw / 2, y: 132, 'text-anchor': 'middle', 'font-size': 9, fill: 'var(--muted)' }, p.l));
+  });
+  return svg;
+}
+
+/* ===== Firebase ===== */
+let auth, db;
+try {
+  firebase.initializeApp(CONFIG.FIREBASE);
+  auth = firebase.auth(); db = firebase.firestore();
+  if (db.enablePersistence) db.enablePersistence({ synchronizeTabs: true }).catch(() => {});
+} catch (e) { console.error(e); }
+
+let me = null, pendingErr = '', main = null, gotab = () => {};
+const app = $('#app');
+const myKeys = () => CLASSES.map(c => c.key).filter(k => me.classes.includes(k));
+
+if (!auth) {
+  app.append(h('div', { class: 'login' }, h('div', { class: 'card' }, h('p', { class: 'err', text: 'Firebase सुरू होऊ शकले नाही. इंटरनेट तपासा आणि पान पुन्हा उघडा.' }))));
+} else {
+  auth.onAuthStateChanged(async u => {
+    me = null;
+    if (!u) { showLogin(); return; }
+    const email = (u.email || '').toLowerCase();
+    try {
+      if (email === CONFIG.ADMIN_EMAIL.toLowerCase()) {
+        me = { email, role: 'admin', name: 'मुख्याध्यापक / Admin', classes: CLASSES.map(c => c.key) };
+      } else {
+        const s = await db.collection('teachers').doc(email).get();
+        if (!s.exists) { pendingErr = 'हे खाते शिक्षक म्हणून जोडलेले नाही. मुख्याध्यापकांशी संपर्क साधा.'; await auth.signOut(); return; }
+        const d = s.data();
+        if (d.status === 'inactive') { pendingErr = 'हे शिक्षक खाते निष्क्रिय आहे. मुख्याध्यापकांशी संपर्क साधा.'; await auth.signOut(); return; }
+        me = { email, role: 'teacher', name: d.name || email, classes: d.classes || [] };
+        db.collection('teachers').doc(email).update({ uid: u.uid, lastLogin: Date.now() }).catch(() => {});
+      }
+    } catch (e) { console.error(e); pendingErr = 'माहिती मिळवता आली नाही (परवानगी किंवा इंटरनेट समस्या).'; await auth.signOut(); return; }
+    showApp();
+  });
+}
+
+/* ===== लॉगिन ===== */
+function showLogin() {
+  clear(app);
+  const err = h('p', { class: 'err', role: 'alert', text: pendingErr }); pendingErr = '';
+  const em = h('input', { type: 'email', required: true, autocomplete: 'username', style: 'width:100%' });
+  const pw = h('input', { type: 'password', required: true, autocomplete: 'current-password', style: 'width:100%' });
+  const go = h('button', { class: 'btn gold', type: 'submit', text: 'लॉगिन' });
+  const form = h('form', { onsubmit: async e => {
+    e.preventDefault(); err.textContent = ''; go.disabled = true;
+    try { await auth.signInWithEmailAndPassword(em.value.trim(), pw.value); }
+    catch (x) { err.textContent = 'ईमेल किंवा पासवर्ड चुकीचा आहे.'; go.disabled = false; }
+  } },
+    h('label', { class: 'f', text: 'ईमेल' }), em,
+    h('label', { class: 'f', text: 'पासवर्ड' }), pw, err,
+    h('div', { class: 'bar' }, go,
+      h('button', { class: 'btn ghost', type: 'button', text: 'पासवर्ड विसरलात?', onclick: async () => {
+        if (!em.value.trim()) { err.textContent = 'आधी वरचा ईमेल टाका.'; return; }
+        try { await auth.sendPasswordResetEmail(em.value.trim()); toast('पासवर्ड बदलण्याची लिंक ईमेलवर पाठवली.'); } catch (x) { err.textContent = 'लिंक पाठवता आली नाही.'; }
+      } })));
+  app.append(h('div', { class: 'login' },
+    h('div', { class: 'card' }, h('h2', { text: 'शिक्षक विभाग' }), h('p', { class: 'note', text: CONFIG.SCHOOL }), form),
+    h('p', { class: 'note', style: 'text-align:center' }, h('a', { href: 'index.html', text: '← शाळेच्या मुख्य संकेतस्थळाकडे' }))));
+}
+
+/* ===== मुख्य चौकट ===== */
+const BASE = [['dash', 'मुख्यपृष्ठ'], ['att', 'हजेरी'], ['leave', 'रजा अर्ज'], ['corr', 'दुरुस्ती विनंत्या'], ['notif', 'पालक संदेश'], ['marks', 'गुण भरा'], ['result', 'निकाल'], ['hw', 'गृहपाठ'], ['jv', '🤖 Jarvis'], ['ai', 'AI सहाय्यक'], ['hwp', 'फोटो गृहपाठ'], ['rep', 'हजेरी अहवाल']];
+const TABS_T = BASE, TABS_A = BASE.concat([['stu', 'विद्यार्थी'], ['year', 'शैक्षणिक वर्ष'], ['tea', 'शिक्षक'], ['audit', 'ऑडिट लॉग']]);
+const VIEWS = { dash: vDash, att: vAtt, leave: vLeave, corr: vCorr, notif: vNotif, audit: vAudit, rep: vRep, marks: vMarks, result: vResult, hw: vHw, jv: vJarvis, ai: vAi, hwp: vHwp, stu: vStu, year: vYear, tea: vTea };
+
+function showApp() {
+  clear(app);
+  const nav = h('nav', { class: 'tabs' });
+  main = h('main');
+  app.append(
+    h('header', { class: 'top' }, h('img', { src: 'img/logo.webp', alt: '' }),
+      h('div', { class: 't' }, 'शिक्षक विभाग', h('small', { text: me.name })),
+      h('button', { class: 'out', text: 'बाहेर पडा', onclick: () => auth.signOut() })),
+    nav, main);
+  const tabs = me.role === 'admin' ? TABS_A : TABS_T, btns = {};
+  tabs.forEach(([k, l]) => { btns[k] = h('button', { text: l, onclick: () => gotab(k) }); nav.append(btns[k]); });
+  gotab = k => {
+    Object.entries(btns).forEach(([x, b]) => b.classList.toggle('on', x === k));
+    clear(main); window.scrollTo(0, 0);
+    VIEWS[k](main).catch(e => { console.error(e); main.append(h('p', { class: 'err', text: 'काहीतरी चुकले: ' + (e.code === 'permission-denied' ? 'या माहितीसाठी परवानगी नाही.' : 'इंटरनेट तपासून पुन्हा प्रयत्न करा.') })); });
+  };
+  gotab('dash');
+}
+function classSel(keys, val, onch) {
+  const s = h('select', { 'aria-label': 'वर्ग निवडा' });
+  keys.forEach(k => s.append(h('option', { value: k, text: clsLabel(k) })));
+  s.value = val; s.addEventListener('change', () => onch(s.value)); return s;
+}
+const isActive = s => !s.status || s.status === 'active';
+async function loadStudentsAll(key) {
+  const q = await db.collection('students').where('classKey', '==', key).get();
+  return q.docs.map(d => Object.assign({ id: d.id }, d.data())).sort((a, b) => (a.roll || 0) - (b.roll || 0));
+}
+async function loadStudents(key) { return (await loadStudentsAll(key)).filter(isActive); }
+const noClass = () => h('p', { class: 'note', text: 'तुम्हाला अजून कोणताही वर्ग दिलेला नाही. कृपया मुख्याध्यापकांशी संपर्क साधा.' });
+
+
+
+/* ===== फोटो गृहपाठ: PIN, AI तपासणी, अहवाल ===== */
+function popup(title, fill) {
+  const w = window.open('', '_blank'); if (!w) { toast('पॉप-अप परवानगी द्या.'); return; }
+  const d = w.document; d.title = title;
+  d.body.style.cssText = 'font-family:"Noto Sans Devanagari","Mukta",sans-serif;padding:20px;max-width:800px;margin:auto';
+  const a = d.createElement('h2'); a.textContent = CONFIG.SCHOOL; const b = d.createElement('p'); b.textContent = title;
+  d.body.append(a, b); fill(d); setTimeout(() => w.print(), 400);
+}
+async function resetPin(s) {
+  if (!confirm(s.roll + '. ' + s.name + ' चा नवीन PIN बनवायचा? जुना PIN लगेच बंद होईल.')) return;
+  try {
+    const tok = await auth.currentUser.getIdToken();
+    const r = await fetch('/.netlify/functions/pin-reset', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + tok }, body: JSON.stringify({ studentId: s.id }) });
+    let j = {}; try { j = await r.json(); } catch (e) { }
+    if (!r.ok || !j.pin) { toast(j.error || (r.status === 404 ? 'PIN बदल फक्त Netlify वरील साइटवर चालतो.' : 'PIN बदलता आला नाही.')); return; }
+    try { const b = db.batch(); auditLog(b, 'PIN_RESET', s.classKey, today(), { [s.id]: { name: s.name, roll: s.roll } }); await b.commit(); } catch (e) { console.error(e); }
+    const ov = h('div', { style: 'position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:9999;padding:16px' });
+    ov.append(h('div', { class: 'card', style: 'max-width:340px;width:100%;text-align:center' }, h('h3', { text: '🔑 नवीन PIN' }),
+      h('p', { class: 'note', text: s.roll + '. ' + s.name + ' – ' + clsLabel(s.classKey) }),
+      h('div', { style: 'font-size:44px;font-weight:800;letter-spacing:8px;margin:10px 0', text: j.pin }),
+      h('p', { class: 'note', text: 'हा PIN फक्त विद्यार्थ्याला द्या. जुना PIN बंद झाला आहे.' }),
+      h('div', { class: 'bar', style: 'justify-content:center' },
+        h('button', { class: 'btn ghost sm', text: '🖨️ चिठ्ठी प्रिंट', onclick: () => popup('PIN चिठ्ठी – ' + clsLabel(s.classKey), d => { const v = d.createElement('div'); v.style.cssText = 'font-size:20px;line-height:2;border:2px dashed #888;padding:16px;max-width:360px'; v.textContent = 'हजेरी क्र. ' + s.roll + ' – ' + s.name + '\nतुमचा PIN: ' + j.pin + '\n(हा PIN कोणालाही सांगू नका)'; v.style.whiteSpace = 'pre-wrap'; d.body.append(v); }) }),
+        h('button', { class: 'btn gold sm', text: 'बंद करा', onclick: () => ov.remove() }))));
+    document.body.append(ov);
+  } catch (e) { console.error(e); toast('PIN बदलता आला नाही.'); }
+}
+function pinCard(getKey, canGen) {
+  const msg = h('p', { class: 'note' });
+  const gen = canGen ? h('button', { class: 'btn', text: '🔑 नसलेल्यांना PIN बनवा', onclick: async () => {
+    gen.disabled = true;
+    try {
+      const need = (await loadStudents(getKey())).filter(s => !s.pin);
+      if (!need.length) msg.textContent = 'सर्वांकडे PIN आधीच आहे.';
+      else {
+        const b = db.batch(), rnd = () => String(1000 + crypto.getRandomValues(new Uint32Array(1))[0] % 9000);
+        need.forEach(s => b.update(db.collection('students').doc(s.id), { pin: rnd(), updatedAt: Date.now() }));
+        await b.commit(); msg.textContent = need.length + ' विद्यार्थ्यांना PIN दिला.';
+      }
+    } catch (e) { console.error(e); msg.textContent = 'PIN बनवता आला नाही.'; }
+    gen.disabled = false;
+  } }) : null;
+  const prn = h('button', { class: 'btn ghost', text: '🖨️ PIN यादी (प्रिंट)', onclick: async () => {
+    try {
+      const st = await loadStudents(getKey());
+      if (!st.length) { msg.textContent = 'वर्गात विद्यार्थी नाहीत.'; return; }
+      if (st.some(s => !s.pin)) msg.textContent = 'काही विद्यार्थ्यांना PIN नाही' + (canGen ? ' – आधी "PIN बनवा" दाबा.' : ' – मुख्याध्यापकांना सांगा.');
+      popup(clsLabel(getKey()) + ' – विद्यार्थी PIN यादी (गोपनीय: प्रत्येकाला त्याचा त्याचा द्या)', d => {
+        const t = d.createElement('table'); t.style.cssText = 'border-collapse:collapse;width:100%;font-size:16px';
+        const row = (c, tag) => { const r = d.createElement('tr'); c.forEach(x => { const e = d.createElement(tag || 'td'); e.textContent = x; e.style.cssText = 'border:1px solid #888;padding:6px 10px;text-align:left'; r.append(e); }); t.append(r); };
+        row(['हजेरी क्र.', 'नाव', 'PIN'], 'th'); st.forEach(s => row([s.roll, s.name, s.pin || '—'])); d.body.append(t);
+      });
+    } catch (e) { console.error(e); msg.textContent = 'यादी मिळवता आली नाही.'; }
+  } });
+  return h('div', { class: 'card' }, h('h3', { text: '🔑 विद्यार्थी PIN (फोटो गृहपाठासाठी)' }),
+    h('p', { class: 'note', text: 'विद्यार्थी वर्ग + हजेरी क्रमांक + 4 अंकी PIN ने गृहपाठ फोटो पाठवतो. PIN प्रत्येकाला स्वतंत्र द्या.' }), h('div', { class: 'bar' }, gen, prn), msg);
+}
+async function vHwp(root) {
+  const keys = myKeys(); if (!keys.length) { root.append(noClass()); return; }
+  let key = keys[0], ticket = 0, hws = [];
+  const hsel = h('select', { 'aria-label': 'गृहपाठ' }), box = h('div'), msg = h('p', { class: 'note' });
+  root.append(h('div', { class: 'bar' }, classSel(keys, key, v => { key = v; loadHws(); }), hsel), msg, box, pinCard(() => key, me.role === 'admin'));
+  hsel.addEventListener('change', show);
+  async function loadHws() {
+    clear(box); clear(hsel); msg.textContent = '';
+    const q = await db.collection('homework').where('classKey', '==', key).get();
+    hws = q.docs.map(d => Object.assign({ id: d.id }, d.data())).filter(x => x.photo && (x.year || ayOf(iso(new Date(x.createdAt)))) === curYear()).sort((a, b) => b.createdAt - a.createdAt);
+    if (!hws.length) { msg.textContent = 'फोटोने सादर करायचा गृहपाठ अजून नाही. "गृहपाठ" tab मध्ये नवीन गृहपाठ देताना "📷 विद्यार्थ्यांनी वहीचा फोटो पाठवावा" निवडा.'; return; }
+    hws.forEach(x => hsel.append(h('option', { value: x.id, text: (x.subject ? x.subject + ': ' : '') + x.title + ' (' + dmy(iso(new Date(x.createdAt))) + ')' })));
+    await show();
+  }
+  async function show() {
+    const my = ++ticket, hw = hws.find(x => x.id === hsel.value); if (!hw) return;
+    clear(box); box.append(loading());
+    const r = await Promise.all([loadStudents(key), db.collection('hwPhotos').where('classKey', '==', key).where('hwId', '==', hw.id).get()]);
+    if (my !== ticket) return; clear(box);
+    const by = {}; r[1].docs.forEach(d => { by[d.data().studentId] = Object.assign({ id: d.id }, d.data()); });
+    const max = hw.maxMarks || 10, rows = r[0].map(s => ({ s, p: by[s.id] || null }));
+    const missing = rows.filter(x => !x.p), got = rows.filter(x => x.p), pend = got.filter(x => x.p.status === 'pending');
+    const fin = x => x.p.status === 'approved' ? x.p.finalScore : x.p.aiScore;
+    const sc = got.filter(x => (x.p.status === 'approved' || x.p.status === 'graded') && typeof fin(x) === 'number');
+    const avg = sc.length ? Math.round(sc.reduce((a, x) => a + fin(x), 0) / sc.length * 10) / 10 : null;
+    const stTxt = x => !x.p ? '❌ सादर केले नाही' : x.p.status === 'approved' ? '✅ अंतिम' : x.p.status === 'graded' ? '🤖 AI गुण (मंजुरी बाकी)' : x.p.status === 'unreadable' ? '📷 फोटो अस्पष्ट' : '⏳ तपासणी बाकी';
+    const report = () => [clsLabel(key) + ' – ' + (hw.subject ? hw.subject + ': ' : '') + hw.title, 'एकूण गुण: ' + max + ' | सादर: ' + got.length + ' | न केलेले: ' + missing.length + (avg !== null ? ' | सरासरी: ' + avg : ''), ''].concat(
+      rows.map(x => x.s.roll + '. ' + x.s.name + ' – ' + (x.p ? ((x.p.status === 'approved' || x.p.status === 'graded') ? fin(x) + '/' + max : stTxt(x)) + (x.p.late ? ' (उशीर)' : '') : 'सादर केले नाही')),
+      ['', 'सादर न केलेले (' + missing.length + '): ' + (missing.map(x => x.s.roll + '. ' + x.s.name).join(', ') || 'कोणी नाही')]).join('\n');
+    box.append(h('div', { class: 'sum' }, h('span', { class: 'p', text: 'सादर ' + got.length }), h('span', { class: 'a', text: 'न केलेले ' + missing.length }), h('span', { class: 'l', text: 'तपासणी बाकी ' + pend.length }), h('span', { class: 'b', text: avg === null ? 'सरासरी —' : 'सरासरी ' + avg + '/' + max })),
+      h('div', { class: 'bar' },
+        h('button', { class: 'btn ghost sm', text: '📋 अहवाल कॉपी', onclick: async () => { try { await navigator.clipboard.writeText(report()); toast('अहवाल कॉपी झाला.'); } catch (e) { toast('कॉपी झाले नाही.'); } } }),
+        h('button', { class: 'btn ghost sm', text: '🖨️ अहवाल प्रिंट', onclick: () => popup('फोटो गृहपाठ अहवाल', d => { const v = d.createElement('div'); v.style.cssText = 'white-space:pre-wrap;line-height:1.8'; v.textContent = report(); d.body.append(v); }) }),
+        pend.length ? h('button', { class: 'btn gold sm', text: '🤖 बाकी सर्व AI ने तपासा (' + pend.length + ')', onclick: async ev => { ev.target.disabled = true; for (const x of pend) await grade(x, true); await show(); } }) : null));
+    const view = h('div'), tb = h('table');
+    tb.append(h('tr', {}, ...['क्र.', 'नाव', 'स्थिती', 'गुण (/' + max + ')', 'कृती'].map(c => h('th', { text: c }))));
+    rows.forEach(x => {
+      const p = x.p, inp = p ? h('input', { type: 'number', min: '0', max: String(max), step: '0.5', value: p.status === 'pending' || p.status === 'unreadable' ? '' : String(fin(x) ?? ''), style: 'width:70px;padding:6px' }) : null;
+      const acts = h('td');
+      if (p) acts.append(
+        h('button', { class: 'btn ghost sm', text: '📷 फोटो', onclick: () => photos(x, view) }), ' ',
+        h('button', { class: 'btn gold sm', text: '✔ मंजूर', onclick: async () => {
+          const v = parseFloat(inp.value); if (!(v >= 0 && v <= max)) { toast('गुण 0 ते ' + max + ' द्या.'); return; }
+          try { await db.collection('hwPhotos').doc(p.id).update({ finalScore: v, status: 'approved', approvedBy: me.name, approvedAt: Date.now() }); toast('अंतिम केले.'); await show(); } catch (e) { console.error(e); toast('जतन झाले नाही.'); }
+        } }), ' ', h('button', { class: 'btn ghost sm', text: '🤖 AI', onclick: async () => { await grade(x); await show(); } }));
+      acts.append(p ? ' ' : '', h('button', { class: 'btn ghost sm', text: '🔑 PIN', onclick: () => resetPin(x.s) }));
+      tb.append(h('tr', {}, h('td', { text: String(x.s.roll) }), h('td', {}, x.s.name, p && p.late ? h('span', { class: 'note', text: ' ⏰ उशीर' }) : '', p && p.aiFeedback ? h('div', { class: 'note', style: 'white-space:normal;min-width:180px', text: p.aiFeedback }) : ''), h('td', { text: stTxt(x) }), h('td', {}, inp || '—'), acts));
+    });
+    box.append(h('div', { class: 'tw' }, tb), view);
+  }
+  async function grade(x, quiet) {
+    try {
+      const tok = await auth.currentUser.getIdToken();
+      const rs = await fetch('/.netlify/functions/hw-grade', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + tok }, body: JSON.stringify({ hwId: x.p.hwId, studentId: x.s.id }) });
+      let j = {}; try { j = await rs.json(); } catch (e) { }
+      if (!rs.ok && !quiet) toast(j.error || (rs.status === 404 ? 'AI सेवा फक्त Netlify वरील साइटवर चालते.' : 'AI तपासणी झाली नाही.'));
+    } catch (e) { console.error(e); if (!quiet) toast('AI तपासणी झाली नाही.'); }
+  }
+  async function photos(x, view) {
+    clear(view); view.append(loading());
+    try {
+      const s = await db.collection('hwImages').doc(x.p.id).get(); clear(view);
+      const card = h('div', { class: 'card' }, h('h3', { text: x.s.roll + '. ' + x.s.name + ' – फोटो' }), h('button', { class: 'btn ghost sm', text: 'बंद करा', onclick: () => clear(view) }));
+      ((s.exists && s.data().images) || []).forEach(d => { if (typeof d === 'string' && d.startsWith('data:image/jpeg;base64,')) card.append(h('img', { src: d, alt: 'गृहपाठ फोटो', style: 'width:100%;max-width:640px;display:block;margin:10px 0;border-radius:10px' })); });
+      view.append(card); view.scrollIntoView({ behavior: 'smooth' });
+    } catch (e) { clear(view); view.append(h('p', { class: 'err', text: 'फोटो मिळवता आला नाही.' })); }
+  }
+  await loadHws();
+}
+
+/* ===== JARVIS: शाळेचा सहाय्यक (फक्त वाचन; विद्यार्थ्यांची नावे AI ला जात नाहीत, फक्त टोकन) ===== */
+/* JV-TOOLS-START */
+const JV_C = { P: 'P', D: 'P', L: 'L', A: 'A', H: 'H', V: 'V', M: 'V' };
+function jvNew() { return { n: 0, byId: {}, byTok: {} }; }
+function jvTok(T, s) {
+  if (!T.byId[s.id]) { const t = 'S' + (++T.n); T.byId[s.id] = t; T.byTok[t] = { roll: s.roll, name: s.name }; }
+  return '[[' + T.byId[s.id] + ']]';
+}
+function jvName(T, text) {
+  return String(text).replace(/\[\[([^\]]+)\]\]/g, (m, inner) => inner.split(/[,\s]+/).filter(Boolean).map(x => { const e = T.byTok[x]; return e ? e.roll + '. ' + e.name : x; }).join(', '));
+}
+async function jvTool(name, a, T) {
+  a = a || {};
+  const need = () => { if (!myKeys().includes(a.classKey)) throw new Error('classKey चुकीचा किंवा हा वर्ग तुमचा नाही. तुमचे वर्ग: ' + myKeys().join(', ')); return a.classKey; };
+  const dt = d => /^\d{4}-\d{2}-\d{2}$/.test(d || '') ? d : today();
+  if (name === 'absent_students') {
+    const key = need(), date = dt(a.date);
+    const r = await Promise.all([db.collection('attendance').doc(key + '_' + date).get(), loadStudents(key)]);
+    if (!r[0].exists) return { class: clsLabel(key), date, attendance_taken: false };
+    const m = r[0].data().marks || {}, o = { class: clsLabel(key), date, attendance_taken: true, total_students: r[1].length, absent: [], late: [], half_day: [], on_leave: [] };
+    r[1].forEach(s => { const c = JV_C[m[s.id]]; if (c === 'A') o.absent.push(jvTok(T, s)); else if (c === 'L') o.late.push(jvTok(T, s)); else if (c === 'H') o.half_day.push(jvTok(T, s)); else if (c === 'V') o.on_leave.push(jvTok(T, s)); });
+    return o;
+  }
+  if (name === 'attendance_report') {
+    const key = need(), n = Math.min(Math.max(parseInt(a.days, 10) || 7, 1), 30), days = lastDays(n);
+    const r = await Promise.all([Promise.all(days.map(d => db.collection('attendance').doc(key + '_' + d).get())), loadStudents(key)]);
+    const docs = r[0].filter(s => s.exists).map(s => s.data().marks || {});
+    if (!docs.length) return { class: clsLabel(key), days_checked: n, days_with_attendance: 0 };
+    const rows = r[1].map(s => { let seen = 0, ok = 0; docs.forEach(m => { const c = JV_C[m[s.id]]; if (c) { seen++; if (c === 'P' || c === 'L') ok++; } }); return { s, pct: seen ? Math.round(ok * 100 / seen) : null }; }).filter(x => x.pct !== null);
+    const low = rows.filter(x => x.pct < CONFIG.LOW_PCT).sort((x, y) => x.pct - y.pct);
+    return { class: clsLabel(key), days_with_attendance: docs.length, class_average_percent: rows.length ? Math.round(rows.reduce((q, x) => q + x.pct, 0) / rows.length) : null, low_threshold_percent: CONFIG.LOW_PCT,
+      below_threshold_count: low.length, lowest: low.slice(0, 10).map(x => ({ student: jvTok(T, x.s), percent: x.pct })), full_attendance_count: rows.filter(x => x.pct === 100).length };
+  }
+  if (name === 'school_attendance_today') {
+    const date = today(), keys = myKeys(), snaps = await Promise.all(keys.map(k => db.collection('attendance').doc(k + '_' + date).get()));
+    const rows = keys.map((k, i) => { const d = snaps[i].exists ? snaps[i].data() : null; return d ? { class: clsLabel(k), taken: true, present_percent: pctOf(d), absent: d.absent || 0, late: d.late || 0, total: d.total || 0 } : { class: clsLabel(k), taken: false }; });
+    return { date, classes_done: rows.filter(x => x.taken).length, classes_pending: rows.filter(x => !x.taken).map(x => x.class), classes: rows.filter(x => x.taken) };
+  }
+  if (name === 'homework_list') {
+    const key = need(), lim = Math.min(Math.max(parseInt(a.limit, 10) || 5, 1), 10);
+    const q = await db.collection('homework').where('classKey', '==', key).get();
+    const l = q.docs.map(d => Object.assign({ id: d.id }, d.data())).filter(x => (x.year || ayOf(iso(new Date(x.createdAt)))) === curYear()).sort((x, y) => y.createdAt - x.createdAt).slice(0, lim);
+    return { class: clsLabel(key), homework: l.map(x => ({ id: x.id, date: iso(new Date(x.createdAt)), subject: x.subject || '', title: x.title, due: x.due || '', photo_submission: !!x.photo, max_marks: x.maxMarks || 0 })) };
+  }
+  if (name === 'homework_status') {
+    const key = need(), q = await db.collection('homework').where('classKey', '==', key).get();
+    const l = q.docs.map(d => Object.assign({ id: d.id }, d.data())).filter(x => x.photo && (x.year || ayOf(iso(new Date(x.createdAt)))) === curYear()).sort((x, y) => y.createdAt - x.createdAt);
+    const hw = a.hwId ? l.find(x => x.id === a.hwId) : l[0];
+    if (!hw) return { class: clsLabel(key), note: 'फोटो गृहपाठ सापडला नाही.' };
+    const r = await Promise.all([loadStudents(key), db.collection('hwPhotos').where('classKey', '==', key).where('hwId', '==', hw.id).get()]);
+    const by = {}; r[1].docs.forEach(d => { by[d.data().studentId] = d.data(); });
+    const max = hw.maxMarks || 10, got = r[0].filter(s => by[s.id]), miss = r[0].filter(s => !by[s.id]);
+    const sc = got.map(s => ({ s, v: by[s.id].status === 'approved' ? by[s.id].finalScore : by[s.id].aiScore })).filter(x => typeof x.v === 'number');
+    return { class: clsLabel(key), homework: hw.title, subject: hw.subject || '', due: hw.due || '', max_marks: max, total_students: r[0].length, submitted: got.length, not_submitted_count: miss.length,
+      not_submitted: miss.slice(0, 40).map(s => jvTok(T, s)), awaiting_review: got.filter(s => by[s.id].status === 'pending').length,
+      average_score: sc.length ? Math.round(sc.reduce((q2, x) => q2 + x.v, 0) / sc.length * 10) / 10 : null, lowest_scores: sc.sort((x, y) => x.v - y.v).slice(0, 5).map(x => ({ student: jvTok(T, x.s), score: x.v })) };
+  }
+  if (name === 'marks_summary') {
+    const key = need(), q = await db.collection('marks').where('classKey', '==', key).get(), ex = String(a.exam || '').toLowerCase(), sb = String(a.subject || '').toLowerCase();
+    const l = q.docs.map(d => d.data()).filter(x => (!x.year || x.year === curYear()) && (!ex || String(x.exam).toLowerCase().includes(ex)) && (!sb || String(x.subject).toLowerCase().includes(sb))).sort((x, y) => (y.updatedAt || 0) - (x.updatedAt || 0)).slice(0, 8);
+    return { class: clsLabel(key), pass_percent_rule: CONFIG.PASS_PCT, exams: l.map(x => {
+      const R = x.roster || {}, v = Object.keys(x.scores || {}).map(id => ({ id, v: parseFloat(x.scores[id]) })).filter(z => !isNaN(z.v)), mx = x.max || 100;
+      const tk = z => jvTok(T, { id: z.id, roll: (R[z.id] || {}).r, name: (R[z.id] || {}).n });
+      return { exam: x.exam, subject: x.subject, max_marks: mx, students_scored: v.length, average_percent: v.length ? Math.round(v.reduce((s, z) => s + z.v * 100 / mx, 0) / v.length) : null,
+        passed: v.filter(z => z.v * 100 / mx >= CONFIG.PASS_PCT).length, top3: v.slice().sort((p1, p2) => p2.v - p1.v).slice(0, 3).map(z => ({ student: tk(z), marks: z.v })),
+        below_pass: v.filter(z => z.v * 100 / mx < CONFIG.PASS_PCT).slice(0, 10).map(z => ({ student: tk(z), marks: z.v })) };
+    }) };
+  }
+  throw new Error('अज्ञात साधन: ' + name);
+}
+/* JV-TOOLS-END */
+async function vJarvis(root) {
+  if (!myKeys().length) { root.append(noClass()); return; }
+  let hist = [], T = jvNew(), busy = false, speak = false;
+  const log = h('div', { style: 'display:flex;flex-direction:column;gap:10px;min-height:260px;max-height:58vh;overflow:auto;padding:4px' });
+  const inp = h('input', { type: 'text', maxlength: '300', placeholder: 'Jarvis ला विचारा… उदा. आज कोण गैरहजर आहे?', style: 'flex:1;min-width:0', 'aria-label': 'प्रश्न' });
+  const send = h('button', { class: 'btn gold', text: '➤', 'aria-label': 'पाठवा', onclick: () => ask(inp.value) });
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const mic = SR ? h('button', { class: 'btn ghost', text: '🎤', title: 'बोलून विचारा', onclick: () => { try { const r = new SR(); r.lang = 'mr-IN'; r.interimResults = false; r.onresult = e => ask(e.results[0][0].transcript); r.onerror = () => toast('आवाज ओळखता आला नाही.'); r.start(); toast('बोला…'); } catch (e) { } } }) : null;
+  const spk = h('button', { class: 'btn ghost sm', text: '🔇 वाचून ऐकवा', onclick: () => { speak = !speak; spk.textContent = speak ? '🔊 वाचून ऐकवा' : '🔇 वाचून ऐकवा'; if (!speak && window.speechSynthesis) speechSynthesis.cancel(); } });
+  const bub = (who, text) => { const u = who === 'u'; const b = h('div', { style: 'max-width:92%;padding:9px 13px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere;' + (u ? 'align-self:flex-end;background:#6A1327;color:#fff' : 'align-self:flex-start;background:#fff;color:#222;border:1px solid #e1d8c9' + (who === 'e' ? ';color:#c62828' : '')), text }); log.append(b); log.scrollTop = log.scrollHeight; return b; };
+  const chips = h('div', { class: 'bar' });
+  const sugg = ['आज कोण गैरहजर आहे?', 'या आठवड्यात कमी हजेरी असलेले विद्यार्थी कोण?', 'शेवटच्या फोटो गृहपाठात कोणी जमा केला नाही?'].concat(me.role === 'admin' ? ['आज कोणत्या वर्गाची हजेरी बाकी आहे?'] : ['माझ्या वर्गाचा गुण सारांश सांगा']);
+  const welcome = () => { clear(log); clear(chips); hist = []; bub('a', 'नमस्कार! मी Jarvis 🤖 हजेरी, गृहपाठ आणि गुणांबद्दल विचारा. मी फक्त माहिती वाचतो; काही बदलायचे असल्यास कुठे जायचे ते सांगतो.'); sugg.forEach(q => chips.append(h('button', { class: 'btn ghost sm', text: q, onclick: () => ask(q) }))); };
+  const clsList = () => CLASSES.filter(c => myKeys().includes(c.key)).map(c => ({ key: c.key, label: c.label }));
+  async function call() {
+    const tok = await auth.currentUser.getIdToken();
+    const r = await fetch('/.netlify/functions/jarvis', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + tok }, body: JSON.stringify({ contents: hist, classes: clsList() }) });
+    let j = {}; try { j = await r.json(); } catch (e) { }
+    return r.ok ? j : { err: j.error || (r.status === 404 ? 'Jarvis फक्त Netlify वरील साइटवर चालतो.' : 'Jarvis ने उत्तर दिले नाही. पुन्हा प्रयत्न करा.') };
+  }
+  async function ask(q) {
+    q = (q || '').trim(); if (!q || busy) return; busy = true; send.disabled = true; inp.value = ''; clear(chips);
+    const base = hist.length; bub('u', q); hist.push({ role: 'user', parts: [{ text: q }] });
+    const st = bub('a', '🤔 विचार करत आहे…'); let done = false;
+    try {
+      for (let step = 0; step < 6 && !done; step++) {
+        const r = await call();
+        if (r.err) { st.remove(); bub('e', r.err); hist.length = base; done = true; break; }
+        if (r.calls && r.calls.length) {
+          st.textContent = '🔎 माहिती तपासत आहे… (' + r.calls.map(c => c.name).join(', ') + ')';
+          hist.push({ role: 'model', parts: r.parts });
+          const res = [];
+          for (const c of r.calls) { let o; try { o = await jvTool(c.name, c.args, T); } catch (e) { o = { error: String(e.message || e) }; } res.push({ functionResponse: { name: c.name, response: { result: o } } }); }
+          hist.push({ role: 'user', parts: res });
+        } else {
+          const text = (r.text || '').trim() || 'माफ करा, उत्तर मिळाले नाही.';
+          st.textContent = jvName(T, text);
+          hist.length = base; hist.push({ role: 'user', parts: [{ text: q }] }, { role: 'model', parts: [{ text }] }); // फक्त मजकूर ठेवतो (चर्चा लहान राहते)
+          if (speak && window.speechSynthesis) { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(st.textContent.slice(0, 700)); u.lang = 'mr-IN'; speechSynthesis.speak(u); }
+          done = true;
+        }
+      }
+      if (!done) { st.remove(); bub('e', 'प्रश्न थोडा सोपा करून विचारा.'); hist.length = base; }
+    } catch (e) { console.error(e); st.remove(); bub('e', 'काहीतरी चुकले. पुन्हा प्रयत्न करा.'); hist.length = base; }
+    busy = false; send.disabled = false; inp.focus();
+  }
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') ask(inp.value); });
+  welcome();
+  root.append(h('div', { class: 'card' }, h('h3', { text: '🤖 Jarvis – शाळेचा सहाय्यक' }),
+    h('p', { class: 'note', text: 'विद्यार्थ्यांची नावे AI ला पाठवली जात नाहीत; फक्त संख्या आणि कोड. नावे तुमच्याच स्क्रीनवर जोडली जातात.' }),
+    log, chips, h('div', { class: 'bar', style: 'margin-top:10px' }, inp, mic, send), h('div', { class: 'bar' }, spk, h('button', { class: 'btn ghost sm', text: '🧹 नवी चर्चा', onclick: () => { T = jvNew(); welcome(); } }))));
+}
+
+/* ===== AI शिक्षक सहाय्यक (Netlify Function → Gemini) ===== */
+async function vAi(root) {
+  const keys = myKeys(); if (!keys.length) { root.append(noClass()); return; }
+  let key = keys[0];
+  const TYPES = [['summary', 'पाठाचा सारांश'], ['paper', 'प्रश्नपत्रिका'], ['mcq', 'MCQ (बहुपर्यायी)'], ['practice', 'सराव प्रश्न'], ['worksheet', 'वर्कशीट'], ['plan', 'धड्याचे नियोजन']];
+  const typ = h('select', { 'aria-label': 'प्रकार' }); TYPES.forEach(([v, l]) => typ.append(h('option', { value: v, text: l })));
+  const subj = h('input', { type: 'text', list: 'sublist', placeholder: 'विषय (उदा. विज्ञान)', style: 'width:100%', maxlength: '60', 'aria-label': 'विषय' });
+  const topic = h('input', { type: 'text', placeholder: 'पाठ / घटक (उदा. प्रकाशाचे परावर्तन)', style: 'width:100%', maxlength: '200', 'aria-label': 'पाठ' });
+  const cnt = h('input', { type: 'number', value: '10', min: '1', max: '30', style: 'width:100%', 'aria-label': 'प्रश्न संख्या' });
+  const extra = h('textarea', { placeholder: 'अतिरिक्त सूचना (ऐच्छिक): उदा. एकूण 20 गुण, सोपे प्रश्न जास्त, पाठ्यपुस्तकातील उदाहरणे वापरा', maxlength: '600', style: 'min-height:80px' });
+  const msg = h('p', { class: 'note' });
+  const out = h('textarea', { 'aria-label': 'तयार झालेला मजकूर', style: 'min-height:320px', placeholder: 'तयार झालेला मजकूर इथे दिसेल. तुम्ही तो बदलू शकता.' });
+  const gen = h('button', { class: 'btn gold', text: '✨ तयार करा', onclick: async () => {
+    if (!topic.value.trim()) { msg.textContent = 'पाठ / घटक लिहा.'; return; }
+    gen.disabled = true; msg.textContent = 'तयार होत आहे… (10–30 सेकंद लागू शकतात)';
+    try {
+      const tok = await auth.currentUser.getIdToken();
+      const r = await fetch('/.netlify/functions/ai', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + tok },
+        body: JSON.stringify({ type: typ.value, cls: clsLabel(key), subject: subj.value.trim(), topic: topic.value.trim(), count: cnt.value, extra: extra.value.trim() }) });
+      let j = {}; try { j = await r.json(); } catch (x) { }
+      if (!r.ok || !j.text) { msg.textContent = j.error || (r.status === 404 ? 'AI सेवा या पत्त्यावर उपलब्ध नाही (साइट Netlify वर डिप्लॉय करावी लागेल).' : 'तयार करता आले नाही. पुन्हा प्रयत्न करा.'); }
+      else { out.value = j.text; msg.textContent = '✅ तयार झाले. कृपया काळजीपूर्वक तपासा – AI कडून चुका होऊ शकतात.'; }
+    } catch (e) { console.error(e); msg.textContent = 'इंटरनेट तपासून पुन्हा प्रयत्न करा.'; }
+    gen.disabled = false;
+  } });
+  const copy = h('button', { class: 'btn ghost', text: '📋 कॉपी', onclick: async () => { if (!out.value.trim()) return; try { await navigator.clipboard.writeText(out.value); toast('कॉपी झाले.'); } catch (e) { out.select(); toast('Ctrl+C दाबा.'); } } });
+  const prn = h('button', { class: 'btn ghost', text: '🖨️ प्रिंट', onclick: () => {
+    if (!out.value.trim()) return; const w = window.open('', '_blank'); if (!w) { toast('पॉप-अप परवानगी द्या.'); return; }
+    const d = w.document; d.title = typ.options[typ.selectedIndex].text;
+    const hd = d.createElement('h2'); hd.textContent = CONFIG.SCHOOL; const sub = d.createElement('p'); sub.textContent = clsLabel(key) + (subj.value.trim() ? ' – ' + subj.value.trim() : '') + ' – ' + d.title;
+    const pre = d.createElement('div'); pre.textContent = out.value; pre.style.cssText = 'white-space:pre-wrap;font:16px/1.7 "Noto Sans Devanagari","Mukta",sans-serif';
+    d.body.style.cssText = 'font-family:"Noto Sans Devanagari","Mukta",sans-serif;padding:24px;max-width:800px;margin:auto'; d.body.append(hd, sub, pre); setTimeout(() => w.print(), 300);
+  } });
+  const pub = h('button', { class: 'btn', text: '📤 गृहपाठात प्रकाशित करा', onclick: async () => {
+    const body = out.value.trim(); if (!body) { toast('आधी मजकूर तयार करा.'); return; }
+    if (!confirm('तुम्ही हा मजकूर तपासला आहे का? प्रकाशित केल्यावर ' + clsLabel(key) + ' चे विद्यार्थी तो पाहू शकतील.')) return;
+    pub.disabled = true;
+    try {
+      const st = await loadStudents(key), ttl = typ.options[typ.selectedIndex].text + ' – ' + topic.value.trim();
+      await db.collection('homework').add({ classKey: key, year: curYear(), subject: subj.value.trim(), chapter: topic.value.trim().slice(0, 80), title: ttl.slice(0, 120), text: body.slice(0, 5000), due: '', link: '', assigned: st.length, byName: me.name, createdAt: Date.now() });
+      toast('गृहपाठात प्रकाशित झाले.');
+    } catch (e) { console.error(e); toast('प्रकाशित झाले नाही.'); }
+    pub.disabled = false;
+  } });
+  root.append(h('div', { class: 'bar' }, classSel(keys, key, v => { key = v; })),
+    h('div', { class: 'card' }, h('h3', { text: '✨ AI शिक्षक सहाय्यक' }),
+      h('p', { class: 'note', text: 'मराठीत सारांश, प्रश्नपत्रिका, MCQ, सराव प्रश्न, वर्कशीट आणि धड्याचे नियोजन. तपासल्यानंतरच विद्यार्थ्यांना द्या. विद्यार्थ्यांची नावे/वैयक्तिक माहिती लिहू नका.' }),
+      h('label', { class: 'f', text: 'काय तयार करायचे?' }), typ, h('label', { class: 'f', text: 'विषय' }), subj, h('label', { class: 'f', text: 'पाठ / घटक' }), topic,
+      h('label', { class: 'f', text: 'प्रश्न संख्या (लागू असल्यास)' }), cnt, h('label', { class: 'f', text: 'अतिरिक्त सूचना' }), extra,
+      h('div', { class: 'bar', style: 'margin-top:10px' }, gen), msg),
+    h('div', { class: 'card' }, h('h3', { text: 'तयार झालेला मजकूर (बदल करता येतो)' }), out, h('div', { class: 'bar', style: 'margin-top:10px' }, copy, prn, pub)));
+}
+
+/* ===== १) मुख्यपृष्ठ (डॅशबोर्ड) ===== */
+async function vDash(root) {
+  if (me.role === 'admin') return dashAdmin(root);
+  const keys = myKeys(); if (!keys.length) { root.append(noClass()); return; }
+  let key = keys[0], ticket = 0; const box = h('div');
+  root.append(h('div', { class: 'bar' }, classSel(keys, key, v => { key = v; load(); })), box);
+  async function load() {
+    const my = ++ticket; clear(box); box.append(loading());
+    const days = lastDays(7);
+    const snaps = await Promise.all(days.map(d => db.collection('attendance').doc(key + '_' + d).get()));
+    const st = await loadStudents(key);
+    if (my !== ticket) return;
+    const docs = snaps.map((s, i) => s.exists ? Object.assign({ date: days[i] }, s.data()) : null), t = docs[6];
+    clear(box);
+    box.append(h('div', { class: 'kpi' }, h('div', {}, h('b', { text: st.length }), h('small', { text: 'विद्यार्थी' })),
+      h('div', {}, h('b', { text: t ? pctOf(t) + '%' : '—' }), h('small', { text: 'आजची हजेरी' })),
+      h('div', {}, h('b', { text: docs.filter(Boolean).length }), h('small', { text: 'गेल्या ७ दिवसांतील हजेरी दिवस' }))));
+    box.append(h('div', { class: 'grid2' },
+      h('div', { class: 'card' }, h('h3', { text: 'आजची हजेरी – ' + clsLabel(key) }),
+        t ? h('div', { class: 'donut' }, donut(t.present || 0, t.late || 0, t.absent || 0, pctOf(t) + '%'), legend(t.present || 0, t.late || 0, t.absent || 0))
+          : h('div', {}, h('p', { class: 'note', text: 'आज हजेरी अजून घेतलेली नाही.' }), h('button', { class: 'btn gold', text: 'हजेरी घ्या', onclick: () => gotab('att') }))),
+      h('div', { class: 'card' }, h('h3', { text: 'गेल्या ७ दिवसांचा कल' }),
+        docs.some(Boolean) ? trend(docs.map((d, i) => d ? { l: days[i].slice(8) + '/' + days[i].slice(5, 7), v: pctOf(d) } : null).filter(Boolean)) : h('p', { class: 'note', text: 'अजून माहिती नाही.' }))));
+    box.append(h('div', { class: 'bar' }, h('button', { class: 'btn', text: 'गुण भरा', onclick: () => gotab('marks') }), h('button', { class: 'btn ghost', text: 'गृहपाठ द्या', onclick: () => gotab('hw') }), h('button', { class: 'btn ghost', text: 'निकाल पाहा', onclick: () => gotab('result') })));
+  }
+  await load();
+}
+async function dashAdmin(root) {
+  const box = h('div'); root.append(box); box.append(loading());
+  const days = lastDays(7);
+  const q = await db.collection('attendance').where('date', '>=', days[0]).get();
+  const docs = q.docs.map(d => d.data()), td = docs.filter(x => x.date === today()), m = {};
+  td.forEach(x => m[x.classKey] = x);
+  let P = 0, L = 0, A = 0, T = 0; td.forEach(x => { P += x.present || 0; L += x.late || 0; A += x.absent || 0; T += x.total || 0; });
+  const missing = CLASSES.filter(c => !m[c.key]);
+  const tr = days.map(d => { const ds = docs.filter(x => x.date === d); if (!ds.length) return null; let p = 0, t = 0; ds.forEach(x => { p += (x.present || 0) + (x.late || 0); t += x.total || 0; }); return { l: d.slice(8) + '/' + d.slice(5, 7), v: t ? Math.round(p * 100 / t) : null }; }).filter(Boolean);
+  clear(box);
+  box.append(h('div', { class: 'kpi' }, h('div', {}, h('b', { text: T ? Math.round((P + L) * 100 / T) + '%' : '—' }), h('small', { text: 'आजची शाळेची हजेरी' })),
+    h('div', {}, h('b', { text: A }), h('small', { text: 'आज गैरहजर' })),
+    h('div', {}, h('b', { text: (CLASSES.length - missing.length) + '/' + CLASSES.length }), h('small', { text: 'हजेरी घेतलेले वर्ग' }))));
+  box.append(h('div', { class: 'grid2' },
+    h('div', { class: 'card' }, h('h3', { text: 'संपूर्ण शाळा – आज' }), h('div', { class: 'donut' }, donut(P, L, A, T ? Math.round((P + L) * 100 / T) + '%' : '', 'हजेरी नाही'), legend(P, L, A))),
+    h('div', { class: 'card' }, h('h3', { text: 'गेल्या ७ दिवसांचा कल' }), tr.length ? trend(tr) : h('p', { class: 'note', text: 'अजून माहिती नाही.' }))));
+  const cc = h('div', { class: 'card' }, h('h3', { text: 'वर्गनिहाय आजची हजेरी %' }));
+  CLASSES.forEach(c => { if (m[c.key]) cc.append(hbar(c.label, pctOf(m[c.key]))); });
+  if (!td.length) cc.append(h('p', { class: 'note', text: 'आज अजून कोणत्याही वर्गाची हजेरी झालेली नाही.' }));
+  box.append(cc);
+  if (missing.length) box.append(h('div', { class: 'card' }, h('h3', { text: 'हजेरी न घेतलेले वर्ग' }), h('div', { class: 'chips' }, missing.map(c => h('span', { text: c.label })))));
+}
+
+/* ===== सामायिक: ऑडिट, पालक संदेश रांग, चेतावणी पातळी ===== */
+const SRV = () => firebase.firestore.FieldValue.serverTimestamp();
+function validPhone(p) { const x = String(p || '').replace(/\D/g, ''); return x.length === 10 ? '91' + x : (x.length === 12 && x.startsWith('91') ? x : ''); }
+function absMsg(name, cls, date) { return 'नमस्कार, आपला पाल्य ' + name + ' (' + clsLabel(cls) + ') आज ' + dmy(date) + ' रोजी शाळेत गैरहजर आहे. – ' + CONFIG.SCHOOL; }
+function auditLog(batch, action, key, date, changes, extra) {
+  batch.set(db.collection('auditLogs').doc(), Object.assign({ action, classKey: key, date, user: me.email, userName: me.name, timestamp: SRV(), changes: changes || {} }, extra || {}));
+}
+function diffMarks(oldMarks, newMarks, students) {
+  const ch = {};
+  students.forEach(s => { const f = oldMarks ? (oldMarks[s.id] || 'P') : null, to = newMarks[s.id];
+    if (f !== to && (oldMarks || to !== 'P')) ch[s.id] = { name: s.name, roll: s.roll, from: f, to }; });
+  return ch;
+}
+async function queueNotifs(batch, key, date, oldMarks, newMarks, students) {
+  if (date !== today()) return;
+  const ex = {}; (await db.collection('notifications').where('classKey', '==', key).where('date', '==', date).get()).docs.forEach(d => ex[d.id] = d.data());
+  students.forEach(s => {
+    const id = key + '_' + date + '_' + s.id, wasA = !!oldMarks && oldMarks[s.id] === 'A', isA = newMarks[s.id] === 'A', ref = db.collection('notifications').doc(id);
+    if (isA && !wasA) {
+      const ph = validPhone(s.phone);
+      batch.set(ref, { classKey: key, date, studentId: s.id, studentName: s.name, roll: s.roll, phone: ph, message: absMsg(s.name, key, date), status: ph ? 'pending' : 'failed', failReason: ph ? '' : 'फोन नंबर नाही', createdAt: Date.now(), by: me.email });
+    } else if (wasA && !isA && ex[id]) batch.update(ref, { status: 'cancelled', cancelledAt: Date.now() });
+  });
+}
+const LEVELS = () => [[CONFIG.CRIT_PCT, '🔴', 'अतिगंभीर', 'lv3'], [CONFIG.SERIOUS_PCT, '🟠', 'गंभीर इशारा', 'lv2'], [CONFIG.LOW_PCT, '🟡', 'सूचना', 'lv1']];
+function lvOf(p) { if (p === null || p === undefined) return null; for (const [t, i, l, c] of LEVELS()) if (p < t) return { icon: i, label: l, cls: c }; return null; }
+const ayStart = () => { const d = new Date(); return (d.getMonth() >= 5 ? d.getFullYear() : d.getFullYear() - 1) + '-06-01'; };
+const MONTHS_MR = ['जानेवारी', 'फेब्रुवारी', 'मार्च', 'एप्रिल', 'मे', 'जून', 'जुलै', 'ऑगस्ट', 'सप्टेंबर', 'ऑक्टोबर', 'नोव्हेंबर', 'डिसेंबर'];
+const monthLabel = ym => MONTHS_MR[+ym.slice(5) - 1] + ' ' + ym.slice(0, 4);
+const lowMsg = (name, pct) => 'नमस्कार, आपल्या पाल्याची (' + name + ') उपस्थिती ' + pct + '% आहे. कृपया नियमित शाळेत उपस्थित राहण्यास सहकार्य करावे. – ' + CONFIG.SCHOOL;
+const hm = ms => { const d = new Date(ms); return pad(d.getHours()) + ':' + pad(d.getMinutes()); };
+
+/* ===== २) हजेरी ===== */
+const NEXT = { P: 'A', A: 'L', L: 'P', H: 'P', V: 'P', M: 'P', D: 'P' };
+const NAME = { P: 'उपस्थित', A: 'गैरहजर', L: 'उशीर', H: 'अर्धा दिवस', V: 'रजा', M: 'वैद्यकीय रजा', D: 'शाळेचे काम' };
+/* टक्केवारी: उपस्थित/उशीर/शाळेचे काम = १, अर्धा दिवस = ०.५, गैरहजर = ०; मंजूर रजा (V/M) दिवसांच्या गणनेतून वगळली */
+function tally(codes) {
+  const c = { P: 0, A: 0, L: 0, H: 0, V: 0, M: 0, D: 0 }; codes.forEach(m => { if (c[m] !== undefined) c[m]++; });
+  const tot = c.P + c.A + c.L + c.H + c.D, att = c.P + c.L + c.D + c.H / 2;
+  return Object.assign(c, { tot, att, pct: tot ? Math.round(att * 100 / tot) : null });
+}
+async function vAtt(root) {
+  const keys = myKeys(); if (!keys.length) { root.append(noClass()); return; }
+  const isAdm = me.role === 'admin';
+  let key = keys[0], date = today(), students = [], marks = {}, ticket = 0, saved = null, q = '';
+  const box = h('div');
+  const dt = h('input', { type: 'date', value: date, max: today(), 'aria-label': 'तारीख' });
+  if (!isAdm) dt.disabled = true;
+  dt.addEventListener('change', () => { date = dt.value || today(); load(); });
+  root.append(h('div', { class: 'bar' }, classSel(keys, key, v => { key = v; load(); }), dt),
+    ...(!isAdm ? [h('p', { class: 'note', text: 'हजेरी फक्त आजच्या दिवसाची घेता येते. सादर केल्यावर ती लॉक होते; चूक असल्यास "दुरुस्ती विनंती" पाठवा.' })] : []), box);
+  async function load() {
+    const my = ++ticket; clear(box); box.append(loading());
+    const st = await loadStudents(key);
+    const snap = await db.collection('attendance').doc(key + '_' + date).get();
+    if (my !== ticket) return;
+    students = st; saved = snap.exists ? snap.data() : null;
+    marks = saved ? Object.assign({}, saved.marks || {}) : {};
+    let nLv = 0;
+    if (!saved) { try {
+      const lq = await db.collection('leaveRequests').where('classKey', '==', key).where('status', '==', 'approved').get();
+      lq.docs.forEach(d => { const x = d.data(); if (x.from <= date && date <= x.to) { const s = students.find(z => String(z.roll) === String(x.roll)); if (s) { marks[s.id] = x.type === 'M' ? 'M' : 'V'; nLv++; } } });
+    } catch (e) { console.error(e); } }
+    students.forEach(s => { if (!marks[s.id]) marks[s.id] = 'P'; });
+    build();
+    if (nLv) toast('🏥 मंजूर रजेचे ' + nLv + ' विद्यार्थी आपोआप भरले.');
+  }
+  const locked = () => !isAdm && !!saved;
+  function counts() { const c = { P: 0, A: 0, L: 0, H: 0, V: 0, M: 0, D: 0 }; students.forEach(s => c[marks[s.id]]++); return c; }
+  function build() {
+    clear(box);
+    if (!students.length) { box.append(h('p', { class: 'note', text: 'या वर्गात अजून विद्यार्थी जोडलेले नाहीत. मुख्याध्यापकांनी "विद्यार्थी" भागातून यादी जोडावी.' })); return; }
+    const sumBox = h('div'), listBox = h('div'), footBox = h('div');
+    const drawSum = () => { clear(sumBox); const c = counts();
+      sumBox.append(h('div', { class: 'card', style: 'padding:10px 14px' }, h('b', { text: clsLabel(key) + ' • ' + dmy(date) + ' • एकूण ' + students.length })),
+        h('div', { class: 'sum' }, h('span', { class: 'p', text: '🟢 उपस्थित ' + c.P }), h('span', { class: 'a', text: '🔴 गैरहजर ' + c.A }), h('span', { class: 'l', text: '🟠 उशीर ' + c.L }),
+          ...['H', 'V', 'M', 'D'].filter(k => c[k]).map(k => h('span', { class: 'b', text: NAME[k] + ' ' + c[k] })))); };
+    const drawList = () => { clear(listBox);
+      const f = q.trim().toLowerCase();
+      students.filter(s => !f || String(s.roll).toLowerCase() === f || String(s.name || '').toLowerCase().includes(f)).forEach(s => {
+        const row = h('button', { class: 'stu ' + marks[s.id], type: 'button' }, h('span', { class: 'r', text: s.roll }), h('span', { class: 'n', text: s.name }), h('span', { class: 's', text: NAME[marks[s.id]] }));
+        if (locked()) row.disabled = true;
+        else row.addEventListener('click', () => { marks[s.id] = NEXT[marks[s.id]]; drawSum(); drawList(); });
+        if (locked()) { listBox.append(row); return; }
+        const sel = h('select', { 'aria-label': 'स्थिती निवडा' }); Object.entries(NAME).forEach(([k, v]) => sel.append(h('option', { value: k, text: v, selected: marks[s.id] === k })));
+        sel.addEventListener('change', () => { marks[s.id] = sel.value; drawSum(); drawList(); });
+        listBox.append(h('div', { class: 'srow' }, row, sel));
+      }); };
+    drawSum();
+    if (locked()) {
+      box.append(h('div', { class: 'card', style: 'border-color:var(--green)' }, h('h3', { text: '🔒 हजेरी सादर व लॉक' }),
+        h('p', { class: 'note', text: 'सादर केले: ' + (saved.byName || saved.by || '') + ' • वेळ: ' + hm(saved.submittedAt || saved.updatedAt || Date.now()) })), sumBox, listBox, footBox);
+      drawList(); correctionForm(footBox);
+    } else {
+      const find = h('input', { type: 'search', placeholder: '🔎 विद्यार्थी शोधा (नाव / क्रमांक)', 'aria-label': 'विद्यार्थी शोधा', style: 'flex:1;min-width:180px' });
+      find.addEventListener('input', () => { q = find.value; drawList(); });
+      const absIn = h('input', { type: 'text', inputmode: 'numeric', placeholder: 'गैरहजर क्रमांक: 7 14 22', 'aria-label': 'गैरहजर क्रमांक', style: 'flex:1;min-width:150px' });
+      const lateIn = h('input', { type: 'text', inputmode: 'numeric', placeholder: 'उशीर क्रमांक: 18', 'aria-label': 'उशीर क्रमांक', style: 'flex:1;min-width:120px' });
+      const apply = () => {
+        const nums = v => v.split(/[^0-9]+/).filter(Boolean);
+        const byRoll = {}; students.forEach(s => byRoll[String(s.roll)] = s);
+        const bad = [];
+        students.forEach(s => marks[s.id] = 'P');
+        nums(absIn.value).forEach(n => byRoll[n] ? marks[byRoll[n].id] = 'A' : bad.push(n));
+        nums(lateIn.value).forEach(n => byRoll[n] ? (marks[byRoll[n].id] !== 'A' && (marks[byRoll[n].id] = 'L')) : bad.push(n));
+        drawSum(); drawList();
+        toast(bad.length ? 'हे क्रमांक सापडले नाहीत: ' + bad.join(', ') : 'लागू केले ✔');
+      };
+      box.append(
+        h('div', { class: 'card' }, h('h3', { text: '⚡ फक्त गैरहजर / उशीर भरा' }),
+          h('p', { class: 'note', text: 'सगळे आधीच "उपस्थित" आहेत. फक्त गैरहजर व उशीर आलेल्यांचे हजेरी क्रमांक लिहा (मोकळी जागा/स्वल्पविराम चालेल).' }),
+          h('div', { class: 'bar' }, absIn, lateIn, h('button', { class: 'btn gold', type: 'button', text: 'लागू करा', onclick: apply }))),
+        h('div', { class: 'bar' }, h('button', { class: 'btn ghost', type: 'button', text: '✓ सर्व उपस्थित', onclick: () => { students.forEach(s => marks[s.id] = 'P'); absIn.value = lateIn.value = ''; drawSum(); drawList(); } }),
+          h('button', { class: 'btn ghost', type: 'button', text: '✕ सर्व गैरहजर', onclick: () => { if (!confirm('सर्व विद्यार्थी गैरहजर करायचे?')) return; students.forEach(s => marks[s.id] = 'A'); drawSum(); drawList(); } }), find),
+        sumBox, h('p', { class: 'note', text: 'नावावर टॅप करा: उपस्थित → गैरहजर → उशीर. अर्धा दिवस / रजा / शाळेचे काम यासाठी उजवीकडील यादी वापरा.' }), listBox, footBox);
+      drawList();
+      const save = h('button', { class: 'btn gold', type: 'button', text: isAdm ? 'हजेरी जतन करा' : 'हजेरी सादर करा (लॉक होईल)', onclick: async () => {
+        const k = counts();
+        if (!isAdm && !confirm('हजेरी सादर केल्यावर लॉक होईल. पुढे बदलासाठी मुख्याध्यापकांची मंजुरी लागेल.\n\nउपस्थित ' + k.P + ' • गैरहजर ' + k.A + ' • उशीर ' + k.L + '\n\nसादर करायची?')) return;
+        save.disabled = true;
+        try {
+          const rec = { classKey: key, date, year: ayOf(date), marks, present: k.P + k.D, absent: k.A, late: k.L, half: k.H, leave: k.V + k.M, total: students.length, by: me.email, byName: me.name, submittedAt: (saved && saved.submittedAt) || Date.now(), updatedAt: Date.now(), locked: true };
+          if (isAdm && saved && saved.corrections) rec.corrections = saved.corrections;
+          const batch = db.batch(), oldM = saved ? (saved.marks || {}) : null;
+          batch.set(db.collection('attendance').doc(key + '_' + date), rec);
+          auditLog(batch, saved ? 'ATTENDANCE_UPDATED' : 'ATTENDANCE_SUBMITTED', key, date, diffMarks(oldM, marks, students), { summary: { present: k.P, absent: k.A, late: k.L, total: students.length } });
+          await queueNotifs(batch, key, date, oldM, marks, students);
+          await batch.commit();
+          saved = rec; toast(isAdm ? 'हजेरी जतन झाली ✔' : 'हजेरी सादर व लॉक झाली ✔'); build();
+        } catch (e) { console.error(e); toast(e.code === 'permission-denied' ? 'परवानगी नाही: ही हजेरी आधीच सादर झाली असावी.' : 'जतन झाली नाही. पुन्हा प्रयत्न करा.'); save.disabled = false; }
+      } });
+      footBox.append(h('div', { class: 'bar', style: 'margin-top:12px' }, save));
+    }
+    const abs = students.filter(s => marks[s.id] === 'A');
+    if (abs.length && (locked() || isAdm) && saved) {
+      const card = h('div', { class: 'card', style: 'margin-top:14px' }, h('h3', { text: 'गैरहजर विद्यार्थ्यांच्या पालकांना WhatsApp संदेश' }));
+      abs.forEach(s => {
+        const ph = String(s.phone || '').replace(/\D/g, '');
+        const num = ph.length === 10 ? '91' + ph : (ph.length === 12 && ph.startsWith('91') ? ph : '');
+        const msg = 'नमस्कार, आपला पाल्य ' + s.name + ' (' + clsLabel(key) + ') आज ' + dmy(date) + ' रोजी शाळेत गैरहजर आहे. – ' + CONFIG.SCHOOL;
+        card.append(h('div', { class: 'row2' }, h('span', { text: s.roll + '. ' + s.name }),
+          num ? h('a', { class: 'wa', href: 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg), target: '_blank', rel: 'noopener', text: 'WhatsApp' }) : h('span', { class: 'note', text: 'फोन नंबर नाही' })));
+      });
+      box.append(card);
+    } else if (abs.length && !saved) {
+      box.append(h('p', { class: 'note', style: 'margin-top:12px', text: 'हजेरी सादर केल्यावर गैरहजर पालकांना WhatsApp संदेश पाठवण्याचे बटण येथे दिसेल.' }));
+    }
+  }
+  function correctionForm(into) {
+    const sel = h('select', { 'aria-label': 'विद्यार्थी' }); students.forEach(s => sel.append(h('option', { value: s.id, text: s.roll + '. ' + s.name + ' (' + NAME[marks[s.id]] + ')' })));
+    const ns = h('select', { 'aria-label': 'नवीन स्थिती' }); Object.entries(NAME).forEach(([k, v]) => ns.append(h('option', { value: k, text: v })));
+    const why = h('input', { type: 'text', placeholder: 'कारण (उदा. पालकांनी कळवले / शिक्षकाची चूक)', style: 'width:100%' });
+    const btn = h('button', { class: 'btn', type: 'button', text: 'दुरुस्ती विनंती पाठवा', onclick: async () => {
+      if (!why.value.trim()) { toast('कृपया कारण लिहा.'); return; }
+      btn.disabled = true;
+      try {
+        const sd = students.find(s => s.id === sel.value);
+        const batch = db.batch();
+        batch.set(db.collection('attendanceCorrections').doc(), { classKey: key, date, studentId: sd.id, studentName: sd.name, roll: sd.roll, oldStatus: marks[sd.id], newStatus: ns.value, reason: why.value.trim(), status: 'pending', by: me.email, byName: me.name, createdAt: Date.now() });
+        auditLog(batch, 'CORRECTION_REQUESTED', key, date, { [sd.id]: { name: sd.name, roll: sd.roll, from: marks[sd.id], to: ns.value } }, { reason: why.value.trim() });
+        await batch.commit();
+        why.value = ''; toast('विनंती मुख्याध्यापकांकडे पाठवली ✔');
+      } catch (e) { console.error(e); toast('विनंती पाठवता आली नाही.'); }
+      btn.disabled = false;
+    } });
+    into.append(h('div', { class: 'card', style: 'margin-top:14px' }, h('h3', { text: '✏️ दुरुस्ती विनंती (Admin कडे)' }), h('label', { class: 'f', text: 'विद्यार्थी' }), sel, h('label', { class: 'f', text: 'नवीन स्थिती' }), ns, h('label', { class: 'f', text: 'कारण' }), why, h('div', { class: 'bar', style: 'margin-top:10px' }, btn)));
+  }
+  await load();
+}
+
+/* ===== २-अ) दुरुस्ती विनंत्या ===== */
+async function vCorr(root) {
+  const isAdm = me.role === 'admin', box = h('div'); root.append(box);
+  async function load() {
+    clear(box); box.append(loading());
+    let qy = db.collection('attendanceCorrections');
+    if (!isAdm) { const ks = myKeys(); if (!ks.length) { clear(box); box.append(noClass()); return; } }
+    const snap = await qy.get();
+    let list = snap.docs.map(d => Object.assign({ id: d.id }, d.data()));
+    if (!isAdm) { const ks = myKeys(); list = list.filter(x => ks.includes(x.classKey)); }
+    list.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+    clear(box);
+    if (!list.length) { box.append(h('p', { class: 'note', text: 'सध्या कोणतीही दुरुस्ती विनंती नाही.' })); return; }
+    const L = { pending: '⏳ प्रतीक्षेत', approved: '✅ मंजूर', rejected: '❌ नामंजूर' };
+    list.forEach(x => {
+      const card = h('div', { class: 'card' }, h('h3', { text: clsLabel(x.classKey) + ' • ' + dmy(x.date) }),
+        h('p', {}, h('b', { text: x.roll + '. ' + x.studentName }), ' : ' + NAME[x.oldStatus] + ' → ' + NAME[x.newStatus]),
+        h('p', { class: 'note', text: 'कारण: ' + x.reason + ' • विनंती: ' + (x.byName || x.by) + ' ' + hm(x.createdAt || 0) }),
+        h('p', { text: L[x.status] || x.status }));
+      if (isAdm && x.status === 'pending') {
+        const decide = async ok => {
+          try {
+            const batch = db.batch(), ch = { [x.studentId]: { name: x.studentName, roll: x.roll, from: x.oldStatus, to: x.newStatus } };
+            if (ok) {
+              const ref = db.collection('attendance').doc(x.classKey + '_' + x.date), s = await ref.get();
+              if (!s.exists) { toast('मूळ हजेरी सापडली नाही.'); return; }
+              const d = s.data(), oldM = d.marks || {}, m = Object.assign({}, oldM); m[x.studentId] = x.newStatus;
+              const c = tally(Object.values(m));
+              const log = (d.corrections || []).concat([{ studentId: x.studentId, from: x.oldStatus, to: x.newStatus, reason: x.reason, requestedBy: x.by, approvedBy: me.email, at: Date.now() }]);
+              batch.update(ref, { marks: m, present: c.P + c.D, absent: c.A, late: c.L, half: c.H, leave: c.V + c.M, corrections: log, updatedAt: Date.now() });
+              await queueNotifs(batch, x.classKey, x.date, oldM, m, await loadStudents(x.classKey));
+            }
+            batch.update(db.collection('attendanceCorrections').doc(x.id), { status: ok ? 'approved' : 'rejected', decidedBy: me.email, decidedAt: Date.now() });
+            auditLog(batch, ok ? 'CORRECTION_APPROVED' : 'CORRECTION_REJECTED', x.classKey, x.date, ch, { reason: x.reason, requestedBy: x.by });
+            await batch.commit();
+            toast(ok ? 'मंजूर केले ✔' : 'नामंजूर केले'); load();
+          } catch (e) { console.error(e); toast('प्रक्रिया झाली नाही. पुन्हा प्रयत्न करा.'); }
+        };
+        card.append(h('div', { class: 'bar' }, h('button', { class: 'btn gold', type: 'button', text: 'मंजूर', onclick: () => decide(true) }), h('button', { class: 'btn red', type: 'button', text: 'नामंजूर', onclick: () => decide(false) })));
+      }
+      box.append(card);
+    });
+  }
+  await load();
+}
+
+/* ===== २-ब) पालक संदेश रांग ===== */
+async function vNotif(root) {
+  const isAdm = me.role === 'admin', keys = myKeys();
+  if (!isAdm && !keys.length) { root.append(noClass()); return; }
+  let date = today(); const box = h('div');
+  const dt = h('input', { type: 'date', value: date, max: today(), 'aria-label': 'तारीख' });
+  dt.addEventListener('change', () => { date = dt.value || today(); load(); });
+  root.append(h('div', { class: 'bar' }, dt), h('p', { class: 'note', text: 'गैरहजर विद्यार्थ्यांच्या पालकांसाठी संदेश आपोआप रांगेत येतात. WhatsApp/SMS बटण दाबून संदेश पाठवा, मग "पाठवले" किंवा "अयशस्वी" नोंदवा.' }), box);
+  const ST = { pending: 'प्रतीक्षेत', sent: 'पाठवले', failed: 'अयशस्वी', cancelled: 'रद्द' };
+  async function load() {
+    clear(box); box.append(loading());
+    let docs;
+    if (isAdm) docs = (await db.collection('notifications').where('date', '==', date).get()).docs;
+    else docs = (await Promise.all(keys.map(k => db.collection('notifications').where('classKey', '==', k).where('date', '==', date).get()))).flatMap(s => s.docs);
+    const list = docs.map(d => Object.assign({ id: d.id }, d.data())).sort((a, b) => (a.classKey > b.classKey ? 1 : a.classKey < b.classKey ? -1 : (a.roll || 0) - (b.roll || 0)));
+    clear(box);
+    if (!list.length) { box.append(h('p', { class: 'note', text: 'या दिवशी कोणताही संदेश रांगेत नाही.' })); return; }
+    const cnt = s => list.filter(x => x.status === s).length;
+    box.append(h('div', { class: 'sum' }, h('span', { class: 'a', style: 'background:var(--amber)', text: 'प्रतीक्षेत ' + cnt('pending') }), h('span', { class: 'p', text: 'पाठवले ' + cnt('sent') }), h('span', { class: 'a', text: 'अयशस्वी ' + cnt('failed') })));
+    const setSt = async (x, st) => { try { await db.collection('notifications').doc(x.id).update({ status: st, sentAt: Date.now(), sentBy: me.email }); load(); } catch (e) { console.error(e); toast('नोंद झाली नाही.'); } };
+    list.forEach(x => {
+      const card = h('div', { class: 'card' }, h('div', { class: 'row2' }, h('b', { text: clsLabel(x.classKey) + ' • ' + x.roll + '. ' + x.studentName }), h('span', { class: 'badge ' + x.status, text: ST[x.status] || x.status })),
+        h('p', { class: 'note', text: x.message }));
+      if (x.status === 'failed' && x.failReason) card.append(h('p', { class: 'err', text: x.failReason + ' – विद्यार्थी यादीत फोन नंबर जोडा.' }));
+      if (x.status === 'sent') card.append(h('p', { class: 'note', text: 'नोंद: ' + hm(x.sentAt || 0) + ' • ' + (x.sentBy || '') }));
+      if ((x.status === 'pending' || x.status === 'failed') && x.phone) card.append(h('div', { class: 'bar' },
+        h('a', { class: 'wa', href: 'https://wa.me/' + x.phone + '?text=' + encodeURIComponent(x.message), target: '_blank', rel: 'noopener', text: 'WhatsApp' }),
+        h('a', { class: 'wa', href: 'sms:+' + x.phone + '?body=' + encodeURIComponent(x.message), text: 'SMS' }),
+        h('button', { class: 'btn sm gold', type: 'button', text: '✓ पाठवले', onclick: () => setSt(x, 'sent') }),
+        h('button', { class: 'btn sm red', type: 'button', text: '✗ अयशस्वी', onclick: () => setSt(x, 'failed') })));
+      box.append(card);
+    });
+  }
+  await load();
+}
+
+/* ===== २-क) ऑडिट लॉग (फक्त admin) ===== */
+async function vAudit(root) {
+  if (me.role !== 'admin') { root.append(h('p', { class: 'note', text: 'हा भाग फक्त मुख्याध्यापकांसाठी आहे.' })); return; }
+  const box = h('div'); let cls = '';
+  const sel = h('select', { 'aria-label': 'वर्ग' }, h('option', { value: '', text: 'सर्व वर्ग' })); CLASSES.forEach(c => sel.append(h('option', { value: c.key, text: c.label })));
+  sel.addEventListener('change', () => { cls = sel.value; draw(); });
+  root.append(h('div', { class: 'bar' }, sel), box);
+  const AC = { ATTENDANCE_SUBMITTED: '📝 हजेरी सादर', ATTENDANCE_UPDATED: '🛠 हजेरी बदल (Admin)', CORRECTION_REQUESTED: '✏️ दुरुस्ती विनंती', CORRECTION_APPROVED: '✅ दुरुस्ती मंजूर', CORRECTION_REJECTED: '❌ दुरुस्ती नामंजूर', PIN_RESET: '🔑 विद्यार्थी PIN बदल' };
+  box.append(loading());
+  const snap = await db.collection('auditLogs').orderBy('timestamp', 'desc').limit(150).get();
+  const logs = snap.docs.map(d => d.data());
+  function draw() {
+    clear(box);
+    const L = logs.filter(x => !cls || x.classKey === cls);
+    if (!L.length) { box.append(h('p', { class: 'note', text: 'अजून कोणतीही नोंद नाही.' })); return; }
+    L.forEach(x => {
+      const ms = x.timestamp && x.timestamp.toMillis ? x.timestamp.toMillis() : 0, ch = Object.values(x.changes || {});
+      const card = h('div', { class: 'card' }, h('h3', { text: (AC[x.action] || x.action) + ' • ' + clsLabel(x.classKey) }),
+        h('p', { class: 'note', text: 'हजेरी दिनांक: ' + dmy(x.date) + ' • कोणी: ' + (x.userName || x.user) + ' (' + x.user + ') • ' + dmy(iso(new Date(ms))) + ' ' + hm(ms) }));
+      if (x.summary) card.append(h('p', { class: 'note', text: 'उपस्थित ' + x.summary.present + ' • गैरहजर ' + x.summary.absent + ' • उशीर ' + x.summary.late + ' • एकूण ' + x.summary.total }));
+      if (x.reason) card.append(h('p', { class: 'note', text: 'कारण: ' + x.reason }));
+      ch.sort((a, b) => (a.roll || 0) - (b.roll || 0)).forEach(c => card.append(h('div', { class: 'row2' }, h('span', { text: c.roll + '. ' + c.name }), h('span', { text: (c.from ? NAME[c.from] : '—') + ' → ' + NAME[c.to] }))));
+      box.append(card);
+    });
+  }
+  draw();
+}
+
+/* ===== ३) हजेरी अहवाल ===== */
+function download(name, text) {
+  const a = h('a', { href: URL.createObjectURL(new Blob(['\ufeff' + text], { type: 'text/csv;charset=utf-8' })), download: name });
+  document.body.append(a); a.click(); a.remove();
+}
+const csvCell = v => '"' + String(v === null || v === undefined ? '' : v).replace(/"/g, '""') + '"';
+async function vRep(root) {
+  const keys = myKeys(); if (!keys.length) { root.append(noClass()); return; }
+  let key = keys[0], month = today().slice(0, 7), ticket = 0, rows = [];
+  const box = h('div');
+  const mi = h('input', { type: 'month', value: month, 'aria-label': 'महिना' });
+  mi.addEventListener('change', () => { month = mi.value || month; load(); });
+  root.append(h('div', { class: 'bar' }, classSel(keys, key, v => { key = v; load(); }), mi), box);
+  const stat = (sid, ds) => tally(ds.map(d => (d.marks || {})[sid]));
+  async function load() {
+    const my = ++ticket; clear(box); box.append(loading());
+    const st = await loadStudents(key);
+    const q = await db.collection('attendance').where('classKey', '==', key).get();
+    if (my !== ticket) return;
+    const all = q.docs.map(d => d.data()), ay = all.filter(d => (d.date || '') >= ayStart());
+    const days = all.filter(d => (d.date || '').startsWith(month));
+    rows = st.map(s => { const m = stat(s.id, days), y = stat(s.id, ay); return Object.assign({ id: s.id, roll: s.roll, name: s.name, phone: s.phone, y, lv: lvOf(y.pct) }, m); });
+    clear(box);
+    if (!st.length) { box.append(h('p', { class: 'note', text: 'या वर्गात विद्यार्थी नाहीत.' })); return; }
+    const profBox = h('div');
+
+    /* --- Shiva हजेरी अंतर्दृष्टी (नियमांवर आधारित, फोनवरच गणित) --- */
+    const insight = h('div', { class: 'card ins' }, h('h3', { text: '🤖 Shiva हजेरी अंतर्दृष्टी' }));
+    const mm = {}; ay.forEach(d => { const k = d.date.slice(0, 7); (mm[k] = mm[k] || { p: 0, t: 0 }); mm[k].p += (d.present || 0) + (d.late || 0); mm[k].t += d.total || 0; });
+    const ms = Object.keys(mm).sort();
+    if (ms.length >= 2) {
+      const cur = Math.round(mm[ms[ms.length - 1]].p * 100 / (mm[ms[ms.length - 1]].t || 1)), prv = Math.round(mm[ms[ms.length - 2]].p * 100 / (mm[ms[ms.length - 2]].t || 1));
+      insight.append(h('p', { text: cur < prv - 1 ? '📉 वर्गाची हजेरी कमी होत आहे: ' + prv + '% → ' + cur + '%' : cur > prv + 1 ? '📈 वर्गाची हजेरी सुधारत आहे: ' + prv + '% → ' + cur + '%' : '➡️ वर्गाची हजेरी स्थिर आहे (' + cur + '%).' }));
+    }
+    const lows = rows.filter(r => r.lv).sort((a, b) => a.y.pct - b.y.pct), T = CONFIG.LOW_PCT / 100;
+    if (!lows.length) insight.append(h('p', { text: ay.length ? '✅ सर्व विद्यार्थ्यांची वर्षभराची हजेरी ' + CONFIG.LOW_PCT + '% किंवा जास्त आहे.' : 'अजून पुरेशी हजेरी माहिती नाही.' }));
+    else {
+      insight.append(h('p', { text: 'या वर्गात ' + lows.length + ' विद्यार्थ्यांची हजेरी ' + CONFIG.LOW_PCT + '% पेक्षा कमी आहे:' }));
+      const ul = h('ul', { style: 'padding-left:18px;margin:0' });
+      lows.slice(0, 6).forEach(r => {
+        const att = r.y.att, k10 = Math.ceil(T * (r.y.tot + 10) - att - 1e-9), nAll = Math.ceil((T * r.y.tot - att) / (1 - T) - 1e-9);
+        ul.append(h('li', { text: r.lv.icon + ' ' + r.name + ' — ' + r.y.pct + '%. ' + (k10 <= 0 ? '' : k10 <= 10 ? 'पुढील १० दिवसांपैकी ' + k10 + ' दिवस उपस्थित राहिल्यास ' + CONFIG.LOW_PCT + '% गाठता येईल.' : 'पुढील १० दिवसांत ' + CONFIG.LOW_PCT + '% गाठणे शक्य नाही; सलग ' + nAll + ' दिवस १००% उपस्थिती लागेल.') }));
+      });
+      insight.append(ul);
+    }
+    insight.append(h('p', { class: 'note', text: 'वर्षभर = ' + dmy(ayStart()) + ' पासून (उशीर/शाळेचे काम = उपस्थित, अर्धा दिवस = ०.५, रजा वगळली). हे अंदाज हजेरी आकडेवारीवरून काढले आहेत.' }));
+    box.append(insight);
+
+    /* --- चेतावणी पातळी + पालक संदेश --- */
+    if (lows.length) {
+      const wc = h('div', { class: 'card' }, h('h3', { text: '🚨 कमी हजेरी – चेतावणी (वर्षभर)' }),
+        h('p', { class: 'note', text: '🟡 सूचना < ' + CONFIG.LOW_PCT + '%   🟠 गंभीर इशारा < ' + CONFIG.SERIOUS_PCT + '%   🔴 अतिगंभीर < ' + CONFIG.CRIT_PCT + '%' }));
+      lows.forEach(r => { const num = validPhone(r.phone);
+        wc.append(h('div', { class: 'row2' }, h('button', { class: 'lnk', type: 'button', text: r.lv.icon + ' ' + r.roll + '. ' + r.name + ' – ' + r.y.pct + '% (' + r.lv.label + ')', onclick: () => profile(r) }),
+          num ? h('a', { class: 'wa', href: 'https://wa.me/' + num + '?text=' + encodeURIComponent(lowMsg(r.name, r.y.pct)), target: '_blank', rel: 'noopener', text: 'पालकांना संदेश' }) : h('span', { class: 'note', text: 'फोन नंबर नाही' }))); });
+      box.append(wc);
+    }
+    box.append(profBox);
+
+    /* --- विद्यार्थी हजेरी प्रोफाइल --- */
+    function profile(r) {
+      clear(profBox);
+      const y = r.y, pc = n => y.tot ? Math.round(n * 100 / y.tot) : 0, mon = {};
+      ay.forEach(d => { const m = (d.marks || {})[r.id]; if (!m) return; const k = d.date.slice(0, 7); (mon[k] = mon[k] || []).push(m); });
+      const card = h('div', { class: 'card', style: 'border-color:var(--gold)' }, h('div', { class: 'row2' }, h('h3', { text: '👤 ' + r.name + ' – हजेरी प्रोफाइल' }), h('button', { class: 'btn sm ghost', type: 'button', text: 'बंद', onclick: () => clear(profBox) })));
+      if (!y.tot) card.append(h('p', { class: 'note', text: 'या वर्षात अजून हजेरी नोंद नाही.' }));
+      else {
+        card.append(hbar('उपस्थित', pc(y.P), '%', 'var(--green)'), hbar('गैरहजर', pc(y.A), '%', 'var(--red)'), hbar('उशीर', pc(y.L), '%', 'var(--amber)'),
+          h('p', { text: 'एकूण दिवस ' + y.tot + ' • उपस्थित ' + y.P + ' • गैरहजर ' + y.A + ' • उशीर ' + y.L }),
+          h('p', { text: 'एकूण हजेरी (उशीर धरून): ' + y.pct + '% ' + (r.lv ? r.lv.icon + ' ' + r.lv.label : '✅') }), h('h3', { text: 'महिनावार हजेरी' }));
+        Object.keys(mon).sort().forEach(k => { const p = tally(mon[k]).pct || 0;
+          card.append(hbar(monthLabel(k) + (p < CONFIG.LOW_PCT ? ' ⚠️' : ''), p)); });
+      }
+      profBox.append(card); profBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* --- तक्ता --- */
+    box.append(h('p', { class: 'note', text: 'निवडलेल्या महिन्यात हजेरी घेतलेले दिवस: ' + days.length + ' (उशीर/शाळेचे काम = उपस्थित, अर्धा दिवस = ०.५, रजा वगळली). नावावर टॅप करा → विद्यार्थी प्रोफाइल.' }));
+    const t = h('table', {}, h('thead', {}, h('tr', {}, ['क्र.', 'नाव', 'उपस्थित', 'गैरहजर', 'उशीर', 'दिवस', 'महिना %', 'वर्ष %', 'स्थिती'].map(x => h('th', { text: x })))));
+    const tb = h('tbody');
+    rows.forEach(r => tb.append(h('tr', { class: r.lv ? r.lv.cls : '' },
+      h('td', { text: r.roll }), h('td', {}, h('button', { class: 'lnk', type: 'button', text: r.name, onclick: () => profile(r) })),
+      [r.P, r.A, r.L, r.tot, r.pct === null ? '-' : r.pct + '%', r.y.pct === null ? '-' : r.y.pct + '%', r.lv ? r.lv.icon + ' ' + r.lv.label : (r.y.pct === null ? '' : '✅')].map(x => h('td', { text: x })))));
+    t.append(tb);
+    box.append(h('div', { class: 'card tw' }, t), h('button', { class: 'btn gold', text: 'Excel (CSV) डाउनलोड', onclick: () => {
+      const lines = [['हजेरी क्र.', 'नाव', 'उपस्थित', 'गैरहजर', 'उशीर', 'महिन्यातील दिवस', 'महिना %', 'वर्षभर %', 'स्थिती'].map(csvCell).join(',')].concat(rows.map(r => [r.roll, r.name, r.P, r.A, r.L, r.tot, r.pct, r.y.pct, r.lv ? r.lv.label : ''].map(csvCell).join(',')));
+      download('हजेरी_' + key + '_' + month + '.csv', lines.join('\r\n'));
+    } }));
+  }
+  await load();
+}
+
+/* ===== ४) गुण भरा ===== */
+const mkId = (key, exam, subj, yr) => (yr && yr !== LEGACY_YEAR ? yr + '_' : '') + key + '_' + slug(exam) + '_' + slug(subj);
+async function vMarks(root) {
+  const keys = myKeys(); if (!keys.length) { root.append(noClass()); return; }
+  let key = keys[0];
+  const exam = h('input', { type: 'text', value: CONFIG.EXAMS[0], list: 'examlist', 'aria-label': 'परीक्षा', style: 'width:100%' });
+  const subj = h('input', { type: 'text', list: 'sublist', placeholder: 'विषय निवडा / लिहा', 'aria-label': 'विषय', style: 'width:100%' });
+  const max = h('input', { type: 'number', value: '100', min: '1', inputmode: 'numeric', 'aria-label': 'कमाल गुण', style: 'width:100px' });
+  const box = h('div'), msg = h('p', { class: 'err' });
+  const open = h('button', { class: 'btn', text: 'यादी उघडा', onclick: openGrid });
+  root.append(h('div', { class: 'card' }, h('div', { class: 'bar' }, classSel(keys, key, v => { key = v; clear(box); })),
+    h('label', { class: 'f', text: 'परीक्षा' }), exam, h('label', { class: 'f', text: 'विषय' }), subj,
+    h('label', { class: 'f', text: 'कमाल गुण' }), max, h('div', { class: 'bar', style: 'margin-top:10px' }, open), msg), box);
+  async function openGrid() {
+    msg.textContent = '';
+    const ex = exam.value.trim(), sb = subj.value.trim(), mx = parseFloat(max.value);
+    if (!ex || !sb || !(mx > 0)) { msg.textContent = 'परीक्षा, विषय आणि कमाल गुण भरा.'; return; }
+    clear(box); box.append(loading());
+    const st = await loadStudents(key);
+    const snap = await db.collection('marks').doc(mkId(key, ex, sb, curYear())).get();
+    const old = snap.exists ? (snap.data().scores || {}) : {};
+    clear(box);
+    if (!st.length) { box.append(h('p', { class: 'note', text: 'या वर्गात विद्यार्थी नाहीत.' })); return; }
+    const inputs = {}, stats = h('div', { class: 'sum' });
+    function recalc() {
+      const v = Object.keys(inputs).map(id => parseFloat(inputs[id].value)).filter(x => !isNaN(x));
+      clear(stats); if (!v.length) return;
+      const avg = v.reduce((a, b) => a + b, 0) / v.length, pass = v.filter(x => x * 100 / mx >= CONFIG.PASS_PCT).length;
+      stats.append(h('span', { class: 'b', text: 'सरासरी ' + avg.toFixed(1) }), h('span', { class: 'p', text: 'सर्वाधिक ' + Math.max(...v) }), h('span', { class: 'l', text: 'किमान ' + Math.min(...v) }), h('span', { class: 'a', text: 'उत्तीर्ण ' + pass + '/' + v.length }));
+    }
+    const card = h('div', { class: 'card' }, h('h3', { text: clsLabel(key) + ' – ' + ex + ' – ' + sb + ' (कमाल ' + mx + ')' }), h('p', { class: 'note', text: 'गुण न भरल्यास तो विद्यार्थी त्या विषयात गृहीत धरला जाणार नाही (गैरहजर).' }), stats);
+    st.forEach(s => {
+      const inp = h('input', { type: 'number', min: '0', max: String(mx), step: '0.5', inputmode: 'decimal', style: 'width:90px;text-align:right', 'aria-label': s.name + ' गुण', value: old[s.id] !== undefined && old[s.id] !== null ? old[s.id] : '' });
+      inp.addEventListener('input', () => { const v = parseFloat(inp.value); inp.classList.toggle('bad', !isNaN(v) && (v < 0 || v > mx)); recalc(); });
+      inputs[s.id] = inp; card.append(h('div', { class: 'row2' }, h('span', { text: s.roll + '. ' + s.name }), inp));
+    });
+    const save = h('button', { class: 'btn gold', text: 'गुण जतन करा', onclick: async () => {
+      const scores = {}; let bad = 0;
+      Object.keys(inputs).forEach(id => { const raw = inputs[id].value.trim(); if (raw === '') return; const v = parseFloat(raw); if (isNaN(v) || v < 0 || v > mx) { bad++; return; } scores[id] = v; });
+      if (bad) { toast(bad + ' ठिकाणी गुण चुकीचे आहेत (० ते ' + mx + ').'); return; }
+      save.disabled = true;
+      const roster = {}; st.forEach(x => { if (scores[x.id] !== undefined) roster[x.id] = { n: x.name, r: x.roll }; });
+      try { await db.collection('marks').doc(mkId(key, ex, sb, curYear())).set({ classKey: key, year: curYear(), exam: ex, subject: sb, max: mx, scores, roster, by: me.email, updatedAt: Date.now() }); toast('गुण जतन झाले ✔'); }
+      catch (e) { console.error(e); toast('जतन झाले नाही. पुन्हा प्रयत्न करा.'); }
+      save.disabled = false;
+    } });
+    card.append(h('div', { class: 'bar', style: 'margin-top:12px' }, save)); box.append(card); recalc();
+  }
+}
+
+/* ===== ५) निकाल + प्रगतीपुस्तक ===== */
+function calcResult(students, docs, exam) {
+  const ds = docs.filter(d => d.exam === exam).sort((a, b) => a.subject.localeCompare(b.subject, 'mr'));
+  const rows = students.map(s => {
+    let got = 0, mx = 0; const cells = {}, fails = [];
+    ds.forEach(d => { const v = (d.scores || {})[s.id]; if (v === undefined || v === null) { cells[d.subject] = null; return; } cells[d.subject] = v; got += v; mx += d.max; if (v * 100 / d.max < CONFIG.PASS_PCT) fails.push(d.subject); });
+    return { s, cells, got, mx, fails, pct: mx ? Math.round(got * 1000 / mx) / 10 : null };
+  });
+  const ranked = rows.filter(r => r.pct !== null).sort((a, b) => b.pct - a.pct);
+  ranked.forEach((r, i) => { r.rank = i > 0 && ranked[i - 1].pct === r.pct ? ranked[i - 1].rank : i + 1; });
+  return { ds, rows };
+}
+function attOf(sid, attDocs) { const r = tally(attDocs.map(d => (d.marks || {})[sid])); r.t = r.tot; return r; }
+function progressCard(r, res, exam, key, attDocs) {
+  const a = attOf(r.s.id, attDocs);
+  const tb = h('tbody');
+  res.ds.forEach(d => { const v = r.cells[d.subject]; tb.append(h('tr', {}, h('td', { text: d.subject }), h('td', { text: d.max }), h('td', { text: v === null || v === undefined ? 'अनुपस्थित' : v }), h('td', { text: v === null || v === undefined ? '-' : Math.round(v * 1000 / d.max) / 10 + '%' }))); });
+  tb.append(h('tr', {}, h('th', { text: 'एकूण' }), h('th', { text: r.mx }), h('th', { text: r.got }), h('th', { text: r.pct === null ? '-' : r.pct + '%' })));
+  const status = r.pct === null ? '-' : (r.fails.length ? 'सुधारणा आवश्यक (' + r.fails.join(', ') + ')' : 'उत्तीर्ण');
+  return h('div', { class: 'pc' }, h('h1', { text: CONFIG.SCHOOL }), h('h2', { text: 'प्रगतीपुस्तक – ' + exam }),
+    h('div', { class: 'meta' }, h('span', {}, h('b', { text: 'विद्यार्थी: ' }), r.s.name), h('span', {}, h('b', { text: 'वर्ग: ' }), clsLabel(key)), h('span', {}, h('b', { text: 'हजेरी क्र.: ' }), r.s.roll)),
+    h('table', {}, h('thead', {}, h('tr', {}, ['विषय', 'कमाल गुण', 'मिळालेले गुण', 'टक्के'].map(x => h('th', { text: x })))), tb),
+    h('div', { class: 'meta', style: 'margin-top:10px' }, h('span', {}, h('b', { text: 'श्रेणी: ' }), r.pct === null ? '-' : gradeOf(r.pct)), h('span', {}, h('b', { text: 'वर्गात क्रमांक: ' }), r.rank || '-'), h('span', {}, h('b', { text: 'निकाल: ' }), status)),
+    h('div', { class: 'meta' }, h('span', {}, h('b', { text: 'हजेरी: ' }), a.t ? a.pct + '% (' + a.att + ' / ' + a.t + ' दिवस)' : '-'), h('span', {}, h('b', { text: 'दिनांक: ' }), dmy(today()))),
+    h('div', { class: 'sig' }, h('span', { text: 'वर्गशिक्षक' }), h('span', { text: 'पालक' }), h('span', { text: 'मुख्याध्यापक' })));
+}
+function preview(cards) {
+  const ov = h('div', { id: 'pv' }, h('div', { class: 'pvbar' }, h('button', { class: 'btn gold', text: 'छापा / PDF जतन करा', onclick: () => window.print() }), h('button', { class: 'btn ghost', text: 'बंद करा', onclick: () => ov.remove() })), cards);
+  document.body.append(ov);
+}
+async function vResult(root) {
+  const keys = myKeys(); if (!keys.length) { root.append(noClass()); return; }
+  let key = keys[0], ticket = 0, exam = '', year = curYear();
+  const box = h('div'), examBox = h('span');
+  root.append(h('div', { class: 'bar' }, classSel(keys, key, v => { key = v; exam = ''; load(); }), yearSel(year, v => { year = v; exam = ''; load(); }), examBox), box);
+  let st = [], docs = [], attDocs = [];
+  async function load() {
+    const my = ++ticket; clear(box); clear(examBox); box.append(loading());
+    const r = await Promise.all([loadStudents(key), db.collection('marks').where('classKey', '==', key).get(), db.collection('attendance').where('classKey', '==', key).get()]);
+    if (my !== ticket) return;
+    docs = r[1].docs.map(d => d.data()).filter(d => (d.year || LEGACY_YEAR) === year);
+    attDocs = r[2].docs.map(d => d.data()).filter(d => (d.date || '') >= ayFrom(year) && (d.date || '') <= ayTo(year));
+    st = r[0];
+    if (year !== curYear()) { const mp = {}; docs.forEach(d => Object.entries(d.roster || {}).forEach(([id, v]) => { mp[id] = { id, name: v.n, roll: v.r }; })); const arr = Object.values(mp).sort((a, b) => (a.roll || 0) - (b.roll || 0)); if (arr.length) st = arr; }
+    const latest = {}; docs.forEach(d => { latest[d.exam] = Math.max(latest[d.exam] || 0, d.updatedAt || 0); });
+    const exams = Object.keys(latest).sort((a, b) => latest[b] - latest[a]);
+    clear(box);
+    if (!exams.length) { box.append(h('p', { class: 'note', text: 'या वर्गाचे अजून गुण भरलेले नाहीत. "गुण भरा" भागातून भरा.' })); return; }
+    if (!exams.includes(exam)) exam = exams[0];
+    const sel = h('select', { 'aria-label': 'परीक्षा' }); exams.forEach(e => sel.append(h('option', { value: e, text: e }))); sel.value = exam;
+    sel.addEventListener('change', () => { exam = sel.value; show(); }); examBox.append(sel); show();
+  }
+  function show() {
+    clear(box);
+    const res = calcResult(st, docs, exam), done = res.rows.filter(r => r.pct !== null);
+    if (!done.length) { box.append(h('p', { class: 'note', text: 'या परीक्षेचे गुण अजून भरलेले नाहीत.' })); return; }
+    const avg = done.reduce((a, r) => a + r.pct, 0) / done.length, pass = done.filter(r => !r.fails.length).length;
+    const top = done.slice().sort((a, b) => b.pct - a.pct)[0];
+    box.append(h('div', { class: 'kpi' }, h('div', {}, h('b', { text: avg.toFixed(1) + '%' }), h('small', { text: 'वर्ग सरासरी' })), h('div', {}, h('b', { text: pass + '/' + done.length }), h('small', { text: 'सर्व विषयांत उत्तीर्ण' })), h('div', {}, h('b', { text: top.s.name }), h('small', { text: 'प्रथम क्रमांक (' + top.pct + '%)' }))));
+    const sc = h('div', { class: 'card' }, h('h3', { text: 'विषयनिहाय वर्ग सरासरी %' }));
+    res.ds.forEach(d => { const v = Object.values(d.scores || {}); sc.append(hbar(d.subject, v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length * 1000 / d.max) / 10 : null, undefined, 'var(--blue)')); });
+    box.append(sc);
+    const head = ['क्र.', 'नाव'].concat(res.ds.map(d => d.subject + ' /' + d.max), ['एकूण', '%', 'श्रेणी', 'क्रमांक', '']);
+    const tb = h('tbody');
+    res.rows.forEach(r => tb.append(h('tr', {}, h('td', { text: r.s.roll }), h('td', { text: r.s.name }),
+      res.ds.map(d => { const v = r.cells[d.subject]; return h('td', { class: v !== null && v !== undefined && v * 100 / d.max < CONFIG.PASS_PCT ? 'fail' : '', text: v === null || v === undefined ? '-' : v }); }),
+      h('td', { text: r.pct === null ? '-' : r.got + '/' + r.mx }), h('td', { text: r.pct === null ? '-' : r.pct + '%' }), h('td', { text: r.pct === null ? '-' : gradeOf(r.pct) }), h('td', { text: r.rank || '-' }),
+      h('td', {}, r.pct === null ? '' : h('button', { class: 'btn ghost sm', text: 'प्रगतीपुस्तक', onclick: () => preview([progressCard(r, res, exam, key, attDocs)]) })))));
+    box.append(h('div', { class: 'card tw' }, h('table', {}, h('thead', {}, h('tr', {}, head.map(x => h('th', { text: x })))), tb)),
+      h('p', { class: 'note', text: 'लाल गुण = ' + CONFIG.PASS_PCT + '% पेक्षा कमी. श्रेणी: A+ ≥90, A ≥80, B+ ≥70, B ≥60, C ≥50, D ≥' + CONFIG.PASS_PCT + ', E खाली.' }),
+      h('div', { class: 'bar' },
+        h('button', { class: 'btn gold', text: 'सर्व प्रगतीपुस्तके छापा', onclick: () => preview(done.map(r => progressCard(r, res, exam, key, attDocs))) }),
+        h('button', { class: 'btn ghost', text: 'Excel (CSV) डाउनलोड', onclick: () => {
+          const lines = [['क्र.', 'नाव'].concat(res.ds.map(d => d.subject + ' (' + d.max + ')'), ['एकूण', 'कमाल', 'टक्के', 'श्रेणी', 'क्रमांक', 'निकाल']).map(csvCell).join(',')]
+            .concat(res.rows.map(r => [r.s.roll, r.s.name].concat(res.ds.map(d => r.cells[d.subject]), [r.pct === null ? '' : r.got, r.mx || '', r.pct, r.pct === null ? '' : gradeOf(r.pct), r.rank, r.pct === null ? '' : (r.fails.length ? 'सुधारणा आवश्यक' : 'उत्तीर्ण')]).map(csvCell).join(',')));
+          download('निकाल_' + key + '_' + slug(exam) + '.csv', lines.join('\r\n'));
+        } })));
+  }
+  await load();
+}
+
+/* ===== ६) गृहपाठ (विषय → पाठ → तपशील → लिंक → जमा → तपासणी) ===== */
+const HW_ST = { '': ['बाकी', 'badge pending'], S: ['जमा ✔', 'badge sent'], R: ['तपासले ⭐', 'badge'] };
+async function vHw(root) {
+  const keys = myKeys(); if (!keys.length) { root.append(noClass()); return; }
+  let key = keys[0], ticket = 0;
+  const subj = h('input', { type: 'text', list: 'sublist', placeholder: 'विषय', style: 'width:100%', 'aria-label': 'विषय' });
+  const chapter = h('input', { type: 'text', placeholder: 'पाठ / प्रकरण (ऐच्छिक)', style: 'width:100%', maxlength: '80', 'aria-label': 'पाठ' });
+  const title = h('input', { type: 'text', placeholder: 'गृहपाठाचा विषय / मथळा', style: 'width:100%', maxlength: '120', 'aria-label': 'मथळा' });
+  const text = h('textarea', { placeholder: 'तपशील (पाने, प्रश्न क्रमांक इ.)', maxlength: '1000' });
+  const link = h('input', { type: 'url', placeholder: 'https://… (PDF / Google Drive / व्हिडिओ लिंक – ऐच्छिक)', style: 'width:100%', maxlength: '300', 'aria-label': 'जोडपत्र लिंक' });
+  const due = h('input', { type: 'date', 'aria-label': 'शेवटची तारीख', min: today() });
+  const msg = h('p', { class: 'note' }), list = h('div');
+  const pc = h('input', { type: 'checkbox' }), mx = h('input', { type: 'number', value: '10', min: '1', max: '100', style: 'width:100%', 'aria-label': 'एकूण गुण' });
+  const keyTa = h('textarea', { placeholder: 'आदर्श उत्तरे / गुणदान सूचना (AI साठी; विद्यार्थ्यांना दिसणार नाही). उदा. 1) 25 (2 गुण) 2) …', maxlength: '3000', style: 'min-height:90px' });
+  const post = h('button', { class: 'btn gold', text: 'गृहपाठ प्रकाशित करा', onclick: async () => {
+    if (!title.value.trim()) { msg.textContent = 'मथळा लिहा.'; return; }
+    const lk = link.value.trim();
+    if (lk && !/^https:\/\/\S+$/i.test(lk)) { msg.textContent = 'लिंक https:// ने सुरू होणारी हवी.'; return; }
+    post.disabled = true;
+    try {
+      const st = await loadStudents(key);
+      const hwRef = await db.collection('homework').add({ classKey: key, year: curYear(), subject: subj.value.trim(), chapter: chapter.value.trim(), title: title.value.trim(), text: text.value.trim(), due: due.value || '', link: lk, assigned: st.length, byName: me.name, createdAt: Date.now(), photo: pc.checked, maxMarks: pc.checked ? (parseFloat(mx.value) || 10) : 0 });
+      if (pc.checked) await db.collection('hwKeys').doc(hwRef.id).set({ classKey: key, key: keyTa.value.trim().slice(0, 3000), createdAt: Date.now() });
+      pc.checked = false; keyTa.value = '';
+      msg.textContent = 'प्रकाशित झाला. विद्यार्थी bdschandur.in/homework.html वर पाहू शकतील.'; title.value = ''; chapter.value = ''; text.value = ''; link.value = ''; due.value = ''; await show();
+    } catch (e) { console.error(e); msg.textContent = 'प्रकाशित झाला नाही.'; }
+    post.disabled = false;
+  } });
+  root.append(h('div', { class: 'bar' }, classSel(keys, key, v => { key = v; show(); })),
+    h('div', { class: 'card' }, h('h3', { text: 'नवीन गृहपाठ / सूचना' }), h('label', { class: 'f', text: 'विषय' }), subj, h('label', { class: 'f', text: 'पाठ / प्रकरण' }), chapter, h('label', { class: 'f', text: 'मथळा' }), title, h('label', { class: 'f', text: 'तपशील' }), text, h('label', { class: 'f', text: 'जोडपत्र लिंक (ऐच्छिक)' }), link, h('label', { class: 'f', text: 'सादर करण्याची तारीख (ऐच्छिक)' }), due,
+      h('label', { class: 'f' }, pc, ' 📷 विद्यार्थ्यांनी वहीचा फोटो पाठवावा (AI तपासेल)'),
+      h('label', { class: 'f', text: 'एकूण गुण (फोटो गृहपाठासाठी)' }), mx, h('label', { class: 'f', text: 'आदर्श उत्तरे / गुणदान सूचना (गोपनीय)' }), keyTa,
+      h('div', { class: 'bar', style: 'margin-top:10px' }, post), msg), list);
+  async function show() {
+    const my = ++ticket; clear(list); list.append(loading());
+    const r = await Promise.all([db.collection('homework').where('classKey', '==', key).get(), db.collection('homeworkSubmissions').where('classKey', '==', key).get()]);
+    if (my !== ticket) return; clear(list);
+    const sub = {}; r[1].docs.forEach(d => sub[d.id] = d.data());
+    const items = r[0].docs.map(d => Object.assign({ id: d.id }, d.data())).filter(x => (x.year || ayOf(iso(new Date(x.createdAt)))) === curYear()).sort((a, b) => b.createdAt - a.createdAt);
+    const card = h('div', { class: 'card' }, h('h3', { text: clsLabel(key) + ' – दिलेला गृहपाठ (' + items.length + ')' }));
+    if (!items.length) card.append(h('p', { class: 'note', text: 'अजून काही नाही.' }));
+    items.slice(0, 30).forEach(x => {
+      const status = (sub[x.id] || {}).status || {}, vals = Object.values(status), done = vals.length, rev = vals.filter(v => v === 'R').length, asg = x.assigned || 0, pend = Math.max(0, asg - done);
+      const panel = h('div');
+      card.append(h('div', { class: 'hw' }, h('b', { text: (x.subject ? x.subject + ': ' : '') + (x.chapter ? '[' + x.chapter + '] ' : '') + x.title }), x.text ? h('div', { text: x.text }) : null,
+        /^https:\/\//i.test(x.link || '') ? h('div', {}, h('a', { href: x.link, target: '_blank', rel: 'noopener noreferrer', text: '📎 जोडपत्र उघडा' })) : null,
+        h('div', { class: 'note', text: dmy(iso(new Date(x.createdAt))) + (x.due ? ' • सादर: ' + dmy(x.due) : '') + ' • ' + (x.byName || '') }),
+        h('div', { class: 'sum', style: 'margin-top:8px' }, h('span', { class: 'b', text: 'दिले ' + asg }), h('span', { class: 'p', text: 'जमा ' + done }), h('span', { class: 'a', text: 'बाकी ' + pend }), h('span', { class: 'l', text: 'तपासले ' + rev })),
+        hbar('जमा', asg ? Math.min(100, Math.round(done * 100 / asg)) : 0, done + '/' + asg, 'var(--green)'),
+        h('div', { class: 'bar', style: 'margin-top:8px' },
+          h('button', { class: 'btn ghost sm', text: 'जमा तपासा', onclick: () => openSub(x, status, panel) }),
+          h('button', { class: 'btn red sm', text: 'काढा', onclick: async () => { if (!confirm('हा गृहपाठ काढायचा?')) return; try { await db.collection('homework').doc(x.id).delete(); db.collection('homeworkSubmissions').doc(x.id).delete().catch(() => {}); show(); } catch (e) { toast('काढता आले नाही.'); } } })),
+        panel));
+    });
+    list.append(card);
+  }
+  async function openSub(x, status0, panel) {
+    if (panel.firstChild) { clear(panel); return; }
+    panel.append(loading());
+    const st = await loadStudents(key); clear(panel);
+    if (!st.length) { panel.append(h('p', { class: 'note', text: 'या वर्गात विद्यार्थी नाहीत.' })); return; }
+    const status = Object.assign({}, status0), rows = h('div'), pendBox = h('p', { class: 'note' });
+    function paint() {
+      clear(rows); let p = 0;
+      st.forEach(s => {
+        const v = status[s.id] || '', b = h('button', { class: HW_ST[v][1] + ' sm', style: 'border:0;cursor:pointer;color:#fff', text: HW_ST[v][0], onclick: () => { const n = v === '' ? 'S' : v === 'S' ? 'R' : ''; if (n) status[s.id] = n; else delete status[s.id]; paint(); } });
+        if (!v) p++; rows.append(h('div', { class: 'row2' }, h('span', { text: s.roll + '. ' + s.name }), b));
+      });
+      pendBox.textContent = 'बाकी: ' + p + ' विद्यार्थी' + (p ? ' – ' + st.filter(s => !status[s.id]).map(s => s.roll).join(', ') + ' (क्र.)' : '');
+    }
+    paint();
+    const save = h('button', { class: 'btn gold', text: 'जतन करा', onclick: async () => {
+      save.disabled = true;
+      try { await db.collection('homeworkSubmissions').doc(x.id).set({ classKey: key, hwId: x.id, year: x.year || curYear(), status, updatedAt: Date.now(), by: me.email }); toast('जतन झाले ✔'); await show(); }
+      catch (e) { console.error(e); toast('जतन झाले नाही.'); save.disabled = false; }
+    } });
+    panel.append(h('p', { class: 'note', text: 'विद्यार्थ्याच्या बटणावर दाबा: बाकी → जमा → तपासले → बाकी.' }), pendBox, rows,
+      h('div', { class: 'bar', style: 'margin-top:8px' }, h('button', { class: 'btn ghost sm', text: 'सर्वांना जमा', onclick: () => { st.forEach(s => { if (!status[s.id]) status[s.id] = 'S'; }); paint(); } }), save));
+  }
+  await show();
+}
+
+/* ===== ७) विद्यार्थी यादी (फक्त Admin) – कायमचा Student ID + इतिहास ===== */
+const STATUS_MR = { active: 'सक्रिय', left: 'शाळा सोडली', passed: 'उत्तीर्ण (पास आऊट)' };
+const S_FIELDS = [['roll', 'हजेरी क्र.', 'number'], ['name', 'विद्यार्थ्याचे पूर्ण नाव', 'text'], ['admissionNo', 'प्रवेश क्र. (जनरल रजिस्टर)', 'text'], ['gender', 'लिंग', 'gender'], ['dob', 'जन्मतारीख', 'date'], ['admissionDate', 'प्रवेश दिनांक', 'date'], ['fatherName', 'वडिलांचे नाव', 'text'], ['motherName', 'आईचे नाव', 'text'], ['parentName', 'पालकाचे नाव (वेगळे असल्यास)', 'text'], ['phone', 'पालकाचा मोबाईल', 'tel'], ['address', 'पत्ता', 'text']];
+const lastYearOf = s => { const hs = s.history || []; return hs.length ? hs[hs.length - 1].year : null; };
+async function vStu(root) {
+  let key = CLASSES[0].key, ticket = 0;
+  const list = h('div'), form = h('div');
+  const ta = h('textarea', { placeholder: 'क्र., नाव, मोबाईल, प्रवेश क्र., लिंग (M/F), जन्मतारीख (YYYY-MM-DD)\n1, अनुष्का पाटील, 9876543210, 1204, F, 2013-05-21\n2, रिया देशमुख, 9123456780', 'aria-label': 'विद्यार्थी यादी' });
+  const msg = h('p', { class: 'note' });
+  const add = h('button', { class: 'btn gold', text: 'यादी जोडा', onclick: async () => {
+    add.disabled = true; msg.textContent = '';
+    try {
+      const have = new Set((await loadStudentsAll(key)).filter(s => s.status !== 'left').map(s => s.roll));
+      const batch = db.batch(); let ok = 0, dup = 0, bad = 0; const seen = new Set(), now = Date.now();
+      ta.value.split('\n').forEach(line => {
+        if (!line.trim()) return;
+        const p = line.split(/\t|,|;/).map(x => x.trim()), roll = parseInt(p[0], 10);
+        if (!roll || !p[1]) { bad++; return; }
+        if (have.has(roll) || seen.has(roll)) { dup++; return; }
+        const g = (p[4] || '').toUpperCase(), dob = /^\d{4}-\d{2}-\d{2}$/.test(p[5] || '') ? p[5] : '', ref = db.collection('students').doc();
+        seen.add(roll);
+        batch.set(ref, { studentId: ref.id, classKey: key, roll, name: p[1].slice(0, 60), phone: (p[2] || '').replace(/\D/g, ''), admissionNo: (p[3] || '').slice(0, 20), gender: g === 'M' || g === 'F' ? g : '', dob, status: 'active', history: [{ year: curYear(), classKey: key, roll }], createdAt: now, updatedAt: now }); ok++;
+      });
+      if (ok) await batch.commit();
+      msg.textContent = ok + ' विद्यार्थी जोडले' + (dup ? ', ' + dup + ' क्रमांक आधीच होते (वगळले)' : '') + (bad ? ', ' + bad + ' ओळी चुकीच्या (वगळल्या)' : '') + '.';
+      if (ok) ta.value = ''; await show();
+    } catch (e) { console.error(e); msg.textContent = 'जोडता आले नाही. पुन्हा प्रयत्न करा.'; }
+    add.disabled = false;
+  } });
+  root.append(h('div', { class: 'bar' }, classSel(CLASSES.map(c => c.key), key, v => { key = v; clear(form); show(); }), h('span', { class: 'note', text: 'शैक्षणिक वर्ष ' + curYear() })),
+    h('div', { class: 'card' }, h('h3', { text: 'नवीन विद्यार्थी जोडा' }), h('div', { class: 'bar' }, h('button', { class: 'btn', text: '➕ एक विद्यार्थी (पूर्ण माहिती)', onclick: () => editor(null) })), h('p', { class: 'note', text: 'किंवा Excel मधून अनेक विद्यार्थी पेस्ट करा (क्र., नाव, मोबाईल, प्रवेश क्र., लिंग, जन्मतारीख – पहिले २ रकाने आवश्यक). प्रत्येक विद्यार्थी वेगळ्या ओळीत.' }), ta, h('div', { class: 'bar', style: 'margin-top:8px' }, add), msg), pinCard(() => key, true), form, list);
+
+  function editor(s) {
+    clear(form);
+    const inp = {}, err = h('p', { class: 'err' }), d = s || {};
+    const grid = h('div', { class: 'grid2' });
+    S_FIELDS.forEach(([k, l, t]) => {
+      const e = t === 'gender' ? h('select', {}, h('option', { value: '', text: '—' }), h('option', { value: 'M', text: 'मुलगा' }), h('option', { value: 'F', text: 'मुलगी' })) : h('input', { type: t, maxlength: k === 'address' ? '200' : '60', style: 'width:100%' });
+      e.value = d[k] === undefined || d[k] === null ? '' : d[k]; inp[k] = e; grid.append(h('div', {}, h('label', { class: 'f', text: l }), e));
+    });
+    const save = h('button', { class: 'btn gold', text: s ? 'बदल जतन करा' : 'विद्यार्थी जोडा', onclick: async () => {
+      err.textContent = '';
+      const roll = parseInt(inp.roll.value, 10), name = inp.name.value.trim(), ph = inp.phone.value.replace(/\D/g, '');
+      if (!(roll > 0) || name.length < 2) { err.textContent = 'हजेरी क्र. आणि नाव आवश्यक आहे.'; return; }
+      if (ph && ph.length < 10) { err.textContent = 'मोबाईल क्रमांक १० अंकी हवा.'; return; }
+      save.disabled = true;
+      try {
+        const all = await loadStudentsAll(key);
+        if (all.some(x => x.roll === roll && x.status !== 'left' && (!s || x.id !== s.id))) { err.textContent = 'हा हजेरी क्रमांक वर्गात आधीच आहे.'; save.disabled = false; return; }
+        const data = { roll, name, phone: ph, admissionNo: inp.admissionNo.value.trim(), gender: inp.gender.value, dob: inp.dob.value, admissionDate: inp.admissionDate.value, fatherName: inp.fatherName.value.trim(), motherName: inp.motherName.value.trim(), parentName: inp.parentName.value.trim(), address: inp.address.value.trim(), updatedAt: Date.now() };
+        if (s) {
+          data.history = (s.history || []).map(e => (e.year === curYear() && e.classKey === s.classKey) ? Object.assign({}, e, { roll }) : e);
+          await db.collection('students').doc(s.id).update(data);
+        } else {
+          const ref = db.collection('students').doc();
+          await ref.set(Object.assign({ studentId: ref.id, classKey: key, status: 'active', createdAt: Date.now(), history: [{ year: curYear(), classKey: key, roll }] }, data));
+        }
+        toast('जतन झाले ✔'); clear(form); show();
+      } catch (e) { console.error(e); err.textContent = 'जतन झाले नाही. पुन्हा प्रयत्न करा.'; save.disabled = false; }
+    } });
+    form.append(h('div', { class: 'card' }, h('h3', { text: s ? 'संपादन – ' + s.name : 'नवीन विद्यार्थी – ' + clsLabel(key) }), grid, err, h('div', { class: 'bar' }, save, h('button', { class: 'btn ghost', text: 'रद्द', onclick: () => clear(form) }))));
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  async function history(s) {
+    clear(form);
+    const card = h('div', { class: 'card' }, h('h3', { text: 'इतिहास – ' + s.name }), h('p', { class: 'note', text: 'Student ID: ' + (s.studentId || s.id) + (s.admissionNo ? ' • प्रवेश क्र.: ' + s.admissionNo : '') }), loading());
+    form.append(card); card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const hs = (s.history && s.history.length ? s.history : [{ year: curYear(), classKey: s.classKey, roll: s.roll }]), cache = {};
+    const tb = h('tbody');
+    for (const e of hs) {
+      let a = '—';
+      if (e.classKey) {
+        if (!cache[e.classKey]) cache[e.classKey] = (await db.collection('attendance').where('classKey', '==', e.classKey).get()).docs.map(x => x.data());
+        const ds = cache[e.classKey].filter(x => (x.date || '') >= ayFrom(e.year) && (x.date || '') <= ayTo(e.year)), t = tally(ds.map(x => (x.marks || {})[s.id]));
+        a = t.pct === null ? '—' : t.pct + '% (' + t.tot + ' दिवस)';
+      }
+      tb.append(h('tr', {}, h('td', { text: e.year }), h('td', { text: e.classKey ? clsLabel(e.classKey) : '—' }), h('td', { text: e.roll || '-' }), h('td', { text: a }), h('td', { text: e.result === 'passed' ? 'उत्तीर्ण' : e.repeat ? 'पुन्हा तोच वर्ग' : '' })));
+    }
+    clear(card); card.append(h('h3', { text: 'इतिहास – ' + s.name }), h('p', { class: 'note', text: 'Student ID: ' + (s.studentId || s.id) + (s.admissionNo ? ' • प्रवेश क्र.: ' + s.admissionNo : '') + ' • स्थिती: ' + (STATUS_MR[s.status || 'active'] || s.status) }),
+      h('div', { class: 'tw' }, h('table', {}, h('thead', {}, h('tr', {}, ['वर्ष', 'वर्ग', 'क्र.', 'हजेरी', ''].map(x => h('th', { text: x })))), tb)), h('div', { class: 'bar', style: 'margin-top:8px' }, h('button', { class: 'btn ghost', text: 'बंद', onclick: () => clear(form) })));
+  }
+
+  async function show() {
+    const my = ++ticket; clear(list); list.append(loading());
+    const st = await loadStudentsAll(key); if (my !== ticket) return; clear(list);
+    const act = st.filter(isActive).length, card = h('div', { class: 'card' }, h('h3', { text: clsLabel(key) + ' – सक्रिय विद्यार्थी: ' + act + (st.length > act ? ' (एकूण नोंदी ' + st.length + ')' : '') }));
+    if (!st.length) card.append(h('p', { class: 'note', text: 'अजून कोणीही नाही.' }));
+    st.forEach(s => card.append(h('div', { class: 'row2', style: isActive(s) ? '' : 'opacity:.6' },
+      h('span', { text: s.roll + '. ' + s.name + (s.admissionNo ? '  [' + s.admissionNo + ']' : '') + (s.phone ? '  (' + s.phone + ')' : '') + (isActive(s) ? '' : ' – ' + (STATUS_MR[s.status] || s.status)) }),
+      h('span', { class: 'bar', style: 'margin:0' },
+        isActive(s) ? h('button', { class: 'btn ghost sm', text: '🔑 PIN', onclick: () => resetPin(s) }) : null,
+        h('button', { class: 'btn ghost sm', text: 'संपादन', onclick: () => editor(s) }),
+        h('button', { class: 'btn ghost sm', text: 'इतिहास', onclick: () => history(s) }),
+        isActive(s) ? h('button', { class: 'btn red sm', text: 'शाळा सोडली', onclick: async () => { if (!confirm(s.name + ' यांची नोंद "शाळा सोडली" करायची? (जुनी हजेरी/गुण तसेच राहतील)')) return; try { await db.collection('students').doc(s.id).update({ status: 'left', leftDate: today(), updatedAt: Date.now() }); toast('नोंद झाली.'); show(); } catch (e) { toast('बदल झाला नाही.'); } } })
+          : h('button', { class: 'btn ghost sm', text: 'पुन्हा सक्रिय', onclick: async () => { try { await db.collection('students').doc(s.id).update({ status: 'active', updatedAt: Date.now() }); show(); } catch (e) { toast('बदल झाला नाही.'); } } }),
+        h('button', { class: 'btn red sm', text: '🗑', title: 'कायमचे हटवा (फक्त चुकीची नोंद)', onclick: async () => { if (!confirm(s.name + ' ची नोंद कायमची हटवायची? याचा इतिहास तुटेल. फक्त चुकून भरलेली नोंद असेल तरच.')) return; try { await db.collection('students').doc(s.id).delete(); toast('हटवले.'); show(); } catch (e) { toast('हटवता आले नाही.'); } } })))));
+    list.append(card);
+  }
+  await show();
+}
+
+/* ===== ८) शैक्षणिक वर्ष – जुनी माहिती अद्ययावत + वर्ग पदोन्नती (फक्त Admin) ===== */
+function nextClassKey(k) {
+  const p = k.split('-'), std = parseInt(p[0], 10), div = p[1];
+  if (div === 'ARTS') return std >= 12 ? 'PASS' : (std + 1) + '-ARTS';
+  const n = std + 1; return std >= 10 ? 'PASS' : n + '-' + div;
+}
+async function vYear(root) {
+  const box = h('div'); root.append(box); box.append(loading());
+  const all = (await db.collection('students').get()).docs.map(d => Object.assign({ id: d.id }, d.data()));
+  clear(box);
+  const needMig = all.filter(s => !s.studentId || !s.status || !s.history).length;
+  box.append(h('div', { class: 'kpi' }, h('div', {}, h('b', { text: curYear() }), h('small', { text: 'चालू शैक्षणिक वर्ष (१ जून पासून)' })), h('div', {}, h('b', { text: all.filter(isActive).length }), h('small', { text: 'सक्रिय विद्यार्थी' })), h('div', {}, h('b', { text: needMig }), h('small', { text: 'अद्ययावत करायच्या नोंदी' }))));
+
+  /* १) जुनी नोंद अद्ययावत */
+  const mm = h('p', { class: 'note' });
+  const mig = h('button', { class: 'btn', text: needMig ? needMig + ' नोंदी अद्ययावत करा' : 'सर्व नोंदी अद्ययावत आहेत', disabled: !needMig, onclick: async () => {
+    mig.disabled = true;
+    try {
+      const todo = all.filter(s => !s.studentId || !s.status || !s.history);
+      for (let i = 0; i < todo.length; i += 400) {
+        const b = db.batch();
+        todo.slice(i, i + 400).forEach(s => b.update(db.collection('students').doc(s.id), { studentId: s.id, status: s.status || 'active', history: s.history || [{ year: curYear(), classKey: s.classKey, roll: s.roll }], createdAt: s.createdAt || Date.now(), updatedAt: Date.now() }));
+        await b.commit();
+      }
+      mm.textContent = todo.length + ' नोंदी अद्ययावत झाल्या. पान पुन्हा उघडा.'; toast('झाले ✔');
+    } catch (e) { console.error(e); mm.textContent = 'अद्ययावत करता आले नाही.'; mig.disabled = false; }
+  } });
+  box.append(h('div', { class: 'card' }, h('h3', { text: '१) जुनी विद्यार्थी नोंद अद्ययावत करा (एकदाच)' }), h('p', { class: 'note', text: 'प्रत्येक विद्यार्थ्याला कायमचा Student ID, स्थिती आणि वर्ग-इतिहास मिळतो. जुनी हजेरी/गुण यावर परिणाम होत नाही.' }), h('div', { class: 'bar' }, mig), mm));
+
+  /* २) पदोन्नती */
+  const keys = CLASSES.map(c => c.key);
+  let src = keys[keys.length - 1], tgtYear = new Date().getMonth() >= 5 ? curYear() : nextYear(curYear());
+  const pbox = h('div'), tsel = h('select', { 'aria-label': 'नवे वर्ष' });
+  [curYear(), nextYear(curYear())].forEach(y => tsel.append(h('option', { value: y, text: y })));
+  tsel.value = tgtYear; tsel.addEventListener('change', () => { tgtYear = tsel.value; paintP(); });
+  const ssel = classSel(keys, src, v => { src = v; paintP(); });
+  box.append(h('div', { class: 'card' }, h('h3', { text: '२) नवीन शैक्षणिक वर्षात पदोन्नती' }), h('p', { class: 'note', text: 'आधी वरचे वर्ग (१० वी / १२ वी), मग खालचे वर्ग करा – म्हणजे हजेरी क्रमांक एकमेकांत मिसळत नाहीत. नापास/तोच वर्ग असलेल्यांची खूण काढा.' }), h('div', { class: 'bar' }, ssel, h('span', { class: 'note', text: 'नवे वर्ष:' }), tsel)), pbox);
+  async function paintP() {
+    clear(pbox); pbox.append(loading());
+    const stAll = await loadStudentsAll(src), st = stAll.filter(isActive).filter(s => lastYearOf(s) !== tgtYear), tgt = nextClassKey(src);
+    clear(pbox);
+    const c = h('div', { class: 'card' }, h('h3', { text: clsLabel(src) + ' → ' + (tgt === 'PASS' ? 'उत्तीर्ण (पास आऊट)' : clsLabel(tgt)) + ' (' + tgtYear + ')' }));
+    if (!st.length) { c.append(h('p', { class: 'note', text: 'या वर्षासाठी पदोन्नती करायला विद्यार्थी नाहीत (किंवा आधीच झाली आहे).' })); pbox.append(c); return; }
+    const chk = {};
+    st.forEach(s => { const cb = h('input', { type: 'checkbox' }); cb.checked = true; chk[s.id] = cb; c.append(h('label', { class: 'row2', style: 'cursor:pointer' }, h('span', { text: s.roll + '. ' + s.name }), cb)); });
+    const go = h('button', { class: 'btn gold', text: 'पदोन्नती करा', onclick: async () => {
+      const mv = st.filter(s => chk[s.id].checked), stay = st.filter(s => !chk[s.id].checked);
+      if (!confirm(mv.length + ' विद्यार्थी ' + (tgt === 'PASS' ? 'उत्तीर्ण' : clsLabel(tgt) + ' मध्ये') + ' जातील, ' + stay.length + ' तोच वर्ग. पुढे जायचे?')) return;
+      go.disabled = true;
+      try {
+        const taken = new Set(tgt === 'PASS' ? [] : (await loadStudentsAll(tgt)).filter(s => s.status !== 'left' && s.status !== 'passed').map(s => s.roll));
+        let mx = Math.max(0, ...taken); const b = db.batch(), now = Date.now();
+        mv.forEach(s => {
+          const hs = (s.history && s.history.length ? s.history : [{ year: prevYear(tgtYear), classKey: s.classKey, roll: s.roll }]).slice();
+          if (tgt === 'PASS') { hs.push({ year: tgtYear, classKey: '', roll: null, result: 'passed', from: s.classKey }); b.update(db.collection('students').doc(s.id), { status: 'passed', passedYear: tgtYear, history: hs, updatedAt: now }); }
+          else { let r = s.roll; if (taken.has(r)) r = ++mx; taken.add(r); mx = Math.max(mx, r); hs.push({ year: tgtYear, classKey: tgt, roll: r }); b.update(db.collection('students').doc(s.id), { classKey: tgt, roll: r, history: hs, updatedAt: now }); }
+        });
+        stay.forEach(s => { const hs = (s.history || []).slice(); hs.push({ year: tgtYear, classKey: s.classKey, roll: s.roll, repeat: true }); b.update(db.collection('students').doc(s.id), { history: hs, updatedAt: now }); });
+        await b.commit(); toast('पदोन्नती झाली ✔'); paintP();
+      } catch (e) { console.error(e); toast('पदोन्नती झाली नाही.'); go.disabled = false; }
+    } });
+    c.append(h('div', { class: 'bar', style: 'margin-top:10px' }, go)); pbox.append(c);
+  }
+  paintP();
+}
+
+
+/* ===== रजा अर्ज (पालकांकडून आलेले) ===== */
+async function vLeave(root) {
+  const keys = myKeys(); if (!keys.length) { root.append(noClass()); return; }
+  let key = keys[0], ticket = 0; const box = h('div');
+  root.append(h('div', { class: 'bar' }, classSel(keys, key, v => { key = v; load(); })),
+    h('p', { class: 'note', text: 'पालकांनी leave.html वरून पाठवलेले अर्ज. मंजूर केल्यावर त्या तारखांना हजेरी उघडताच विद्यार्थी "रजा/वैद्यकीय रजा" म्हणून आपोआप भरला जातो. मंजुरीपूर्वी नाव व हजेरी क्रमांक जुळतो का ते पहा.' }), box);
+  async function load() {
+    const my = ++ticket; clear(box); box.append(loading());
+    const q = await db.collection('leaveRequests').where('classKey', '==', key).get();
+    if (my !== ticket) return; clear(box);
+    const L = q.docs.map(d => Object.assign({ id: d.id }, d.data())).sort((a, b) => (b.from || '').localeCompare(a.from || '')).slice(0, 60);
+    if (!L.length) { box.append(h('p', { class: 'note', text: 'या वर्गाचे रजा अर्ज नाहीत.' })); return; }
+    L.forEach(x => {
+      const card = h('div', { class: 'card' }, h('b', { text: x.roll + '. ' + x.studentName }),
+        h('p', { text: dmy(x.from) + (x.to !== x.from ? ' ते ' + dmy(x.to) : '') + ' • ' + (x.type === 'M' ? '🏥 वैद्यकीय रजा' : 'रजा') }),
+        h('p', { text: 'कारण: ' + x.reason }), h('p', { class: 'note', text: 'पालक: ' + (x.parentName || '') + ' • ' + (x.parentPhone || '') }));
+      const decide = async st => { try { await db.collection('leaveRequests').doc(x.id).update({ status: st, decidedBy: me.email, decidedAt: Date.now() }); toast(st === 'approved' ? '✅ मंजूर' : '❌ नामंजूर'); load(); } catch (e) { console.error(e); toast('जतन झाले नाही.'); } };
+      if (x.status === 'pending') card.append(h('div', { class: 'bar' }, h('button', { class: 'btn gold', text: '✅ मंजूर', onclick: () => decide('approved') }), h('button', { class: 'btn red', text: '❌ नामंजूर', onclick: () => decide('rejected') })));
+      else card.append(h('p', { class: 'note', text: x.status === 'approved' ? '✅ मंजूर' : '❌ नामंजूर' }));
+      box.append(card);
+    });
+  }
+  load();
+}
+
+/* ===== ८) शिक्षक (फक्त Admin) ===== */
+async function vTea(root) {
+  const em = h('input', { type: 'email', placeholder: 'शिक्षकाचा ईमेल', style: 'width:100%', 'aria-label': 'ईमेल' });
+  const nm = h('input', { type: 'text', placeholder: 'शिक्षकाचे नाव', style: 'width:100%', 'aria-label': 'नाव' });
+  const ph = h('input', { type: 'tel', placeholder: 'मोबाईल', style: 'width:100%', 'aria-label': 'मोबाईल' });
+  const sj = h('input', { type: 'text', placeholder: 'विषय (स्वल्पविरामाने: गणित, विज्ञान)', style: 'width:100%', 'aria-label': 'विषय' });
+  const stSel = h('select', { 'aria-label': 'स्थिती' }, h('option', { value: 'active', text: 'सक्रिय' }), h('option', { value: 'inactive', text: 'निष्क्रिय' }));
+  const boxes = {}, grid = h('div', { class: 'chk' });
+  CLASSES.forEach(c => { const cb = h('input', { type: 'checkbox', value: c.key }); boxes[c.key] = cb; grid.append(h('label', {}, cb, c.label)); });
+  const msg = h('p', { class: 'note' }), list = h('div');
+  const save = h('button', { class: 'btn gold', text: 'शिक्षक जतन करा', onclick: async () => {
+    const email = em.value.trim().toLowerCase();
+    if (!email || !nm.value.trim()) { msg.textContent = 'ईमेल आणि नाव दोन्ही भरा.'; return; }
+    const classes = Object.keys(boxes).filter(k => boxes[k].checked); save.disabled = true;
+    try {
+      const old = await db.collection('teachers').doc(email).get(), o = old.exists ? old.data() : {};
+      await db.collection('teachers').doc(email).set({ uid: o.uid || null, name: nm.value.trim(), email, phone: ph.value.trim(), role: 'teacher',
+        subjects: sj.value.split(',').map(x => x.trim()).filter(Boolean), classes, status: stSel.value, joinedAt: o.joinedAt || Date.now(), lastLogin: o.lastLogin || null });
+      msg.textContent = 'जतन झाले. या ईमेलचे खाते Firebase → Authentication → Users मध्ये जोडलेले असणे आवश्यक आहे.';
+      em.value = nm.value = ph.value = sj.value = ''; stSel.value = 'active'; Object.values(boxes).forEach(b => b.checked = false); await show();
+    } catch (e) { console.error(e); msg.textContent = 'जतन झाले नाही.'; }
+    save.disabled = false;
+  } });
+  root.append(h('div', { class: 'card' }, h('h3', { text: 'शिक्षकाला वर्ग द्या' }), h('p', { class: 'note', text: 'शिक्षकाला फक्त त्याचेच वर्ग दिसतात. एका वर्गाला अनेक शिक्षक देता येतात (विषय शिक्षक). त्याच ईमेलने पुन्हा जतन केल्यास वर्ग बदलतात.' }),
+    h('label', { class: 'f', text: 'ईमेल' }), em, h('label', { class: 'f', text: 'नाव' }), nm, h('label', { class: 'f', text: 'मोबाईल' }), ph, h('label', { class: 'f', text: 'विषय' }), sj, h('label', { class: 'f', text: 'स्थिती' }), stSel, h('label', { class: 'f', text: 'वर्ग (एक किंवा अधिक)' }), grid, h('div', { class: 'bar', style: 'margin-top:10px' }, save), msg), list);
+  async function show() {
+    clear(list); const q = await db.collection('teachers').get();
+    const card = h('div', { class: 'card' }, h('h3', { text: 'सध्याचे शिक्षक: ' + q.size }));
+    q.docs.forEach(d => { const x = d.data();
+      card.append(h('div', { class: 'row2' }, h('span', {}, h('b', { text: x.name || '' }), ' (' + d.id + ')' + (x.status === 'inactive' ? ' ⛔ निष्क्रिय' : '') + (x.subjects && x.subjects.length ? ' • ' + x.subjects.join(', ') : '') + ' – ' + (x.classes || []).map(clsLabel).join(', ')),
+        h('span', {}, h('button', { class: 'btn ghost sm', text: 'बदला', onclick: () => { em.value = d.id; nm.value = x.name || ''; ph.value = x.phone || ''; sj.value = (x.subjects || []).join(', '); stSel.value = x.status || 'active'; Object.keys(boxes).forEach(k => boxes[k].checked = (x.classes || []).includes(k)); window.scrollTo(0, 0); } }), ' ',
+          h('button', { class: 'btn red sm', text: 'काढा', onclick: async () => { if (!confirm(d.id + ' काढायचे?')) return; await db.collection('teachers').doc(d.id).delete(); show(); } }))));
+    });
+    list.append(card);
+  }
+  await show();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="mr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6A1327">
+<title>विद्यार्थी विभाग – बापूसाहेब देशमुख शिवाजी हायस्कूल</title>
+<style>
+:root{--maroon:#6A1327;--gold:#C99A2E;--paper:#F6F3EE;--card:#fff;--chip:#f1ece4;--ink:#2A1A20;--muted:#6b5a60;--line:#e5dfd6}
+@media (prefers-color-scheme:dark){:root{--paper:#150a0f;--card:#221218;--chip:#33202a;--ink:#f3eaec;--muted:#bba7ae;--line:#43303a}}
+*{box-sizing:border-box}body{margin:0;font-family:'Noto Sans Devanagari','Mukta','Segoe UI',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#36081A,#6A1327 60%,#8a1d36);color:#fff;padding:calc(12px + env(safe-area-inset-top,0)) 14px 12px;display:flex;align-items:center;gap:10px}
+header img{width:42px;height:42px;object-fit:contain;background:#fff;border-radius:50%;padding:2px}
+header b{display:block;font-size:16px}header small{opacity:.85}
+main{max-width:720px;margin:0 auto;padding:14px 12px 60px}
+select{font:inherit;padding:11px 12px;border:1.5px solid #cfc6b8;border-radius:10px;background:var(--card);color:var(--ink);width:100%}
+.hw{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:12px;padding:10px 12px;margin:10px 0}
+.hw b{color:var(--maroon)}@media (prefers-color-scheme:dark){.hw b{color:#f0c6d0}}
+.note{color:var(--muted);font-size:14px}
+a{color:var(--maroon)}
+.hw>div{white-space:pre-wrap;overflow-wrap:anywhere}
+.chip{display:inline-block;padding:3px 10px;border-radius:99px;font-size:13px;font-weight:700;margin:6px 0;background:var(--chip)}.chip.ok{background:#e3f5ea;color:#1f8a4c}.chip.no{background:#fde8e8;color:#c62828}.chip.wt{background:#fff4d6;color:#8a6200}
+.lg{background:var(--card);border:1.5px solid var(--gold);border-radius:12px;padding:12px;margin:12px 0}.lg input{font:inherit;padding:10px 12px;border:1.5px solid #cfc6b8;border-radius:10px;background:var(--card);color:var(--ink);width:100%;margin:4px 0 8px}.lg button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 16px;margin-right:8px;cursor:pointer;background:var(--maroon);color:#fff}.lg button.g{background:var(--chip);color:var(--maroon);border:1.5px solid var(--maroon)}
+.pn{margin-top:10px;padding:12px;border:1.5px dashed var(--gold);border-radius:12px;background:var(--chip)}
+.pn input[type=number],.pn input[type=password]{font:inherit;padding:10px 12px;border:1.5px solid #cfc6b8;border-radius:10px;background:var(--card);color:var(--ink);width:100%;margin:4px 0 8px}
+.pn button,.hw>button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 14px;margin:4px 6px 4px 0;cursor:pointer;background:var(--maroon);color:#fff}
+.pn button.g{background:var(--chip);color:var(--maroon);border:1.5px solid var(--maroon)}
+.pn button:disabled{opacity:.55}
+.pn .th{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}.pn .th img{width:72px;height:72px;object-fit:cover;border-radius:8px}
+.pn .ok{color:#1f8a4c;font-weight:700}.pn .er{color:#c62828;font-weight:700}
+</style></head><body>
+<header><img src="img/logo.webp" alt=""><div><b>विद्यार्थी विभाग • माझा गृहपाठ</b><small>बापूसाहेब देशमुख शिवाजी हायस्कूल व कनिष्ठ महाविद्यालय, चांदूर रेल्वे</small></div></header>
+<main>
+<label for="cls" class="note">तुमचा वर्ग निवडा</label>
+<select id="cls"><option value="">— वर्ग निवडा —</option></select>
+<div id="login"></div>
+<div id="out" style="margin-top:12px"></div>
+<p class="note"><a href="index.html">← शाळेच्या मुख्य संकेतस्थळाकडे</a></p>
+</main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+const FB={apiKey:"AIzaSyDZG-v3w_7NAtWmlkZgZbqpXWCbGXrq1vw",authDomain:"bapusaheb-school.firebaseapp.com",projectId:"bapusaheb-school",storageBucket:"bapusaheb-school.firebasestorage.app",messagingSenderId:"521170776952",appId:"1:521170776952:web:20bbc4042fb5218cf64e8d"};
+const STDS=[5,6,7,8,9,10],DIVS={A:'अ',B:'ब',C:'क'},SR=[11,12];
+const CL=[];STDS.forEach(s=>Object.keys(DIVS).forEach(d=>CL.push([s+'-'+d,s+' वी - '+DIVS[d]])));SR.forEach(s=>CL.push([s+'-ARTS',s+' वी (कला)']));
+const sel=document.getElementById('cls'),out=document.getElementById('out');
+CL.forEach(([k,l])=>{const o=document.createElement('option');o.value=k;o.textContent=l;sel.append(o)});
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+function dmy(ms){const d=new Date(ms);return String(d.getDate()).padStart(2,'0')+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+d.getFullYear()}
+let db;try{firebase.initializeApp(FB);db=firebase.firestore()}catch(e){out.append(el('p','note','सेवा सुरू होऊ शकली नाही.'))}
+async function load(){
+  out.textContent='';const k=sel.value;if(!k||!db)return;
+  out.append(el('p','note','लोड होत आहे…'));
+  try{
+    const q=await db.collection('homework').where('classKey','==',k).get();
+    out.textContent='';
+    const t=new Date(),sy=t.getMonth()>=5?t.getFullYear():t.getFullYear()-1,from=new Date(sy,5,1).getTime();
+    const items=q.docs.map(d=>Object.assign({id:d.id},d.data())).filter(x=>(x.createdAt||0)>=from).sort((a,b)=>b.createdAt-a.createdAt).slice(0,30);
+    if(!items.length){out.append(el('p','note','सध्या या वर्गासाठी कोणताही गृहपाठ नाही.'));return}
+    items.forEach(x=>{const c=el('div','hw');c.append(el('b','',(x.subject?x.subject+': ':'')+(x.chapter?'['+x.chapter+'] ':'')+x.title));if(x.text)c.append(el('div','',x.text));
+      if(/^https:\/\//i.test(x.link||'')){const a=el('a','','📎 जोडपत्र उघडा');a.href=x.link;a.target='_blank';a.rel='noopener noreferrer';const w=el('div','');w.append(a);c.append(w)}
+      let m=dmy(x.createdAt);if(x.due){const p=x.due.split('-');m+=' • सादर करण्याची तारीख: '+p[2]+'-'+p[1]+'-'+p[0]}
+      c.append(el('div','note',m+(x.byName?' • '+x.byName:'')));if(x.photo){const r=S&&S.map[x.id],ch=el('div','chip'),T={pending:['wt','⏳ जमा झाले, तपासणी बाकी'],graded:['ok','🤖 प्राथमिक गुण'],approved:['ok','✅ अंतिम गुण'],unreadable:['no','📷 फोटो अस्पष्ट – पुन्हा पाठवा']};
+      if(!S){ch.textContent='📷 फोटो सादर करण्यासाठी वर प्रवेश करा'}else if(!r){ch.className='chip no';ch.textContent='❌ अजून जमा केलेले नाही'}else{const m=T[r.status]||T.pending;ch.className='chip '+m[0];ch.textContent=m[1]+((r.status==='graded'||r.status==='approved')?': '+r.score+' / '+r.max:'')}
+      c.append(ch);if(r&&r.feedback&&r.status!=='unreadable')c.append(el('div','note',r.feedback+(r.note?' • शिक्षक: '+r.note:'')));
+      if(!r||r.status!=='approved'){const b=el('button','',r?'📷 पुन्हा फोटो पाठवा':'📷 वहीचा फोटो पाठवा');b.onclick=()=>{if(!S){say0('आधी वर तुमचा वर्ग, हजेरी क्रमांक आणि PIN टाकून प्रवेश करा.');return}const o=c.querySelector('.pn');if(o){o.remove();return}c.append(panel(x))};c.append(b)}}
+      out.append(c)});
+    if(S){const ph=items.filter(z=>z.photo),done=ph.filter(z=>S.map[z.id]).length;if(ph.length){const sm=el('p','note','📊 फोटो गृहपाठ: '+done+' जमा, '+(ph.length-done)+' बाकी');out.insertBefore(sm,out.firstChild)}}
+  }catch(e){out.textContent='';out.append(el('p','note','माहिती मिळवता आली नाही. इंटरनेट तपासा.'))}
+}
+
+/* ===== फोटो गृहपाठ (वर्ग + हजेरी क्र. + PIN) ===== */
+async function shrink(file){
+  let bmp;try{bmp=await createImageBitmap(file,{imageOrientation:'from-image'})}catch(e){bmp=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=URL.createObjectURL(file)})}
+  const w0=bmp.width||bmp.naturalWidth,h0=bmp.height||bmp.naturalHeight;let d='';
+  for(const [mx,q] of [[1280,.7],[1100,.6],[900,.5],[760,.45]]){
+    const s=Math.min(1,mx/Math.max(w0,h0)),c=document.createElement('canvas');c.width=Math.round(w0*s);c.height=Math.round(h0*s);
+    const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(bmp,0,0,c.width,c.height);
+    d=c.toDataURL('image/jpeg',q);if(d.length<=290000)return d}
+  return d}
+async function post(fn,b){
+  try{const r=await fetch('/.netlify/functions/'+fn,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});
+    let j={};try{j=await r.json()}catch(e){}
+    if(r.status===404&&!j.error)j={error:'ही सुविधा फक्त शाळेच्या मूळ संकेतस्थळावर चालते.'};
+    return{ok:r.ok,j}}catch(e){return{ok:false,j:{error:'इंटरनेट तपासा आणि पुन्हा प्रयत्न करा.'}}}}
+/* ===== विद्यार्थी प्रवेश (वर्ग + हजेरी क्र. + PIN) ===== */
+let S=null;const lg=document.getElementById('login');
+function say0(t){const m=lg.querySelector('.msg');if(m){m.textContent=t;m.style.color='#c62828'}lg.scrollIntoView({behavior:'smooth',block:'center'})}
+async function refresh(){const a=await post('hw-submit',{classKey:S.classKey,roll:S.roll,pin:S.pin,action:'list'});if(a.ok){S.map=a.j.items||{};S.name=a.j.name;return true}return false}
+function drawLogin(){
+  lg.textContent='';const box=el('div','lg');
+  if(S){const b=el('b','','👋 नमस्कार, '+S.name+' (हजेरी क्र. '+S.roll+')');box.append(b);
+    const out2=el('button','g','बाहेर पडा');out2.onclick=()=>{S=null;try{sessionStorage.removeItem('hwS')}catch(e){}drawLogin();load()};box.append(el('div'),out2)}
+  else{
+    const roll=el('input');roll.type='number';roll.min='1';roll.placeholder='हजेरी क्रमांक';roll.inputMode='numeric';
+    const pin=el('input');pin.type='password';pin.maxLength=4;pin.inputMode='numeric';pin.placeholder='4 अंकी PIN (वर्गशिक्षकांनी दिलेला)';pin.autocomplete='off';
+    try{roll.value=localStorage.getItem('hwroll')||''}catch(e){}
+    const go=el('button','','प्रवेश करा'),msg=el('div','note msg');
+    box.append(el('b','','🔐 विद्यार्थी प्रवेश'),el('div','note','वर्ग निवडा, मग हजेरी क्रमांक आणि PIN टाका. गृहपाठाची स्थिती दिसेल आणि वहीचा फोटो पाठवता येईल.'),roll,pin,go,msg);
+    go.onclick=async()=>{
+      if(!sel.value){msg.style.color='#c62828';msg.textContent='आधी वर्ग निवडा.';return}
+      if(!roll.value||!/^\d{4}$/.test(pin.value)){msg.style.color='#c62828';msg.textContent='हजेरी क्रमांक आणि 4 अंकी PIN भरा.';return}
+      go.disabled=true;msg.style.color='';msg.textContent='तपासत आहे…';
+      const a=await post('hw-submit',{classKey:sel.value,roll:roll.value,pin:pin.value,action:'list'});
+      go.disabled=false;
+      if(!a.ok){msg.style.color='#c62828';msg.textContent=a.j.error||'प्रवेश झाला नाही.';return}
+      S={classKey:sel.value,roll:roll.value,pin:pin.value,name:a.j.name,map:a.j.items||{}};
+      try{localStorage.setItem('hwroll',roll.value);sessionStorage.setItem('hwS',JSON.stringify({classKey:S.classKey,roll:S.roll,pin:S.pin}))}catch(e){}
+      drawLogin();load()};
+    pin.addEventListener('keydown',e=>{if(e.key==='Enter')go.click()})}
+  lg.append(box)}
+function panel(x){
+  const p=el('div','pn'),f=el('input');f.type='file';f.accept='image/*';f.multiple=true;
+  const th=el('div','th'),msg=el('div','note'),go=el('button','','📤 सादर करा');let imgs=[];
+  p.append(el('div','note','वहीच्या पानांचे स्पष्ट फोटो (जास्तीत जास्त ३) निवडा. उजेडात, सरळ आणि पूर्ण पान दिसेल असे काढा.'),f,th,go,msg);
+  const say=(t,c)=>{msg.className=c||'note';msg.textContent=t};
+  f.onchange=async()=>{imgs=[];th.textContent='';say('फोटो तयार होत आहेत…');
+    try{for(const fl of [...f.files].slice(0,3)){const d=await shrink(fl);imgs.push(d);const i=el('img');i.src=d;th.append(i)}say(imgs.length+' फोटो तयार.')}catch(e){say('फोटो वाचता आला नाही.','er')}};
+  go.onclick=async()=>{
+    if(!imgs.length){say('आधी फोटो निवडा.','er');return}
+    go.disabled=true;const base={classKey:S.classKey,roll:S.roll,pin:S.pin,hwId:x.id};
+    say('फोटो पाठवत आहे…');const a=await post('hw-submit',Object.assign({},base,{images:imgs}));
+    if(!a.ok){say(a.j.error||'पाठवता आले नाही.','er');go.disabled=false;return}
+    say('✅ तुमचा गृहपाठ जमा झाला. AI तपासत आहे… (काही सेकंद)');
+    const g=await post('hw-grade',base);
+    if(!g.ok)say('✅ जमा झाले. '+(g.j.error||'तपासणी नंतर होईल.'),'note');
+    await refresh();await load();
+    go.disabled=false};
+  return p}
+sel.addEventListener('change',()=>{try{localStorage.setItem('hwcls',sel.value)}catch(e){}load()});
+sel.addEventListener('change',()=>{if(S&&S.classKey!==sel.value){S=null;try{sessionStorage.removeItem('hwS')}catch(e){}drawLogin()}});
+(async()=>{try{const s=localStorage.getItem('hwcls');if(s){sel.value=s}const r=JSON.parse(sessionStorage.getItem('hwS')||'null');if(r&&r.classKey===sel.value){S={classKey:r.classKey,roll:r.roll,pin:r.pin,name:'',map:{}};if(!(await refresh()))S=null}}catch(e){S=null}drawLogin();load()})();
+</script><script src="aku-widget.js" defer></script>
+</body></html>

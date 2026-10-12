@@ -1,0 +1,167 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+          && request.auth.token.email == 'diliprajnekar@gmail.com';
+    }
+    function isTeacher() {
+      return request.auth != null
+          && exists(/databases/$(database)/documents/teachers/$(request.auth.token.email))
+          && get(/databases/$(database)/documents/teachers/$(request.auth.token.email)).data.get('status', 'active') == 'active';
+    }
+    function myClasses() {
+      return get(/databases/$(database)/documents/teachers/$(request.auth.token.email)).data.classes;
+    }
+    // आजची तारीख (भारतीय वेळ, IST = UTC+5:30) – सर्व्हरच्या घड्याळावरून, फोनच्या नव्हे
+    function pad2(n) { return n < 10 ? '0' + string(n) : string(n); }
+    function todayIST() {
+      let t = request.time + duration.value(330, 'm');
+      return string(t.year()) + '-' + pad2(t.month()) + '-' + pad2(t.day());
+    }
+
+    // सार्वजनिक माहिती: सर्वांना वाचता येते, लिहिता फक्त admin
+    match /notices/{id}  { allow read: if true; allow write: if isAdmin(); }
+    match /results/{id}  { allow read: if true; allow write: if isAdmin(); }
+    match /gallery/{id}  { allow read: if true; allow write: if isAdmin(); }
+    match /meta/{id}     { allow read: if true; allow write: if isAdmin(); }
+
+    // शिक्षक: admin सगळे पाहतो/बदलतो; शिक्षक फक्त आपलेच खाते वाचतो
+    match /teachers/{email} {
+      allow read: if isAdmin() || (request.auth != null && request.auth.token.email == email);
+      allow write: if isAdmin();
+      // शिक्षक स्वतः फक्त uid व lastLogin अद्ययावत करू शकतो
+      allow update: if request.auth != null && request.auth.token.email == email
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['uid', 'lastLogin'])
+                    && request.resource.data.uid == request.auth.uid;
+    }
+    // विद्यार्थी यादी (खाजगी): शिक्षकाला फक्त त्याच्या वर्गाची
+    match /students/{id} {
+      allow read: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
+      allow write: if isAdmin();
+    }
+    // हजेरी (खाजगी): शिक्षकाला फक्त त्याच्या वर्गाची वाचता येते.
+    // शिक्षक: फक्त आजची हजेरी, एकदाच सादर (create) करू शकतो → नंतर लॉक.
+    // update/delete: फक्त admin (दुरुस्ती विनंती मंजूर झाल्यावर).
+    match /attendance/{id} {
+      allow read: if isAdmin() || (isTeacher() && (resource == null || resource.data.classKey in myClasses()));
+      allow create: if isAdmin() || (isTeacher()
+                    && request.resource.data.classKey in myClasses()
+                    && request.resource.data.date == todayIST()
+                    && id == request.resource.data.classKey + '_' + request.resource.data.date
+                    && request.resource.data.by == request.auth.token.email
+                    && request.resource.data.locked == true);
+      allow update, delete: if isAdmin();
+    }
+
+    // हजेरी दुरुस्ती विनंत्या: शिक्षक विनंती करतो (pending), निर्णय फक्त admin
+    match /attendanceCorrections/{id} {
+      allow read: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
+      allow create: if isTeacher()
+                    && request.resource.data.classKey in myClasses()
+                    && request.resource.data.status == 'pending'
+                    && request.resource.data.by == request.auth.token.email;
+      allow update, delete: if isAdmin();
+    }
+
+    // ऑडिट लॉग: फक्त नवीन नोंद जोडता येते (बदल/पुसणे नाही); वाचणे फक्त admin.
+    // timestamp सर्व्हरची वेळ असणे आणि user = लॉगिन ईमेल असणे सक्तीचे.
+    match /auditLogs/{id} {
+      allow read: if isAdmin();
+      allow create: if request.auth != null
+                    && request.resource.data.user == request.auth.token.email
+                    && request.resource.data.timestamp == request.time
+                    && (isAdmin() || (isTeacher() && request.resource.data.classKey in myClasses()));
+      allow update, delete: if false;
+    }
+
+    // पालक संदेश रांग: हजेरी सादर होताच गैरहजर विद्यार्थ्यांसाठी नोंद तयार होते
+    match /notifications/{id} {
+      allow read: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
+      allow create: if isAdmin() || (isTeacher()
+                    && request.resource.data.classKey in myClasses()
+                    && request.resource.data.status in ['pending', 'failed']
+                    && request.resource.data.by == request.auth.token.email);
+      allow update: if isAdmin() || (isTeacher()
+                    && resource.data.classKey in myClasses()
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'sentAt', 'sentBy'])
+                    && request.resource.data.status in ['pending', 'sent', 'failed']);
+      allow delete: if isAdmin();
+    }
+
+    // रजा अर्ज: पालक (लॉगिनशिवाय) फक्त नवीन 'pending' अर्ज पाठवू शकतो; निर्णय फक्त त्या वर्गाचा शिक्षक/admin
+    match /leaveRequests/{id} {
+      allow read: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
+      allow create: if request.resource.data.keys().hasOnly(['classKey','roll','studentName','parentName','parentPhone','from','to','type','reason','status','createdAt'])
+                    && request.resource.data.status == 'pending'
+                    && request.resource.data.createdAt == request.time
+                    && request.resource.data.classKey is string && request.resource.data.classKey.size() <= 10
+                    && request.resource.data.roll is int && request.resource.data.roll > 0 && request.resource.data.roll < 500
+                    && request.resource.data.studentName is string && request.resource.data.studentName.size() >= 2 && request.resource.data.studentName.size() <= 60
+                    && request.resource.data.parentName is string && request.resource.data.parentName.size() <= 60
+                    && request.resource.data.parentPhone is string && request.resource.data.parentPhone.size() >= 10 && request.resource.data.parentPhone.size() <= 15
+                    && request.resource.data.type in ['V', 'M']
+                    && request.resource.data.reason is string && request.resource.data.reason.size() >= 3 && request.resource.data.reason.size() <= 300
+                    && request.resource.data.from is string && request.resource.data.from.size() == 10
+                    && request.resource.data.to is string && request.resource.data.to.size() == 10
+                    && request.resource.data.to >= request.resource.data.from;
+      allow update: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses()
+                    && resource.data.status == 'pending'
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'decidedBy', 'decidedAt'])
+                    && request.resource.data.status in ['approved', 'rejected']
+                    && request.resource.data.decidedBy == request.auth.token.email);
+      allow delete: if isAdmin();
+    }
+
+    // गुण (खाजगी): शिक्षकाला फक्त त्याच्या वर्गाचे
+    match /marks/{id} {
+      allow read: if isAdmin() || (isTeacher() && (resource == null || resource.data.classKey in myClasses()));
+      allow create: if isAdmin() || (isTeacher() && request.resource.data.classKey in myClasses());
+      allow update: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses() && request.resource.data.classKey in myClasses());
+      allow delete: if isAdmin();
+    }
+    // गृहपाठ: सर्वांना वाचता येतो (विद्यार्थी/पालक), लिहिता फक्त त्या वर्गाचा शिक्षक
+    function hwOk() {
+      return !('by' in request.resource.data)  // public वाचनीय असल्याने शिक्षकाचा ईमेल साठवता येत नाही; फक्त byName
+          && (!('link' in request.resource.data) || request.resource.data.link == ''
+              || (request.resource.data.link is string && request.resource.data.link.size() <= 300
+                  && request.resource.data.link.matches('https://.*')));
+    }
+    match /homework/{id} {
+      allow read: if true;
+      allow create: if isAdmin() || (isTeacher() && request.resource.data.classKey in myClasses() && hwOk());
+      allow update: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses()
+                    && request.resource.data.classKey in myClasses() && hwOk());
+      allow delete: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
+    }
+    // गृहपाठ जमा/तपासणी (खाजगी): विद्यार्थी-निहाय स्थिती (S = जमा, R = तपासले); शिक्षकाला फक्त त्याच्या वर्गाची
+    match /homeworkSubmissions/{id} {
+      allow read: if isAdmin() || (isTeacher() && (resource == null || resource.data.classKey in myClasses()));
+      allow create: if isAdmin() || (isTeacher() && request.resource.data.classKey in myClasses());
+      allow update: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses() && request.resource.data.classKey in myClasses());
+      allow delete: if isAdmin() || (isTeacher() && (resource == null || resource.data.classKey in myClasses()));
+    }
+
+    // फोटो गृहपाठ: जमा/AI तपासणी फक्त सर्व्हर (Netlify function) लिहितो; शिक्षक फक्त अंतिम गुण/टिप्पणी बदलतो
+    match /hwKeys/{id} {   // आदर्श उत्तरे (गोपनीय): फक्त शिक्षक लिहितो; AI फंक्शन वाचते
+      allow read: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
+      allow create: if isAdmin() || (isTeacher() && request.resource.data.classKey in myClasses());
+      allow update: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses() && request.resource.data.classKey in myClasses());
+      allow delete: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
+    }
+    match /hwPhotos/{id} {
+      allow read: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
+      allow update: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses()
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['finalScore', 'status', 'teacherNote', 'approvedBy', 'approvedAt']));
+      allow create, delete: if isAdmin();
+    }
+    match /hwImages/{id} {
+      allow read: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
+      allow write: if false;
+    }
+    match /pinLocks/{id} { allow read, write: if false; }
+
+    // बाकी सर्व काही बंद
+    match /{document=**} { allow read, write: if false; }
+  }
+}
