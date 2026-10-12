@@ -46,12 +46,12 @@ const CONFIG = {
   SHEET_URL: "https://script.google.com/macros/s/AKfycbz79eNQIFNCaW913ap6uKVep2RmznTYhw0n0_Eo9TMUcMa5SuR0-1XtdbVSXjpWczA5/exec",
   ADMIN_EMAIL: "diliprajnekar@gmail.com",
   FIREBASE: {
-    apiKey: "AIzaSyDZG-v3w_7NAtWmlkZgZbqpXWCbGXrq1vw",
-    authDomain: "bapusaheb-school.firebaseapp.com",
-    projectId: "bapusaheb-school",
-    storageBucket: "bapusaheb-school.firebasestorage.app",
-    messagingSenderId: "521170776952",
-    appId: "1:521170776952:web:20bbc4042fb5218cf64e8d"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
   }
 };
 </script>
@@ -87,7 +87,6 @@ const CONFIG = {
         <li><a href="#achievements">यश</a></li>
         <li><a href="#gallery">फोटो गॅलरी</a></li>
         <li><a href="#staff">शिक्षकवृंद</a></li>
-        <li><a href="homework.html">माझा गृहपाठ</a></li>
         <li><a href="english.html">English Teacher</a></li>
         <li><a href="#contact">संपर्क</a></li>
       </ul>
@@ -114,13 +113,6 @@ const CONFIG = {
       <blockquote class="hx2-q">“शिक्षण हे समाज परिवर्तनाचे सशक्त माध्यम आहे.”<cite>— बापूसाहेब देशमुख</cite></blockquote>
     </div>
     <div class="hx2-vis">
-      <div class="hx2-crest" aria-hidden="true">
-        <span class="hx2-ring"></span><span class="hx2-ring2"></span>
-        <span class="hx2-orb" style="--c:#FFD23F;--t:16s;--o:0deg"><i></i></span>
-        <span class="hx2-orb" style="--c:#22D3EE;--t:24s;--o:120deg"><i></i></span>
-        <span class="hx2-orb" style="--c:#FF8A3D;--t:32s;--o:240deg"><i></i></span>
-        <span class="hx2-disc"><img width="1280" height="1248" decoding="async" fetchpriority="high" src="img/logo.webp" width="480" height="468" alt="" decoding="async"></span>
-      </div>
       <p class="hx2-motto">तमसो मा ज्योतिर्गमय</p>
       <aside class="hx2-card" id="hcard" aria-label="ताजी सूचना"><small>ताजी सूचना</small><p id="hnote">ताज्या सूचना, निकाल व कार्यक्रम एका ठिकाणी.</p><a href="#notices">सर्व सूचना पाहा →</a></aside>
     </div>
@@ -174,9 +166,9 @@ if(cr&&!rm&&matchMedia('(hover:hover)').matches){
 })();
 </script>
 
-<style id="hx-solar-css">#hxSolar{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;pointer-events:none;opacity:0;transition:opacity 1.6s ease}#hxSolar.on{opacity:1}@media print{#hxSolar{display:none!important}}</style>
+<style id="hx-solar-css">#hxSolar{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;pointer-events:none;opacity:0;transition:opacity 1.2s ease}#hxSolar.on{opacity:1}/* अंतराळ दृश्य स्वच्छ दिसावे म्हणून जुने ठिपके-जाळे लपवले. परत हवे असल्यास खालील एक ओळ काढा */#home #hx2Net,#home #pgNet{display:none!important}.hx2-vis{align-self:end}/* मोबाईल/टॅबलेट: ग्रहमाला पूर्ण हिरोच्या पार्श्वभूमीत; अक्षरे स्पष्ट वाचता यावीत म्हणून सावली */@media(max-width:1000px){.hx2-in{padding-top:clamp(270px,38vw,330px)}.hx2-vis{align-self:auto}.hx2-lead,.hx2-q,.hx2-eyebrow{text-shadow:0 1px 12px rgba(4,9,24,.95),0 0 3px rgba(4,9,24,.75)}}@media print{#hxSolar{display:none!important}}</style>
 <script id="hx-solar-js">
-/* ग्रहमाला: सूर्य (शाळेचे बोधचिन्ह) भोवती फिरणारे वास्तववादी ग्रह — बुध, शुक्र, पृथ्वी+चंद्र, मंगळ, लघुग्रह पट्टा, गुरू, शनी (कड्यांसह). ग्रहावर माउस/बोट नेल्यास नाव दिसते. */
+/* ग्रहमाला (पार्श्वभूमी): तेजस्वी सूर्य + बुध, शुक्र, पृथ्वी+चंद्र, मंगळ, लघुग्रह पट्टा, गुरू, शनी (कड्या), युरेनस, नेपच्यून. ग्रहावर माउस/बोट नेल्यास नाव दिसते. */
 var HXCore=(function(){'use strict';
 var PI=Math.PI,TAU=PI*2;
 /* ---------- noise ---------- */
@@ -203,40 +195,49 @@ function makeTex(W,H,fn){var d=new Uint8ClampedArray(W*H*4),o=[0,0,0,255],i=0,x,
 /* ---------- planet definitions ---------- */
 var JUP=[[0,126,82,58],[.28,180,126,88],[.52,224,196,156],[.78,240,228,202],[1,212,170,126]];
 var SAT=[[0,178,150,106],[.5,224,202,152],[1,238,222,180]];
-var VEN=[[0,206,160,96],[.5,232,200,136],[1,248,228,172]];
+var URA=[[0,136,204,216],[1,178,232,238]];var NEP=[[0,36,66,166],[.5,58,98,204],[1,108,148,232]];var VEN=[[0,206,160,96],[.5,232,200,136],[1,248,228,172]];
 function wrap(a){while(a>PI)a-=TAU;while(a<-PI)a+=TAU;return a}
 var P={
  mercury:function(q){var cr=mkCraters(260,11,.03,.28);return{name:'mercury',tilt:.02,
-  tex:makeTex(256*q,128*q,function(x,y,z,lat,lon,o){var n=fbm(x*3+1.3,y*3+4.1,z*3+2.2,5),g=.40+.55*(n-.5)+crater(cr,x,y,z);o[0]=g*262;o[1]=g*246;o[2]=g*228}),limb:.15}},
+  tex:makeTex(288*q,144*q,function(x,y,z,lat,lon,o){var n=fbm(x*3+1.3,y*3+4.1,z*3+2.2,5),g=.40+.55*(n-.5)+crater(cr,x,y,z);o[0]=g*262;o[1]=g*246;o[2]=g*228}),limb:.15}},
  venus:function(q){return{name:'venus',tilt:.05,
-  tex:makeTex(256*q,128*q,function(x,y,z,lat,lon,o){var w=fbm(x*1.2+7,y*3.2+3,z*1.2+5,4),c=fbm(x*2.4+w*2.2,y*5+w*3,z*2.4+1,4),t=.5+.5*Math.sin(lat*5+c*8);t=t*.5+c*.5;grad(VEN,clamp01(t*1.15-.08),o)}),
+  tex:makeTex(288*q,144*q,function(x,y,z,lat,lon,o){var w=fbm(x*1.2+7,y*3.2+3,z*1.2+5,4),c=fbm(x*2.4+w*2.2,y*5+w*3,z*2.4+1,4),t=.5+.5*Math.sin(lat*5+c*8);t=t*.5+c*.5;grad(VEN,clamp01(t*1.15-.08),o)}),
   atm:[255,214,140,.75],limb:.3}},
  earth:function(q){return{name:'earth',tilt:.41,spec:true,
-  tex:makeTex(320*q,160*q,function(x,y,z,lat,lon,o){var e=fbm(x*1.9+11,y*1.9+2,z*1.9+7,6),al=Math.abs(lat),sea=.535;
+  tex:makeTex(384*q,192*q,function(x,y,z,lat,lon,o){var e=fbm(x*1.9+11,y*1.9+2,z*1.9+7,6),al=Math.abs(lat),sea=.535;
    if(e<sea){var dp=clamp01((sea-e)/.2);o[0]=26-dp*20;o[1]=104-dp*70;o[2]=176-dp*84;o[3]=255}
    else{var h=clamp01((e-sea)/.16),dr=ss(.5,.68,fbm(x*2.7+30,y*2.7,z*2.7+9,4))*(1-ss(.5,1.15,al)),dry=fbm(x*3+3,y*3,z*3+2,3);
     o[0]=56+h*62;o[1]=112+h*0-h*14;o[2]=52+h*16;mix3(o,198,166,108,dr*.9);o[0]*=.88+.24*dry;o[1]*=.88+.24*dry;o[2]*=.88+.24*dry;
     var lt=fbm(x*16+3,y*16+8,z*16+1,3);o[3]=(lt>.6&&al<1.15)?clamp01((lt-.6)*5)*110+10:0}
    var ice=ss(1.18,1.34,al+(fbm(x*6,y*6,z*6,3)-.5)*.14);if(ice>0){mix3(o,240,245,252,ice);if(ice>.5)o[3]=0}}),
-  cloud:makeTex(256*q,128*q,function(x,y,z,lat,lon,o){var c=fbm(x*2.8+50,y*3.8+8,z*2.8+20,5),a=ss(.5,.72,c);o[0]=255;o[1]=255;o[2]=255;o[3]=a*235}),
+  cloud:makeTex(288*q,144*q,function(x,y,z,lat,lon,o){var c=fbm(x*2.8+50,y*3.8+8,z*2.8+20,5),a=ss(.5,.72,c);o[0]=255;o[1]=255;o[2]=255;o[3]=a*235}),
   atm:[96,164,255,1.15],limb:0}},
  mars:function(q){var cr=mkCraters(50,5,.04,.2);return{name:'mars',tilt:.44,
-  tex:makeTex(256*q,128*q,function(x,y,z,lat,lon,o){var n=fbm(x*2+19,y*2,z*2+4,6),m=ss(.5,.62,fbm(x*1.4+3,y*2.2+8,z*1.4+1,4));
+  tex:makeTex(288*q,144*q,function(x,y,z,lat,lon,o){var n=fbm(x*2+19,y*2,z*2+4,6),m=ss(.5,.62,fbm(x*1.4+3,y*2.2+8,z*1.4+1,4));
    o[0]=198-n*50;o[1]=108-n*34;o[2]=66-n*20;mix3(o,92,58,50,m*.75);var c=crater(cr,x,y,z);o[0]*=1+c;o[1]*=1+c;o[2]*=1+c;
    var cap=ss(1.3,1.42,Math.abs(lat)+(fbm(x*5,y*5,z*5,3)-.5)*.16);if(cap>0)mix3(o,244,242,246,cap)}),
   atm:[255,170,120,.4],limb:.2}},
  jupiter:function(q){return{name:'jupiter',tilt:.05,
-  tex:makeTex(256*q,128*q,function(x,y,z,lat,lon,o){var t=fbm(x*.9+5,y*6,z*.9+9,5),s=Math.sin(lat*10.5+(t-.5)*2.8),s2=Math.sin(lat*24+(t-.5)*6),v=clamp01(.5+.5*s*.8+.1*s2+(t-.5)*.5);grad(JUP,v,o);
+  tex:makeTex(288*q,144*q,function(x,y,z,lat,lon,o){var t=fbm(x*.9+5,y*6,z*.9+9,5),s=Math.sin(lat*10.5+(t-.5)*2.8),s2=Math.sin(lat*24+(t-.5)*6),v=clamp01(.5+.5*s*.8+.1*s2+(t-.5)*.5);grad(JUP,v,o);
    var dl=wrap(lon-.9)*Math.cos(lat),dy=lat+.38,e2=(dl/.36)*(dl/.36)+(dy/.15)*(dy/.15);
    if(e2<1.6){var k=1-ss(.65,1.6,e2);mix3(o,176,82,54,k*.92);var rg=1-Math.abs(e2-1.15)/.35;if(rg>0)mix3(o,236,206,176,rg*.35)}}),
   atm:[255,226,190,.28],limb:.4}},
  saturn:function(q){return{name:'saturn',tilt:-.46,ring:true,
-  tex:makeTex(256*q,128*q,function(x,y,z,lat,lon,o){var t=fbm(x*.8+2,y*6,z*.8+4,4),v=clamp01(.5+.5*Math.sin(lat*13+(t-.5)*2)*.9+(t-.5)*.3);grad(SAT,v,o)}),
+  tex:makeTex(288*q,144*q,function(x,y,z,lat,lon,o){var t=fbm(x*.8+2,y*6,z*.8+4,4),v=clamp01(.5+.5*Math.sin(lat*13+(t-.5)*2)*.9+(t-.5)*.3);grad(SAT,v,o)}),
   atm:[255,232,190,.22],limb:.35}},
  moon:function(q){var cr=mkCraters(220,29,.03,.22);return{name:'moon',tilt:0,
-  tex:makeTex(256*q,128*q,function(x,y,z,lat,lon,o){var n=fbm(x*2.4+4,y*2.4,z*2.4+6,5),m=ss(.5,.58,fbm(x*1.3+9,y*1.3+2,z*1.3+5,4)),g=.64-.3*m+.14*(n-.5)+crater(cr,x,y,z);o[0]=g*258;o[1]=g*254;o[2]=g*246}),limb:.12}},
+  tex:makeTex(288*q,144*q,function(x,y,z,lat,lon,o){var n=fbm(x*2.4+4,y*2.4,z*2.4+6,5),m=ss(.5,.58,fbm(x*1.3+9,y*1.3+2,z*1.3+5,4)),g=.64-.3*m+.14*(n-.5)+crater(cr,x,y,z);o[0]=g*258;o[1]=g*254;o[2]=g*246}),limb:.12}},
+ uranus:function(q){return{name:'uranus',tilt:1.32,
+  tex:makeTex(288*q,144*q,function(x,y,z,lat,lon,o){var t=fbm(x*.8+6,y*5,z*.8+3,4),v=clamp01(.5+.5*Math.sin(lat*7+(t-.5)*1.5)*.5+(t-.5)*.25);grad(URA,v,o)}),
+  atm:[150,232,238,.55],limb:.3}},
+ neptune:function(q){return{name:'neptune',tilt:.5,
+  tex:makeTex(288*q,144*q,function(x,y,z,lat,lon,o){var t=fbm(x*.9+1,y*6,z*.9+7,5),v=clamp01(.5+.5*Math.sin(lat*9+(t-.5)*3)*.7+(t-.5)*.4);grad(NEP,v,o);
+   var dl=wrap(lon-1.3)*Math.cos(lat),dy=lat+.42,e2=(dl/.3)*(dl/.3)+(dy/.12)*(dy/.12);if(e2<1.4)mix3(o,26,40,118,(1-ss(.5,1.4,e2))*.85);
+   var ci=ss(.66,.74,fbm(x*5+4,y*16,z*5+2,3));if(ci>0&&Math.abs(lat+.42)<.5)mix3(o,230,240,255,ci*.55)}),
+  atm:[96,136,255,.65],limb:.35}},
  sun:function(q){return{name:'sun',tilt:0,emit:true,
-  tex:makeTex(256*q,128*q,function(x,y,z,lat,lon,o){var n=fbm(x*7,y*7,z*7,5),b=fbm(x*2+3,y*2,z*2,3),t=clamp01(n*1.5-.25+b*.2);o[0]=255;o[1]=150+t*95;o[2]=40+t*140;var sp=ss(.7,.74,fbm(x*4+8,y*4,z*4+2,3));if(sp>0)mix3(o,150,60,10,sp*.55)}),limb:.6}}
+  tex:makeTex(448*q,224*q,function(x,y,z,lat,lon,o){var n=fbm(x*9,y*9,z*9,5),b=fbm(x*3+3,y*3,z*3,4),g=fbm(x*24,y*24,z*24,2),t=clamp01(n*1.7-.32+b*.3+(g-.5)*.25);o[0]=255;o[1]=88+t*160;o[2]=14+t*176;
+   var sp=ss(.7,.76,fbm(x*3.5+8,y*3.5,z*3.5+2,3))*(Math.abs(lat)<.65?1:0);if(sp>0)mix3(o,100,34,6,sp*.7)}),limb:.62}}
 };
 /* ---------- sphere sprite (static per-pixel geometry) ---------- */
 function mkSprite(D,tilt){var n=D*D,sp={D:D,cov:new Uint8Array(n),nx:new Float32Array(n),ny:new Float32Array(n),nz:new Float32Array(n),lon:new Float32Array(n),lat:new Float32Array(n),dat:new Uint8ClampedArray(n*4)},r=D/2,ct=Math.cos(tilt),st=Math.sin(tilt),i,j,k=0;
@@ -248,17 +249,21 @@ function mkSprite(D,tilt){var n=D*D,sp={D:D,cov:new Uint8Array(n),nx:new Float32
 var AMB=.05;
 function shade(sp,pl,spin,lx,ly,lz,cspin){var n=sp.D*sp.D,dat=sp.dat,tex=pl.tex,td=tex.d,TW=tex.w,TH=tex.h,cl=pl.cloud,cd=cl?cl.d:null,CW=cl?cl.w:0,CH=cl?cl.h:0,atm=pl.atm,limb=pl.limb||0,emit=pl.emit,spec=pl.spec;
  for(var i=0,k=0;i<n;i++,k+=4){var cv=sp.cov[i];if(!cv){dat[k+3]=0;continue}
-  var nz=sp.nz[i],cc=sp.lon[i]+spin;if(cc>=1)cc-=1;var col=(cc*TW)|0,row=(sp.lat[i]*TH)|0;if(col>=TW)col=TW-1;if(row>=TH)row=TH-1;var ti=(row*TW+col)<<2,r=td[ti],g=td[ti+1],b=td[ti+2],a=td[ti+3],sh,lit=1,dif=0;
-  if(emit){sh=1-limb*(1-Math.pow(nz,.55));r*=sh*1.04;g*=sh*1.04;b*=sh*1.04}
+  var nz=sp.nz[i],cc=sp.lon[i]+spin;if(cc>=1)cc-=1;
+  var u=cc*TW-.5,v=sp.lat[i]*TH-.5,x0=Math.floor(u),y0=Math.floor(v),fx=u-x0,fy=v-y0,x1=x0+1;if(x0<0)x0+=TW;if(x1>=TW)x1-=TW;if(x0>=TW)x0-=TW;
+  var ya=y0<0?0:y0>=TH?TH-1:y0,yb=y0+1>=TH?TH-1:y0+1,i00=(ya*TW+x0)<<2,i10=(ya*TW+x1)<<2,i01=(yb*TW+x0)<<2,i11=(yb*TW+x1)<<2,w00=(1-fx)*(1-fy),w10=fx*(1-fy),w01=(1-fx)*fy,w11=fx*fy;
+  var r=td[i00]*w00+td[i10]*w10+td[i01]*w01+td[i11]*w11,g=td[i00+1]*w00+td[i10+1]*w10+td[i01+1]*w01+td[i11+1]*w11,b=td[i00+2]*w00+td[i10+2]*w10+td[i01+2]*w01+td[i11+2]*w11,a=td[(fx<.5?(fy<.5?i00:i01):(fy<.5?i10:i11))+3],sh,lit=1,dif=0;
+  if(emit){sh=1-limb*(1-Math.pow(nz,.5));r*=sh*1.06;g*=sh*1.06;b*=sh*1.06}
   else{dif=sp.nx[i]*lx+sp.ny[i]*ly+nz*lz;var t=(dif+.05)/.4;t=t<0?0:t>1?1:t;lit=t*t*(3-2*t);var d=dif>0?dif:0;sh=AMB+(1-AMB)*lit*(.6+.4*d);if(limb)sh*=1-limb*(1-nz)*.9;
-   if(cd){var c2=sp.lon[i]+cspin;if(c2>=1)c2-=1;var cx=(c2*CW)|0,cy=(sp.lat[i]*CH)|0;if(cx>=CW)cx=CW-1;if(cy>=CH)cy=CH-1;var ci=(cy*CW+cx)<<2,ca=cd[ci+3]/255;
+   if(cd){var c2=sp.lon[i]+cspin;if(c2>=1)c2-=1;var cu=c2*CW-.5,cvv=sp.lat[i]*CH-.5,cx0=Math.floor(cu),cy0=Math.floor(cvv),cfx=cu-cx0,cfy=cvv-cy0,cx1=cx0+1;if(cx0<0)cx0+=CW;if(cx1>=CW)cx1-=CW;if(cx0>=CW)cx0-=CW;
+    var cya=cy0<0?0:cy0>=CH?CH-1:cy0,cyb=cy0+1>=CH?CH-1:cy0+1,ca=(cd[((cya*CW+cx0)<<2)+3]*(1-cfx)*(1-cfy)+cd[((cya*CW+cx1)<<2)+3]*cfx*(1-cfy)+cd[((cyb*CW+cx0)<<2)+3]*(1-cfx)*cfy+cd[((cyb*CW+cx1)<<2)+3]*cfx*cfy)/255;
     var lights=0;if(a>8&&a<200&&lit<.5)lights=((a-8)/110)*(1-lit*2)*(1-ca*.85);
     r*=sh;g*=sh;b*=sh;
     if(spec&&a>=200&&dif>0){var rv=2*dif*nz-lz;if(rv>0){var r2=rv*rv,r4=r2*r2,r8=r4*r4;var s=r8*r8*r4*.7*(1-ca);r+=s*255;g+=s*250;b+=s*235}}
     var cs=AMB*1.6+(1-AMB*1.6)*lit*(.72+.28*d);r=r*(1-ca)+255*cs*ca;g=g*(1-ca)+255*cs*ca;b=b*(1-ca)+255*cs*ca;
     if(lights>0){r+=255*lights;g+=196*lights;b+=96*lights}}
    else{r*=sh;g*=sh;b*=sh}
-   if(atm){var f=1-nz,rim=f*f*f*atm[3]*(.2+.8*ss(-.25,.45,dif));r+=atm[0]*rim;g+=atm[1]*rim;b+=atm[2]*rim}}
+   if(atm){var f=1-nz,rim=f*f*f*atm[3]*(.2+.8*ss(-.25,.45,dif));r+=atm[0]*rim;g+=atm[1]*rim;b+=atm[2]*rim;var tw=ss(-.14,-.01,dif)*(1-ss(-.01,.16,dif));if(tw>0){tw*=(f*.9+.15)*atm[3];r+=127*tw;g+=60*tw;b+=18*tw}}}
   dat[k]=r;dat[k+1]=g;dat[k+2]=b;dat[k+3]=cv}}
 /* ---------- Saturn ring image (top-down, alpha) ---------- */
 function mkRing(N){var d=new Uint8ClampedArray(N*N*4),c=N/2,k=0,i,j;
@@ -278,81 +283,109 @@ if(!S||!C||!C.getContext||typeof HXCore==='undefined')return;
 var X=C.getContext('2d'),K=HXCore,TAU=Math.PI*2,sin=Math.sin,cos=Math.cos,sqrt=Math.sqrt;
 var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var WEAK=(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=2)||(navigator.deviceMemory&&navigator.deviceMemory<=2)||!!(navigator.connection&&navigator.connection.saveData);
-var Q=WEAK?.75:1;
-/* ---- planets: r = radius (px at scale 1), m = orbit multiple, ph = start angle, spin = turns/sec ---- */
+var Q=(WEAK||innerWidth<700)?.75:1;
+/* r = त्रिज्या (px), m = कक्षा गुणक, ph = सुरुवातीचा कोन, spin = स्वतःभोवती फेऱ्या/सेकंद */
 var DEF=[
- {k:'mercury',n:'बुध',f:'सूर्याजवळचा सर्वात लहान ग्रह',r:9,m:1,ph:.6,spin:.006},
- {k:'venus',n:'शुक्र',f:'सर्वात उष्ण ग्रह',r:15,m:1.18,ph:2.4,spin:-.01},
- {k:'earth',n:'पृथ्वी',f:'आपले घर — जीवन असलेला ग्रह',r:17,m:1.38,ph:4.1,spin:.05,cs:.063},
- {k:'mars',n:'मंगळ',f:'तांबडा ग्रह',r:11.5,m:1.6,ph:5.3,spin:.045},
- {k:'jupiter',n:'गुरू',f:'सर्वात मोठा ग्रह',r:41,m:1.92,ph:1.1,spin:.09},
- {k:'saturn',n:'शनी',f:'सुंदर कडी असलेला ग्रह',r:31,m:2.2,ph:3.6,spin:.075}
+ {k:'mercury',n:'बुध',f:'सूर्याजवळचा सर्वात लहान ग्रह',r:6,m:1,ph:.6,spin:.006},
+ {k:'venus',n:'शुक्र',f:'सर्वात उष्ण ग्रह',r:11,m:1.3,ph:2.5,spin:-.01},
+ {k:'earth',n:'पृथ्वी',f:'आपले घर — जीवन असलेला ग्रह',r:12,m:1.62,ph:4.2,spin:.05,cs:.063},
+ {k:'mars',n:'मंगळ',f:'तांबडा ग्रह',r:8.5,m:1.95,ph:5.4,spin:.045},
+ {k:'jupiter',n:'गुरू',f:'सर्वात मोठा ग्रह',r:28,m:2.5,ph:1.2,spin:.09},
+ {k:'saturn',n:'शनी',f:'सुंदर कडी असलेला ग्रह',r:23,m:3.1,ph:3.7,spin:.075},
+ {k:'uranus',n:'युरेनस',f:'कलंडलेला बर्फाळ ग्रह',r:16,m:3.6,ph:.2,spin:-.07},
+ {k:'neptune',n:'नेपच्यून',f:'सर्वात दूरचा निळा ग्रह',r:15,m:4.05,ph:5.0,spin:.08}
 ];
-var MOON={k:'moon',n:'चंद्र',f:'पृथ्वीचा उपग्रह',r:5,lock:true},SUN={k:'sun',n:'सूर्य',f:'आपला तारा',r:30,spin:.004};
-var MMAX=2.2,W=0,H=0,DPR=1,cx=0,cy=0,discR=110,R1=260,Dc=1,sc=1,crestVis=false,rects=[],lastSc=0;
-var E0=.5,PHI=-.12,CP=cos(PHI),SP=sin(PHI),ce=1,se=0,T=0,DT=.016,px=0,py=0,tpx=0,tpy=0,hov=null,HB=[];
-var built={},stars=[],belt=[],met=null,nextMet=5,ringCv=null,ringKey=0;
+var MOON={k:'moon',n:'चंद्र',f:'पृथ्वीचा उपग्रह',r:3.6,lock:true},SUN={k:'sun',n:'सूर्य',f:'आपला तारा — ऊर्जेचा स्रोत',r:44,spin:.004};
+var FL=.3,sy=0,STH=0,stageT=84,touched=false,MOBL=false,psc=1,age=0,Ecur=.5,TC={mercury:'176,166,154',venus:'240,210,150',earth:'110,170,255',mars:'230,120,80',jupiter:'230,190,140',saturn:'235,215,160',uranus:'150,225,235',neptune:'110,140,255'},MMAX=4.05,W=0,H=0,DPR=1,cx=0,cy=0,sunR=44,R1=110,Dc=1,sc=1,rects=[],lastSc=0;
+var E0=.48,PHI=-.1,CP=cos(PHI),SP=sin(PHI),ce=1,se=0,T=0,DT=.016,px=0,py=0,tpx=0,tpy=0,hov=null,HB=[];
+var built={},stars=[],belt=[],met=null,nextMet=5,ringCv=null,ringKey=0,bg=null,rayG=null,streakG=null;
 DEF.forEach(function(d,i){d.w=.27*Math.pow(1/d.m,1.5);d.s0=(i*.37)%1;d.c0=(i*.21+.1)%1});
 /* ---- layout ---- */
+function rel(q,rs){var e=S.querySelector(q);if(!e)return null;var b=e.getBoundingClientRect();return b.width>0?{l:b.left-rs.left,t:b.top-rs.top,r:b.right-rs.left,b:b.bottom-rs.top,w:b.width,h:b.height}:null}
 function layout(){
  var rs=S.getBoundingClientRect();W=Math.max(1,Math.round(rs.width));H=Math.max(1,Math.round(rs.height));
- DPR=Math.min(window.devicePixelRatio||1,WEAK?1:1.75);C.width=Math.round(W*DPR);C.height=Math.round(H*DPR);X.setTransform(DPR,0,0,DPR,0,0);
- var cr=S.querySelector('.hx2-crest'),rc=cr?cr.getBoundingClientRect():null,ratio=sin(E0)*.95;
- crestVis=!!(rc&&rc.width>40&&getComputedStyle(cr).display!=='none');
- if(crestVis){cx=rc.left-rs.left+rc.width/2;cy=rc.top-rs.top+rc.height/2;discR=rc.width*.37;sc=Math.max(.7,Math.min(1.3,discR/115));R1=discR*2;
-  var Rm=R1*MMAX,k=Math.min(1,(cy-70)/(Rm*ratio*.92),(W*1.1-cx)/Rm);k=Math.max(k,.55);R1*=k}
- else{var wide=W>=700;sc=Math.max(.5,Math.min(.85,W/700));discR=SUN.r*sc;cx=W*(wide?.8:.78);cy=wide?Math.min(H*.3,230):Math.min(H*.17,150);R1=discR*2.5;
-  var Rm2=R1*MMAX,k2=Math.min(1,(W*1.12-cx)/Rm2);R1*=Math.max(k2,.6)}
+ DPR=Math.min(window.devicePixelRatio||1,WEAK?1:(W<1000?1.6:2));C.width=Math.round(W*DPR);C.height=Math.round(H*DPR);X.setTransform(DPR,0,0,DPR,0,0);
+ var vis=rel('.hx2-vis',rs),inn=rel('.hx2-in',rs),wide=W>=1000&&vis&&vis.w>100&&inn,ratio;MOBL=!wide;STH=0;
+ if(wide){E0=.48;ratio=sin(E0)*.95;sc=Math.max(.8,Math.min(1.3,W/1250));psc=sc;sunR=SUN.r*sc;cx=vis.l+vis.w/2;cy=inn.t+inn.h*.38;R1=sunR*2.3;
+  var Rm=R1*MMAX,k=Math.min(1,(cy-72)/(Rm*ratio*.92),(W*1.08-cx)/Rm);R1*=Math.max(k,.62)}
+ else{E0=.62;ratio=sin(E0)*.95;STH=0;cx=W/2;cy=Math.max(180,Math.min(H*.2,240));
+  var Rmx=Math.min(W*.52,(cy-72)/(ratio*1.12),(H*.62-cy)/(ratio*1.12));R1=Rmx/MMAX;sunR=R1*.6;sc=sunR/SUN.r;psc=sc*(W<700?1.5:1.2)}
+ FL=MOBL?.5:.3;
  Dc=5.5*R1*MMAX;
- rects=[];['.hx2-copy','.hx2-feats'].forEach(function(q){var e=S.querySelector(q);if(!e)return;var b=e.getBoundingClientRect();if(b.width>0)rects.push({l:b.left-rs.left,t:b.top-rs.top,r:b.right-rs.left,b:b.bottom-rs.top})});
- var ns=Math.min(210,Math.round(W*H/(WEAK?12000:7500)));stars=[];for(var i=0;i<ns;i++)stars.push({x:Math.random()*W,y:Math.random()*H,s:Math.random()<.12?1.8:1.1,a:.25+Math.random()*.6,tw:.8+Math.random()*2.4,ph:Math.random()*6.28,d:Math.random(),w:Math.random()<.18});
- var nb=WEAK||W<700?80:170;belt=[];for(i=0;i<nb;i++){var m=1.72+Math.random()*.12;belt.push({a:Math.random()*TAU,m:m,y:(Math.random()-.5)*.03,w:.27*Math.pow(1/m,1.5),z:.7+Math.random()*1,al:.35+Math.random()*.5})}
+ rects=[];['.hx2-copy','.hx2-feats','.hx2-card'].forEach(function(q){var r=rel(q,rs);if(r){if(q==='.hx2-copy'&&!wide)r.t+=STH;rects.push(r)}});
+ var ns=Math.min(220,Math.round(W*H/(WEAK?12000:7000)));stars=[];for(var i=0;i<ns;i++)stars.push({x:Math.random()*W,y:Math.random()*H,s:Math.random()<.12?1.8:1.1,a:.25+Math.random()*.6,tw:.8+Math.random()*2.4,ph:Math.random()*6.28,d:Math.random(),w:Math.random()<.18});
+ var nb=WEAK||W<700?90:200;belt=[];for(i=0;i<nb;i++){var m=2.14+Math.random()*.2;belt.push({a:Math.random()*TAU,m:m,y:(Math.random()-.5)*.05,w:.27*Math.pow(1/m,1.5),z:.7+Math.random()*1.1,al:.35+Math.random()*.55})}
  belt.sort(function(a,b){return a.al-b.al});
+ mkBackdrop();
+ rayG=X.createLinearGradient(0,0,sunR*7,0);rayG.addColorStop(0,'rgba(255,200,120,.16)');rayG.addColorStop(1,'rgba(255,200,120,0)');
+ streakG=X.createRadialGradient(0,0,0,0,0,sunR*11);streakG.addColorStop(0,'rgba(255,236,200,.7)');streakG.addColorStop(.2,'rgba(255,190,110,.25)');streakG.addColorStop(1,'rgba(255,170,90,0)');
  buildSprites()}
+/* पार्श्वभूमी: आकाशगंगेचा पट्टा + तेजोमेघ (एकदाच काढून ठेवतो) */
+function mkBackdrop(){var s=WEAK?.4:.6,w=Math.round(W*DPR*s),h=Math.round(H*DPR*s);bg=document.createElement('canvas');bg.width=w;bg.height=h;var g=bg.getContext('2d'),i,gr;
+ g.globalCompositeOperation='lighter';
+ [[.78,.2,.55,'110,70,190',.13],[.92,.75,.5,'30,130,160',.11],[.55,.55,.45,'170,80,60',.07],[.15,.85,.4,'60,90,200',.08]].forEach(function(n){gr=g.createRadialGradient(n[0]*w,n[1]*h,0,n[0]*w,n[1]*h,n[2]*Math.max(w,h));gr.addColorStop(0,'rgba('+n[3]+','+n[4]+')');gr.addColorStop(1,'rgba('+n[3]+',0)');g.fillStyle=gr;g.fillRect(0,0,w,h)});
+ var N=WEAK?260:620;for(i=0;i<N;i++){var u=Math.random(),sg=(Math.random()+Math.random()+Math.random()-1.5)*.16,x=u*w,y=(.95-.85*u+sg)*h;g.fillStyle='rgba(220,230,255,'+(.06+Math.random()*.3).toFixed(2)+')';g.fillRect(x,y,1,1)}}
 /* ---- sprites ---- */
-function mkCanvas(d,D,P){d.sp=K.mkSprite(D,P.tilt);d.cv=document.createElement('canvas');d.cv.width=d.cv.height=D;d.cx=d.cv.getContext('2d');d.img=new ImageData(d.sp.dat,D,D)}
-function spriteFor(d,rad){var P=built[d.k];if(!P)return;var D=Math.ceil(2*rad*DPR*1.15)+2;if(D<8)D=8;if(!d.sp||d.sp.D!==D||d.sp.tilt!==P.tilt){mkCanvas(d,D,P);d.sp.tilt=P.tilt}d.P=P}
+function mkCanvas(d,D,P){d.sp=K.mkSprite(D,P.tilt);d.sp.tilt=P.tilt;d.cv=document.createElement('canvas');d.cv.width=d.cv.height=D;d.cx=d.cv.getContext('2d');d.img=new ImageData(d.sp.dat,D,D)}
+function spriteFor(d,rad){var P=built[d.k];if(!P)return;var D=Math.ceil(2*rad*DPR*1.15)+2;if(D<10)D=10;if(!d.sp||d.sp.D!==D||d.sp.tilt!==P.tilt)mkCanvas(d,D,P);d.P=P}
 function buildSprites(){
- DEF.forEach(function(d){spriteFor(d,d.r*sc)});spriteFor(MOON,MOON.r*sc);if(!crestVis)spriteFor(SUN,discR);
- var s=DEF[5];if(s.P){var Ro=s.r*sc*2.3,N=Math.max(64,Math.min(512,Math.ceil(2*Ro*DPR*1.2)));if(ringKey!==N){var rg=K.mkRing(N);ringCv=document.createElement('canvas');ringCv.width=ringCv.height=N;ringCv.getContext('2d').putImageData(new ImageData(rg.data,N,N),0,0);ringKey=N}}}
+ DEF.forEach(function(d){spriteFor(d,d.r*psc)});spriteFor(MOON,MOON.r*psc);spriteFor(SUN,sunR);
+ var s=DEF[5];if(s.P){var Ro=s.r*psc*2.3,N=Math.max(64,Math.min(512,Math.ceil(2*Ro*DPR*1.2)));if(ringKey!==N){var rg=K.mkRing(N);ringCv=document.createElement('canvas');ringCv.width=ringCv.height=N;ringCv.getContext('2d').putImageData(new ImageData(rg.data,N,N),0,0);ringKey=N}}}
 /* ---- projection ---- */
 var c3=[0,0,0];
 function cam(x,y,z){var yu=y*ce-z*se,zz=y*se+z*ce,vs=-yu;c3[0]=x*CP-vs*SP;c3[1]=-(x*SP+vs*CP);c3[2]=zz}
-function fadeAt(x,y,r){var m=1;for(var i=0;i<rects.length;i++){var q=rects[i],dx=Math.max(q.l-x,0,x-q.r),dy=Math.max(q.t-y,0,y-q.b),dd=sqrt(dx*dx+dy*dy)-r*.6,v=.3+.7*K.ss(0,90,dd);if(v<m)m=v}return m}
-/* ---- bodies ---- */
+function ox(){return cx+px*-16}function oy(){return cy+py*-9-(MOBL?sy*.22:0)}
+function fadeAt(x,y,r){var m=1;for(var i=0;i<rects.length;i++){var q=rects[i],dx=Math.max(q.l-x,0,x-q.r),dy=Math.max(q.t-y,0,y-q.b),dd=sqrt(dx*dx+dy*dy)-r*.6,v=FL+(1-FL)*K.ss(0,90,dd);if(v<m)m=v}return m}
 var LIST=[];
-function place(d,x,y,z,rad,ang){var o={d:d,a:ang};cam(x,y,z);var f=Dc/(Dc-c3[2]);o.x=cx+px*-16+c3[0]*f;o.y=cy+py*-9-c3[1]*f;o.f=f;o.z=c3[2];o.r=rad*f;
+function place(d,x,y,z,rad,ang){var o={d:d,a:ang};cam(x,y,z);var f=Dc/(Dc-c3[2]);o.x=ox()+c3[0]*f;o.y=oy()-c3[1]*f;o.f=f;o.z=c3[2];o.r=rad*f;
  var L=sqrt(x*x+y*y+z*z)||1;cam(-x/L,-y/L,-z/L);var lx=c3[0],ly=c3[1],lz=c3[2]+.55,ln=sqrt(lx*lx+ly*ly+lz*lz)||1;o.lx=lx/ln;o.ly=ly/ln;o.lz=lz/ln;o.fade=fadeAt(o.x,o.y,o.r);return o}
 function frac(v){v=v%1;return v<0?v+1:v}
 function drawBody(b){var d=b.d,P=d.P;if(!P||!d.sp)return;
  var spin=d.lock?frac(b.a/TAU):frac(d.s0+(d.spin||0)*T),cs=d.cs?frac(d.c0+d.cs*T):0;
  K.shade(d.sp,P,spin,b.lx,b.ly,b.lz,cs);d.cx.putImageData(d.img,0,0);
  var r=b.r,fd=b.fade;
- if(P.atm&&!d.lock){var il=.2+.8*K.ss(-.5,.7,b.lz),g=X.createRadialGradient(b.x,b.y,r*.94,b.x,b.y,r*1.32);g.addColorStop(0,'rgba('+P.atm[0]+','+P.atm[1]+','+P.atm[2]+','+(.34*il*fd*Math.min(1,P.atm[3])).toFixed(3)+')');g.addColorStop(1,'rgba('+P.atm[0]+','+P.atm[1]+','+P.atm[2]+',0)');
-  X.globalCompositeOperation='lighter';X.fillStyle=g;X.beginPath();X.arc(b.x,b.y,r*1.34,0,TAU);X.fill();X.globalCompositeOperation='source-over'}
+ if(P.atm&&!d.lock){var il=.2+.8*K.ss(-.5,.7,b.lz),g=X.createRadialGradient(b.x,b.y,r*.94,b.x,b.y,r*1.34);g.addColorStop(0,'rgba('+P.atm[0]+','+P.atm[1]+','+P.atm[2]+','+(.36*il*fd*Math.min(1,P.atm[3])).toFixed(3)+')');g.addColorStop(1,'rgba('+P.atm[0]+','+P.atm[1]+','+P.atm[2]+',0)');
+  X.globalCompositeOperation='lighter';X.fillStyle=g;X.beginPath();X.arc(b.x,b.y,r*1.36,0,TAU);X.fill();X.globalCompositeOperation='source-over'}
  if(P.ring&&ringCv)ringPass(b,0);
  X.globalAlpha=fd;X.drawImage(d.cv,b.x-r,b.y-r,2*r,2*r);X.globalAlpha=1;
  if(P.ring&&ringCv)ringPass(b,1)}
-function ringPass(b,near){var Ro=b.r*2.3,ratio=sin(E0+py*.05)*.8+.1;X.save();X.translate(b.x,b.y);X.rotate(b.d.P.tilt);X.scale(1,ratio);X.beginPath();X.rect(-Ro,near?0:-Ro,2*Ro,Ro);X.clip();
+function ringPass(b,near){var Ro=b.r*2.3,ratio=sin(Ecur)*.8+.1;X.save();X.translate(b.x,b.y);X.rotate(b.d.P.tilt);X.scale(1,ratio);X.beginPath();X.rect(-Ro,near?0:-Ro,2*Ro,Ro);X.clip();
  X.globalAlpha=b.fade*(.62+.38*K.ss(-.3,.7,b.lz));X.drawImage(ringCv,-Ro,-Ro,2*Ro,2*Ro);X.restore();X.globalAlpha=1}
-function drawSun(){var P=built.sun;if(!P||!SUN.sp)return;K.shade(SUN.sp,P,frac(SUN.spin*T),0,0,1,0);SUN.cx.putImageData(SUN.img,0,0);var r=discR,x=cx+px*-16,y=cy+py*-9;X.drawImage(SUN.cv,x-r,y-r,2*r,2*r)}
+function drawSun(){var P=SUN.P;if(!P||!SUN.sp)return;K.shade(SUN.sp,P,frac(SUN.spin*T+.2),0,0,1,0);SUN.cx.putImageData(SUN.img,0,0);var r=sunR,x=ox(),y=oy();X.drawImage(SUN.cv,x-r,y-r,2*r,2*r);HB.push({d:SUN,x:x,y:y,r:r,fade:1})}
 /* ---- scenery ---- */
-function drawStars(){X.fillStyle='#d6e8ff';var i,s,w=false;for(i=0;i<stars.length;i++){s=stars[i];if(s.w!==w){w=s.w;X.fillStyle=w?'#ffe3b3':'#d6e8ff'}
+function drawBackdrop(){if(bg){X.globalAlpha=.9;X.drawImage(bg,px*-10,py*-6,W,H);X.globalAlpha=1}}
+function drawStars(){var i,s,w=null;for(i=0;i<stars.length;i++){s=stars[i];if(s.w!==w){w=s.w;X.fillStyle=w?'#ffe3b3':'#d6e8ff'}
  X.globalAlpha=s.a*(RM?.8:.55+.45*sin(T*s.tw+s.ph));X.fillRect(s.x+px*-s.d*22,s.y+py*-s.d*12,s.s,s.s)}X.globalAlpha=1}
-function drawGlow(){var x=cx+px*-16,y=cy+py*-9,p=RM?0:sin(T*.9),g=X.createRadialGradient(x,y,discR*.7,x,y,discR*(crestVis?4.6:5.2));
- g.addColorStop(0,'rgba(255,206,110,'+(.36+.04*p).toFixed(3)+')');g.addColorStop(.22,'rgba(255,158,64,'+(.17+.02*p).toFixed(3)+')');g.addColorStop(.6,'rgba(255,120,48,.05)');g.addColorStop(1,'rgba(255,110,40,0)');
- X.globalCompositeOperation='lighter';X.fillStyle=g;X.fillRect(0,0,W,H);X.globalCompositeOperation='source-over'}
-function drawOrbits(){X.lineWidth=1;var N=84,pts=[],i,j,d,R,a;
- for(j=0;j<DEF.length;j++){d=DEF[j];R=R1*d.m;pts.length=0;for(i=0;i<=N;i++){a=i/N*TAU;cam(R*cos(a),0,R*sin(a));var f=Dc/(Dc-c3[2]);pts.push(cx+px*-16+c3[0]*f,cy+py*-9-c3[1]*f,c3[2])}
-  for(var pass=0;pass<2;pass++){X.strokeStyle=pass?'rgba(160,200,255,.2)':'rgba(160,200,255,.085)';X.beginPath();var on=false;
+function drawGlow(){var x=ox(),y=oy(),p=RM?0:sin(T*.9),gk=MOBL?.55:1,g=X.createRadialGradient(x,y,sunR*.8,x,y,sunR*(MOBL?5.5:7.5));
+ g.addColorStop(0,'rgba(255,214,130,'+((.5+.04*p)*gk).toFixed(3)+')');g.addColorStop(.1,'rgba(255,170,80,'+((.28+.02*p)*gk).toFixed(3)+')');g.addColorStop(.35,'rgba(255,120,48,'+(.09*gk).toFixed(3)+')');g.addColorStop(1,'rgba(255,100,40,0)');
+ X.globalCompositeOperation='lighter';var GR=sunR*(MOBL?5.5:7.5);X.fillStyle=g;X.fillRect(x-GR,y-GR,2*GR,2*GR);X.globalCompositeOperation='source-over'}
+function drawFlare(){var x=ox(),y=oy(),p=RM?0:sin(T*.7),i;X.save();X.translate(x,y);X.globalCompositeOperation='lighter';prom();
+ X.fillStyle=rayG;var nr=MOBL?8:14;for(i=0;i<nr;i++){X.save();X.rotate(i*TAU/nr+(RM?0:T*.015));X.globalAlpha=.55+.45*sin(i*2.1+(RM?0:T*.5));X.beginPath();X.moveTo(sunR*.9,0);X.lineTo(sunR*7,-sunR*.06);X.lineTo(sunR*7,sunR*.06);X.closePath();X.fill();X.restore()}
+ if(!MOBL){X.globalAlpha=.5+.1*p;X.save();X.scale(1,.018);X.fillStyle=streakG;X.beginPath();X.arc(0,0,sunR*11,0,TAU);X.fill();X.restore()};
+ var hg=X.createRadialGradient(0,0,sunR*.5,0,0,sunR*1.7);hg.addColorStop(0,'rgba(255,248,226,.0)');hg.addColorStop(.55,'rgba(255,238,200,.32)');hg.addColorStop(1,'rgba(255,200,120,0)');X.globalAlpha=1;X.fillStyle=hg;X.beginPath();X.arc(0,0,sunR*1.7,0,TAU);X.fill();
+ X.restore()}
+function drawTrails(){var i,j,d,a,R,N=14,span,x0,y0,x1,y1,al,f,fd;X.lineCap='round';
+ for(i=0;i<DEF.length;i++){d=DEF[i];if(!d.P)continue;a=d.ph+d.w*T;R=R1*d.m;span=Math.min(.9,70*psc/R);
+  cam(R*cos(a),0,R*sin(a));f=Dc/(Dc-c3[2]);x0=ox()+c3[0]*f;y0=oy()-c3[1]*f;fd=fadeAt(x0,y0,0);
+  for(j=1;j<=N;j++){var b2=a-span*j/N;cam(R*cos(b2),0,R*sin(b2));f=Dc/(Dc-c3[2]);x1=ox()+c3[0]*f;y1=oy()-c3[1]*f;al=Math.pow(1-(j-1)/N,1.6)*.5*fd;
+   X.strokeStyle='rgba('+TC[d.k]+','+al.toFixed(3)+')';X.lineWidth=Math.max(.8,d.r*psc*.28*(1-(j-1)/N));X.beginPath();X.moveTo(x0,y0);X.lineTo(x1,y1);X.stroke();x0=x1;y0=y1}}X.lineCap='butt'}
+function prom(){var i,ang,life,h,a0,a1,r=sunR;X.lineCap='round';
+ for(i=0;i<5;i++){ang=i*1.26+(RM?0:T*.03)+sin(T*.2+i)*.3;life=.5+.5*sin((RM?3:T)*.4+i*2.3);h=r*(.16+.3*life);a0=ang-.13;a1=ang+.13;
+  var sx=cos(a0)*r*.97,sy=sin(a0)*r*.97,ex=cos(a1)*r*.97,ey=sin(a1)*r*.97,qx=cos(ang)*(r+h*2.2),qy=sin(ang)*(r+h*2.2);
+  X.strokeStyle='rgba(255,110,40,'+(.12+.3*life).toFixed(3)+')';X.lineWidth=r*.07;X.beginPath();X.moveTo(sx,sy);X.quadraticCurveTo(qx,qy,ex,ey);X.stroke();
+  X.strokeStyle='rgba(255,200,130,'+(.1+.25*life).toFixed(3)+')';X.lineWidth=r*.025;X.stroke()}X.lineCap='butt'}
+function drawOrbits(){X.lineWidth=1;var N=96,pts=[],i,j,d,R,a;
+ for(j=0;j<DEF.length;j++){d=DEF[j];R=R1*d.m;pts.length=0;for(i=0;i<=N;i++){a=i/N*TAU;cam(R*cos(a),0,R*sin(a));var f=Dc/(Dc-c3[2]);pts.push(ox()+c3[0]*f,oy()-c3[1]*f,c3[2])}
+  for(var pass=0;pass<2;pass++){X.strokeStyle=pass?'rgba(170,205,255,.2)':'rgba(170,205,255,.08)';X.beginPath();var on=false;
    for(i=0;i<N;i++){var zz=(pts[i*3+2]+pts[i*3+5])/2,near=zz>=0;if(near!==!!pass){on=false;continue}if(!on){X.moveTo(pts[i*3],pts[i*3+1]);on=true}X.lineTo(pts[i*3+3],pts[i*3+4])}X.stroke()}}}
-function drawBelt(){var i,b,a,x,z,f,sx,sy,last=-1,lvl;for(i=0;i<belt.length;i++){b=belt[i];a=b.a+b.w*T;x=R1*b.m*cos(a);z=R1*b.m*sin(a);cam(x,R1*b.y,z);f=Dc/(Dc-c3[2]);sx=cx+px*-16+c3[0]*f;sy=cy+py*-9-c3[1]*f;
-  lvl=b.al>.6?2:b.al>.45?1:0;if(lvl!==last){last=lvl;X.fillStyle=lvl===2?'#e8dcc8':lvl===1?'#bfb3a2':'#8d8579'}
-  X.globalAlpha=Math.min(1,b.al*(.4+.6*fadeAt(sx,sy,0))*(.75+.25*f));X.fillRect(sx,sy,b.z*sc*f,b.z*sc*f)}X.globalAlpha=1}
+function drawBelt(){var i,b,a,x,z,f,sx,sy,last=-1,lvl;for(i=0;i<belt.length;i++){b=belt[i];a=b.a+b.w*T;x=R1*b.m*cos(a);z=R1*b.m*sin(a);cam(x,R1*b.y,z);f=Dc/(Dc-c3[2]);sx=ox()+c3[0]*f;sy=oy()-c3[1]*f;
+  lvl=b.al>.65?2:b.al>.5?1:0;if(lvl!==last){last=lvl;X.fillStyle=lvl===2?'#e8dcc8':lvl===1?'#bfb3a2':'#8d8579'}
+  X.globalAlpha=Math.min(1,b.al*(.4+.6*fadeAt(sx,sy,0))*(.75+.25*f));X.fillRect(sx,sy,b.z*psc*f,b.z*sc*f)}X.globalAlpha=1}
 function drawMeteor(){if(RM)return;if(!met){if(T>nextMet){var x=W*(.35+Math.random()*.65),a=2.55+Math.random()*.35,v=520+Math.random()*320;met={x:x,y:-10+Math.random()*H*.18,vx:cos(a)*v,vy:sin(a)*v,t:0}}return}
  met.t+=DT;met.x+=met.vx*DT;met.y+=met.vy*DT;var tx=met.x-met.vx*.16,ty=met.y-met.vy*.16,g=X.createLinearGradient(met.x,met.y,tx,ty),al=Math.max(0,1-met.t/1.1);
  g.addColorStop(0,'rgba(255,255,255,'+(.9*al).toFixed(3)+')');g.addColorStop(1,'rgba(160,210,255,0)');X.strokeStyle=g;X.lineWidth=1.6;X.beginPath();X.moveTo(met.x,met.y);X.lineTo(tx,ty);X.stroke();
  if(met.t>1.1||met.y>H||met.x<0){met=null;nextMet=T+7+Math.random()*9}}
+function drawHint(){if(!MOBL||touched||T<2.5||T>16)return;var a=Math.min(1,(T-2.5)/1.5)*Math.min(1,(16-T)/1.5)*.6;X.save();X.textAlign='center';X.font='600 12.5px Mukta,"Noto Sans Devanagari",system-ui,sans-serif';X.fillStyle='rgba(255,255,255,'+a.toFixed(3)+')';X.fillText('ग्रहावर टॅप करा  ☝',W/2,stageT+STH-2);X.restore()}
 function drawLabel(){if(!hov)return;var b=hov,d=b.d,pad=10,r=b.r;X.save();X.strokeStyle='rgba(246,215,123,.85)';X.lineWidth=1.5;X.beginPath();X.arc(b.x,b.y,r+5,0,TAU);X.stroke();
  X.font='700 15px Mukta,"Noto Sans Devanagari",system-ui,sans-serif';var w1=X.measureText(d.n).width;X.font='500 12.5px Mukta,"Noto Sans Devanagari",system-ui,sans-serif';var w2=X.measureText(d.f).width,w=Math.max(w1,w2)+pad*2,h=46,
  bx=b.x+r+12,by=b.y-h-8;if(bx+w>W-6)bx=b.x-r-12-w;if(by<6)by=b.y+r*.2+8;
@@ -360,36 +393,40 @@ function drawLabel(){if(!hov)return;var b=hov,d=b.d,pad=10,r=b.r;X.save();X.stro
  X.fillStyle='#F6D77B';X.font='700 15px Mukta,"Noto Sans Devanagari",system-ui,sans-serif';X.fillText(d.n,bx+pad,by+19);X.fillStyle='#d6e0f7';X.font='500 12.5px Mukta,"Noto Sans Devanagari",system-ui,sans-serif';X.fillText(d.f,bx+pad,by+37);X.restore()}
 /* ---- frame ---- */
 function draw(){
- X.clearRect(0,0,W,H);px+=(tpx-px)*.07;py+=(tpy-py)*.07;var e=E0+py*.05;ce=cos(e);se=sin(e);
- drawStars();drawGlow();drawOrbits();drawBelt();
+ X.clearRect(0,0,W,H);px+=(tpx-px)*.07;py+=(tpy-py)*.07;Ecur=E0+py*.05+(RM?0:.022*sin(T*.07));ce=cos(Ecur);se=sin(Ecur);
+ drawBackdrop();drawStars();drawGlow();drawOrbits();drawBelt();drawTrails();
  LIST.length=0;var i,d,a,R,ear=null;
- for(i=0;i<DEF.length;i++){d=DEF[i];if(!d.P||!d.sp)continue;a=d.ph+d.w*T;R=R1*d.m;var b=place(d,R*cos(a),0,R*sin(a),d.r*sc,a);LIST.push(b);if(d.k==='earth')ear=b.d,ear.wx=R*cos(a),ear.wz=R*sin(a)}
- if(ear&&MOON.P&&MOON.sp){var mb=T*1.05+1.3,Rm=ear.r*sc*3.6,mx=ear.wx+Rm*cos(mb),my=Rm*sin(mb)*.32,mz=ear.wz+Rm*sin(mb)*.95;LIST.push(place(MOON,mx,my,mz,MOON.r*sc,mb))}
- var sunB=!crestVis&&built.sun&&SUN.sp?{z:0,sun:true}:null;if(sunB)LIST.push(sunB);
+ for(i=0;i<DEF.length;i++){d=DEF[i];if(!d.P||!d.sp)continue;a=d.ph+d.w*T;R=R1*d.m;var b=place(d,R*cos(a),0,R*sin(a),d.r*psc,a);LIST.push(b);if(d.k==='earth'){ear=d;d.wx=R*cos(a);d.wz=R*sin(a)}}
+ if(ear&&MOON.P&&MOON.sp){var mb=T*1.05+1.3,Rm=ear.r*psc*3.2,mx=ear.wx+Rm*cos(mb),my=Rm*sin(mb)*.32,mz=ear.wz+Rm*sin(mb)*.95;LIST.push(place(MOON,mx,my,mz,MOON.r*psc,mb))}
+ if(SUN.P&&SUN.sp)LIST.push({z:0,sun:true});
  LIST.sort(function(p,q){return p.z-q.z});HB.length=0;
  for(i=0;i<LIST.length;i++){var o=LIST[i];if(o.sun)drawSun();else{drawBody(o);HB.push(o)}}
- drawMeteor();drawLabel()}
-/* ---- build textures progressively (keeps page responsive) ---- */
-var order=['earth','jupiter','saturn','mars','venus','mercury','moon'],oi=0,shown=false;
-function buildNext(){var k=(!crestVis&&!built.sun)?'sun':order[oi++];if(!k){return}built[k]=K.P[k](Q);buildSprites();
- if(!shown){shown=true;C.classList.add('on')}if(RM)draw();else go();setTimeout(buildNext,16)}
+ drawFlare();drawMeteor();drawLabel()}
+/* ---- textures progressively (page stays responsive) ---- */
+var order=['sun','earth','jupiter','saturn','mars','venus','mercury','uranus','neptune','moon'],oi=0,shown=false;
+function buildNext(){var k=order[oi++];if(!k)return;try{built[k]=K.P[k](Q);buildSprites()}catch(err){window.__hxSolarErr=err}
+ if(RM)draw();setTimeout(buildNext,16)}
 /* ---- loop ---- */
 var run=false,raf=0,last=0,vis=true;
-function loop(ts){if(!run)return;raf=requestAnimationFrame(loop);var dt=(ts-last)/1000;if(WEAK&&dt<.032)return;last=ts;DT=Math.min(.05,dt||.016);T+=DT;draw()}
+function loop(ts){if(!run)return;raf=requestAnimationFrame(loop);var dt=(ts-last)/1000;if(WEAK&&dt<.032)return;last=ts;DT=Math.max(.001,Math.min(.05,dt||.016));age+=DT;T+=DT*(1+7*Math.exp(-age*1.1));try{draw()}catch(err){window.__hxSolarErr=err;stop();if(window.console)console.warn('solar',err)}}
 function go(){if(run||RM||!vis||document.hidden||!shown)return;run=true;last=performance.now();raf=requestAnimationFrame(loop)}
 function stop(){run=false;cancelAnimationFrame(raf)}
-function hit(e){var r=S.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;tpx=mx/W-.5;tpy=my/H-.5;if(e.pointerType==='touch'){tpx=tpy=0}
- var best=null,bd=1e9;for(var i=0;i<HB.length;i++){var b=HB[i],dd=Math.hypot(mx-b.x,my-b.y),lim=b.r+(b.d.lock?10:6);if(dd<lim&&dd<bd&&b.fade>.55){bd=dd;best=b}}hov=best;S.style.cursor=best?'help':'';if(RM)draw()}
+function hit(e){var r=S.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;if(e.pointerType!=='touch'){tpx=mx/W-.5;tpy=my/H-.5}
+ var best=null,bd=1e9;for(var i=0;i<HB.length;i++){var b=HB[i],dd=Math.hypot(mx-b.x,my-b.y),lim=b.r+(b.d.lock?10:6);if(dd<lim&&dd<bd&&b.fade>.55){bd=dd;best=b}}if(best)touched=true;hov=best;S.style.cursor=best?'help':'';if(e.pointerType==='touch'){clearTimeout(hit.t);if(best)hit.t=setTimeout(function(){hov=null},3500)}if(RM)draw()}
+function relayout(){clearTimeout(init.t);init.t=setTimeout(function(){layout();if(RM)draw()},140)}
 function init(){
  layout();
- if('ResizeObserver' in window)new ResizeObserver(function(){clearTimeout(init.t);init.t=setTimeout(function(){layout();if(RM)draw()},140)}).observe(S);else addEventListener('resize',function(){clearTimeout(init.t);init.t=setTimeout(function(){layout();if(RM)draw()},140)});
+ if('ResizeObserver' in window)new ResizeObserver(relayout).observe(S);else addEventListener('resize',relayout);
  setTimeout(function(){layout();if(RM)draw()},1300);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){layout();if(RM)draw()});
- S.addEventListener('pointermove',hit,{passive:true});S.addEventListener('pointerdown',hit,{passive:true});S.addEventListener('pointerleave',function(){tpx=tpy=0;hov=null;S.style.cursor=''});
+ addEventListener('scroll',function(){sy=window.pageYOffset||0},{passive:true});
+ S.addEventListener('pointermove',hit,{passive:true});S.addEventListener('pointerdown',hit,{passive:true});S.addEventListener('pointerleave',function(e){if(e.pointerType==='touch')return;tpx=tpy=0;hov=null;S.style.cursor=''});
  if('IntersectionObserver' in window)new IntersectionObserver(function(en){vis=en[0].isIntersecting;vis?go():stop()}).observe(S);
+ if(window.DeviceOrientationEvent&&!RM&&matchMedia('(pointer:coarse)').matches)addEventListener('deviceorientation',function(e){if(e.gamma==null)return;tpx=Math.max(-.5,Math.min(.5,e.gamma/45));tpy=Math.max(-.5,Math.min(.5,(e.beta-50)/60))},{passive:true});
  document.addEventListener('visibilitychange',function(){document.hidden?stop():go()});
- if(RM)T=41;else T=Math.random()*20;
- setTimeout(buildNext,60)}
-if(document.readyState==='complete')setTimeout(init,200);else addEventListener('load',function(){setTimeout(init,200)});
+ T=RM?41:Math.random()*20;shown=true;C.classList.add('on');if(RM)draw();else go();
+ setTimeout(buildNext,40)}
+var booted=0;function boot(){if(booted)return;booted=1;init()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(boot,0)});else setTimeout(boot,0);
 })();
 </script>
 
@@ -566,7 +603,6 @@ if(document.readyState==='complete')setTimeout(init,200);else addEventListener('
 </main>
 
 
-<section id="student-section" aria-label="विद्यार्थी विभाग" style="background:linear-gradient(135deg,#36081A,#6A1327 60%,#8a1d36);color:#fff;padding:40px 16px"><div style="max-width:900px;margin:0 auto;text-align:center"><span style="font-size:.8rem;letter-spacing:.12em;color:#FFD23F;font-weight:700">विद्यार्थी विभाग</span><h2 style="margin:6px 0 8px;color:#FFD23F;font-size:clamp(1.5rem,4vw,2.2rem)">📚 माझा गृहपाठ</h2><p style="color:#f3e4e8;margin:0 0 18px">वर्ग, हजेरी क्रमांक आणि PIN टाका. गृहपाठ पाहा, वहीचा फोटो पाठवा आणि गुण तपासा.</p><a href="homework.html" style="display:inline-block;background:#FFD23F;color:#36081A;font-weight:800;padding:12px 24px;border-radius:12px;text-decoration:none">विद्यार्थी विभागात जा →</a></div></section>
 <!-- ULTIMATE STUDENT EXPERIENCE -->
 <section class="ux-hub" id="student-hub">
   <div class="wrap">
@@ -684,7 +720,6 @@ d.addEventListener('click',function(e){var b=e.target.closest('.pgsh');if(!b)ret
     </div>
     <p class="copy"><span>© बापूसाहेब देशमुख शिवाजी हायस्कूल व कनिष्ठ महाविद्यालय, चांदूर रेल्वे</span><span>|</span><span>तमसो मा ज्योतिर्गमय</span></p>
     <p class="dev-credit">वेबसाईट विकसक : <b>अंकुश दिलीप राजनेकर</b><br><small>Website developed by Ankush Dilip Rajnekar</small></p>
-    
   </div>
 </footer>
 
@@ -1017,6 +1052,7 @@ loadNotices(); loadResults(); loadGallery(); loadContact();
 /* ============================================================================
    AUTH + ADMIN PANEL
    ============================================================================ */
+const DEMO_USER = 'admin@shala.local', DEMO_PASS = 'shala123';
 let currentUser = null;
 
 function toast(msg){ const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 2600); }
@@ -1026,13 +1062,9 @@ const fab = document.getElementById('fab'), admlink = document.getElementById('a
 const loginm = document.getElementById('loginm'), lf = document.getElementById('lf'), lerr = document.getElementById('lerr');
 const adm = document.getElementById('adm'), admuser = document.getElementById('admuser');
 
-function openLogin(){ lerr.textContent=''; lf.reset(); loginm.hidden = false; document.getElementById('lsub').textContent = FB_ON ? 'तुमचे व्यवस्थापक ईमेल व पासवर्ड टाका.' : 'Firebase अजून जोडलेले नाही, त्यामुळे व्यवस्थापक लॉगिन बंद आहे. आधी "मदत / सेटअप" मधील पायऱ्या पूर्ण करा.'; lf.email.focus(); }
+function openLogin(){ lerr.textContent=''; lf.reset(); loginm.hidden = false; document.getElementById('lsub').textContent = FB_ON ? 'तुमचे व्यवस्थापक ईमेल व पासवर्ड टाका.' : `डेमो मोड सुरू आहे. वापरा — ईमेल: ${DEMO_USER} , पासवर्ड: ${DEMO_PASS}`; lf.email.focus(); }
 function closeLogin(){ loginm.hidden = true; }
-if(admlink) admlink.onclick = e => { e.preventDefault(); openLogin(); };
-if(location.hash==='#admin') setTimeout(openLogin, 600);
-window.addEventListener('hashchange',()=>{ if(location.hash==='#admin') openLogin(); });
-/* गुप्त मार्ग (मोबाईलसाठी): ३ सेकंदात लोगोवर ५ वेळा टॅप करा */
-(function(){ const lg=document.querySelector('.brand-logo'); if(!lg) return; let n=0,tm; lg.addEventListener('click',e=>{ n++; clearTimeout(tm); tm=setTimeout(()=>n=0,3000); if(n>=5){ n=0; e.preventDefault(); openLogin(); } }); })();
+if(admlink) admlink.onclick = openLogin;
 document.getElementById('lcancel').onclick = closeLogin;
 document.getElementById('showhelp').onclick = () => { closeLogin(); openAdmin(); selectTab('help'); };
 loginm.addEventListener('click', e => { if(e.target===loginm) closeLogin(); });
@@ -1045,7 +1077,8 @@ lf.onsubmit = async e => {
     try{ await fbAuth.signInWithEmailAndPassword(email, pw); busy(false); closeLogin(); }
     catch(err){ busy(false); lerr.textContent = 'लॉगिन चुकीचे आहे. ईमेल / पासवर्ड तपासा.'; }
   } else {
-    lerr.textContent = 'लॉगिन उपलब्ध नाही — Firebase जोडलेले नाही.';
+    if(email===DEMO_USER && pw===DEMO_PASS){ currentUser = {email}; closeLogin(); onLogin(); }
+    else lerr.textContent = `चुकीचे. डेमो मोडसाठी वापरा — ${DEMO_USER} / ${DEMO_PASS}`;
   }
 };
 
@@ -1301,54 +1334,10 @@ service cloud.firestore {
       return request.auth != null
           && request.auth.token.email == 'diliprajnekar@gmail.com';
     }
-    function isTeacher() {
-      return request.auth != null
-          && exists(/databases/$(database)/documents/teachers/$(request.auth.token.email));
-    }
-    function myClasses() {
-      return get(/databases/$(database)/documents/teachers/$(request.auth.token.email)).data.classes;
-    }
-
-    // सार्वजनिक माहिती: सर्वांना वाचता येते, लिहिता फक्त admin
-    match /notices/{id}  { allow read: if true; allow write: if isAdmin(); }
-    match /results/{id}  { allow read: if true; allow write: if isAdmin(); }
-    match /gallery/{id}  { allow read: if true; allow write: if isAdmin(); }
-    match /meta/{id}     { allow read: if true; allow write: if isAdmin(); }
-
-    // शिक्षक: admin सगळे पाहतो/बदलतो; शिक्षक फक्त आपलेच खाते वाचतो
-    match /teachers/{email} {
-      allow read: if isAdmin() || (request.auth != null && request.auth.token.email == email);
-      allow write: if isAdmin();
-    }
-    // विद्यार्थी यादी (खाजगी): शिक्षकाला फक्त त्याच्या वर्गाची
-    match /students/{id} {
-      allow read: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
-      allow write: if isAdmin();
-    }
-    // हजेरी (खाजगी): शिक्षकाला फक्त त्याच्या वर्गाची
-    match /attendance/{id} {
-      allow read: if isAdmin() || (isTeacher() && (resource == null || resource.data.classKey in myClasses()));
-      allow create: if isAdmin() || (isTeacher() && request.resource.data.classKey in myClasses());
-      allow update: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses() && request.resource.data.classKey in myClasses());
-      allow delete: if isAdmin();
-    }
-
-    // गुण (खाजगी): शिक्षकाला फक्त त्याच्या वर्गाचे
-    match /marks/{id} {
-      allow read: if isAdmin() || (isTeacher() && (resource == null || resource.data.classKey in myClasses()));
-      allow create: if isAdmin() || (isTeacher() && request.resource.data.classKey in myClasses());
-      allow update: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses() && request.resource.data.classKey in myClasses());
-      allow delete: if isAdmin();
-    }
-    // गृहपाठ: सर्वांना वाचता येतो (विद्यार्थी/पालक), लिहिता फक्त त्या वर्गाचा शिक्षक
-    match /homework/{id} {
+    match /{document=**} {
       allow read: if true;
-      allow create: if isAdmin() || (isTeacher() && request.resource.data.classKey in myClasses());
-      allow update, delete: if isAdmin() || (isTeacher() && resource.data.classKey in myClasses());
+      allow write: if isAdmin();
     }
-
-    // बाकी सर्व काही बंद
-    match /{document=**} { allow read, write: if false; }
   }
 }</pre>
     <p><b>सुरक्षा:</b> वरील नियमांनुसार फक्त <code>diliprajnekar@gmail.com</code> हे खातेच नोटिस/निकाल बदलू शकते; इतर कोणी login केले तरी लिहिता येत नाही. तसेच <b>Authentication → Settings → User actions</b> मध्ये "Enable create (sign-up)" बंद करा, आणि <b>Google Cloud → Credentials</b> मध्ये API key ला फक्त तुमच्या वेबसाईटच्या पत्त्यावर (HTTP referrer) मर्यादित करा.</p>
@@ -2416,7 +2405,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
     async function callShivaAI(q,mode){
       /* Optional secure backend hook. If the school deploys /api/sonu, Shiva can answer open-ended questions with an actual AI model without exposing an API key in this HTML. */
-      const endpoint=localStorage.getItem('sonuAIEndpoint')||'/.netlify/functions/shiva';
+      const endpoint=localStorage.getItem('sonuAIEndpoint')||'/api/sonu';
       try{
         const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),12000);
         const res=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
@@ -3229,7 +3218,7 @@ Use Markdown (## headings, **bold**, bullet and numbered lists, tables for compa
 SCHOOL INFO: ${ctx()||'(not available)'}${ref?'\n\nREFERENCE ('+ref.src+' – '+ref.title+'): '+ref.text.slice(0,1600):''}`}
 const pick=j=>j&&(j.answer||j.text||j.reply||j.output||j.response||(j.choices&&j.choices[0]&&((j.choices[0].message&&j.choices[0].message.content)||j.choices[0].text))||(Array.isArray(j.content)&&j.content.filter(b=>b.type==='text').map(b=>b.text).join('')))||null;
 async function llm(q,L,depth,ref,keep){
- const h=HIST.slice(-8),own=(S.ai||CFG().endpoint||localStorage.getItem('sonuAIEndpoint')||'/.netlify/functions/shiva').trim();let t=null,via='';
+ const h=HIST.slice(-8),own=(S.ai||CFG().endpoint||localStorage.getItem('sonuAIEndpoint')||'').trim();let t=null,via='';
  if(!navigator.onLine)return null;
  if(own){try{const r=await tfetch(own,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q,message:q,history:h,context:ctx(),lang:L.c,langName:L.n,roman:!!L.roman,depth,reference:ref?{title:ref.title,text:ref.text.slice(0,1600),url:ref.url}:null,school:'BDS Shivaji High School, Chandur Railway'})},45000);
   const j=(r.headers.get('content-type')||'').includes('json')?await r.json():{answer:await r.text()};t=pick(j);if(t)via='school-server'}catch(e){}}
@@ -3243,15 +3232,7 @@ async function llm(q,L,depth,ref,keep){
 /* ---------- site navigation ---------- */
 const AL={'मुख्यपृष्ठ':'home','शाळ':'about','विद्यालय':'about','सूचना':'notices','notice':'notices','निकाल':'results','result':'results','यश':'achievements','सन्मान':'achievements','फोटो':'gallery','छायाचित्र':'gallery','सुविधा':'smart-features','शिक्षक':'staff','प्राचार्य':'principal','मुख्याध्यापक':'principal','इतिहास':'heritage','वारसा':'heritage','विद्यार्थी':'students','संपर्क':'contact','पत्ता':'contact','कार्यक्रम':'events'};
 function nav(id){const e=document.getElementById(id);if(!e)return false;e.scrollIntoView({behavior:'smooth',block:'start'});e.classList.add('sonu-hl');setTimeout(()=>e.classList.remove('sonu-hl'),1700);return true}
-function akuOpen(x){
- if(!/(अकु|आकु|\baku\b)/i.test(x)||!/(उघड|open|सुरू|start|कंट्रोल|control|माझा|my|बदला|change|reset)/i.test(x))return null;
- if(/(बदला|change|reset)/i.test(x))localStorage.removeItem('akuPrivateUrl');
- let u=localStorage.getItem('akuPrivateUrl')||'';
- if(!u)u=(prompt('तुमच्या स्वतःच्या Aku चा private पत्ता टाका (उदा. http://127.0.0.1:8765 किंवा तुमचा Tailscale पत्ता). हा पत्ता फक्त या डिव्हाइसवर साठवला जातो.')||'').trim();
- if(!/^https?:\/\/[^\s]+$/i.test(u))return{html:'ही सुविधा तुमच्या स्वतःच्या Aku साठी आहे. वैध पत्ता (http:// किंवा https://) टाकून पुन्हा सांगा.'};
- localStorage.setItem('akuPrivateUrl',u);window.open(u,'_blank','noopener');
- return{html:'🖥️ तुमचा स्वतःचा <b>Aku</b> नवीन टॅबमध्ये उघडत आहे. तिथे तुमचा access token टाकून संगणक/फोनची कामे करा. पत्ता बदलायचा असल्यास "aku पत्ता बदला" म्हणा.'}}
-async function site(x){const ak=akuOpen(x);if(ak)return ak;if(!/दाखव|उघड|\bopen\b|\bshow\b|कुठे|जा(?=\s|$)|संपर्क|पत्ता|शिक्षक|प्राचार्य|मुख्याध्यापक|निकाल|सूचना|शाळेबद्दल|विद्यालयाबद्दल/.test(x)||x.length>60)return null;const k=Object.keys(AL).find(k=>x.includes(k));if(!k||!document.getElementById(AL[k]))return null;
+async function site(x){if(!/दाखव|उघड|\bopen\b|\bshow\b|कुठे|जा(?=\s|$)|संपर्क|पत्ता|शिक्षक|प्राचार्य|मुख्याध्यापक|निकाल|सूचना|शाळेबद्दल|विद्यालयाबद्दल/.test(x)||x.length>60)return null;const k=Object.keys(AL).find(k=>x.includes(k));if(!k||!document.getElementById(AL[k]))return null;
  let t='';try{const o=window.__sonuPro&&window.__sonuPro.askOriginal;if(o){const a=await o(x);if(typeof a==='string'&&a.length>10&&a.length<600)t=a}}catch(e){}
  nav(AL[k]);return{html:t?esc(t)+'<br>📍 विभाग उघडला आहे.':'📍 <b>'+esc(k)+'</b> विभाग तुमच्यासाठी उघडला आहे.'}}
 const click=a=>{const b=$('#sonuDock [data-a="'+a+'"]');b&&b.click()};
