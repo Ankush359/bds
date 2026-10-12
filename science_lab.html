@@ -1,347 +1,227 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050B1C">
-<title>Science Lab 3D | Class 9 & 10</title>
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
-<style>
-body{margin:0;background:#050B1C;font:17px/1.5 'Mukta','Noto Sans Devanagari',system-ui,sans-serif}
-.bk{display:inline-block;margin:16px 8px 16px 16px;color:#FFD23F;font-weight:700;text-decoration:none}
-.hx4{background:linear-gradient(160deg,#050B1C,#0E1B45);color:#fff;padding:8px 16px 56px}
-.hx4 .in{max-width:1100px;margin:0 auto}
-.hx4 h1{margin:0;font-size:clamp(1.5rem,4vw,2.3rem);color:#FFD23F}
+<title>Science Lab | Class 9 & 10</title>
+<style>body{margin:0;background:#050B1C;font:17px/1.5 'Mukta','Noto Sans Devanagari',system-ui,sans-serif}.bk{display:inline-block;margin:16px;color:#FFD23F;font-weight:700;text-decoration:none}
+.hx4{background:linear-gradient(160deg,#050B1C,#0E1B45);color:#fff;padding:56px 16px}
+.hx4 .in{max-width:1000px;margin:0 auto}.hx4 h2{margin:0;font-size:clamp(1.5rem,4vw,2.3rem);color:#FFD23F}
 .hx4 .sub{margin:6px 0 18px;color:#A9B8DA}
-.tb{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.tb button{padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font:700 .95rem inherit;cursor:pointer}
-.tb button.on{background:#FFD23F;color:#13204A;border-color:#FFD23F}
-.stage{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#050B1C;border:1px solid rgba(255,255,255,.18);box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.stage:fullscreen{aspect-ratio:auto;border-radius:0;border:0}
-.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hud{position:absolute;left:10px;bottom:10px;padding:4px 10px;border-radius:8px;background:rgba(5,11,28,.65);color:#A9B8DA;font:600 12px system-ui;pointer-events:none}
-.tools{position:absolute;right:10px;top:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-.tools select,.tools button{background:rgba(5,11,28,.72);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:7px 10px;font:700 12px system-ui;cursor:pointer;backdrop-filter:blur(6px)}
-#ld{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#A9B8DA;background:#050B1C;padding:20px;z-index:3}
-#ld a{color:#FFD23F;font-weight:700}
-.ct{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 20px;margin:14px 0}
-.ct label{display:block;font-weight:700;font-size:.92rem;color:#fff}.ct b{color:#FFD23F}
-input[type=range]{width:100%;accent-color:#FFD23F}
-.ou{padding:12px 14px;border-radius:12px;background:rgba(255,210,63,.12);border:1px solid rgba(255,210,63,.4);font-weight:800;color:#FFE066}
-.if{margin:12px 0 0;color:#D6E0F7;line-height:1.6}
-@media(max-width:700px){.stage{aspect-ratio:4/3}}
+.hx4 .tb{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.hx4 .tb button{padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font:700 .95rem inherit;cursor:pointer}
+.hx4 .tb button.on{background:#FFD23F;color:#13204A;border-color:#FFD23F}
+.hx4 canvas{width:100%;height:auto;display:block;border-radius:16px;background:#071235;border:1px solid rgba(255,255,255,.15)}
+.hx4 .ct{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 20px;margin:14px 0}
+.hx4 .ct label{display:block;font-weight:700;font-size:.92rem}.hx4 .ct b{color:#FFD23F}
+.hx4 input[type=range]{width:100%;accent-color:#FFD23F}
+.hx4 .ou{padding:12px 14px;border-radius:12px;background:rgba(255,210,63,.12);border:1px solid rgba(255,210,63,.4);font-weight:800;color:#FFE066}
+.hx4 .if{margin:12px 0 0;color:#D6E0F7;line-height:1.6}
 </style></head><body>
-<a class="bk" href="index.html">← Main Website</a><a class="bk" href="science_lab_classic.html">Classic 2D Lab</a><a class="bk" href="math_lab.html">🧮 Math Lab →</a>
-<main class="hx4"><div class="in">
-<h1>🔬 Science Lab 3D · Real-look Experiments</h1>
-<p class="sub">Real physics, real glass, real light. Drag to rotate, scroll or pinch to zoom, move the sliders and watch the experiment react. Pick quality up to 5K, or save a 5K photo.</p>
+<a class="bk" href="index.html">← Main Website</a><a class="bk" href="math_lab.html">🧮 Math Lab →</a>
+<main class="hx4" style="padding-top:8px"><div class="in"><h1 style="margin:0;font-size:clamp(1.5rem,4vw,2.3rem);color:#FFD23F">🔬 Science Lab (Virtual Lab)</h1>
+<p class="sub">Choose a class, pick an experiment, and move the sliders to watch it happen right in front of you. The formula and result update instantly.</p>
 <div class="tb" role="group" aria-label="Class"><button type="button" id="g9" class="on">Class 9</button><button type="button" id="g10">Class 10</button></div>
-<div class="tb" id="slT"></div>
-<div class="stage" id="stage"><canvas id="c" aria-label="3D experiment"></canvas>
-<div id="ld">Loading 3D lab…</div>
-<div class="tools"><select id="q" aria-label="Quality"><option value="auto">Quality: Auto</option><option value="hd">1080p</option><option value="qhd">2.5K</option><option value="uhd">4K</option><option value="k5">5K</option></select><button id="rot" type="button">🖐 Rotate: on</button><button id="snap" type="button">📸 5K photo</button><button id="fs" type="button">⛶</button></div>
-<div class="hud" id="hud"></div></div>
-<div class="ct" id="slK"></div><div class="ou" id="slO" aria-live="polite"></div><p class="if" id="slI"></p>
-</div></main>
-<script type="module">
-const $=id=>document.getElementById(id);
-const stage=$('stage'),cv=$('c'),loader=$('ld');
-function fail(m){loader.style.display='flex';loader.innerHTML='<div>'+m+'<br><br><a href="science_lab_classic.html">Open the Classic 2D Lab</a></div>'}
-let THREE,OrbitControls,RoomEnvironment,EffectComposer,RenderPass,UnrealBloomPass,OutputPass,RoundedBoxGeometry;
-try{
- THREE=await import('three');
- ({OrbitControls}=await import('three/addons/controls/OrbitControls.js'));
- ({RoomEnvironment}=await import('three/addons/environments/RoomEnvironment.js'));
- ({EffectComposer}=await import('three/addons/postprocessing/EffectComposer.js'));
- ({RenderPass}=await import('three/addons/postprocessing/RenderPass.js'));
- ({UnrealBloomPass}=await import('three/addons/postprocessing/UnrealBloomPass.js'));
- ({OutputPass}=await import('three/addons/postprocessing/OutputPass.js'));
- ({RoundedBoxGeometry}=await import('three/addons/geometries/RoundedBoxGeometry.js'));
-}catch(e){fail('The 3D engine could not be loaded. Please check your internet connection.');throw e}
-
-/* ================= renderer / scene ================= */
-let renderer;
-try{renderer=new THREE.WebGLRenderer({canvas:cv,antialias:false,powerPreference:'high-performance'})}catch(e){fail('Your device does not support WebGL.');throw e}
-renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
-renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-const scene=new THREE.Scene();
-function bgTex(){const c=document.createElement('canvas');c.width=16;c.height=512;const g=c.getContext('2d');const gr=g.createLinearGradient(0,0,0,512);gr.addColorStop(0,'#0d1a40');gr.addColorStop(.55,'#08122e');gr.addColorStop(1,'#050a1c');g.fillStyle=gr;g.fillRect(0,0,16,512);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t}
-scene.background=bgTex();scene.fog=new THREE.Fog(0x070f26,18,42);
-const pm=new THREE.PMREMGenerator(renderer);scene.environment=pm.fromScene(new RoomEnvironment(),.04).texture;
-const camera=new THREE.PerspectiveCamera(36,16/9,.1,120);
-const controls=new OrbitControls(camera,cv);controls.enableDamping=true;controls.dampingFactor=.08;controls.maxPolarAngle=Math.PI/2-.03;
-const key=new THREE.DirectionalLight(0xfff1de,3);key.position.set(5,10,7);key.castShadow=true;key.shadow.mapSize.set(2048,2048);
-{const s=key.shadow.camera;s.left=-9;s.right=9;s.top=9;s.bottom=-9;s.near=1;s.far=32}key.shadow.bias=-.0003;key.shadow.normalBias=.03;key.shadow.radius=3;
-const fill=new THREE.DirectionalLight(0x8fb4ff,.7);fill.position.set(-6,5,4);
-const rim=new THREE.DirectionalLight(0xffffff,1.2);rim.position.set(-2,6,-8);
-scene.add(key,fill,rim);
-function noiseTex(size,rep){const c=document.createElement('canvas');c.width=c.height=size;const g=c.getContext('2d');const id=g.createImageData(size,size);for(let i=0;i<size*size;i++){const v=110+Math.random()*60|0;id.data[i*4]=id.data[i*4+1]=id.data[i*4+2]=v;id.data[i*4+3]=255}g.putImageData(id,0,0);const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(rep,rep);return t}
-{const nt=noiseTex(256,14);const fl=new THREE.Mesh(new THREE.CircleGeometry(32,64),new THREE.MeshStandardMaterial({color:0x22335a,roughness:.55,metalness:.1,roughnessMap:nt,bumpMap:nt,bumpScale:.6}));fl.rotation.x=-Math.PI/2;fl.receiveShadow=true;scene.add(fl)}
-const G=new THREE.Group();scene.add(G);
-
-/* ================= helpers ================= */
-const V=(x,y,z)=>new THREE.Vector3(x,y,z),UPV=V(0,1,0);
-const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-const mesh=(g,m,p,o)=>{o=o||{};const x=new THREE.Mesh(g,m);if(p)x.position.set(p[0],p[1],p[2]);if(o.r)x.rotation.set(o.r[0],o.r[1],o.r[2]);x.castShadow=o.cast!==false;x.receiveShadow=o.recv!==false;return x};
-function orient(m,a,b){const d=new THREE.Vector3().subVectors(b,a),L=d.length();if(L<1e-5){m.visible=false;return}m.visible=true;m.position.copy(a).addScaledVector(d,.5);m.quaternion.setFromUnitVectors(UPV,d.multiplyScalar(1/L));m.scale.set(1,L,1)}
-function makeBeam(color,r,k,op){const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,1,10,1,true),new THREE.MeshBasicMaterial({color:new THREE.Color(color).multiplyScalar(k||2.2),transparent:true,opacity:op==null?1:op,blending:THREE.AdditiveBlending,depthTest:false,depthWrite:false,toneMapped:false,fog:false}));m.renderOrder=10;m.visible=false;m.castShadow=false;m.receiveShadow=false;return m}
-function makeGlow(color,r,k){const m=new THREE.Mesh(new THREE.SphereGeometry(r,16,12),new THREE.MeshBasicMaterial({color:new THREE.Color(color).multiplyScalar(k||3),transparent:true,blending:THREE.AdditiveBlending,depthTest:false,depthWrite:false,toneMapped:false,fog:false}));m.renderOrder=11;m.castShadow=false;return m}
-function makeArrow(color){const g=new THREE.Group();const mat=new THREE.MeshBasicMaterial({color:new THREE.Color(color).multiplyScalar(1.6),toneMapped:false,depthTest:false,fog:false});const sh=new THREE.Mesh(new THREE.CylinderGeometry(.03,.03,1,12),mat),co=new THREE.Mesh(new THREE.ConeGeometry(.09,.22,16),mat);sh.renderOrder=co.renderOrder=11;g.add(sh,co);
- g.set=(a,b)=>{const d=new THREE.Vector3().subVectors(b,a),L=d.length();if(L<.05){g.visible=false;return}g.visible=true;const n=d.clone().normalize();orient(sh,a,b.clone().addScaledVector(n,-.2));co.position.copy(b).addScaledVector(n,-.11);co.quaternion.setFromUnitVectors(UPV,n)};return g}
-const MAT={
- steel:()=>new THREE.MeshStandardMaterial({color:0xaab2bd,metalness:1,roughness:.28}),
- dark:()=>new THREE.MeshStandardMaterial({color:0x1b2233,metalness:.6,roughness:.45}),
- brass:()=>new THREE.MeshStandardMaterial({color:0xd9a441,metalness:1,roughness:.2}),
- copper:()=>new THREE.MeshStandardMaterial({color:0xc2703c,metalness:1,roughness:.3}),
- rubber:c=>new THREE.MeshStandardMaterial({color:c,roughness:.8,metalness:0}),
- glassFake:()=>new THREE.MeshPhysicalMaterial({color:0xdfeeff,metalness:0,roughness:.03,transparent:true,opacity:.2,envMapIntensity:2.4,clearcoat:1,clearcoatRoughness:.02,side:THREE.DoubleSide,depthWrite:false}),
- glassTrue:ior=>new THREE.MeshPhysicalMaterial({color:0xffffff,metalness:0,roughness:0,transmission:1,thickness:1.2,ior,envMapIntensity:1.5,side:THREE.DoubleSide})
-};
-function glowTex(){const c=document.createElement('canvas');c.width=c.height=128;const g=c.getContext('2d');const gr=g.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,128,128);return new THREE.CanvasTexture(c)}
-function clearGroup(g){g.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material){(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>{if(m.map)m.map.dispose();m.dispose()})}});while(g.children.length)g.remove(g.children[0])}
-
-/* ================= quality / composer ================= */
-const Q={hd:1920,qhd:2560,uhd:3840,k5:5120};
-const maxPx=Math.min(renderer.capabilities.maxTextureSize,5120);
-let qSel='auto',autoW=1920,autoMax=2560,coolUntil=0,composer=null,rw=0,rh=0,fpsAvg=45;
-function buildComposer(w,h){
- if(composer){composer.renderTarget1.dispose();composer.renderTarget2.dispose();composer.passes.forEach(p=>p.dispose&&p.dispose())}
- const rt=new THREE.WebGLRenderTarget(w,h,{type:THREE.HalfFloatType,samples:w>=3000?0:4});
- composer=new EffectComposer(renderer,rt);composer.addPass(new RenderPass(scene,camera));
- composer.addPass(new UnrealBloomPass(new THREE.Vector2(w,h),.32,.55,.92));composer.addPass(new OutputPass());
-}
-function applySize(force){
- const cw=Math.max(300,stage.clientWidth),ch=Math.max(200,stage.clientHeight);
- autoMax=Math.min(3840,maxPx,Math.round(cw*Math.max(devicePixelRatio||1,1)*1.5));
- let tw=force||(qSel==='auto'?Math.min(autoW,autoMax):Q[qSel]);tw=Math.min(tw,maxPx);
- const pr=tw/cw;renderer.setPixelRatio(pr);renderer.setSize(cw,ch,false);
- camera.aspect=cw/ch;camera.updateProjectionMatrix();
- rw=Math.round(cw*pr);rh=Math.round(ch*pr);buildComposer(rw,rh);fpsAvg=40;
-}
-new ResizeObserver(()=>{applySize();fitCam()}).observe(stage);
-$('q').onchange=e=>{qSel=e.target.value;applySize()};
-$('fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():(stage.requestFullscreen||stage.webkitRequestFullscreen).call(stage)};
-let rotOn=!matchMedia('(pointer:coarse)').matches;
-function setRot(){controls.enabled=rotOn;cv.style.touchAction=rotOn?'none':'pan-y';$('rot').textContent='🖐 Rotate: '+(rotOn?'on':'off')}
-$('rot').onclick=()=>{rotOn=!rotOn;setRot()};
-$('snap').onclick=async()=>{const b=$('snap'),old=b.textContent;b.disabled=true;b.textContent='Rendering…';await new Promise(r=>setTimeout(r,60));
- try{const sw=Math.min(5120,maxPx);applySize(sw);composer.render();const blob=await new Promise(r=>cv.toBlob(r,'image/png'));
-  if(blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='science-lab-'+cur.id+'-'+rw+'px.png';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),4000)}}
- catch(e){alert('This device could not render 5K. Try a lower quality.')}
- applySize();b.disabled=false;b.textContent=old};
-
-/* ================= experiments ================= */
-const PHHEX=['#e0141e','#e8202a','#ee3b2b','#f4602a','#f9852a','#fbb62e','#d9d32f','#4cae4f','#1fa38a','#1f7fc4','#3a5bc7','#5b46b5','#7a3aa8','#8c2f9a','#9a2a8c'];
-const PHC=PHHEX.map(h=>new THREE.Color(h));
-function phColor(p,out){const i=Math.min(13,Math.floor(p)),f=p-i;return out.copy(PHC[i]).lerp(PHC[i+1],f)}
-
-/* ---- Pendulum ---- */
-function pendulum(){let th,om,tSim,lastCross,meas,bob,str,arc,gr;const pv=V(0,3.9,0),tmp=V(0,0,0);
- function buildArc(P){if(arc){gr.remove(arc);arc.geometry.dispose()}const am=P.a*Math.PI/180,pts=[];for(let i=0;i<=40;i++){const a=-am+2*am*i/40;pts.push(V(P.L*Math.sin(a),pv.y-P.L*Math.cos(a),0))}
-  arc=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),60,.006,6,false),new THREE.MeshBasicMaterial({color:0xffd23f,transparent:true,opacity:.55,toneMapped:false,fog:false}));gr.add(arc)}
- function reset(P){th=P.a*Math.PI/180;om=0;meas=0;lastCross=null;tSim=0;buildArc(P)}
- return{id:'pendulum',cls:9,name:'⏱️ Pendulum',
-  ctrl:[{k:'L',label:'String length (m)',min:.4,max:2.4,step:.05,v:1.2},{k:'a',label:'Start angle (°)',min:5,max:60,step:1,v:25},{k:'g',label:'Gravity g (m/s²)',min:1.6,max:25,step:.1,v:9.8},{k:'c',label:'Air resistance',min:0,max:.6,step:.02,v:0}],
-  cam:{t:[0,2.2,0],d:[.15,.12,1],w:6,h:5},
-  info:'The time period of a simple pendulum is <b>T = 2π√(L/g)</b>. It depends on length and gravity, not on the mass of the bob. Try the Moon (g = 1.6) or Jupiter (g = 24.8). For large angles the real period is slightly longer than the formula.',
-  build(g,P){gr=g;const steel=MAT.steel(),dark=MAT.dark();
-   g.add(mesh(new THREE.BoxGeometry(2.4,.1,1.4),dark,[-.3,.05,0]));
-   g.add(mesh(new THREE.CylinderGeometry(.04,.04,3.9,24),steel,[-1.1,2,0]));
-   g.add(mesh(new THREE.CylinderGeometry(.03,.03,1.5,20),steel,[-.35,3.9,0],{r:[0,0,Math.PI/2]}));
-   g.add(mesh(new THREE.BoxGeometry(.14,.18,.14),dark,[-1.1,3.9,0]));
-   g.add(mesh(new THREE.SphereGeometry(.05,16,12),steel,[0,3.9,0]));
-   bob=mesh(new THREE.SphereGeometry(.13,48,32),MAT.brass());g.add(bob);
-   str=mesh(new THREE.CylinderGeometry(.004,.004,1,6),new THREE.MeshStandardMaterial({color:0xeeeeee,roughness:.6}),null,{cast:false});g.add(str);reset(P)},
-  onChange(k,P){if(k!=='c')reset(P)},
-  update(t,dt,P){const n=10,h=dt/n;for(let i=0;i<n;i++){const prev=th;om+=(-(P.g/P.L)*Math.sin(th)-2*P.c*om)*h;th+=om*h;tSim+=h;if(prev<0&&th>=0){if(lastCross!==null)meas=tSim-lastCross;lastCross=tSim}}
-   tmp.set(P.L*Math.sin(th),pv.y-P.L*Math.cos(th),0);bob.position.copy(tmp);orient(str,pv,tmp);
-   const T=2*Math.PI*Math.sqrt(P.L/P.g);return 'T = 2π√(L/g) = '+T.toFixed(2)+' s  ·  f = '+(1/T).toFixed(2)+' Hz'+(P.c<.01?'  ·  measured: '+(meas?meas.toFixed(2)+' s':'…'):'')}}}
-
-/* ---- Density & floating ---- */
-function density(){let blk,wat,wm,y=1,vy=0,lv=1.9,aW,aB,first=true;const W=3.4,D=2,Hh=2.6,s=.9,L0=1.9,A=(W-.1)*(D-.1);
- const cW=new THREE.Color(),cA=new THREE.Color(0xf2c46b),cB=new THREE.Color(0x9fd4ff),cC=new THREE.Color(0x7fe0d0),k1=new THREE.Color(0xcf9a58),k2=new THREE.Color(0xa6aeb8);
- return{id:'density',cls:9,name:'🧊 Density & Floating',
-  ctrl:[{k:'po',label:'Object density (kg/m³)',min:200,max:3000,step:50,v:600},{k:'pl',label:'Liquid density (kg/m³)',min:700,max:1300,step:50,v:1000}],
-  cam:{t:[0,1.3,0],d:[.12,.26,1],w:5.4,h:3.6},
-  info:'A body <b>floats</b> if its density is less than the liquid, and <b>sinks</b> if it is more. While floating, Weight = Buoyant force (Archimedes): <b>ρ<sub>o</sub>·V·g = ρ<sub>l</sub>·V<sub>sub</sub>·g</b>, so the submerged fraction is ρ<sub>o</sub>/ρ<sub>l</sub>. The cube is 10 cm × 10 cm × 10 cm.',
-  build(g,P){g.add(mesh(new THREE.BoxGeometry(W+.4,.08,D+.4),MAT.dark(),[0,.04,0]));
-   const tank=mesh(new THREE.BoxGeometry(W,Hh,D),MAT.glassFake(),[0,.08+Hh/2,0],{cast:false,recv:false});tank.renderOrder=6;g.add(tank);
-   wm=new THREE.MeshPhysicalMaterial({color:0xffffff,transmission:1,roughness:.02,thickness:1.6,ior:1.333,attenuationDistance:3,attenuationColor:0x9fd4ff});
-   wat=mesh(new THREE.BoxGeometry(1,1,1),wm,null,{cast:false,recv:false});g.add(wat);
-   blk=mesh(new RoundedBoxGeometry(s,s,s,4,.04),new THREE.MeshStandardMaterial({color:0xcf9a58,roughness:.55,metalness:0}));g.add(blk);
-   aW=makeArrow(0xff4d4d);aB=makeArrow(0x4dff88);g.add(aW,aB);first=true},
-  update(t,dt,P){const f=P.po/P.pl,fl=f<1,sub=fl?f*s:s,Vs=s*s*sub,lvT=L0+Vs/A;
-   if(first){lv=lvT;y=fl?lvT-sub+s/2:.08+s/2;first=false}
-   lv+=(lvT-lv)*(1-Math.exp(-4*dt));const yt=fl?lvT-sub+s/2:.08+s/2;
-   const h=Math.min(dt,.03)/3;for(let i=0;i<3;i++){vy+=(-40*(y-yt)-5*vy)*h;y+=vy*h}
-   y=Math.max(.08+s/2,y);blk.position.y=y;wat.scale.set(W-.1,lv,D-.1);wat.position.set(0,.08+lv/2,0);
-   if(P.pl<=1000)cW.copy(cA).lerp(cB,(P.pl-700)/300);else cW.copy(cB).lerp(cC,(P.pl-1000)/300);
-   wm.attenuationColor.copy(cW);
-   const tt=clamp((P.po-200)/2800,0,1);blk.material.color.copy(k1).lerp(k2,tt);blk.material.metalness=Math.pow(tt,1.5);blk.material.roughness=.55-.25*tt;
-   const Wt=P.po*1e-3*9.8,Fb=P.pl*1e-3*9.8*(Vs/(s*s*s));
-   const c=blk.position;aW.set(V(c.x-.3,c.y,c.z+.5),V(c.x-.3,c.y-(.25+Wt*.07),c.z+.5));aB.set(V(c.x+.3,c.y,c.z+.5),V(c.x+.3,c.y+(.25+Fb*.07),c.z+.5));
-   return 'W = '+Wt.toFixed(1)+' N  ·  Fb = '+Fb.toFixed(1)+' N  →  '+(fl?(Math.abs(f-1)<.02?'neutral, just floats':'FLOATS ('+(f*100).toFixed(0)+'% submerged)'):'SINKS')}}}
-
-/* ---- Prism refraction & dispersion ---- */
-function refract(I,N,eta){const c=-N.dot(I),k=1-eta*eta*(1-c*c);if(k<0)return null;return I.clone().multiplyScalar(eta).add(N.clone().multiplyScalar(eta*c-Math.sqrt(k)))}
-function reflect(d,N){return d.clone().addScaledVector(N,-2*d.dot(N))}
-function hitEdge(P,d,a,b){const ex=b.x-a.x,ey=b.y-a.y,den=d.x*ey-d.y*ex;if(Math.abs(den)<1e-9)return null;const wx=a.x-P.x,wy=a.y-P.y,t=(wx*ey-wy*ex)/den,u=(wx*d.y-wy*d.x)/den;return(t>1e-4&&u>=-1e-6&&u<=1+1e-6)?t:null}
-function prism(){const sd=2,hh=sd*Math.sqrt(3)/2,base=.92,cy=base+hh/3;
- const A=V(0,cy+2*hh/3,0),B=V(-sd/2,base,0),C=V(sd/2,base,0),M=A.clone().add(B).multiplyScalar(.5);
- const faces=[[B,A],[A,C],[C,B]].map(f=>{const e=f[1].clone().sub(f[0]).normalize();return{a:f[0],b:f[1],n:V(-e.y,e.x,0)}});
- const nL=faces[0].n,SX=4.3,COL=[[0xff2b2b,-.0085],[0xff8a1f,-.005],[0xffe629,-.001],[0x35ff5a,.002],[0x2f7bff,.007],[0x9b4dff,.011]];
- let pm_,inc,nrm,laser,post,rays,dots,entry,lastKey='';
- function trace(nn,dIn){let d=refract(dIn,nL,1/nn),P=M.clone(),cur=0,pts=[P.clone()],tir=false;
-  for(let k=0;k<5;k++){let bt=1e9,bi=-1;faces.forEach((f,i)=>{if(i===cur)return;const t=hitEdge(P,d,f.a,f.b);if(t!==null&&t<bt){bt=t;bi=i}});if(bi<0)break;
-   P=P.clone().addScaledVector(d,bt);pts.push(P.clone());const r=refract(d,faces[bi].n.clone().negate(),nn);
-   if(r)return{pts,dir:r,tir};d=reflect(d,faces[bi].n);cur=bi;tir=true}
-  return{pts,dir:null,tir}}
- return{id:'prism',cls:10,name:'🔦 Refraction & Prism',
-  ctrl:[{k:'i',label:'Angle of incidence i (°)',min:20,max:65,step:1,v:45},{k:'n',label:'Refractive index n',min:1.2,max:2,step:.01,v:1.52},{k:'D',label:'Dispersion (exaggerated)',min:0,max:10,step:.5,v:4}],
-  cam:{t:[.9,1.55,0],d:[.05,.08,1],w:9,h:4.4},
-  info:'Snell’s law: <b>n = sin i / sin r</b>. A prism bends light twice, and because each colour has a slightly different refractive index, white light splits into a spectrum (dispersion). At a small angle of incidence the ray may hit the second face at too steep an angle and show <b>total internal reflection</b>.',
-  build(g,P){g.add(mesh(new THREE.CylinderGeometry(.9,1,base,48),MAT.dark(),[0,base/2,0]));
-   const sh=new THREE.Shape();sh.moveTo(B.x,B.y);sh.lineTo(C.x,C.y);sh.lineTo(A.x,A.y);sh.closePath();
-   const geo=new THREE.ExtrudeGeometry(sh,{depth:1.2,bevelEnabled:true,bevelSize:.012,bevelThickness:.012,bevelSegments:2});geo.translate(0,0,-.6);
-   pm_=mesh(geo,MAT.glassTrue(1.52),null,{cast:false});g.add(pm_);
-   g.add(mesh(new THREE.BoxGeometry(.08,3,2.6),new THREE.MeshStandardMaterial({color:0xf2f2f5,roughness:.9}),[SX+.04,1.5,0]));
-   lastKey='';inc=makeBeam(0xffffff,.02,2.6);nrm=makeBeam(0xffffff,.006,1.2,.4);g.add(inc,nrm);entry=makeGlow(0xffffff,.05,2.5);g.add(entry);
-   laser=mesh(new THREE.BoxGeometry(.7,.16,.16),MAT.dark());post=mesh(new THREE.CylinderGeometry(.05,.05,1,12),MAT.steel());g.add(laser,post);
-   rays=[];dots=[];COL.forEach(c=>{const arr=[];for(let k=0;k<6;k++){const b=makeBeam(c[0],.013,2.4);g.add(b);arr.push(b)}rays.push(arr);const d=makeGlow(c[0],.05,3);d.visible=false;g.add(d);dots.push(d)})},
-  update(t,dt,P){const key=P.i+'|'+P.n+'|'+P.D;if(key===lastKey)return this.out;lastKey=key;
-   pm_.material.ior=P.n;const ang=(150+P.i)*Math.PI/180,u=V(Math.cos(ang),Math.sin(ang),0),dIn=u.clone().negate(),S=M.clone().addScaledVector(u,2.4);
-   setB(inc,S,M);setB(nrm,M.clone().addScaledVector(nL,-.7),M.clone().addScaledVector(nL,.7));entry.position.copy(M);
-   laser.position.copy(S).addScaledVector(u,.35);laser.rotation.z=ang;post.position.set(S.x,(S.y-.12)/2,0);post.scale.set(1,S.y-.12,1);
-   let msg='';
-   COL.forEach((c,ci)=>{const nn=P.n+P.D*c[1],tr=trace(nn,dIn),arr=rays[ci];arr.forEach(b=>b.visible=false);
-    for(let k=0;k<tr.pts.length-1;k++)setB(arr[k],tr.pts[k],tr.pts[k+1]);dots[ci].visible=false;
-    if(tr.dir){const Pe=tr.pts[tr.pts.length-1],tx=tr.dir.x>1e-3?(SX-Pe.x)/tr.dir.x:1e9,ty=tr.dir.y<-1e-3?(.04-Pe.y)/tr.dir.y:1e9,tt=Math.min(tx,ty,9),E=Pe.clone().addScaledVector(tr.dir,tt);setB(arr[5],Pe,E);
-     if(tx<=ty&&tx<9){dots[ci].visible=true;dots[ci].position.copy(E)}}
-    if(ci===3){const r=Math.asin(Math.sin(P.i*Math.PI/180)/P.n)*180/Math.PI;
-     if(tr.dir){const dv=Math.acos(clamp(dIn.dot(tr.dir),-1,1))*180/Math.PI;msg='n = sin i / sin r = '+(Math.sin(P.i*Math.PI/180)/Math.sin(r*Math.PI/180)).toFixed(2)+'  ·  r = '+r.toFixed(1)+'°  ·  deviation δ = '+dv.toFixed(1)+'°'+(tr.tir?'  (after total internal reflection)':'')}
-     else msg='r = '+r.toFixed(1)+'°  ·  the ray stays trapped inside by total internal reflection'}});
-   this.out=msg;return msg},out:''};
- function setB(m,a,b){orient(m,a,b)}}
-
-/* ---- Convex lens ---- */
-function lens(){const ax=1.25,ap=.85,ho=.5;let lensM,holder,candleFlame,img,screen,B,pl,lastKey='',out='';
- const cF=[[0xff4a4a],[0xffe14a],[0x4aa3ff]];
- function lensGeo(f){const R=f,s=R-Math.sqrt(R*R-ap*ap),pts=[],N=24;for(let i=0;i<=N;i++){const r=ap*i/N;pts.push(new THREE.Vector2(r,Math.sqrt(R*R-r*r)-(R-s)))}for(let i=N;i>=0;i--){const r=ap*i/N;pts.push(new THREE.Vector2(r,-(Math.sqrt(R*R-r*r)-(R-s))))}return new THREE.LatheGeometry(pts,72)}
- const flameMat=()=>new THREE.MeshBasicMaterial({color:new THREE.Color(1,.62,.2).multiplyScalar(3),toneMapped:false,transparent:true,opacity:1,side:THREE.DoubleSide,fog:false});
- return{id:'lens',cls:10,name:'🔍 Convex Lens',
-  ctrl:[{k:'f',label:'Focal length f (units)',min:1,max:2.2,step:.05,v:1.4},{k:'u',label:'Object distance u (units)',min:.5,max:6,step:.05,v:3.2}],
-  cam:{t:[.6,1.3,0],d:[.1,.16,1],w:14,h:4.2},
-  info:'Lens formula: <b>1/v + 1/u = 1/f</b>, magnification <b>m = −v/u</b>. When the object is beyond f the lens forms a <b>real, inverted</b> image on the screen; when the object is inside f you get a <b>virtual, upright, magnified</b> image (a magnifying glass).',
-  build(g,P){g.add(mesh(new THREE.BoxGeometry(17,.06,.5),MAT.steel(),[0,.03,0]));
-   lensM=mesh(lensGeo(P.f),MAT.glassTrue(1.5),[0,ax,0],{r:[0,0,Math.PI/2],cast:false});g.add(lensM);
-   holder=mesh(new THREE.TorusGeometry(ap+.03,.035,16,64),MAT.dark(),[0,ax,0],{r:[0,Math.PI/2,0]});g.add(holder);
-   g.add(mesh(new THREE.CylinderGeometry(.05,.05,ax-ap,12),MAT.steel(),[0,(ax-ap)/2,0]));g.add(mesh(new THREE.CylinderGeometry(.35,.4,.08,32),MAT.dark(),[0,.1,0]));
-   const cand=new THREE.Group();cand.add(mesh(new THREE.CylinderGeometry(.07,.07,ax,24),new THREE.MeshStandardMaterial({color:0xf3ead2,roughness:.7}),[0,ax/2,0]));
-   candleFlame=new THREE.Mesh(new THREE.SphereGeometry(.09,20,16),flameMat());candleFlame.scale.set(1,2.8,1);candleFlame.position.set(0,ax+ho/2,0);cand.add(candleFlame);
-   pl=new THREE.PointLight(0xffaa55,10,6,2);pl.position.set(0,ax+ho/2,.1);cand.add(pl);g.add(cand);B={cand};
-   img=new THREE.Mesh(new THREE.SphereGeometry(.09,20,16),flameMat());img.renderOrder=7;g.add(img);
-   screen=mesh(new THREE.BoxGeometry(.05,2.4,1.8),new THREE.MeshStandardMaterial({color:0xf4f4f6,roughness:.9}),[5,1.2,0]);g.add(screen);
-   B.ray=[];for(let i=0;i<3;i++){const a=makeBeam(cF[i][0],.012,2.4),b=makeBeam(cF[i][0],.012,2.4),c=makeBeam(cF[i][0],.008,1.6,.4);g.add(a,b,c);B.ray.push([a,b,c])}
-   B.fk=null;lastKey=''},
-  update(t,dt,P){candleFlame.scale.y=2.8*(1+.05*Math.sin(t*14)+.03*Math.sin(t*23));candleFlame.position.y=ax+ho*.5*(candleFlame.scale.y/2.8);
-   const key=P.f+'|'+P.u;if(key===lastKey)return out;lastKey=key;
-   if(B.fk!==P.f){lensM.geometry.dispose();lensM.geometry=lensGeo(P.f);B.fk=P.f}
-   const f=P.f,uu=Math.abs(P.u-f)<.08?f+.08:P.u,v=uu*f/(uu-f),m=-v/uu;B.cand.position.set(-uu,0,0);
-   const T=V(-uu,ax+ho,0),LA=V(0,ax+ho,0),LB=V(0,ax,0),LC=V(0,ax-ho*f/(uu-f),0),I=V(v,ax+m*ho,0),Ls=[LA,LB,LC];
-   const real=v>0;img.visible=true;img.position.set(v,ax,0);img.scale.set(Math.abs(m),Math.abs(m)*2.8,Math.abs(m));img.position.y=ax+m*ho/2;img.material.opacity=real?.95:.45;
-   screen.visible=real&&v<7.2;screen.position.x=v+.05;
-   const dirB=LB.clone().sub(T).normalize();
-   Ls.forEach((L,i)=>{const [a,b,c]=B.ray[i];orient(a,T,L);
-    if(real){orient(b,L,L.clone().add(I.clone().sub(L).normalize().multiplyScalar(Math.min(I.distanceTo(L),11))));c.visible=false}
-    else{orient(b,L,L.clone().add(L.clone().sub(I).normalize().multiplyScalar(3.5)));orient(c,L,I)}});
-   const desc=Math.abs(m)>1.03?'magnified':(Math.abs(m)<.97?'diminished':'same size');
-   out='v = '+v.toFixed(2)+'  ·  m = '+m.toFixed(2)+'  ·  image is '+(real?'real & inverted':'virtual & upright')+', '+desc;return out}}}
-
-/* ---- Acid–Base ---- */
-function acidbase(){const H=2.3,R=.85,LH=1.5,SURF=.1+LH;let liq,bub,marker,glow,sm=7,lastPh=7,dropQ=0,dropT=0,dropCol=new THREE.Color(),drops=[],ripples=[],col=new THREE.Color(),white=new THREE.Color(1,1,1);
- const dum=new THREE.Object3D(),NB=48,bd=[],rg=new THREE.RingGeometry(.04,.05,48);rg.rotateX(-Math.PI/2);
- function xFor(p){return((40+1968*p/14)/2048-.5)*5.6}
- function board(){const c=document.createElement('canvas');c.width=2048;c.height=256;const g=c.getContext('2d');g.fillStyle='#0b1431';g.fillRect(0,0,2048,256);const gr=g.createLinearGradient(40,0,2008,0);PHHEX.forEach((h,i)=>gr.addColorStop(i/14,h));g.fillStyle=gr;g.fillRect(40,70,1968,110);g.fillStyle='#fff';g.font='700 44px sans-serif';g.textAlign='center';for(let i=0;i<=14;i++)g.fillText(String(i),40+1968*i/14,228);g.font='700 36px sans-serif';g.fillText('ACID',300,46);g.fillText('NEUTRAL',1024,46);g.fillText('BASE',1748,46);const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;return t}
- return{id:'ph',cls:10,name:'🧪 Acid–Base (pH)',
-  ctrl:[{k:'ph',label:'Solution pH',min:0,max:14,step:.1,v:7}],
-  cam:{t:[0,2.1,0],d:[.05,.14,1],w:6.4,h:4.8},
-  info:'pH = −log₁₀[H⁺]. Below 7 the solution is <b>acidic</b>, at 7 <b>neutral</b>, above 7 <b>basic</b>. Universal indicator shows red/orange for strong acids, green for neutral and blue/violet for strong bases. Each unit of pH changes [H⁺] by a factor of 10.',
-  build(g,P){sm=lastPh=P.ph;dropQ=0;drops=[];ripples=[];
-   const pts=[[0,0],[R-.08,0],[R-.03,.012],[R,.07],[R,H],[R+.022,H+.03],[R-.03,H+.03],[R-.05,H],[R-.05,.16],[R-.12,.1],[0,.1]].map(p=>new THREE.Vector2(p[0],p[1]));
-   const bk=mesh(new THREE.LatheGeometry(pts,96),MAT.glassFake(),null,{cast:false,recv:false});bk.renderOrder=6;g.add(bk);
-   liq=mesh(new THREE.CylinderGeometry(R-.07,R-.07,LH,64),new THREE.MeshPhysicalMaterial({color:0xffffff,transmission:1,roughness:.02,thickness:1.6,ior:1.333,attenuationDistance:1.2}),[0,.1+LH/2,0],{cast:false,recv:false});g.add(liq);
-   const gl=new THREE.Mesh(new THREE.PlaneGeometry(3.4,3.4),new THREE.MeshBasicMaterial({map:glowTex(),transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.5,toneMapped:false,fog:false}));gl.rotation.x=-Math.PI/2;gl.position.y=.012;g.add(gl);glow=gl;
-   bub=new THREE.InstancedMesh(new THREE.SphereGeometry(.03,12,10),new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:0,transparent:true,opacity:.55,depthTest:false,depthWrite:false}),NB);bub.renderOrder=5;g.add(bub);
-   for(let i=0;i<NB;i++){const a=Math.random()*6.283,r=Math.sqrt(Math.random())*.62;bd.push({x:Math.cos(a)*r,z:Math.sin(a)*r,y:.15+Math.random()*1.4,s:.3+Math.random()*.5})}
-   const gm=MAT.glassFake();g.add(mesh(new THREE.CylinderGeometry(.055,.055,.9,24),gm,[0,H+1.2,0],{cast:false}),mesh(new THREE.CylinderGeometry(.055,.012,.22,24),gm,[0,H+.94,0],{cast:false}));
-   const bl=mesh(new THREE.SphereGeometry(.17,32,24),MAT.rubber(0x7a1f1f),[0,H+1.78,0]);bl.scale.set(1,1.4,1);g.add(bl);
-   const bt=new THREE.MeshBasicMaterial({map:board(),toneMapped:false,fog:false});g.add(mesh(new THREE.BoxGeometry(5.8,.85,.04),MAT.dark(),[0,3.35,-1.23]),mesh(new THREE.PlaneGeometry(5.6,.7),bt,[0,3.35,-1.2],{cast:false}),mesh(new THREE.CylinderGeometry(.03,.03,2.9,12),MAT.steel(),[-2.8,1.45,-1.22]),mesh(new THREE.CylinderGeometry(.03,.03,2.9,12),MAT.steel(),[2.8,1.45,-1.22]));
-   marker=mesh(new THREE.ConeGeometry(.09,.22,3),new THREE.MeshBasicMaterial({color:0xffd23f,toneMapped:false}),[0,3.66,-1.17],{r:[0,0,Math.PI],cast:false});g.add(marker)},
-  onChange(k,P){const dlt=P.ph-lastPh;dropQ=clamp(dropQ+Math.round(Math.abs(dlt)*1.2)+1,0,10);dropCol.set(dlt<0?0xe8202a:0x7a3aa8);lastPh=P.ph},
-  update(t,dt,P){sm+=(P.ph-sm)*(1-Math.exp(-3*dt));phColor(sm,col);liq.material.color.copy(col).lerp(white,.25);liq.material.attenuationColor.copy(col);glow.material.color.copy(col);marker.position.x=xFor(sm);
-   dropT-=dt;if(dropQ>0&&dropT<=0){dropQ--;dropT=.22;const d=mesh(new THREE.SphereGeometry(.05,16,12),new THREE.MeshPhysicalMaterial({color:dropCol.clone(),roughness:.05,clearcoat:1}),[0,H+.78,0],{cast:false});d.userData.vy=0;scene.add(d);drops.push(d)}
-   for(let i=drops.length-1;i>=0;i--){const d=drops[i];d.userData.vy-=14*dt;d.position.y+=d.userData.vy*dt;if(d.position.y<=SURF){const r=new THREE.Mesh(rg,new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.7,depthWrite:false,fog:false}));r.position.set(0,SURF+.005,0);r.userData.t=0;scene.add(r);ripples.push(r);scene.remove(d);d.geometry.dispose();d.material.dispose();drops.splice(i,1)}}
-   for(let i=ripples.length-1;i>=0;i--){const r=ripples[i];r.userData.t+=dt;const q=r.userData.t;r.scale.setScalar(1+q*11);r.material.opacity=Math.max(0,.7*(1-q/.9));if(q>.9){scene.remove(r);r.material.dispose();ripples.splice(i,1)}}
-   const n=Math.floor(NB*clamp((Math.abs(sm-7)-1.5)/5.5,0,1));
-   for(let i=0;i<NB;i++){const b=bd[i];if(i<n){b.y+=b.s*dt;if(b.y>SURF-.05)b.y=.15;dum.position.set(b.x,b.y,b.z);dum.scale.setScalar(1)}else{dum.position.set(0,-5,0);dum.scale.setScalar(.0001)}dum.updateMatrix();bub.setMatrixAt(i,dum.matrix)}
-   bub.instanceMatrix.needsUpdate=true;
-   const h=Math.pow(10,-sm),oh=Math.pow(10,sm-14);return 'pH = '+sm.toFixed(1)+'  ·  '+(sm<6.5?'ACID':(sm>7.5?'BASE':'NEUTRAL'))+'  ·  [H⁺] = '+h.toExponential(1)+' mol/L  ·  [OH⁻] = '+oh.toExponential(1)+' mol/L'},
-  dispose(){drops.concat(ripples).forEach(o=>scene.remove(o));drops=[];ripples=[]}}}
-
-/* ---- Electromagnet ---- */
-function magnet(){const tipY=2.5,NH=2.1,y0=tipY+.5,y1=tipY+1.9,CR=.17,NP=8;let coil,coilCurve,field=[],pins=[],dots=[],cg,curN=0,w1,w2,tq=new THREE.Quaternion(),e=new THREE.Euler();
- const slot=[[-1.1,.2],[-.7,-.3],[-.3,.4],[.1,-.1],[.5,.3],[.9,-.4],[-.5,-.5],[.3,.5]];
- function buildCoil(N){if(coil){cg.remove(coil);coil.geometry.dispose()}const pts=[],seg=24;for(let i=0;i<=N*seg;i++){const a=i/seg*Math.PI*2,y=y0+(y1-y0)*i/(N*seg);pts.push(V(CR*Math.cos(a),y,CR*Math.sin(a)))}
-  coilCurve=new THREE.CatmullRomCurve3(pts);const wr=Math.min(.03,(y1-y0)/N*.42);coil=mesh(new THREE.TubeGeometry(coilCurve,N*seg,wr,8,false),MAT.copper());cg.add(coil);curN=N}
- return{id:'magnet',cls:10,name:'🧲 Electromagnet',
-  ctrl:[{k:'N',label:'Turns of wire N',min:5,max:60,step:1,v:25},{k:'I',label:'Current I (A)',min:0,max:3,step:.1,v:1.5}],
-  cam:{t:[.5,2.7,0],d:[.1,.1,1],w:6.2,h:5.6},
-  info:'Current in a coil makes a magnetic field, and an iron core strengthens it. The strength grows with the <b>number of turns</b> and the <b>current</b> (B ∝ N·I). Set the current to 0 and every pin drops, because an electromagnet is magnetic only while current flows.',
-  build(g,P){cg=g;const steel=MAT.steel(),dark=MAT.dark();
-   g.add(mesh(new THREE.BoxGeometry(2,.1,1.2),dark,[-1.2,.05,0]),mesh(new THREE.CylinderGeometry(.045,.045,5,24),steel,[-1.7,2.5,0]),mesh(new THREE.CylinderGeometry(.035,.035,1.9,20),steel,[-.8,4.95,0],{r:[0,0,Math.PI/2]}),mesh(new THREE.BoxGeometry(.2,.26,.2),dark,[0,4.82,0]));
-   g.add(mesh(new THREE.CylinderGeometry(.075,.075,1.95,24),steel,[0,tipY+.18+.975,0]),mesh(new THREE.ConeGeometry(.075,.18,24),steel,[0,tipY+.09,0],{r:[Math.PI,0,0]}),mesh(new THREE.CylinderGeometry(.2,.2,.07,32),steel,[0,tipY+NH+.035-.0,0]));
-   g.add(mesh(new RoundedBoxGeometry(.9,.9,.6,4,.05),new THREE.MeshStandardMaterial({color:0x1f6feb,roughness:.4,metalness:.3}),[2.3,.45,0]),mesh(new THREE.CylinderGeometry(.06,.06,.1,16),MAT.brass(),[2.05,.95,0]),mesh(new THREE.CylinderGeometry(.06,.06,.1,16),MAT.brass(),[2.55,.95,0]));
-   buildCoil(P.N);
-   const wmat1=new THREE.MeshStandardMaterial({color:0xc0392b,roughness:.5}),wmat2=new THREE.MeshStandardMaterial({color:0x222222,roughness:.5});
-   const c1=new THREE.CatmullRomCurve3([V(CR,y0,0),V(.7,y0-.1,.2),V(1.5,1.6,.35),V(2.05,1.0,0)]),c2=new THREE.CatmullRomCurve3([V(CR,y1,0),V(.7,y1+.2,.2),V(1.9,3.0,.35),V(2.55,1.0,0)]);
-   g.add(mesh(new THREE.TubeGeometry(c1,40,.025,8),wmat1),mesh(new THREE.TubeGeometry(c2,40,.025,8),wmat2));
-   for(let i=0;i<NP;i++){const p=mesh(new THREE.CylinderGeometry(.028,.028,.22,12),steel);p.position.set(slot[i][0],.03,slot[i][1]);p.rotation.set(0,i*.9,Math.PI/2);p.rotation.order='YXZ';g.add(p);pins.push(p)}
-   for(let i=0;i<12;i++){const d=makeGlow(0xffd23f,.04,3);g.add(d);dots.push(d)}
-   field=[];const fm=new THREE.MeshBasicMaterial({color:new THREE.Color(.4,.7,1).multiplyScalar(1.6),transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false,toneMapped:false,fog:false});
-   [.55,.85,1.15,1.45].forEach(a=>{for(let j=0;j<3;j++){const ps=[];for(let q=0;q<48;q++){const ph=q/48*Math.PI*2;ps.push(V(a*Math.sin(ph),tipY+1.2+1.25*Math.cos(ph),0))}
-    const tb=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(ps,true),96,.007,6,true),fm);tb.rotation.y=j*Math.PI/3;tb.renderOrder=4;g.add(tb)}});field=[fm]},
-  onChange(k,P){if(k==='N')buildCoil(P.N)},
-  update(t,dt,P){const S=P.N*P.I,held=Math.min(NP,Math.floor(S/180*NP*1.6+.35)),f=1-Math.exp(-7*dt);
-   pins.forEach((p,i)=>{let tp,te;if(i<held){tp=V(0,tipY-.11-i*.2,0);te=[0,0,0]}else{tp=V(slot[i][0],.03,slot[i][1]);te=[0,i*.9,Math.PI/2]}
-    p.position.lerp(tp,i<held?f:1-Math.exp(-9*dt));e.set(te[0],te[1],te[2],'YXZ');tq.setFromEuler(e);p.quaternion.slerp(tq,f)});
-   field[0].opacity=clamp(S/110,0,.9)*(.85+.15*Math.sin(t*3));
-   const adv=P.I*.12*dt;dots.forEach((d,i)=>{d.userData.u=((d.userData.u===undefined?i/12:d.userData.u)+adv)%1;const pt=coilCurve.getPoint(d.userData.u),k=(CR+.045)/CR;d.position.set(pt.x*k,pt.y,pt.z*k);d.visible=P.I>.05});
-   return 'B ∝ N × I = '+P.N+' × '+P.I.toFixed(1)+' = '+S.toFixed(0)+'  →  '+held+(held===1?' pin':' pins')+' lifted'+(P.I<.05?'  (current OFF)':'')}}}
-
-const EXPS=[pendulum(),density(),prism(),lens(),acidbase(),magnet()];
-
-/* ================= UI / controller ================= */
-const T=$('slT'),K=$('slK'),O=$('slO'),I=$('slI'),B9=$('g9'),B10=$('g10');
-let cur=null,P={},lastOut='',cg=9;
-function fitCam(){if(!cur)return;const c=cur.cam,asp=camera.aspect||1.78,th=Math.tan(THREE.MathUtils.degToRad(camera.fov)/2),dist=Math.max(c.h/(2*th),c.w/(2*th*asp))*1.05;
- controls.target.set(c.t[0],c.t[1],c.t[2]);camera.position.copy(controls.target).addScaledVector(V(c.d[0],c.d[1],c.d[2]).normalize(),dist);controls.minDistance=dist*.4;controls.maxDistance=dist*2.2;controls.update()}
-function select(i){if(cur&&cur.dispose)cur.dispose();clearGroup(G);cur=EXPS[i];P={};lastOut='';K.innerHTML='';
- T.querySelectorAll('button').forEach(b=>b.className=b.dataset.i==i?'on':'');
- cur.ctrl.forEach(c=>{P[c.k]=c.v;const d=document.createElement('div'),lb=document.createElement('label'),r=document.createElement('input'),b=document.createElement('b');
-  r.type='range';r.min=c.min;r.max=c.max;r.step=c.step;r.value=c.v;b.textContent=c.v;lb.textContent=c.label+': ';lb.appendChild(b);
-  r.oninput=()=>{P[c.k]=+r.value;b.textContent=r.value;if(cur.onChange)cur.onChange(c.k,P)};d.append(lb,r);K.appendChild(d)});
- cur.build(G,P);I.innerHTML=cur.info;fitCam()}
-function cls(n){cg=n;B9.className=n==9?'on':'';B10.className=n==10?'on':'';T.innerHTML='';let first=-1;
- EXPS.forEach((e,i)=>{if(e.cls!=n)return;if(first<0)first=i;const b=document.createElement('button');b.type='button';b.textContent=e.name;b.dataset.i=i;b.onclick=()=>select(i);T.appendChild(b)});select(first)}
-B9.onclick=()=>cls(9);B10.onclick=()=>cls(10);
-
-/* ================= loop ================= */
-let inView=true,raf=0,last=performance.now(),tAcc=0,fr=0;
-function loop(now){raf=0;if(!inView||document.hidden)return;raf=requestAnimationFrame(loop);
- const dt=Math.min(.05,(now-last)/1000);last=now;tAcc+=dt;
- const o=cur.update(tAcc,dt,P);if(o!==lastOut){O.textContent=o;lastOut=o}
- controls.update();composer.render();
- fpsAvg=fpsAvg*.94+(1/Math.max(dt,.001))*.06;
- if(++fr%20===0){$('hud').textContent=rw+'×'+rh+'  ·  '+Math.round(fpsAvg)+' fps';
-  if(qSel==='auto'&&now>coolUntil){if(fpsAvg<26&&autoW>1280){autoW=Math.max(1280,Math.round(autoW*.78/16)*16);coolUntil=now+3000;applySize()}else if(fpsAvg>56&&autoW<autoMax){autoW=Math.min(autoMax,Math.round(autoW*1.2/16)*16);coolUntil=now+4000;applySize()}}}}
-function kick(){if(!raf){last=performance.now();raf=requestAnimationFrame(loop)}}
-new IntersectionObserver(e=>{inView=e[0].isIntersecting;if(inView)kick()},{threshold:.02}).observe(stage);
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)kick()});
-setRot();applySize();cls(9);loader.style.display='none';kick();
-</script>
-</body></html>
+<div class="tb" id="slT"></div><canvas id="slC" width="1280" height="600" aria-label="Experiment"></canvas>
+<div class="ct" id="slK"></div><div class="ou" id="slO" aria-live="polite"></div><p class="if" id="slI"></p></div>
+<script>
+(function(){'use strict';
+var cv=document.getElementById('slC'),x=cv.getContext('2d'),W=640,H=300;x.scale(2,2);
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,P={},cur=0,t0=performance.now(),vis=false,off=0;
+function ln(a,b,c,d,col,w,dash){x.strokeStyle=col;x.lineWidth=w||1.5;x.setLineDash(dash||[]);x.beginPath();x.moveTo(a,b);x.lineTo(c,d);x.stroke();x.setLineDash([])}
+function dot(a,b,r,col){x.fillStyle=col;x.beginPath();x.arc(a,b,r,0,7);x.fill()}
+function tx(s,a,b,col,al){x.fillStyle=col||'#A9B8DA';x.font='700 13px sans-serif';x.textAlign=al||'center';x.fillText(s,a,b)}
+function arrow(a,b,c,d,col){ln(a,b,c,d,col,2.5);var g=Math.atan2(d-b,c-a);x.fillStyle=col;x.beginPath();x.moveTo(c,d);x.lineTo(c-9*Math.cos(g-.4),d-9*Math.sin(g-.4));x.lineTo(c-9*Math.cos(g+.4),d-9*Math.sin(g+.4));x.fill()}
+var E=[
+{n:'⏱️ Pendulum',k:[['Length L (m)','L',.2,2,.05,1],['Initial angle (°)','A',5,40,1,20]],
+ info:'The time period of a pendulum is <b>T = 2π√(L/g)</b>. It depends only on the length, not on the weight. Make the length 4 times longer and T doubles. This is the principle behind pendulum clocks.',
+ f:function(t){var L=P.L,T=2*Math.PI*Math.sqrt(L/9.8),th=P.A*Math.PI/180*Math.cos(2*Math.PI*t/T),px=320,py=30,s=130,bx=px+L*s*Math.sin(th),by=py+L*s*Math.cos(th);
+  x.strokeStyle='rgba(255,210,63,.35)';x.setLineDash([4,5]);x.beginPath();x.arc(px,py,L*s,Math.PI/2-P.A*Math.PI/180,Math.PI/2+P.A*Math.PI/180);x.stroke();x.setLineDash([]);
+  ln(px,py,px,py+L*s+14,'rgba(255,255,255,.2)',1,[3,4]);ln(px-60,py,px+60,py,'#8FA3D1',5);ln(px,py,bx,by,'#D6E0F7',2);
+  var g=x.createRadialGradient(bx-5,by-5,2,bx,by,16);g.addColorStop(0,'#FFF3B0');g.addColorStop(1,'#E8791D');x.fillStyle=g;x.beginPath();x.arc(bx,by,16,0,7);x.fill();
+  tx('L = '+L.toFixed(2)+' m',px+90,py+L*s/2,'#FFD23F','left');
+  return 'T = '+T.toFixed(2)+' s  ·  f = '+(1/T).toFixed(2)+' Hz'}},
+{n:'💡 Ohm’s Law',k:[['Potential difference V (volts)','V',0,12,.5,6],['Resistance R (ohms)','R',1,100,1,20]],
+ info:'<b>V = I × R</b>. Keep the resistance the same and increase V, and the current I increases (electrons move faster). Increase R and I decreases. The hotter the resistor gets, the redder it glows (P = V × I).',
+ f:function(t){var I=P.V/P.R,pw=P.V*I,X0=110,X1=530,Y0=70,Y1=240,per=2*(X1-X0+Y1-Y0);
+  x.strokeStyle='#8FA3D1';x.lineWidth=3;x.strokeRect(X0,Y0,X1-X0,Y1-Y0);
+  x.fillStyle='#071235';x.fillRect(X0-34,Y1-36,68,72);ln(X0-18,Y1-14,X0+18,Y1-14,'#FFD23F',3);ln(X0-8,Y1+8,X0+8,Y1+8,'#FFD23F',3);tx('+',X0+28,Y1-8,'#FF8080');tx('−',X0+28,Y1+14,'#7FB4FF');tx('Battery '+P.V+' V',X0,Y1+54,'#A9B8DA');
+  var gl=Math.min(1,pw/60);x.fillStyle='rgba(255,'+Math.round(140-gl*90)+',40,'+(.25+gl*.75)+')';x.fillRect(260,Y0-14,110,28);x.strokeStyle='#fff';x.lineWidth=2;x.strokeRect(260,Y0-14,110,28);tx('Resistor '+P.R+' Ω',315,Y0-26,'#A9B8DA');
+  dot(X1,155,22,'#0E1B45');x.strokeStyle='#22D3EE';x.lineWidth=3;x.beginPath();x.arc(X1,155,22,0,7);x.stroke();tx('A',X1,160,'#22D3EE');
+  var sp=Math.min(I*45,320);for(var i=0;i<28;i++){var s=((i/28)*per+t*sp)%per,a,b;
+   if(s<X1-X0){a=X0+s;b=Y0}else if(s<X1-X0+Y1-Y0){a=X1;b=Y0+s-(X1-X0)}else if(s<2*(X1-X0)+Y1-Y0){a=X1-(s-(X1-X0)-(Y1-Y0));b=Y1}else{a=X0;b=Y1-(s-2*(X1-X0)-(Y1-Y0))}
+   dot(a,b,4,'#FFD23F')}
+  tx('Electrons (the dots shown) actually move opposite to the current; shown in one direction here for simplicity',320,285,'#7C8DB8');
+  return 'I = '+I.toFixed(3)+' A  ·  P = '+pw.toFixed(1)+' W'}},
+{n:'🏹 Projectile Motion',k:[['Initial speed (m/s)','V',5,30,1,20],['Angle (°)','A',10,80,1,45]],
+ info:'A thrown ball follows a <b>curved (parabolic) path</b>. The horizontal velocity Vx stays constant, while the vertical velocity Vy changes because of gravity. The <b>range is greatest at a 45° angle</b>.',
+ f:function(t){var v=P.V,a=P.A*Math.PI/180,g=9.8,T=2*v*Math.sin(a)/g,R=v*v*Math.sin(2*a)/g,Hm=v*v*Math.sin(a)*Math.sin(a)/(2*g),sc=Math.min(520/Math.max(R,1),190/Math.max(Hm,1)),ox=50,oy=265,tt=t%(T+.8);if(tt>T)tt=T;
+  ln(20,oy,620,oy,'#3D4F82',2);x.setLineDash([3,5]);x.strokeStyle='rgba(255,210,63,.5)';x.beginPath();for(var i=0;i<=60;i++){var q=T*i/60,px=ox+v*Math.cos(a)*q*sc,py=oy-(v*Math.sin(a)*q-4.9*q*q)*sc;i?x.lineTo(px,py):x.moveTo(px,py)}x.stroke();x.setLineDash([]);
+  var bx=ox+v*Math.cos(a)*tt*sc,by=oy-(v*Math.sin(a)*tt-4.9*tt*tt)*sc,vy=v*Math.sin(a)-g*tt;
+  arrow(bx,by,bx+v*Math.cos(a)*3.5,by,'#34D399');arrow(bx,by,bx,by-vy*3.5,'#FF8A3D');dot(bx,by,9,'#FFE066');
+  tx('Vx',bx+v*Math.cos(a)*3.5+4,by-8,'#34D399','left');tx('Vy',bx+8,by-vy*3.5,'#FF8A3D','left');tx('Range '+R.toFixed(1)+' m',ox+R*sc/2,oy+22,'#FFD23F');
+  return 'Range = '+R.toFixed(1)+' m  ·  Max height = '+Hm.toFixed(1)+' m  ·  Time = '+T.toFixed(2)+' s'}},
+{n:'🔍 Convex Lens',k:[['Object distance u (cm)','U',5,60,.5,30],['Focal length f (cm)','F',8,25,.5,15]],
+ info:'Lens formula: <b>1/v − 1/u = 1/f</b>. If the object is beyond 2F, you get a small, inverted, real image. Between F and 2F, you get a large, inverted, real image. Inside F, you get a large, upright, virtual image (a magnifying glass).',
+ f:function(){var u=P.U,f=P.F,s=4,cx=320,ay=150,h=14,ox=cx-u*s,oy=ay-h*s,fx=cx+f*s;
+  ln(10,ay,630,ay,'#3D4F82',1.5);x.fillStyle='rgba(120,200,255,.35)';x.strokeStyle='#7FD0FF';x.lineWidth=2;x.beginPath();x.moveTo(cx,ay-95);x.quadraticCurveTo(cx+24,ay,cx,ay+95);x.quadraticCurveTo(cx-24,ay,cx,ay-95);x.fill();x.stroke();
+  [-2,-1,1,2].forEach(function(k){dot(cx+k*f*s,ay,3,'#FFD23F');tx(Math.abs(k)==1?'F':'2F',cx+k*f*s,ay+18,'#FFD23F')});
+  arrow(ox,ay,ox,oy,'#34D399');var sl1=(ay-oy)/(fx-cx),sl2=(ay-oy)/(cx-ox);
+  ln(ox,oy,cx,oy,'#FF8A3D',1.6);ln(cx,oy,620,oy+sl1*(620-cx),'#FF8A3D',1.6);ln(ox,oy,cx,ay,'#22D3EE',1.6);ln(cx,ay,620,ay+sl2*(620-cx),'#22D3EE',1.6);
+  if(Math.abs(u-f)<.4)return 'Image forms at infinity';
+  var v=1/(1/f-1/u),m=-v/u,xi=cx+v*s,yi=ay-m*h*s;
+  if(Math.abs(v)>70)return 'Image forms very far away (v = '+v.toFixed(0)+' cm)';
+  if(v<0){ln(cx,oy,xi,yi,'#FF8A3D',1.4,[4,4]);ln(cx,ay,xi,yi,'#22D3EE',1.4,[4,4]);x.globalAlpha=.6}
+  arrow(xi,ay,xi,yi,'#FF6FA5');x.globalAlpha=1;
+  return 'v = '+v.toFixed(1)+' cm  ·  m = '+m.toFixed(2)+'  ·  '+(v>0?'Real and inverted image':'Virtual and upright image')}},
+{n:'📈 Motion Graphs',k:[['Initial velocity u (m/s)','U',0,10,1,2],['Acceleration a (m/s²)','A',0,5,.5,2]],
+ info:'Under constant acceleration, <b>v = u + at</b> and <b>s = ut + ½at²</b>. The v-t graph is a straight line while the s-t graph is a curve (parabola). Set a = 0 and the motion becomes uniform, so the v-t line stays horizontal.',
+ f:function(t){var u=P.U,a=P.A,TM=6,tt=Math.min(t%8,TM),vm=Math.max(u+a*TM,5),sm=Math.max(u*TM+.5*a*TM*TM,10),s=u*tt+.5*a*tt*tt,v=u+a*tt;
+  ln(20,70,620,70,'#3D4F82',3);var cx=30+s/sm*520;x.fillStyle='#FFD23F';x.fillRect(cx,44,44,18);dot(cx+10,66,6,'#fff');dot(cx+34,66,6,'#fff');
+  [[40,'v-t graph (velocity-time)',vm,function(q){return u+a*q}],[360,'s-t graph (distance-time)',sm,function(q){return u*q+.5*a*q*q}]].forEach(function(g){var gx=g[0],gw=240,gy=115,gh=155;ln(gx,gy+gh,gx+gw,gy+gh,'#8FA3D1',2);ln(gx,gy,gx,gy+gh,'#8FA3D1',2);tx(g[1],gx+gw/2,gy-8,'#FFD23F');tx('Time →',gx+gw-14,gy+gh+16);
+   x.strokeStyle='#22D3EE';x.lineWidth=2.5;x.beginPath();for(var q=0;q<=tt+.001;q+=.1){var px=gx+q/TM*gw,py=gy+gh-g[3](q)/g[2]*gh;q?x.lineTo(px,py):x.moveTo(px,py)}x.stroke();dot(gx+tt/TM*gw,gy+gh-g[3](tt)/g[2]*gh,5,'#FF8A3D')});
+  return 'Velocity = '+v.toFixed(1)+' m/s  ·  Distance = '+s.toFixed(1)+' m  ·  a = '+a+' m/s²'}},
+{n:'🧊 Density & Floating',k:[['Object density (kg/m³)','O',200,3000,50,600],['Liquid density (kg/m³)','L',700,1400,50,1000]],
+ info:'Archimedes’ principle: the <b>buoyant force on an object = weight of the liquid it displaces</b>. If the object is less dense than the liquid it floats; if it is denser it sinks. The density of water is 1000 kg/m³.',
+ f:function(t){var po=P.O,pl=P.L,fl=Math.min(1,po/pl),bx=320,by=60,bw=300,bh=210,lw=bh*.62,ly=by+bh-lw,sd=70,y=fl<1?ly-sd*(1-fl)+Math.sin(t*2.5)*3:by+bh-sd;
+  x.fillStyle='rgba(34,211,238,.35)';x.fillRect(bx-bw/2,ly,bw,lw);x.strokeStyle='#D6E0F7';x.lineWidth=3;x.beginPath();x.moveTo(bx-bw/2,by-10);x.lineTo(bx-bw/2,by+bh);x.lineTo(bx+bw/2,by+bh);x.lineTo(bx+bw/2,by-10);x.stroke();
+  x.fillStyle='hsl(30,50%,'+Math.max(25,70-po/50)+'%)';x.fillRect(bx-sd/2,y,sd,sd);var wy=Math.max(y,ly);x.fillStyle='rgba(34,211,238,.28)';if(y+sd>wy)x.fillRect(bx-sd/2,wy,sd,y+sd-wy);
+  var cy=y+sd/2,fb=pl*fl*.04,wt=po*.04;arrow(bx+sd/2+30,cy,bx+sd/2+30,cy+wt,'#FF8080');arrow(bx+sd/2+60,cy,bx+sd/2+60,cy-fb,'#34D399');tx('Weight',bx+sd/2+30,cy+wt+16,'#FF8080');tx('Buoyancy',bx+sd/2+60,cy-fb-6,'#34D399');
+  return fl<1?'Floats  ·  '+Math.round(fl*100)+'% submerged':'Sinks  ·  object is denser than the liquid'}},
+{n:'🔊 Sound Waves',k:[['Frequency f (Hz)','F',100,1000,10,300],['Amplitude (loudness %)','A',10,100,5,60]],
+ info:'Sound travels as waves. When the frequency (f) increases, the <b>pitch</b> rises; when the amplitude increases, the sound gets <b>louder</b>. <b>v = f × λ</b>, and the speed of sound in air is about 340 m/s.',
+ f:function(t){var f=P.F,cy=3*f/300,A=P.A*1.2;ln(40,150,600,150,'#3D4F82',1);x.strokeStyle='#22D3EE';x.lineWidth=3;x.beginPath();
+  for(var i=0;i<=560;i+=3){var yy=150-A*Math.sin(2*Math.PI*(cy*i/560-t*.8));i?x.lineTo(40+i,yy):x.moveTo(40+i,yy)}x.stroke();
+  ln(40,282,40+560/cy,282,'#FFD23F',3);tx('λ',40+280/cy,274,'#FFD23F');
+  return 'λ = '+(340/f).toFixed(2)+' m  ·  T = '+(1000/f).toFixed(1)+' ms  ·  '+(f<300?'Deep (low pitch)':f<700?'Medium pitch':'Sharp (high pitch)')}},
+{n:'🌡️ States of Matter',k:[['Temperature (°C)','T',-20,150,5,25]],
+ info:'As temperature rises, the <b>kinetic energy</b> of the particles increases. In a solid the particles vibrate in place, in a liquid they slide past one another, and in a gas they move rapidly everywhere. Water freezes at 0°C and boils at 100°C.',
+ f:function(t){var T=P.T,st=T<=0?0:T<100?1:2,col=['#7FB4FF','#22D3EE','#FF8A3D'][st],sp=st==1?.5+(T/100):st==2?.7+(T-100)/60:1;
+  x.strokeStyle='#D6E0F7';x.lineWidth=3;x.strokeRect(40,40,560,230);
+  for(var i=0;i<60;i++){var px,py;
+   if(st==0){px=170+(i%10)*30+Math.sin(t*20+i)*1.5;py=150+Math.floor(i/10)*30+Math.cos(t*18+i)*1.5}
+   else if(st==1){px=60+tri(i*.37+t*.25*sp)*520;py=170+tri(i*.53+t*.2*sp)*85}
+   else{px=60+tri(i*.37+t*.9*sp)*520;py=55+tri(i*.53+t*.8*sp)*205}
+   dot(px,py,6,col)}
+  tx(['Solid (ice)','Liquid (water)','Gas (steam)'][st],320,292,col);
+  return T+' °C  ·  '+['Solid state','Liquid state','Gas state'][st]}},
+{n:'🔦 Refraction of Light',k:[['Angle of incidence i (°)','I',5,80,1,45],['Refractive index n','N',1.2,2,.05,1.5]],
+ info:'Snell’s law: <b>n = sin i / sin r</b>. When going from air into glass the ray bends towards the normal, and when it leaves the glass it comes out parallel to its original direction, but shifted slightly sideways (lateral displacement).',
+ f:function(){var i=P.I*Math.PI/180,r=Math.asin(Math.sin(i)/P.N),ex=300,y0=110,y1=190,xx=ex+(y1-y0)*Math.tan(r),si=Math.sin(i),ci=Math.cos(i);
+  x.fillStyle='rgba(120,200,255,.25)';x.fillRect(20,y0,600,y1-y0);x.strokeStyle='#7FD0FF';x.lineWidth=2;x.strokeRect(20,y0,600,y1-y0);tx('Glass  (n = '+P.N.toFixed(2)+')',90,y0+48,'#7FD0FF');tx('Air',50,y0-14);tx('Air',50,y1+28);
+  ln(ex,y0-100,ex,y0+30,'#8FA3D1',1.2,[4,4]);ln(xx,y1-30,xx,y1+100,'#8FA3D1',1.2,[4,4]);
+  ln(ex-110*si,y0-110*ci,ex,y0,'#FF8A3D',3);ln(ex,y0,xx,y1,'#FFD23F',3);ln(xx,y1,xx+110*si,y1+110*ci,'#FF8A3D',3);ln(ex,y0,ex+200*si,y0+200*ci,'rgba(255,255,255,.35)',1.4,[5,5]);
+  tx('i',ex-26,y0-30,'#FF8A3D');tx('r',ex+14,y0+34,'#FFD23F');tx('Emergent angle = i',xx+70,y1+100,'#FF8A3D');
+  return 'i = '+P.I+'°  ·  r = '+(r*180/Math.PI).toFixed(1)+'°  ·  sin i / sin r = '+P.N.toFixed(2)}},
+{n:'🧪 Acid–Base (pH)',k:[['pH value','H',0,14,.5,7]],
+ info:'pH is a measure (0–14) of the <b>concentration of H⁺ ions</b> in a solution. pH < 7 is acidic, = 7 is neutral, > 7 is basic. If pH drops by one, the H⁺ concentration increases 10 times. The colour of universal indicator changes with pH.',
+ f:function(t){var h=P.H,i,hu=function(v){return 'hsl('+(v/14*270)+',85%,50%)'};
+  for(i=0;i<14;i++){x.fillStyle=hu(i+.5);x.fillRect(40+i*40,30,40,22);tx(i,60+i*40,70,'#A9B8DA')}
+  var mx=40+h/14*560;x.fillStyle='#fff';x.beginPath();x.moveTo(mx,56);x.lineTo(mx-7,44);x.lineTo(mx+7,44);x.fill();
+  x.strokeStyle='#D6E0F7';x.lineWidth=3;x.beginPath();x.moveTo(220,100);x.lineTo(220,275);x.lineTo(420,275);x.lineTo(420,100);x.stroke();
+  x.globalAlpha=.55;x.fillStyle=hu(h);x.fillRect(222,140,196,133);x.globalAlpha=1;
+  var nh=Math.round(35*Math.max(0,(7-h)/7)),no=Math.round(35*Math.max(0,(h-7)/7));
+  for(i=0;i<nh;i++)dot(235+tri(i*.41+t*.5)*170,152+tri(i*.67+t*.4)*112,5,'#FF5A5A');
+  for(i=0;i<no;i++)dot(235+tri(i*.41+t*.5)*170,152+tri(i*.67+t*.4)*112,5,'#5AA0FF');
+  tx('Red dots = H⁺',520,170,'#FF5A5A');tx('Blue dots = OH⁻',520,196,'#5AA0FF');
+  return 'pH = '+h+'  ·  '+(h<7?'Acidic':h==7?'Neutral':'Basic')+'  ·  e.g. '+(h<2?'Stomach acid':h<4?'Lemon, vinegar':h<7?'Milk, coffee':h==7?'Pure water':h<10?'Baking soda':h<13?'Soap, ammonia':'Sodium hydroxide')}}];
+var G=[9,10,9,10,9,9,9,9,10,10],cg=9,T=document.getElementById('slT'),K=document.getElementById('slK'),O=document.getElementById('slO'),I=document.getElementById('slI'),B9=document.getElementById('g9'),B10=document.getElementById('g10');
+function tri(v){return Math.abs(((v%2)+2)%2-1)}
+var X=[
+[9,'🚀 Newton’s Second Law',[['Mass m (kg)','m',1,20,1,5],['Force F (N)','F',1,50,1,20]],p=>p.F/p.m,'Acceleration a','m/s²','<b>F = m × a</b>. Keep the force the same and increase the mass, and the acceleration decreases.'],
+[9,'🏃 Momentum p = mv',[['Velocity v (m/s)','v',0,30,1,10],['Mass m (kg)','m',1,50,1,10]],p=>p.m*p.v,'Momentum p','kg·m/s','<b>Momentum = mass × velocity</b>. A heavy object moving fast is hard to stop.'],
+[9,'⚡ Kinetic Energy',[['Velocity v (m/s)','v',0,30,1,10],['Mass m (kg)','m',1,50,1,10]],p=>.5*p.m*p.v*p.v,'KE','J','<b>KE = ½mv²</b>. Double the velocity and the energy becomes 4 times.'],
+[9,'🧗 Potential Energy',[['Height h (m)','h',0,50,1,10],['Mass m (kg)','m',1,50,1,10]],p=>p.m*9.8*p.h,'PE','J','<b>PE = m g h</b>. The higher you lift it, the more energy is stored.'],
+[9,'🧱 Work W = F × s',[['Displacement s (m)','s',0,20,1,5],['Force F (N)','F',1,100,1,40]],p=>p.F*p.s,'Work W','J','<b>Work = force × displacement</b>. If the object does not move, the work done is zero.'],
+[9,'🔋 Power P = W/t',[['Time t (s)','t',1,60,1,10],['Work W (J)','W',100,2000,100,600]],p=>p.W/p.t,'Power P','W','<b>Power = work / time</b>. Do the same work in less time and the power is greater.'],
+[9,'📌 Pressure P = F/A',[['Area A (m²)','A',.05,1,.05,.1],['Force F (N)','F',10,1000,10,200]],p=>p.F/p.A,'Pressure P','Pa','<b>Pressure = force / area</b>. That is why the tip of a pin pricks, but a slipper does not.'],
+[9,'🔩 Hooke’s Law',[['Extension x (m)','x',0,.5,.05,.2],['Spring constant k (N/m)','k',10,200,10,100]],p=>p.k*p.x,'Force F','N','<b>F = k × x</b>. The more you stretch the spring, the more the force grows in a straight line.'],
+[9,'🌍 Weight & Gravity',[['Gravitational acceleration g (m/s²)','g',1.6,25,.1,9.8],['Mass m (kg)','m',10,100,5,50]],p=>p.m*p.g,'Weight W','N','<b>W = m g</b>. On the Moon g ≈ 1.6, on Earth 9.8, on Jupiter ≈ 25. The mass is the same, but the weight is different.'],
+[9,'🚗 Speed = Distance / Time',[['Time t (s)','t',1,20,1,10],['Distance d (m)','d',10,200,10,100]],p=>p.d/p.t,'Speed','m/s','<b>Speed = distance / time</b>. Cover the same distance in less time and the speed is greater.'],
+[9,'🔊 Speed of Sound & Temperature',[['Temperature T (°C)','T',-20,50,5,20]],p=>331+.6*p.T,'Speed of sound','m/s','<b>v ≈ 331 + 0.6 T</b>. When the air gets warmer, sound travels faster.'],
+[10,'🔗 Series Connection (Resistors)',[['R1 (Ω)','a',1,50,1,10],['R2 (Ω)','b',1,50,1,20]],p=>p.a+p.b,'Total R','Ω','In series, <b>R = R1 + R2</b>. Resistances add up and the current decreases.'],
+[10,'🔀 Parallel Connection (Resistors)',[['R1 (Ω)','a',1,50,1,10],['R2 (Ω)','b',1,50,1,20]],p=>p.a*p.b/(p.a+p.b),'Total R','Ω','In parallel: <b>1/R = 1/R1 + 1/R2</b>. The total resistance is always less than the smallest resistor.'],
+[10,'🔥 Electric Power P = I²R',[['Current I (A)','I',0,10,.5,3],['Resistance R (Ω)','R',1,50,1,10]],p=>p.I*p.I*p.R,'Power P','W','<b>P = I² R</b>. Double the current and the heat becomes 4 times.'],
+[10,'🧾 Electricity Bill (Units)',[['Appliance power P (W)','P',100,3000,100,1000],['Usage (hours)','h',1,24,1,5]],p=>p.P*p.h/1000,'Energy','Units (kWh)','<b>Units = W × hours / 1000</b>. 1 unit = 1 kWh.'],
+[10,'♨️ Joule’s Heating Law',[['Current I (A)','I',0,5,.5,2],['Time t (s)','t',1,60,1,10]],p=>p.I*p.I*10*p.t,'Heat H','J','<b>H = I² R t</b> (here R = 10 Ω). Heaters and irons work on this principle.'],
+[10,'🧲 Magnetism of a Solenoid',[['Turns per m (n)','n',100,3000,100,1000],['Current I (A)','I',.5,5,.5,2]],p=>4*Math.PI*1e-4*p.n*p.I,'Magnetic field B','mT','<b>B = μ₀ n I</b>. When the turns or the current increase, the electromagnet becomes stronger.'],
+[10,'🔭 Power of a Lens',[['Focal length f (cm)','f',5,100,5,25]],p=>100/p.f,'Power P','dioptre','<b>P = 1/f</b> (f in metres). A shorter focal length means greater power. Spectacle numbers are given in this unit.'],
+[10,'☢️ Half-life',[['Time t (years)','t',0,100,5,20],['Half-life T½ (years)','T',5,50,5,20]],p=>100*Math.pow(.5,p.t/p.T),'Substance remaining','%','After every <b>T½</b> period, half of the radioactive substance remains.'],
+[10,'☕ Cooling (Hot Tea)',[['Time t (minutes)','t',0,60,5,10],['Cooling rate k','k',.02,.2,.02,.06]],p=>25+65*Math.exp(-p.k*p.t),'Temperature','°C','Newton’s law of cooling: a hot object cools quickly at first and then more slowly (room temperature 25 °C).'],
+[9,'🎈 Boyle’s Law',[['Volume V (litres)','V',1,10,.5,5],['Constant PV (kPa·L)','k',100,500,50,300]],p=>p.k/p.V,'Pressure P','kPa','At constant temperature, <b>P × V = constant</b>. Halve the volume and the pressure doubles.'],
+[9,'🌡️ Charles’s Law',[['Temperature (°C)','T',-20,100,10,20],['Volume at 0°C (litres)','v',1,5,.5,2]],p=>p.v*(1+p.T/273),'Volume V','litres','When a gas is heated at constant pressure, it expands: <b>V = V₀ (1 + T/273)</b>.'],
+[9,'⚖️ Density ρ = m/V',[['Volume V (cm³)','V',1,100,1,20],['Density ρ (g/cm³)','r',1,20,1,8]],p=>p.r*p.V,'Mass m','g','<b>m = ρ × V</b>. Iron ≈ 7.9, gold ≈ 19.3, water = 1 g/cm³.'],
+[9,'📣 Echo & Distance',[['Echo time t (s)','t',.1,3,.1,1],['Speed of sound (m/s)','v',330,350,5,340]],p=>p.v*p.t/2,'Distance d','m','Sound goes out and comes back, so <b>d = v × t / 2</b>. Sonar works on this principle.'],
+[9,'🛟 Buoyant Force',[['Submerged volume V (cm³)','V',10,1000,10,200],['Liquid density (kg/m³)','r',700,1400,50,1000]],p=>p.r*9.8*p.V*1e-6,'Buoyant force','N','<b>F = ρ g V</b>. The more of the object is submerged, or the denser the liquid, the greater the upward push.'],
+[9,'⛰️ Altitude & Air Pressure',[['Altitude (km)','h',0,10,1,2]],p=>101.3*Math.exp(-p.h/8.4),'Air pressure','kPa','As altitude increases the air thins out and the pressure drops rapidly. On Everest the pressure is about 35%.'],
+[9,'🌿 Photosynthesis',[['Light intensity (%)','I',0,100,5,40],['Maximum rate','R',10,50,5,30]],p=>p.R*p.I/(20+p.I),'Photosynthesis rate','units','Increase the light and the rate rises, but beyond a point it levels off (saturation).'],
+[9,'🦠 Bacterial Growth',[['Time (hours)','t',0,8,1,4],['Doubling time (hours)','g',1,3,.5,2]],p=>100*Math.pow(2,p.t/p.g),'Bacteria','count','Bacteria <b>double</b> in a fixed time (2, 4, 8, 16…), so growth is very rapid. (Start: 100 bacteria)'],
+[10,'🔬 Lens Magnification',[['Object distance u (cm)','u',35,100,5,50],['Focal length f (cm)','f',10,30,5,15]],p=>p.f/(p.u-p.f),'Magnification m','times','<b>m = v/u</b>. Move the object farther from the lens and the image gets smaller.'],
+[10,'💨 Refractive Index & Speed of Light',[['Refractive index n','n',1,2.5,.1,1.5]],p=>3/p.n,'Speed in the medium','×10⁸ m/s','<b>n = c / v</b>. In glass (n ≈ 1.5) light travels at 2×10⁸ m/s, and in diamond (n ≈ 2.4) even slower.'],
+[10,'⚗️ Neutralisation (Titration)',[['NaOH added (mL)','V',0,50,1,10],['HCl concentration (M)','c',.05,.2,.05,.1]],p=>{var d=.025*p.c-p.V*1e-4,s=.025+p.V/1000;return Math.abs(d)<1e-7?7:d>0?-Math.log10(d/s):14+Math.log10(-d/s)},'pH','','When 0.1 M NaOH is added to 25 mL of HCl, the pH rises slowly and then jumps suddenly at the <b>equivalence point (pH ≈ 7)</b>.'],
+[10,'💡 Light Intensity (Inverse Square)',[['Distance r (m)','r',1,10,1,3],['Lamp power (W)','P',50,500,50,200]],p=>p.P/(4*Math.PI*p.r*p.r),'Intensity','W/m²','<b>I = P / 4πr²</b>. Double the distance and the light becomes 4 times weaker.'],
+[10,'🧵 Resistance of a Wire',[['Length L (m)','L',1,10,1,4],['Cross-section A (mm²)','A',.5,5,.5,1]],p=>1.1*p.L/p.A,'Resistance R','Ω','<b>R = ρ L / A</b> (nichrome wire). A longer wire has more resistance, a thicker wire has less.']];
+var fq=function(v){return v-Math.floor(v)};
+E.push({n:'🥔 Osmosis (Cell)',k:[['Salt in outside solution (%)','S',0,10,1,0]],
+ info:'<b>Osmosis</b>: water moves through a membrane from lower to higher concentration. In pure water the cell swells; in a salty solution water leaves and the cell shrinks (plasmolysis). The solution inside the cell is taken to be about 3%.',
+ f:function(t){var S=P.S,d=3-S,r=Math.max(38,Math.min(105,72+d*6)),cx=320,cy=150,i,a,u,rr;
+  x.fillStyle='rgba(120,200,255,'+(.08+S*.02)+')';x.fillRect(20,20,600,260);
+  for(i=0;i<S*5;i++)dot(40+(i*97)%560,40+(i*53)%220,3,'#34D399');
+  x.fillStyle='rgba(167,243,208,.35)';x.beginPath();x.arc(cx,cy,r,0,7);x.fill();x.strokeStyle='#34D399';x.lineWidth=5;x.stroke();dot(cx-r*.25,cy,r*.2,'#7C5CDB');
+  if(d!=0)for(i=0;i<2+Math.abs(d)*1.5;i++){a=i*2.4;u=fq(t*.4+i*.137);rr=d>0?r+55-u*85:r-30+u*85;dot(cx+rr*Math.cos(a),cy+rr*Math.sin(a),4,'#38BDF8')}
+  tx('Blue dots = water molecules',130,292,'#38BDF8');tx('Green dots = salt',520,292,'#34D399');
+  return d>0?'Water moves in, the cell swells':d<0?'Water moves out, the cell shrinks (plasmolysis)':'Balanced, the size does not change'}});G.push(9);
+E.push({n:'⚗️ Metal + Acid',k:[['Metal (0=Cu, 1=Fe, 2=Zn, 3=Mg)','M',0,3,1,2]],
+ info:'<b>Metal + acid → salt + H₂ gas</b> (e.g. Zn + 2HCl → ZnCl₂ + H₂↑). Reactivity order: Mg > Zn > Fe > Cu. Copper lies below hydrogen, so it does not react with dilute HCl.',
+ f:function(t){var M=P.M,n=[0,3,8,16][M],col=['#C97B4B','#8A8F98','#B8C2CC','#E5E9EE'][M],i,u;
+  x.fillStyle='rgba(250,220,120,.25)';x.fillRect(270,70,100,195);x.strokeStyle='#D6E0F7';x.lineWidth=3;x.beginPath();x.moveTo(270,50);x.lineTo(270,265);x.lineTo(370,265);x.lineTo(370,50);x.stroke();
+  x.fillStyle=col;x.fillRect(300,242,40,22);
+  for(i=0;i<n;i++){u=fq(t*(.3+.06*M)+i/n);x.fillStyle='rgba(255,255,255,.85)';x.beginPath();x.arc(305+(i*17)%30+Math.sin(u*9+i)*4,240-u*170,2+i%3,0,7);x.fill()}
+  tx('Dilute HCl',320,40,'#FFD23F');if(M==0)tx('No bubbles',400,150,'#FF8080','left');else tx('H₂ gas ↑',400,120,'#7FD0FF','left');
+  return ['Copper (Cu): no reaction','Iron (Fe): slow bubbles','Zinc (Zn): moderate bubbles','Magnesium (Mg): vigorous bubbles'][M]}});G.push(10);
+E.push({n:'🧲 Electromagnet',k:[['Turns of wire (N)','N',5,60,5,20],['Current I (A)','I',.5,3,.5,1.5]],
+ info:'Wind turns of wire around an iron rod and pass a current, and it becomes a <b>magnet</b>. The strength depends roughly on <b>N × I</b>. Switch off the current and the nails fall.',
+ f:function(t){var N=P.N,I=P.I,s=N*I,nl=Math.min(24,Math.round(N/2.5)),nails=Math.min(12,Math.floor(s/6)),i;
+  x.fillStyle='#FFD23F';x.fillRect(70,120,36,56);tx('Battery',88,196,'#A9B8DA');
+  ln(106,148,222,148,'#FF8A3D',2.5);ln(425,170,425,250,'#FF8A3D',2.5);ln(425,250,88,250,'#FF8A3D',2.5);ln(88,250,88,176,'#FF8A3D',2.5);
+  x.fillStyle='#9AA7BF';x.fillRect(220,132,210,36);x.strokeStyle='#FF8A3D';x.lineWidth=3;
+  for(i=0;i<nl;i++){x.beginPath();x.ellipse(226+i*(198/nl),150,6,26,0,0,7);x.stroke()}
+  x.globalAlpha=Math.min(.9,s/70);x.strokeStyle='#22D3EE';x.lineWidth=1.5;[34,50,66].forEach(function(h){x.beginPath();x.ellipse(325,150,125+h,h,0,0,7);x.stroke()});x.globalAlpha=1;
+  for(i=0;i<nails;i++){var nx=232+i*17,sw=Math.sin(t*3+i)*1.5;ln(nx,170,nx+sw,196,'#D6E0F7',3);dot(nx+sw,196,2.5,'#D6E0F7')}
+  tx('Blue lines = magnetic field',320,285,'#22D3EE');
+  return 'N × I = '+s.toFixed(0)+'  ·  '+nails+' nails attached'}});G.push(10);
+E.push({n:'🌱 Hydrilla (O₂ Bubbles)',k:[['Lamp distance (cm)','D',10,100,5,30]],
+ info:'When light falls on Hydrilla in water, <b>bubbles of O₂</b> are released during photosynthesis. A closer lamp gives more bubbles; the rate falls roughly as <b>1/distance²</b>.',
+ f:function(t){var D=P.D,rate=30*Math.pow(10/D,2),n=Math.min(14,Math.max(1,Math.round(rate/2))),lx=230-D*1.6,i,u;
+  dot(lx,150,34,'rgba(255,224,102,.25)');dot(lx,150,18,'#FFE066');ln(lx+18,150,230,150,'rgba(255,224,102,.6)',1.5,[4,5]);ln(lx+14,138,230,115,'rgba(255,224,102,.6)',1.5,[4,5]);ln(lx+14,162,230,185,'rgba(255,224,102,.6)',1.5,[4,5]);
+  x.fillStyle='rgba(34,211,238,.25)';x.fillRect(230,90,180,170);x.strokeStyle='#D6E0F7';x.lineWidth=3;x.beginPath();x.moveTo(230,70);x.lineTo(230,260);x.lineTo(410,260);x.lineTo(410,70);x.stroke();
+  x.strokeStyle='#22C55E';x.lineWidth=4;[290,320,350].forEach(function(px,j){x.beginPath();x.moveTo(px,260);x.quadraticCurveTo(px+10*Math.sin(t+j),200,px,150+j*6);x.stroke()});
+  for(i=0;i<n;i++){u=fq(t*.25+i/n);x.fillStyle='rgba(255,255,255,.9)';x.beginPath();x.arc(295+(i*23)%60,200-u*110,3,0,7);x.fill()}
+  return 'Distance '+D+' cm  ·  ≈ '+rate.toFixed(1)+' bubbles/minute (O₂)'}});G.push(9);
+E.push({n:'🪞 Reflection of Light',k:[['Angle of incidence i (°)','A',0,80,5,40]],
+ info:'<b>Laws of reflection</b>: angle of incidence = angle of reflection (i = r), and the incident ray, reflected ray and normal all lie in the same plane. The image in a mirror is virtual and appears the same distance behind the mirror.',
+ f:function(t){var a=P.A*Math.PI/180,s=Math.sin(a),c=Math.cos(a),mx=320,my=170,L=120,u=fq(t*.4),w=u<.5?u*2:(u-.5)*2,px,py;
+  x.fillStyle='#8FA3D1';x.fillRect(140,my,360,8);ln(mx,my-130,mx,my+10,'#8FA3D1',1.2,[4,4]);
+  ln(mx-L*s,my-L*c,mx,my,'#FF8A3D',3);ln(mx,my,mx+L*s,my-L*c,'#FFD23F',3);ln(mx,my,mx-L*s,my+L*c,'rgba(255,255,255,.4)',1.5,[5,5]);
+  dot(mx-L*s,my-L*c,9,'#FFE066');dot(mx-L*s,my+L*c,9,'rgba(255,224,102,.35)');
+  if(u<.5){px=mx-L*s*(1-w);py=my-L*c*(1-w)}else{px=mx+L*s*w;py=my-L*c*w}dot(px,py,5,'#fff');
+  tx('i',mx-26,my-45,'#FF8A3D');tx('r',mx+26,my-45,'#FFD23F');tx('Mirror',mx,my+32,'#A9B8DA');tx('Image (virtual)',mx-L*s,my+L*c+26,'#A9B8DA');
+  return 'i = '+P.A+'°  ·  r = '+P.A+'°  (i = r)'}});G.push(9);
+X.forEach(function(d){var k0=d[2][0];E.push({n:d[1],k:d[2],info:d[6],f:function(t){
+ var p=P,gx=60,gy=30,gw=360,gh=210,mn=k0[2],mx=k0[3],N=60,ys=[],i,q;
+ for(i=0;i<=N;i++){q=Object.assign({},p);q[k0[1]]=mn+(mx-mn)*i/N;ys.push(d[3](q))}
+ var ym=Math.max.apply(0,ys)*1.1||1,yc=d[3](p),xc=p[k0[1]],cx=gx+(xc-mn)/(mx-mn)*gw,cy=gy+gh-yc/ym*gh,yn=Math.max(0,Math.min(1,yc/ym));
+ ln(gx,gy+gh,gx+gw,gy+gh,'#8FA3D1',2);ln(gx,gy,gx,gy+gh,'#8FA3D1',2);
+ x.strokeStyle='#22D3EE';x.lineWidth=3;x.beginPath();ys.forEach(function(v,j){var a=gx+j/N*gw,b=gy+gh-v/ym*gh;j?x.lineTo(a,b):x.moveTo(a,b)});x.stroke();
+ ln(cx,cy,cx,gy+gh,'#FFD23F',1.3,[4,4]);ln(gx,cy,cx,cy,'#FFD23F',1.3,[4,4]);dot(cx,cy,7,'#FF8A3D');
+ tx(k0[0]+' →',gx+gw/2,gy+gh+34,'#A9B8DA');tx(d[4]+' ('+d[5]+') ↑',gx+110,gy-10,'#FFD23F');
+ x.strokeStyle='#8FA3D1';x.lineWidth=2;x.strokeRect(480,gy,40,gh);x.fillStyle='#FFD23F';x.fillRect(482,gy+gh-yn*(gh-2),36,yn*(gh-2));
+ dot(585,gy+gh/2,8+22*yn*(1+.08*Math.sin(t*5)),'rgba(255,138,61,.85)');
+ return d[4]+' = '+(Math.abs(yc)<100?yc.toFixed(2):yc.toFixed(0))+' '+d[5]}});G.push(d[0])});
+function sel(i){cur=i;t0=performance.now();T.querySelectorAll('button').forEach(function(b){b.className=b.dataset.i==i?'on':''});K.innerHTML='';P={};
+ E[i].k.forEach(function(c){P[c[1]]=c[5];var d=document.createElement('div'),lb=document.createElement('label'),r=document.createElement('input'),b=document.createElement('b');
+  r.type='range';r.min=c[2];r.max=c[3];r.step=c[4];r.value=c[5];b.textContent=c[5];lb.textContent=c[0]+': ';lb.appendChild(b);
+  r.oninput=function(){P[c[1]]=+r.value;b.textContent=r.value;t0=performance.now()};d.append(lb,r);K.appendChild(d)});I.innerHTML=E[i].info}
+function cls(n){cg=n;B9.className=n==9?'on':'';B10.className=n==10?'on':'';T.innerHTML='';var first=-1;
+ E.forEach(function(e,i){if(G[i]!=n)return;if(first<0)first=i;var b=document.createElement('button');b.type='button';b.textContent=e.n;b.dataset.i=i;b.onclick=function(){sel(i)};T.appendChild(b)});sel(first)}
+B9.onclick=function(){cls(9)};B10.onclick=function(){cls(10)};cls(9);
+function fr(){if(!vis)return;x.clearRect(0,0,W,H);var o=E[cur].f(rm?.8:(performance.now()-t0)/1000);if(o!==off){O.textContent=o;off=o}requestAnimationFrame(fr)}
+new IntersectionObserver(function(e){var v=e[0].isIntersecting;if(v&&!vis){vis=true;fr()}else vis=v},{threshold:.05}).observe(cv);
+})();
+</script></main></body></html>

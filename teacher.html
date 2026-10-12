@@ -254,6 +254,8 @@ try {
 
 let me = null, pendingErr = '', main = null, gotab = () => {};
 const app = $('#app');
+{ const ld = document.createElement('p'); ld.id = 'ld'; ld.className = 'note'; ld.style.cssText = 'padding:28px 16px;text-align:center'; ld.textContent = 'लोड होत आहे…'; app.append(ld);
+  setTimeout(() => { const l = document.getElementById('ld'); if (l) l.textContent = 'लोड होण्यास वेळ लागत आहे. इंटरनेट तपासा आणि पान रिफ्रेश करा (Chrome मध्ये उघडा; WhatsApp/Facebook मधील ब्राउझर वापरू नका).'; }, 8000); }
 const myKeys = () => CLASSES.map(c => c.key).filter(k => me.classes.includes(k));
 
 if (!auth) {

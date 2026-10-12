@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6A1327">
+<title>English Teacher – BDS Shivaji High School</title>
+<style>
+:root{--maroon:#6A1327;--gold:#C99A2E;--paper:#F6F3EE;--card:#fff;--chip:#f1ece4;--ink:#2A1A20;--muted:#6b5a60;--line:#e5dfd6}
+@media (prefers-color-scheme:dark){:root{--paper:#150a0f;--card:#221218;--chip:#33202a;--ink:#f3eaec;--muted:#bba7ae;--line:#43303a}}
+*{box-sizing:border-box}body{margin:0;font-family:'Segoe UI','Noto Sans Devanagari',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#36081A,#6A1327 60%,#8a1d36);color:#fff;padding:calc(12px + env(safe-area-inset-top,0)) 14px 12px;display:flex;align-items:center;gap:10px}
+header img{width:42px;height:42px;object-fit:contain;background:#fff;border-radius:50%;padding:2px}header b{display:block;font-size:16px}header small{opacity:.85}
+main{max-width:760px;margin:0 auto;padding:12px 12px 90px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0}
+select,input{font:inherit;padding:10px 12px;border:1.5px solid #cfc6b8;border-radius:10px;background:var(--card);color:var(--ink);width:100%;margin:4px 0}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 12px;margin:3px 3px 3px 0;cursor:pointer;background:var(--maroon);color:#fff}
+button.g{background:var(--chip);color:var(--maroon);border:1.5px solid var(--maroon)}button:disabled{opacity:.5;cursor:default}
+.note{color:var(--muted);font-size:13.5px}.er{color:#c62828;font-weight:700}
+.t{display:flex;gap:12px;align-items:center}.av{width:64px;height:64px;border-radius:50%;background:var(--chip);border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:34px;flex:none}
+.pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:13px;font-weight:700;background:var(--chip)}.pill.speaking,.pill.listening{background:#e3f5ea;color:#1f8a4c}.pill.thinking{background:#fff4d6;color:#8a6100}.pill.error{background:#fde8e8;color:#c62828}
+#log{display:flex;flex-direction:column;gap:8px;min-height:160px;max-height:46vh;overflow:auto;padding:4px}
+.b{max-width:90%;padding:8px 12px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}.b.te{align-self:flex-start;background:var(--card);border:1px solid var(--line)}.b.st{align-self:flex-end;background:var(--maroon);color:#fff}
+.fix{margin-top:6px;padding:6px 8px;border-left:4px solid var(--gold);background:var(--chip);border-radius:6px;font-size:14px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom,0))}.bar .in{max-width:760px;margin:0 auto;display:flex;gap:6px}.bar input{margin:0}.bar button{margin:0}
+.m{padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
+</style></head><body>
+<header><img src="img/logo.webp" alt=""><div><b>English Teacher • Ms. Aanya</b><small>Bapusaheb Deshmukh Shivaji High School, Chandur Railway</small></div></header>
+<main id="app"></main>
+<script>
+const API='/.netlify/functions/english',app=document.getElementById('app');
+const TTS='speechSynthesis' in window,SRC=window.SpeechRecognition||window.webkitSpeechRecognition;
+const NEED=5;let S=null,CUR=null,P=null,hist=[],busy=false,muted=false,rate=1,paused=false,lastQ='',REC=null,st='idle',lessonTitle='';
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+async function post(b){try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.assign({},S,b))});let j={};try{j=await r.json()}catch(e){}
+  if(r.status===404&&!j.error)j={error:'The English Teacher only works on the main school website (Netlify functions).'};return{ok:r.ok,j}}catch(e){return{ok:false,j:{error:'No connection. Check your internet and try again.'}}}}
+/* ---------- voice (browser features; availability depends on device) ---------- */
+function pickVoice(){const v=speechSynthesis.getVoices().filter(x=>/^en/i.test(x.lang));return v.find(x=>/female|zira|samantha|aria|jenny|hazel|libby|heera|veena|karen|moira|tessa/i.test(x.name))||v[0]||null}
+function say(t){if(!TTS||muted||!t)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t),v=pickVoice();u.lang='en-IN';if(v){u.voice=v;u.lang=v.lang}u.rate=rate;u.onstart=()=>setSt('speaking');u.onend=u.onerror=()=>{if(st==='speaking')setSt('idle')};speechSynthesis.speak(u)}
+function stopSpeech(){if(TTS)speechSynthesis.cancel();if(st==='speaking')setSt('idle')}
+const LBL={idle:'Ready',speaking:'Teacher is speaking',listening:'Listening…',thinking:'Teacher is preparing a response…',error:'Problem – see message'};
+function setSt(s){st=s;const p=document.getElementById('pill');if(p){p.className='pill '+s;p.textContent=LBL[s]}}
+function listen(){
+  if(!SRC){msg('Speech recognition is not supported in this browser (try Chrome). Please type your answer.');return}
+  if(busy||paused)return;stopSpeech();let got=false;const r=new SRC();r.lang='en-IN';r.interimResults=false;r.maxAlternatives=1;REC=r;
+  r.onstart=()=>setSt('listening');
+  r.onresult=e=>{got=true;send(e.results[0][0].transcript)};
+  r.onerror=e=>{setSt('error');msg(e.error==='not-allowed'||e.error==='service-not-allowed'?'Microphone permission is required. Allow the microphone in your browser settings, or type your answer.':e.error==='no-speech'?"I couldn't hear you. Move closer to the microphone and try again.":e.error==='network'?'Voice recognition service is unavailable. Please type your answer.':'Voice problem ('+e.error+'). Please type your answer.')};
+  r.onend=()=>{if(!got&&st==='listening')setSt('idle')};
+  try{r.start()}catch(e){setSt('idle')}}
+/* ---------- progress is stored ONLY in this browser (no login, nothing saved on the server) ---------- */
+function loadP(){let p={};try{p=JSON.parse(localStorage.getItem('engP')||'{}')}catch(e){}return Object.assign({lessonId:'1-1',support:'en',completed:[],mistakes:[],lessonCorrect:0,turns:0},p,{need:NEED})}
+function saveP(){try{localStorage.setItem('engP',JSON.stringify(P))}catch(e){}}
+function selectLesson(id,sp){if(id!==P.lessonId)P.lessonCorrect=0;P.lessonId=id;P.support=sp==='mr'?'mr':'en';saveP()}
+function applyTurn(j,text){P.turns++;let done=false;
+  if(j.verdict==='correct'){P.lessonCorrect++;const m=P.mistakes.slice().reverse().find(x=>x.lesson===P.lessonId&&!x.fixed);if(m)m.fixed=true;if(P.lessonCorrect>=NEED&&!P.completed.includes(P.lessonId)){P.completed.push(P.lessonId);P.lessonCorrect=0;done=true}}
+  else if((j.verdict==='partial'||j.verdict==='incorrect')&&j.correction){P.mistakes.push({orig:text,fix:j.correction,cat:j.category||'grammar',why:j.explanation,lesson:P.lessonId,date:new Date().toISOString().slice(0,10),fixed:false});P.mistakes=P.mistakes.slice(-60)}
+  saveP();return done}
+function nextId(){const a=CUR.flatMap(L=>L.lessons),i=a.findIndex(l=>l.id===P.lessonId);return a[i+1]?a[i+1].id:null}
+/* ---------- start ---------- */
+async function boot(){
+  app.textContent='';const c=el('div','card note','Loading…');app.append(c);P=loadP();
+  const a=await post({action:'init'});
+  if(!a.ok){c.className='card er';c.textContent=a.j.error||'Could not load.';const rb=el('button','','Try again');rb.onclick=boot;c.append(el('div'),rb);return}
+  CUR=a.j.curriculum;drawSetup()}
+function compat(){const c=el('div','card note');
+  const mode=TTS&&SRC?'Mode: Teacher profile + browser AI voice, with speech recognition (push-to-talk).':TTS?'Mode: Teacher profile + browser voice. Speech recognition is not available here – type your answers.':'Mode: Text-based AI tutor. This browser has no speech output.';
+  c.textContent=mode+' No login needed. Your progress is saved only in this browser on this device. Ms. Aanya is an illustration, not a live digital human. The voice and accent come from your device. Answers are checked by AI, so it can make mistakes.';return c}
+/* ---------- setup ---------- */
+function drawSetup(){
+  stopSpeech();app.textContent='';const c=el('div','card'),lv=el('select'),ls=el('select'),sp=el('select'),go=el('button','','▶ Start Learning'),pr=el('button','g','📊 Progress'),mi=el('button','g','📝 Mistakes');
+  c.append(el('b','','Hello! Welcome to English class 👋'),el('div','note','Choose a level and lesson. You will resume where you stopped on this device.'));
+  CUR.forEach(L=>lv.append(new Option('Level '+L.id+': '+L.name,L.id)));
+  const cur=CUR.find(L=>L.lessons.some(l=>l.id===P.lessonId))||CUR[0];lv.value=cur.id;
+  const fill=()=>{ls.textContent='';CUR.find(L=>String(L.id)===String(lv.value)).lessons.forEach(l=>ls.append(new Option((P.completed.includes(l.id)?'✅ ':'')+l.title,l.id)))};
+  fill();lv.onchange=fill;if([...ls.options].some(o=>o.value===P.lessonId))ls.value=P.lessonId;
+  sp.append(new Option('English only','en'),new Option('English + Marathi explanation (मराठी मदत)','mr'));sp.value=P.support;
+  go.onclick=()=>{selectLesson(ls.value,sp.value);lessonTitle=ls.options[ls.selectedIndex].text.replace('✅ ','');startLesson()};
+  pr.onclick=()=>panel('progress');mi.onclick=()=>panel('mistakes');const rs=el('button','g','🗑 Delete my saved progress');rs.onclick=()=>{if(confirm('Delete all saved progress on this device?')){try{localStorage.removeItem('engP')}catch(e){}P=loadP();drawSetup()}};
+  c.append(lv,ls,sp,go,pr,mi,rs);app.append(c,el('div','','' ),compat())}
+function panel(kind){const c=el('div','card');
+  if(kind==='progress'){const tot=CUR.reduce((n,L)=>n+L.lessons.length,0);c.append(el('b','','📊 Your progress (saved record)'),el('div','',P.completed.length+' of '+tot+' lessons completed'),el('div','','Current lesson: '+P.lessonCorrect+' of '+P.need+' correct answers'),el('div','','Answers checked so far: '+P.turns),el('div','note','Saved only in this browser. Lessons are completed after '+P.need+' correct answers, judged by AI. This is practice, not an official exam.'))}
+  else{c.append(el('b','','📝 Recent mistakes'));if(!P.mistakes.length)c.append(el('div','note','No mistakes saved yet.'));P.mistakes.slice().reverse().forEach(m=>{const d=el('div','m');d.append(el('div','',(m.fixed?'✅ ':'❌ ')+m.orig),el('div','','→ '+m.fix),el('div','note',m.cat.replace('_',' ')+(m.why?' • '+m.why:'')+' • '+m.date));c.append(d)})}
+  const x=el('button','g','Close');x.onclick=()=>c.remove();c.append(x);app.prepend(c);c.scrollIntoView({behavior:'smooth'})}
+/* ---------- lesson ---------- */
+let log,pillEl,inp,ctr;
+function startLesson(){
+  app.textContent='';hist=[];paused=false;busy=false;
+  const t=el('div','card t'),av=el('div','av','👩‍🏫'),inf=el('div'),pill=el('span','pill idle','Ready');pill.id='pill';inf.append(el('b','','Ms. Aanya'),el('div','note','Lesson: '+lessonTitle),pill);t.append(av,inf);
+  const cs=el('div','card');const B=(txt,fn,cls)=>{const b=el('button',cls||'g',txt);b.onclick=fn;cs.append(b);return b};
+  B('⏹ Stop speaking',stopSpeech);const mu=B('🔊 Mute',()=>{muted=!muted;mu.textContent=muted?'🔇 Unmute':'🔊 Mute';if(muted)stopSpeech()});
+  B('🔁 Repeat',()=>say(lastQ));B('🐢 Slow',()=>{rate=.7;say(lastQ)});B('🐇 Normal',()=>{rate=1;say(lastQ)});
+  B('💡 Hint',()=>send('Please give me a hint.',true));
+  const ps=B('⏸ Pause',()=>{paused=!paused;ps.textContent=paused?'▶ Resume':'⏸ Pause';if(paused){stopSpeech();if(REC)try{REC.abort()}catch(e){}}else say(lastQ)});
+  B('📊 Progress',()=>panel('progress'));B('📝 Mistakes',()=>panel('mistakes'));B('⏹ End lesson',()=>{stopSpeech();drawSetup()});
+  log=el('div','card');log.id='log';
+  const bar=el('div','bar'),row=el('div','in');inp=el('input');inp.placeholder='Type your answer…';inp.maxLength=300;inp.setAttribute('aria-label','Your answer');
+  const mic=el('button','','🎤 Speak'),sd=el('button','','Send');mic.onclick=listen;sd.onclick=()=>{const v=inp.value;inp.value='';send(v)};inp.onkeydown=e=>{if(e.key==='Enter')sd.onclick()};
+  if(!SRC){mic.disabled=true;mic.title='Speech recognition is not supported in this browser'}
+  row.append(mic,inp,sd);bar.append(row);app.append(t,cs,log,bar);turn('',true)}
+function msg(t,cls){if(!log)return alert(t);const b=el('div','b te',t);if(cls!==false)b.style.color='#c62828';log.append(b);log.scrollTop=log.scrollHeight}
+function bubble(who,text){const b=el('div','b '+who,text);log.append(b);log.scrollTop=log.scrollHeight;return b}
+function send(t,hint){t=(t||'').trim();if(!t||busy||paused)return;bubble('st',t);turn(t,false)}
+async function turn(text,start){
+  busy=true;stopSpeech();setSt('thinking');
+  const r=await post({action:'turn',text,start,lessonId:P.lessonId,support:P.support,lessonCorrect:P.lessonCorrect,weak:P.mistakes.filter(m=>!m.fixed).slice(-5).map(m=>m.cat),history:hist.slice(-6)});busy=false;
+  if(!r.ok){setSt('error');msg(r.j.error||'Something went wrong. Please try again.');return}
+  const j=r.j,done=start?false:applyTurn(j,text);if(!start)hist.push({role:'student',text});
+  const spoken=[j.reply,j.question].filter(Boolean).join(' ');hist.push({role:'teacher',text:spoken});lastQ=spoken;
+  const b=bubble('te',spoken);
+  if(j.correction){const f=el('div','fix');f.append(el('div','','✏️ Better: '+j.correction));if(j.explanation)f.append(el('div','note',j.explanation));b.append(f)}
+  if(j.marathi){const f=el('div','fix','मराठी: '+j.marathi);b.append(f)}
+  if(done){const f=el('div','fix','🎉 Lesson complete!'),nx=nextId();if(nx){const nb=el('button','','Next lesson ▶');nb.onclick=()=>{selectLesson(nx,P.support);const L=CUR.flatMap(x=>x.lessons).find(l=>l.id===nx);lessonTitle=L?L.title:'';startLesson()};f.append(el('div'),nb)}b.append(f)}
+  setSt('idle');say(spoken)}
+boot();
+if(TTS)speechSynthesis.onvoiceschanged=()=>{};
+</script></body></html>
