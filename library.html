@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ग्रंथालय — बापूसाहेब देशमुख शिवाजी हायस्कूल, चांदूर रेल्वे</title>
+<meta name="description" content="शाळेचे डिजिटल ग्रंथालय — मराठी, हिंदी व इंग्रजी पुस्तके वाचा आणि ऐका.">
+<meta name="theme-color" content="#0f1226">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&family=Tiro+Devanagari+Marathi:ital@0;1&family=Noto+Serif+Devanagari:wght@400;700&display=swap">
+<style>
+:root{--mid:#0f1226;--mid2:#1b2050;--ivory:#f7f1e3;--paper:#fffdf7;--ink:#241f1a;--muted:#6f6558;--gold:#c99a2e;--gold2:#ebd9a8;--vio:#7c5cff;--line:#e3d9c3;--red:#b3261e;
+--disp:'Tiro Devanagari Marathi','Noto Serif Devanagari',Georgia,serif;--body:'Mukta','Noto Sans Devanagari',system-ui,sans-serif;--ser:'Noto Serif Devanagari','Tiro Devanagari Marathi',Georgia,serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--body);background:var(--ivory);color:var(--ink);line-height:1.6;padding-bottom:env(safe-area-inset-bottom,0)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--vio);outline-offset:2px}
+.skip{position:absolute;left:-999px;top:0;background:#fff;padding:8px 12px;z-index:100}.skip:focus{left:8px;top:8px}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top,0px));background:var(--mid);color:#fff}
+.top a{color:var(--gold2);text-decoration:none;font-size:14px}
+.top b{font-family:var(--disp);font-size:18px;flex:1;text-align:center}
+.top .acts{display:flex;gap:6px}
+.btn{border:0;border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px;background:var(--gold);color:#1d1400;min-height:40px}
+.btn.ghost{background:transparent;color:inherit;border:1px solid currentColor}
+.btn.vio{background:var(--vio);color:#fff}
+.btn.red{background:var(--red);color:#fff}
+.btn[hidden]{display:none}
+.hero{background:radial-gradient(900px 400px at 80% -10%,#33307a 0,transparent 60%),linear-gradient(160deg,var(--mid),var(--mid2));color:#fff;padding:34px 18px 40px;text-align:center}
+.hero h1{margin:0 auto 6px;font-family:var(--disp);font-size:clamp(26px,6vw,46px);line-height:1.3;max-width:20em}
+.hero .en{margin:0 0 6px;color:var(--gold2);font-weight:500;font-size:clamp(15px,2.6vw,19px)}
+.hero p{margin:0 auto 20px;max-width:36em;opacity:.8}
+.hero .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+main{max-width:1180px;margin:0 auto;padding:18px 14px 60px}
+.filters{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px;box-shadow:0 6px 22px rgba(60,40,10,.06)}
+.search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:16px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.chip{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-size:14px;min-height:38px}
+.chip[aria-pressed=true]{background:var(--mid);color:#fff;border-color:var(--mid)}
+.chip.cat[aria-pressed=true]{background:var(--gold);color:#1d1400;border-color:var(--gold)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.two select{padding:10px;border-radius:10px;border:1px solid var(--line);background:#fff;min-height:42px}
+.lab{font-size:12px;color:var(--muted);font-weight:700;margin:2px 0 -4px}
+h2.sec{font-family:var(--disp);font-size:22px;margin:26px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+.card{all:unset;box-sizing:border-box;display:block;cursor:pointer;border-radius:12px}
+.card:focus-visible{outline:3px solid var(--vio);outline-offset:3px}
+.card .cv{aspect-ratio:2/3;box-shadow:0 10px 24px rgba(40,25,5,.25),inset -5px 0 8px rgba(0,0,0,.18);transition:transform .25s ease,box-shadow .25s ease}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.grid{perspective:900px}.card:hover .cv{transform:rotateY(-10deg) translateY(-4px);box-shadow:14px 16px 28px rgba(40,25,5,.3),inset -5px 0 8px rgba(0,0,0,.18)}}
+.cv{position:relative;border-radius:4px 10px 10px 4px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff}
+.cv img{width:100%;height:100%;object-fit:cover;display:block}
+.cv .cvl{font-family:var(--disp);font-size:56px;opacity:.9}
+.card .t{display:block;font-weight:700;margin-top:8px;line-height:1.3;font-size:15px}
+.card .a{display:block;color:var(--muted);font-size:13px}
+.badge{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;background:var(--gold2);color:#4a3600;margin:4px 4px 0 0}
+.badge.d{background:#ffd9d6;color:#7a1510}
+.pbar{height:4px;background:#e8dfc9;border-radius:4px;margin-top:6px;overflow:hidden}.pbar i{display:block;height:100%;background:var(--vio)}
+.state{text-align:center;padding:40px 16px;color:var(--muted)}
+.state b{display:block;font-size:18px;color:var(--ink);margin-bottom:6px}
+.more{display:block;margin:22px auto 0}
+.info{margin:18px 0 0;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:14px;padding:4px 14px}
+.info summary{cursor:pointer;font-weight:700;padding:10px 0;min-height:44px;font-family:var(--disp);font-size:17px}
+.info ul{margin:0 0 12px;padding-left:20px;font-size:14px}.info li{margin:6px 0}.info li b{color:var(--ink)}
+/* overlays */
+.ov{position:fixed;inset:0;z-index:50;background:rgba(10,10,25,.62);display:flex;align-items:flex-end;justify-content:center}
+.ov[hidden]{display:none}
+.sheet{background:var(--paper);width:100%;max-width:720px;max-height:92vh;overflow:auto;border-radius:20px 20px 0 0;padding:18px;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+@media(min-width:720px){.ov{align-items:center}.sheet{border-radius:20px}}
+.sheet h3{font-family:var(--disp);margin:0 0 4px;font-size:24px;line-height:1.3}
+.dh{display:grid;grid-template-columns:110px 1fr;gap:16px;margin-bottom:12px}
+.dh .cv{aspect-ratio:2/3}
+dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px;margin:10px 0}
+dt{color:var(--muted)}dd{margin:0}
+.x{float:right;border:0;background:#eee;border-radius:50%;width:40px;height:40px;font-size:18px}
+form .f{display:grid;gap:4px;margin-bottom:10px}
+form label{font-size:13px;font-weight:700}
+form input,form select,form textarea{padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff;width:100%}
+form textarea{min-height:120px}
+.err{color:var(--red);font-size:14px;min-height:1.2em}
+.note{font-size:12px;color:var(--muted)}
+/* reader */
+.rd{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;background:var(--bg);color:var(--fg);--bg:#fbf7ec;--fg:#241f1a;--bar:#fff}
+.rd[hidden]{display:none}
+.rd[data-t=sepia]{--bg:#efe2c4;--fg:#3a2c18;--bar:#e4d4ae}
+.rd[data-t=dark]{--bg:#14151c;--fg:#e6e2d8;--bar:#1f212b}
+.rbar{display:flex;align-items:center;gap:4px;padding:6px 8px;padding-top:calc(6px + env(safe-area-inset-top,0px));background:var(--bar);border-bottom:1px solid rgba(127,127,127,.25)}
+.rbar button{border:0;background:transparent;color:inherit;min-width:42px;height:42px;border-radius:10px;font-size:17px;font-weight:700}
+.rbar button:hover{background:rgba(127,127,127,.18)}
+.rtitle{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;padding:0 6px}
+.rprog{height:3px;background:rgba(127,127,127,.25)}.rprog i{display:block;height:100%;width:0;background:var(--vio)}
+.ttsbar{display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--bar);border-bottom:1px solid rgba(127,127,127,.25);font-size:14px}
+.ttsbar[hidden]{display:none}.ttsbar button{border:0;background:var(--vio);color:#fff;border-radius:8px;min-width:42px;height:38px}
+.ttsbar select{padding:6px;border-radius:8px}
+.rbody{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:18px 16px calc(40px + env(safe-area-inset-bottom,0px))}
+.txt{max-width:40em;margin:0 auto;font-family:var(--ser);font-size:19px;line-height:1.95}
+.txt.sans{font-family:var(--body)}
+.txt h1{font-family:var(--disp);font-size:1.5em;line-height:1.3;margin:.2em 0 .1em}
+.txt .by{opacity:.7;margin:0 0 1.2em;font-family:var(--body);font-size:.8em}
+.txt p{margin:0 0 1em;white-space:pre-line;border-radius:6px}
+.txt p.tts{background:rgba(124,92,255,.22);box-shadow:0 0 0 6px rgba(124,92,255,.22)}
+.txt p.bm{border-left:4px solid var(--gold);padding-left:10px}
+.pdfwrap{height:100%;display:flex;flex-direction:column;gap:8px}.pdfwrap iframe{flex:1;width:100%;border:0;background:#fff;min-height:60vh}
+.msg{text-align:center;padding:30px 10px;opacity:.85}
+.marks{position:absolute;right:8px;top:calc(56px + env(safe-area-inset-top,0px));width:min(320px,92vw);max-height:60vh;overflow:auto;background:var(--bar);color:var(--fg);border:1px solid rgba(127,127,127,.35);border-radius:14px;padding:10px;box-shadow:0 12px 30px rgba(0,0,0,.3);z-index:3}
+.marks[hidden]{display:none}
+.marks .it{display:flex;gap:6px;align-items:center;padding:6px 0;border-bottom:1px solid rgba(127,127,127,.2)}
+.marks .it button.go{flex:1;text-align:left;border:0;background:none;color:inherit;font-size:14px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#222;color:#fff;padding:10px 16px;border-radius:12px;z-index:200;max-width:92vw;font-size:14px;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.on{opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#catalog">मुख्य मजकुराकडे जा</a>
+
+<header class="top">
+  <a href="index.html">← शाळा</a>
+  <b>ग्रंथालय</b>
+  <div class="acts">
+    <button class="btn" id="addBtn" type="button" hidden>＋ पुस्तक</button>
+    <button class="btn ghost" id="impBtn" type="button" hidden>आयात</button>
+    <button class="btn ghost" id="admBtn" type="button">व्यवस्थापक</button>
+  </div>
+</header>
+
+<section class="hero" aria-labelledby="hTitle">
+  <h1 id="hTitle">ज्ञानाचा अथांग सागर — आता तुमच्या हातात!</h1>
+  <p class="en">Your World of Knowledge, One Library.</p>
+  <p>पुस्तके शोधा, वाचा आणि वाचून ऐका. तुमची वाचनाची जागा तुमच्या फोनवर जतन होते.</p>
+  <div class="row">
+    <button class="btn" id="hBooks" type="button">पुस्तके शोधा</button>
+    <button class="btn ghost" id="hMr" type="button">मराठी साहित्य</button>
+    <button class="btn vio" id="hCont" type="button" hidden>वाचन सुरू ठेवा</button>
+  </div>
+</section>
+
+<main id="catalog">
+  <div class="filters">
+    <label class="lab" for="q">शोधा</label>
+    <input class="search" id="q" type="search" placeholder="पुस्तक, लेखक, प्रकाशक, विषय…" autocomplete="off" enterkeyhint="search">
+    <div class="lab">भाषा</div>
+    <div class="chips" id="langChips" role="group" aria-label="भाषा"></div>
+    <div class="lab">विभाग</div>
+    <div class="chips" id="catChips" role="group" aria-label="विभाग"></div>
+    <div class="two">
+      <div><label class="lab" for="fmt">प्रकार</label>
+        <select id="fmt"><option value="">सर्व</option><option value="text">वाचा (मजकूर)</option><option value="pdf">PDF</option><option value="audio">ऑडिओ (ऐका)</option><option value="link">बाह्य दुवा</option></select></div>
+      <div><label class="lab" for="sort">क्रम</label>
+        <select id="sort"><option value="new">नवीन आधी</option><option value="title">शीर्षक (अ-ज्ञ)</option><option value="author">लेखक</option></select></div>
+    </div>
+  </div>
+
+  <details class="info" id="infoNow">
+    <summary>ग्रंथालयाबद्दल — सध्याची स्थिती</summary>
+    <ul>
+      <li><b>ऑडिओबुक आणि EPUB:</b> ऑडिओ प्लेयर तयार आहे (व्यवस्थापकाने ऑडिओ दुवा जोडल्यावर पुस्तक ऐकता येईल). EPUB नंतरच्या टप्प्यात येईल.</li>
+      <li><b>पुस्तकांची यादी:</b> पुस्तके व्यवस्थापकाने तपासून प्रकाशित केल्यावरच दिसतात. कोणतीही बनावट पुस्तके टाकलेली नाहीत.</li>
+      <li><b>खुणा आणि प्रगती:</b> हे फक्त त्या फोनमध्ये जतन होतात, खात्याशी जोडलेले नाहीत.</li>
+      <li><b>मंजुरीचा क्रम:</b> फक्त मसुदा, प्रकाशित, संग्रहित हेच टप्पे आहेत. "पुनरावलोकन" टप्पा नाही.</li>
+    </ul>
+  </details>
+
+  <section id="contSec" hidden>
+    <h2 class="sec">वाचन सुरू ठेवा</h2>
+    <div class="grid" id="contGrid"></div>
+  </section>
+
+  <h2 class="sec" id="allTitle">सर्व पुस्तके</h2>
+  <div id="state" class="state" role="status" aria-live="polite">लोड होत आहे…</div>
+  <div class="grid" id="grid"></div>
+  <button class="btn ghost more" id="more" type="button" hidden style="color:var(--ink)">अजून दाखवा</button>
+</main>
+
+<!-- पुस्तक तपशील -->
+<div class="ov" id="detail" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+    <button class="x" id="dClose" type="button" aria-label="बंद करा">✕</button>
+    <div id="dBody"></div>
+  </div>
+</div>
+
+<!-- वाचक -->
+<div class="rd" id="reader" data-t="light" hidden role="dialog" aria-modal="true" aria-label="वाचन">
+  <div class="rbar">
+    <button id="rClose" type="button" aria-label="वाचन बंद करा">✕</button>
+    <div class="rtitle" id="rTitle"></div>
+    <button id="rDec" type="button" aria-label="अक्षरे लहान करा">A−</button>
+    <button id="rInc" type="button" aria-label="अक्षरे मोठी करा">A+</button>
+    <button id="rTheme" type="button" aria-label="थीम बदला">◐</button>
+    <button id="rMarks" type="button" aria-label="खुणा" aria-expanded="false">🔖</button>
+    <button id="rTts" type="button" aria-label="वाचून ऐका">🔊</button>
+  </div>
+  <div class="rprog" aria-hidden="true"><i id="rProg"></i></div>
+  <div class="ttsbar" id="ttsBar" hidden>
+    <button id="ttsPP" type="button" aria-label="थांबवा / सुरू करा">⏸</button>
+    <button id="ttsStop" type="button" aria-label="वाचन थांबवा">⏹</button>
+    <label>वेग <select id="ttsRate"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label>
+  </div>
+  <div class="rbody" id="rBody" tabindex="0"></div>
+  <div class="marks" id="marks" hidden></div>
+</div>
+
+<!-- व्यवस्थापक लॉगिन -->
+<div class="ov" id="loginDlg" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="lgT">
+    <button class="x" data-close type="button" aria-label="बंद करा">✕</button>
+    <h3 id="lgT">व्यवस्थापक लॉगिन</h3>
+    <form id="lgForm" novalidate>
+      <div class="f"><label for="lgE">ईमेल</label><input id="lgE" type="email" autocomplete="username" required></div>
+      <div class="f"><label for="lgP">पासवर्ड</label><input id="lgP" type="password" autocomplete="current-password" required></div>
+      <div class="err" id="lgErr" role="alert"></div>
+      <button class="btn" type="submit">लॉगिन</button>
+    </form>
+  </div>
+</div>
+
+<!-- पुस्तक जोडा / संपादन -->
+<div class="ov" id="formDlg" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="fmT">
+    <button class="x" data-close type="button" aria-label="बंद करा">✕</button>
+    <h3 id="fmT">पुस्तक जोडा</h3>
+    <p class="note">फक्त सार्वजनिक (public domain), मुक्त परवान्याची किंवा तुमच्या हक्काची पुस्तके जोडा. दुसऱ्यांची कॉपीराइट पुस्तके परवानगीशिवाय टाकू नका.</p>
+    <form id="bkForm" novalidate>
+      <div class="f"><label for="f_title">शीर्षक *</label><input id="f_title" required></div>
+      <div class="f"><label for="f_sub">उपशीर्षक</label><input id="f_sub"></div>
+      <div class="f"><label for="f_author">लेखक *</label><input id="f_author" required></div>
+      <div class="f"><label for="f_pub">प्रकाशक</label><input id="f_pub"></div>
+      <div class="f"><label for="f_year">प्रकाशन वर्ष</label><input id="f_year" inputmode="numeric" maxlength="4"></div>
+      <div class="f"><label for="f_lang">भाषा *</label><select id="f_lang"><option value="mr">मराठी</option><option value="hi">हिंदी</option><option value="en">English</option><option value="sa">संस्कृत</option></select></div>
+      <div class="f"><label for="f_cat">विभाग *</label><select id="f_cat"></select></div>
+      <div class="f"><label for="f_desc">वर्णन</label><textarea id="f_desc"></textarea></div>
+      <div class="f"><label for="f_cover">मुखपृष्ठ चित्र दुवा (https)</label><input id="f_cover" inputmode="url"></div>
+      <div class="f"><label for="f_fmt">वाचनाचा प्रकार *</label><select id="f_fmt"><option value="text">मजकूर (थेट वाचा व ऐका)</option><option value="pdf">PDF</option><option value="audio">ऑडिओ (mp3 / m4a दुवा)</option><option value="link">फक्त मूळ स्रोताचा दुवा</option></select></div>
+      <div class="f" id="g_url"><label for="f_url">फाइल / मजकूर दुवा (https)</label><input id="f_url" inputmode="url"></div>
+      <div class="f" id="g_text"><label for="f_text">मजकूर (परिच्छेद रिकाम्या ओळीने वेगळे करा)</label><textarea id="f_text" style="min-height:200px"></textarea>
+        <span class="note">मजकूर थेट येथे टाकल्यास सुमारे ३ लाख अक्षरांपर्यंत चालेल. मोठ्या पुस्तकासाठी वरचा दुवा वापरा (तो तुमच्याच साइटवरचा किंवा CORS परवानगी असलेला हवा).</span></div>
+      <div class="f"><label for="f_copy">कॉपीराइट स्थिती *</label><select id="f_copy"><option value="public-domain">सार्वजनिक (Public Domain)</option><option value="open-license">मुक्त परवाना</option><option value="permission">परवानगीने</option><option value="link-only">फक्त मूळ स्रोताचा दुवा</option></select></div>
+      <div class="f"><label for="f_lic">परवाना / हक्क माहिती * (प्रकाशित करण्यासाठी आवश्यक)</label><input id="f_lic" placeholder="उदा. CC BY-SA 4.0 / लेखक मृत्यू १९२४ / लेखी परवानगी"></div>
+      <div class="f"><label for="f_src">स्रोताचे नाव</label><input id="f_src"></div>
+      <div class="f"><label for="f_srcu">स्रोत दुवा (https)</label><input id="f_srcu" inputmode="url"></div>
+      <div class="f"><label for="f_tags">टॅग (स्वल्पविरामाने)</label><input id="f_tags"></div>
+      <div class="f"><label for="f_status">स्थिती *</label><select id="f_status"><option value="draft">मसुदा (लपलेले)</option><option value="published">प्रकाशित</option><option value="archived">संग्रहित</option></select></div>
+      <div class="err" id="fmErr" role="alert"></div>
+      <button class="btn" type="submit" id="fmSave">जतन करा</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+(function(){
+'use strict';
+var CFG={
+  ADMIN_EMAIL:'diliprajnekar@gmail.com',
+  FIREBASE:{apiKey:'AIzaSyDZG-v3w_7NAtWmlkZgZbqpXWCbGXrq1vw',authDomain:'bapusaheb-school.firebaseapp.com',projectId:'bapusaheb-school',storageBucket:'bapusaheb-school.firebasestorage.app',messagingSenderId:'521170776952',appId:'1:521170776952:web:20bbc4042fb5218cf64e8d'}
+};
+var LANGS={mr:'मराठी',hi:'हिंदी',en:'English',sa:'संस्कृत'};
+var TTSLANG={mr:'mr-IN',hi:'hi-IN',en:'en-IN'};
+var CATS=['मराठी कादंबऱ्या','मराठी कथा','कविता','संत साहित्य','भक्तिसाहित्य','अभंग','ओव्या','चरित्र व आत्मचरित्र','ऐतिहासिक साहित्य','सामाजिक साहित्य','नाटक','लोकसाहित्य','बालसाहित्य','प्रवासवर्णन','निबंध','विनोदी साहित्य','शैक्षणिक','स्पर्धा परीक्षा','विज्ञान व तंत्रज्ञान','इतर'];
+var FMT={text:'वाचा',pdf:'PDF',audio:'ऑडिओ',link:'बाह्य दुवा'};
+var COPY={'public-domain':'सार्वजनिक (Public Domain)','open-license':'मुक्त परवाना','permission':'परवानगीने','link-only':'फक्त मूळ स्रोताचा दुवा'};
+var STAT={draft:'मसुदा',published:'प्रकाशित',archived:'संग्रहित'};
+var PER=24, SENT=/[^।.?!॥\n]+[।.?!॥]*/g;
+
+/* ---------- helpers ---------- */
+var $=function(s){return document.querySelector(s)};
+function el(t,p){var e=document.createElement(t);if(p)for(var a in p){var v=p[a];if(v==null||v===false)continue;if(a==='class')e.className=v;else if(a==='text')e.textContent=v;else if(a.slice(0,2)==='on')e.addEventListener(a.slice(2),v);else e.setAttribute(a,v===true?'':v)}
+  for(var i=2;i<arguments.length;i++){[].concat(arguments[i]).forEach(function(c){if(c==null||c===false)return;e.append(c.nodeType?c:document.createTextNode(c))})}return e}
+function safeUrl(u){try{if(!u)return '';var x=new URL(String(u).trim(),location.href);return (x.protocol==='https:'||x.protocol==='http:')?x.href:''}catch(e){return ''}}
+function norm(s){return String(s==null?'':s).normalize('NFC').toLowerCase().trim()}
+function splitParas(t){return String(t||'').replace(/\r/g,'').split(/\n\s*\n+/).map(function(s){return s.trim()}).filter(Boolean)}
+var ls={get:function(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del:function(k){try{localStorage.removeItem(k)}catch(e){}}};
+var toastT;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('on')},3600)}
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+var lockN=0;function lock(on){lockN+=on?1:-1;if(lockN<0)lockN=0;document.documentElement.style.overflow=lockN?'hidden':''}
+var lastFocus=null;
+function openOv(node,focusSel){lastFocus=document.activeElement;node.hidden=false;lock(true);var f=focusSel?node.querySelector(focusSel):null;if(f)f.focus()}
+function closeOv(node){if(node.hidden)return;node.hidden=true;lock(false);if(lastFocus&&lastFocus.focus){try{lastFocus.focus()}catch(e){}}}
+
+/* ---------- state ---------- */
+var db=null,auth=null,isAdmin=false,books=[],view=[],shown=PER,F={q:'',lang:'',cat:'',fmt:'',sort:'new'},editing=null,loadSeq=0;
+function prog(id){return ls.get('lib:p:'+id)}
+
+/* ---------- Firebase ---------- */
+try{firebase.initializeApp(CFG.FIREBASE);db=firebase.firestore();auth=firebase.auth()}catch(e){console.error(e)}
+function updAdmin(){ $('#addBtn').hidden=!isAdmin; $('#impBtn').hidden=!isAdmin; $('#admBtn').textContent=isAdmin?'बाहेर पडा':'व्यवस्थापक'; }
+if(auth){var firstAuth=true;auth.onAuthStateChanged(function(u){var a=!!(u&&u.email&&u.email.toLowerCase()===CFG.ADMIN_EMAIL.toLowerCase());
+  if(firstAuth){firstAuth=false;isAdmin=a;updAdmin();load();return}
+  if(a!==isAdmin){isAdmin=a;updAdmin();load()}})}
+else{load()}
+
+function setState(kind,msg,retry){var s=$('#state');s.innerHTML='';if(!kind){s.hidden=true;return}s.hidden=false;
+  if(kind==='loading'){s.textContent='लोड होत आहे…';return}
+  s.append(el('b',{text:msg[0]}),document.createTextNode(msg[1]||''));
+  if(retry){s.append(document.createElement('br'),el('button',{class:'btn',type:'button',style:'margin-top:12px',text:'पुन्हा प्रयत्न करा',onclick:load}))}}
+
+function load(){
+  var my=++loadSeq;
+  if(!db){setState('err',['ग्रंथालय सुरू होऊ शकले नाही','इंटरनेट किंवा Firebase सेटिंग तपासा.'],true);return}
+  setState('loading');$('#grid').innerHTML='';
+  var q=db.collection('books');if(!isAdmin)q=q.where('status','==','published');
+  q.limit(400).get().then(function(snap){
+    if(my!==loadSeq)return;
+    books=snap.docs.map(function(d){var o=d.data();o.id=d.id;o._h=norm([o.title,o.subtitle,o.author,o.publisher,o.category,o.description,(o.tags||[]).join(' ')].join(' '));return o});
+    shown=PER;render();
+  }).catch(function(e){
+    if(my!==loadSeq)return;console.error(e);
+    var perm=e&&e.code==='permission-denied';
+    setState('err',['पुस्तके लोड झाली नाहीत',perm?'Firestore rules मध्ये "books" चा नियम जोडून Publish केला आहे का ते तपासा.':'इंटरनेट तपासा आणि पुन्हा प्रयत्न करा.'],true);
+  });
+}
+
+/* ---------- catalog ---------- */
+var GR=['linear-gradient(135deg,#3b1f5e,#7c5cff)','linear-gradient(135deg,#6a1327,#c99a2e)','linear-gradient(135deg,#0e4a52,#2e8b57)','linear-gradient(135deg,#1c2f78,#4aa3ff)','linear-gradient(135deg,#5a3a14,#e8791d)'];
+function cover(b){var w=el('div',{class:'cv'}),u=safeUrl(b.coverUrl);
+  function ph(){w.innerHTML='';var h=0;Array.from(String(b.title||'?')).forEach(function(ch){h=(h*31+ch.codePointAt(0))>>>0});w.style.background=GR[h%GR.length];w.append(el('span',{class:'cvl',text:Array.from(String(b.title||'?'))[0]}))}
+  if(u){w.append(el('img',{src:u,alt:'',loading:'lazy',decoding:'async',referrerpolicy:'no-referrer',onerror:ph}))}else ph();return w}
+function card(b){var p=prog(b.id),pct=p&&p.pct>0?Math.min(100,Math.round(p.pct)):0;
+  var c=el('button',{class:'card',type:'button','data-id':b.id,'aria-label':b.title+(b.author?', '+b.author:''),onclick:function(){openDetail(b)}},cover(b),
+    el('span',{class:'t',text:b.title}),el('span',{class:'a',text:b.author||''}),
+    el('span',null,el('span',{class:'badge',text:LANGS[b.language]||''}),el('span',{class:'badge',text:FMT[b.format]||''}),(b.status&&b.status!=='published')?el('span',{class:'badge d',text:STAT[b.status]||b.status}):null));
+  if(pct){c.append(el('span',{class:'pbar'},el('i',{style:'width:'+pct+'%'})))}return c}
+function applyFilters(){var q=norm(F.q);
+  view=books.filter(function(b){return (!F.lang||b.language===F.lang)&&(!F.cat||b.category===F.cat)&&(!F.fmt||b.format===F.fmt)&&(!q||b._h.indexOf(q)>-1)});
+  var sec=function(b){return b.createdAt&&b.createdAt.seconds||0};
+  if(F.sort==='title')view.sort(function(a,b){return String(a.title).localeCompare(String(b.title),'mr')});
+  else if(F.sort==='author')view.sort(function(a,b){return String(a.author).localeCompare(String(b.author),'mr')});
+  else view.sort(function(a,b){return sec(b)-sec(a)})}
+function render(){
+  applyFilters();var g=$('#grid');g.innerHTML='';
+  if(!books.length){setState('empty',['अजून पुस्तके जोडलेली नाहीत',isAdmin?'वरच्या "＋ पुस्तक" बटणाने पहिले पुस्तक जोडा.':'लवकरच येथे पुस्तके उपलब्ध होतील.'])}
+  else if(!view.length){setState('empty',['कोणतेही पुस्तक सापडले नाही','शोध किंवा फिल्टर बदलून पाहा.'])}
+  else setState(null);
+  view.slice(0,shown).forEach(function(b){g.append(card(b))});
+  $('#more').hidden=!(view.length>shown);
+  $('#allTitle').textContent='सर्व पुस्तके'+(view.length?' ('+view.length+')':'');
+  renderCont();renderCats();
+}
+function renderCont(){var list=books.map(function(b){return {b:b,p:prog(b.id)}}).filter(function(x){return x.p&&x.p.pct>0&&x.p.pct<99}).sort(function(a,b){return (b.p.ts||0)-(a.p.ts||0)}).slice(0,8);
+  var g=$('#contGrid');g.innerHTML='';list.forEach(function(x){g.append(card(x.b))});$('#contSec').hidden=!list.length;$('#hCont').hidden=!list.length}
+function chip(label,pressed,fn,cls){return el('button',{class:'chip '+(cls||''),type:'button','aria-pressed':pressed?'true':'false',text:label,onclick:fn})}
+function renderLangs(){var w=$('#langChips');w.innerHTML='';w.append(chip('सर्व',!F.lang,function(){F.lang='';shown=PER;renderLangs();render()}));
+  Object.keys(LANGS).forEach(function(k){w.append(chip(LANGS[k],F.lang===k,function(){F.lang=F.lang===k?'':k;shown=PER;renderLangs();render()}))})}
+function renderCats(){var w=$('#catChips');w.innerHTML='';var extra=[];books.forEach(function(b){if(b.category&&CATS.indexOf(b.category)<0&&extra.indexOf(b.category)<0)extra.push(b.category)});
+  w.append(chip('सर्व',!F.cat,function(){F.cat='';shown=PER;render()},'cat'));
+  CATS.concat(extra).forEach(function(c){w.append(chip(c,F.cat===c,function(){F.cat=F.cat===c?'':c;shown=PER;render()},'cat'))})}
+var qT;$('#q').addEventListener('input',function(e){clearTimeout(qT);var v=e.target.value;qT=setTimeout(function(){F.q=v;shown=PER;render()},250)});
+$('#fmt').addEventListener('change',function(e){F.fmt=e.target.value;shown=PER;render()});
+$('#sort').addEventListener('change',function(e){F.sort=e.target.value;render()});
+$('#more').addEventListener('click',function(){shown+=PER;render()});
+$('#hBooks').addEventListener('click',function(){$('#catalog').scrollIntoView({behavior:reduce?'auto':'smooth'});$('#q').focus({preventScroll:true})});
+$('#hMr').addEventListener('click',function(){F.lang='mr';shown=PER;renderLangs();render();$('#catalog').scrollIntoView({behavior:reduce?'auto':'smooth'})});
+$('#hCont').addEventListener('click',function(){$('#contSec').scrollIntoView({behavior:reduce?'auto':'smooth'})});
+renderLangs();renderCats();
+
+/* ---------- detail ---------- */
+var dBook=null;
+function openDetail(b){dBook=b;var body=$('#dBody');body.innerHTML='';
+  var p=prog(b.id),src=safeUrl(b.sourceUrl),cu=safeUrl(b.contentUrl);
+  var canRead=(b.format==='text'&&(b.hasText||cu))||((b.format==='pdf'||b.format==='audio')&&cu);
+  var rows=[['भाषा',LANGS[b.language]],['विभाग',b.category],['प्रकाशक',b.publisher],['वर्ष',b.year],['प्रकार',FMT[b.format]],['कॉपीराइट',COPY[b.copyrightStatus]],['परवाना',b.license],['स्रोत',b.source]].filter(function(r){return r[1]});
+  var dl=el('dl');rows.forEach(function(r){dl.append(el('dt',{text:r[0]}),el('dd',{text:String(r[1])}))});
+  var acts=el('div',{style:'display:flex;flex-wrap:wrap;gap:8px;margin-top:12px'});
+  if(canRead)acts.append(el('button',{class:'btn',type:'button',text:b.format==='audio'?(p&&p.pct>0&&p.pct<99?'ऐकणे सुरू ठेवा ('+Math.round(p.pct)+'%)':'ऐका'):(p&&p.pct>0&&p.pct<99?'वाचन सुरू ठेवा ('+Math.round(p.pct)+'%)':'वाचा'),onclick:function(){closeOv($('#detail'));openReader(b)}}));
+  if(src)acts.append(el('a',{class:'btn ghost',style:'text-decoration:none;display:inline-flex;align-items:center;color:var(--ink)',href:src,target:'_blank',rel:'noopener noreferrer',text:'मूळ स्रोतावर उघडा ↗'}));
+  if(!canRead&&!src)acts.append(el('span',{class:'note',text:'या पुस्तकासाठी वाचनाचा दुवा उपलब्ध नाही.'}));
+  if(isAdmin){acts.append(el('button',{class:'btn ghost',type:'button',style:'color:var(--ink)',text:'संपादन',onclick:function(){closeOv($('#detail'));openForm(b)}}),
+    el('button',{class:'btn ghost',type:'button',style:'color:var(--ink)',text:b.status==='published'?'अप्रकाशित करा':'प्रकाशित करा',onclick:function(){togglePub(b)}}),
+    el('button',{class:'btn red',type:'button',text:'हटवा',onclick:function(){delBook(b)}}))}
+  body.append(el('div',{class:'dh'},cover(b),el('div',null,el('h3',{id:'dTitle',text:b.title}),b.subtitle?el('div',{text:b.subtitle,style:'color:var(--muted)'}):null,el('div',{text:b.author||'',style:'font-weight:700;margin-top:4px'}))),
+    b.description?el('p',{text:b.description,style:'white-space:pre-line'}):null,dl,acts);
+  openOv($('#detail'),'#dClose')}
+$('#dClose').addEventListener('click',function(){closeOv($('#detail'))});
+$('#detail').addEventListener('click',function(e){if(e.target===this)closeOv(this)});
+
+/* ---------- reader ---------- */
+var R={book:null,paras:[],kind:'',saveT:0,raf:0};
+var P=Object.assign({fs:19,t:'light',sans:false},ls.get('lib:prefs')||{});
+function applyPrefs(){var rd=$('#reader');rd.dataset.t=P.t;var a=$('.txt',rd);if(a){a.style.fontSize=P.fs+'px';a.classList.toggle('sans',!!P.sans)}ls.set('lib:prefs',P)}
+function topIndex(){var body=$('#rBody'),ps=body.querySelectorAll('.txt p'),top=body.getBoundingClientRect().top+8;for(var i=0;i<ps.length;i++){if(ps[i].getBoundingClientRect().bottom>top)return i}return Math.max(0,ps.length-1)}
+function saveProg(){if(!R.book||R.kind!=='text')return;var b=$('#rBody'),max=b.scrollHeight-b.clientHeight,pct=max>0?Math.min(100,b.scrollTop/max*100):100;$('#rProg').style.width=pct+'%';
+  ls.set('lib:p:'+R.book.id,{i:topIndex(),pct:pct,ts:Date.now()})}
+function onScroll(){if(R.raf)return;R.raf=requestAnimationFrame(function(){R.raf=0;var b=$('#rBody'),max=b.scrollHeight-b.clientHeight;$('#rProg').style.width=(max>0?Math.min(100,b.scrollTop/max*100):0)+'%';clearTimeout(R.saveT);R.saveT=setTimeout(saveProg,500)})}
+function openReader(b){R.book=b;R.paras=[];R.kind=b.format;var body=$('#rBody');body.innerHTML='';body.scrollTop=0;$('#rTitle').textContent=b.title;$('#rProg').style.width='0';$('#marks').hidden=true;$('#ttsBar').hidden=true;
+  $('#rTts').hidden=(b.format!=='text');$('#rMarks').hidden=(b.format!=='text');$('#rInc').hidden=$('#rDec').hidden=(b.format!=='text');
+  openOv($('#reader'),'#rClose');body.addEventListener('scroll',onScroll,{passive:true});
+  if(b.format==='pdf'){var u=safeUrl(b.contentUrl);
+    body.append(el('div',{class:'pdfwrap'},el('iframe',{src:u,title:b.title}),el('p',{class:'msg'},'PDF दिसत नसेल तर ',el('a',{href:u,target:'_blank',rel:'noopener noreferrer',text:'नवीन टॅबमध्ये उघडा',style:'color:inherit'}),'. (PDF साठी वाचनाची जागा जतन होत नाही.)')));
+    ls.set('lib:p:'+b.id,{i:0,pct:0,ts:Date.now(),opened:true});return}
+  if(b.format==='audio'){var au=safeUrl(b.contentUrl),a=document.createElement('audio'),sv=prog(b.id);a.controls=true;a.preload='metadata';a.style.cssText='width:100%;max-width:40em;display:block;margin:30px auto 10px';a.src=au;R.audio=a;
+    a.addEventListener('loadedmetadata',function(){if(sv&&sv.i>0&&sv.pct<99)try{a.currentTime=sv.i}catch(e){}});
+    a.addEventListener('timeupdate',function(){if(!a.duration)return;var pc=Math.min(100,a.currentTime/a.duration*100);$('#rProg').style.width=pc+'%';if(!R.at||Date.now()-R.at>3000){R.at=Date.now();ls.set('lib:p:'+b.id,{i:a.currentTime,pct:pc,ts:Date.now()})}});
+    a.addEventListener('ended',function(){ls.set('lib:p:'+b.id,{i:0,pct:100,ts:Date.now()})});
+    a.addEventListener('error',function(){body.append(el('p',{class:'msg',text:'ऑडिओ चालू होत नाही. दुवा तपासा किंवा मूळ स्रोतावर ऐका.'}))});
+    body.append(el('p',{class:'msg',text:b.title}),a,el('p',{class:'msg',text:'तुमची ऐकण्याची जागा फक्त या फोनमध्ये जतन होते.'}));return}
+  body.append(el('p',{class:'msg',text:'लोड होत आहे…'}));
+  var getText;
+  if(b.hasText){getText=db.collection('bookTexts').doc(b.id).get().then(function(sn){if(!sn.exists)throw new Error('missing');return sn.data().text})}
+  else{var tu=safeUrl(b.contentUrl);getText=tu?fetch(tu).then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.text()}):Promise.reject(new Error('no source'))}
+  getText.then(function(t){R.paras=splitParas(t);if(!R.paras.length)throw new Error('empty');
+    body.innerHTML='';var art=el('article',{class:'txt'},el('h1',{text:b.title}),el('div',{class:'by',text:b.author||''}));
+    var marks=ls.get('lib:b:'+b.id)||[];
+    R.paras.forEach(function(s,i){var p=el('p',{'data-i':i,text:s});if(marks.some(function(m){return m.i===i}))p.classList.add('bm');art.append(p)});
+    body.append(art);applyPrefs();
+    var sp=prog(b.id);if(sp&&sp.i>0){var t=art.querySelectorAll('p')[sp.i];if(t)t.scrollIntoView({block:'start'})}
+    onScroll();
+  }).catch(function(e){console.error(e);body.innerHTML='';body.append(el('p',{class:'msg'},'मजकूर उघडता आला नाही. ',safeUrl(b.sourceUrl)?el('a',{href:safeUrl(b.sourceUrl),target:'_blank',rel:'noopener noreferrer',text:'मूळ स्रोतावर वाचा ↗',style:'color:inherit'}):''))})}
+function closeReader(){if(R.audio){var _a=R.audio;try{_a.pause()}catch(e){}if(R.book&&_a.duration){var _p=Math.min(100,_a.currentTime/_a.duration*100);if(_p<99)ls.set('lib:p:'+R.book.id,{i:_a.currentTime,pct:_p,ts:Date.now()})}_a.removeAttribute('src');try{_a.load()}catch(e){}R.audio=null}ttsStop();clearTimeout(R.saveT);saveProg();var b=$('#rBody');b.removeEventListener('scroll',onScroll);b.innerHTML='';closeOv($('#reader'));R.book=null;renderCont();
+  var grid=$('#grid');books.length&&(grid.innerHTML='',view.slice(0,shown).forEach(function(x){grid.append(card(x))}))}
+$('#rClose').addEventListener('click',closeReader);
+$('#rInc').addEventListener('click',function(){P.fs=Math.min(32,P.fs+2);applyPrefs()});
+$('#rDec').addEventListener('click',function(){P.fs=Math.max(14,P.fs-2);applyPrefs()});
+$('#rTheme').addEventListener('click',function(){var o=['light','sepia','dark'];P.t=o[(o.indexOf(P.t)+1)%3];applyPrefs()});
+/* खुणा */
+function renderMarks(){var box=$('#marks');box.innerHTML='';var b=R.book;if(!b)return;var list=ls.get('lib:b:'+b.id)||[];
+  box.append(el('button',{class:'btn',type:'button',text:'येथे खूण करा',style:'width:100%;margin-bottom:6px',onclick:function(){var i=topIndex(),l=ls.get('lib:b:'+b.id)||[];if(!l.some(function(m){return m.i===i})){l.push({i:i,s:(R.paras[i]||'').slice(0,60),ts:Date.now()});l.sort(function(a,c){return a.i-c.i});ls.set('lib:b:'+b.id,l);var p=$('#rBody').querySelectorAll('.txt p')[i];if(p)p.classList.add('bm');toast('खूण जतन केली')}renderMarks()}}));
+  if(!list.length)box.append(el('p',{class:'note',text:'अजून खुणा नाहीत.'}));
+  list.forEach(function(m){box.append(el('div',{class:'it'},el('button',{class:'go',type:'button',text:'भाग '+(m.i+1)+': '+m.s+'…',onclick:function(){var p=$('#rBody').querySelectorAll('.txt p')[m.i];if(p)p.scrollIntoView({block:'start'});$('#marks').hidden=true;$('#rMarks').setAttribute('aria-expanded','false')}}),
+    el('button',{type:'button','aria-label':'खूण काढा',text:'✕',style:'border:0;background:none;color:inherit',onclick:function(){var l=(ls.get('lib:b:'+b.id)||[]).filter(function(x){return x.i!==m.i});ls.set('lib:b:'+b.id,l);var p=$('#rBody').querySelectorAll('.txt p')[m.i];if(p)p.classList.remove('bm');renderMarks()}})))})}
+$('#rMarks').addEventListener('click',function(){var m=$('#marks');m.hidden=!m.hidden;this.setAttribute('aria-expanded',String(!m.hidden));if(!m.hidden)renderMarks()});
+
+/* ---------- वाचून ऐका (ब्राउझरचा आवाज) ---------- */
+var T={on:false,paused:false,i:0,rate:1,tok:0,voice:null,lang:''};
+function pickVoice(lang){var base=lang.split('-')[0],vs=speechSynthesis.getVoices();return vs.find(function(v){return v.lang.replace('_','-').toLowerCase()===lang.toLowerCase()})||vs.find(function(v){return v.lang.toLowerCase().indexOf(base)===0})||null}
+function withVoices(cb){if(speechSynthesis.getVoices().length)return cb();var done=false,f=function(){if(done)return;done=true;cb()};speechSynthesis.onvoiceschanged=f;setTimeout(f,900)}
+function markPara(i){var ps=$('#rBody').querySelectorAll('.txt p');var o=$('#rBody').querySelector('.txt p.tts');if(o)o.classList.remove('tts');if(ps[i]){ps[i].classList.add('tts');ps[i].scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'})}}
+function speakPara(){if(!T.on)return;if(T.i>=R.paras.length){ttsStop();toast('वाचन पूर्ण झाले');return}
+  markPara(T.i);var tok=++T.tok,chunks=R.paras[T.i].match(SENT)||[R.paras[T.i]],k=0;
+  (function next(){if(tok!==T.tok||!T.on||T.paused)return;if(k>=chunks.length){T.i++;speakPara();return}
+    var u=new SpeechSynthesisUtterance(chunks[k++]);u.voice=T.voice;u.lang=T.lang;u.rate=T.rate;u.onend=function(){if(tok===T.tok)next()};
+    u.onerror=function(e){if(tok!==T.tok)return;if(e&&(e.error==='interrupted'||e.error==='canceled'))return;ttsStop();toast('वाचन थांबले')};speechSynthesis.speak(u)})()}
+function ttsStart(){if(!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined'){toast('हा ब्राउझर वाचून दाखवण्याची सोय देत नाही');return}
+  var lg=TTSLANG[R.book&&R.book.language];if(!lg){toast('या भाषेसाठी वाचून दाखवण्याची सोय उपलब्ध नाही');return}
+  withVoices(function(){var v=pickVoice(lg);if(!v){toast('तुमच्या ब्राउझर/फोनमध्ये या भाषेचा आवाज सापडला नाही');return}
+    T.voice=v;T.lang=lg;T.on=true;T.paused=false;T.i=topIndex();$('#ttsBar').hidden=false;$('#ttsPP').textContent='⏸';speakPara()})}
+function ttsStop(){T.on=false;T.paused=false;T.tok++;try{if('speechSynthesis' in window)speechSynthesis.cancel()}catch(e){}var b=$('#ttsBar');if(b)b.hidden=true;var o=document.querySelector('.txt p.tts');if(o)o.classList.remove('tts')}
+$('#rTts').addEventListener('click',function(){if(T.on)ttsStop();else ttsStart()});
+$('#ttsStop').addEventListener('click',ttsStop);
+$('#ttsPP').addEventListener('click',function(){if(!T.on)return;if(!T.paused){T.paused=true;T.tok++;speechSynthesis.cancel();this.textContent='▶'}else{T.paused=false;this.textContent='⏸';speakPara()}});
+$('#ttsRate').addEventListener('change',function(e){T.rate=parseFloat(e.target.value)||1;if(T.on&&!T.paused){T.tok++;speechSynthesis.cancel();speakPara()}});
+
+/* ---------- व्यवस्थापक ---------- */
+$('#admBtn').addEventListener('click',function(){if(isAdmin){auth.signOut().then(function(){toast('बाहेर पडलात')});return}if(!auth){toast('लॉगिन उपलब्ध नाही');return}$('#lgErr').textContent='';openOv($('#loginDlg'),'#lgE')});
+$('#lgForm').addEventListener('submit',function(e){e.preventDefault();var em=$('#lgE').value.trim(),pw=$('#lgP').value;if(!em||!pw){$('#lgErr').textContent='ईमेल व पासवर्ड भरा.';return}
+  $('#lgErr').textContent='';auth.signInWithEmailAndPassword(em,pw).then(function(c){
+    if(!c.user.email||c.user.email.toLowerCase()!==CFG.ADMIN_EMAIL.toLowerCase()){$('#lgErr').textContent='हे खाते व्यवस्थापकाचे नाही.';return auth.signOut()}
+    $('#lgP').value='';closeOv($('#loginDlg'));toast('स्वागत आहे')
+  }).catch(function(){$('#lgErr').textContent='लॉगिन झाले नाही. ईमेल/पासवर्ड तपासा.'})});
+document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){closeOv(b.closest('.ov'))})});
+['loginDlg','formDlg'].forEach(function(id){var n=document.getElementById(id);n.addEventListener('click',function(e){if(e.target===n)closeOv(n)})});
+
+(function(){var s=$('#f_cat');CATS.forEach(function(c){s.append(el('option',{value:c,text:c}))})})();
+function syncFmt(){var f=$('#f_fmt').value;$('#g_text').hidden=(f!=='text');$('#g_url').querySelector('label').textContent=f==='pdf'?'PDF फाइल दुवा (https) *':f==='audio'?'ऑडिओ फाइल दुवा (https, mp3/m4a) *':f==='link'?'(लागू नाही)':'मजकूर फाइल दुवा (पर्यायी, वरचा मजकूर नसल्यास)'; $('#g_url').hidden=(f==='link')}
+$('#f_fmt').addEventListener('change',syncFmt);
+function openForm(b){editing=b||null;$('#fmT').textContent=b?'पुस्तक संपादन':'पुस्तक जोडा';$('#fmErr').textContent='';
+  var v=function(k,d){return b&&b[k]!=null?b[k]:d};
+  $('#f_title').value=v('title','');$('#f_sub').value=v('subtitle','');$('#f_author').value=v('author','');$('#f_pub').value=v('publisher','');$('#f_year').value=v('year','');
+  $('#f_lang').value=v('language','mr');$('#f_cat').value=CATS.indexOf(v('category',''))>-1?v('category'):'इतर';$('#f_desc').value=v('description','');$('#f_cover').value=v('coverUrl','');
+  $('#f_fmt').value=v('format','text');$('#f_url').value=v('contentUrl','');$('#f_text').value='';$('#f_copy').value=v('copyrightStatus','public-domain');$('#f_lic').value=v('license','');
+  $('#f_src').value=v('source','');$('#f_srcu').value=v('sourceUrl','');$('#f_tags').value=(v('tags',[])||[]).join(', ');$('#f_status').value=v('status','draft');syncFmt();$('#fmSave').disabled=false;
+  if(b&&b.hasText){$('#fmSave').disabled=true;$('#fmErr').textContent='मजकूर लोड होत आहे…';
+    db.collection('bookTexts').doc(b.id).get().then(function(sn){if(editing!==b)return;$('#f_text').value=sn.exists?sn.data().text:'';$('#fmErr').textContent='';$('#fmSave').disabled=false})
+      .catch(function(){if(editing===b)$('#fmErr').textContent='मजकूर लोड झाला नाही — जतन बंद ठेवले आहे. फॉर्म बंद करून पुन्हा उघडा.'})}
+  openOv($('#formDlg'),'#f_title')}
+$('#addBtn').addEventListener('click',function(){if(isAdmin)openForm(null)});
+$('#bkForm').addEventListener('submit',function(e){e.preventDefault();if(!isAdmin){toast('फक्त व्यवस्थापक पुस्तक जोडू शकतो');return}
+  var err=$('#fmErr'),g=function(id){return $(id).value.trim()},fm=g('#f_fmt'),st=g('#f_status');err.textContent='';
+  var d={title:g('#f_title'),subtitle:g('#f_sub'),author:g('#f_author'),publisher:g('#f_pub'),year:g('#f_year'),language:g('#f_lang'),category:g('#f_cat'),description:g('#f_desc'),
+    coverUrl:g('#f_cover'),format:fm,contentUrl:fm==='link'?'':g('#f_url'),copyrightStatus:g('#f_copy'),license:g('#f_lic'),source:g('#f_src'),sourceUrl:g('#f_srcu'),
+    tags:g('#f_tags').split(',').map(function(t){return t.trim()}).filter(Boolean).slice(0,10),status:st};
+  var txt=fm==='text'?$('#f_text').value.trim():'';d.hasText=!!txt;
+  if(!d.title||!d.author){err.textContent='शीर्षक आणि लेखक आवश्यक आहेत.';return}
+  if(d.year&&!/^\d{4}$/.test(d.year)){err.textContent='वर्ष ४ अंकी असावे.';return}
+  ['coverUrl','contentUrl','sourceUrl'].forEach(function(k){if(d[k]&&!safeUrl(d[k]))err.textContent='दुवा वैध https पत्ता असावा ('+k+').'});if(err.textContent)return;
+  if(fm==='pdf'&&!d.contentUrl){err.textContent='PDF दुवा आवश्यक आहे.';return}
+  if(fm==='audio'&&!d.contentUrl){err.textContent='ऑडिओ फाइलचा दुवा आवश्यक आहे.';return}
+  if(fm==='text'&&!txt&&!d.contentUrl){err.textContent='मजकूर किंवा मजकूर फाइल दुवा आवश्यक आहे.';return}
+  if(fm==='link'&&!d.sourceUrl){err.textContent='"फक्त मूळ स्रोताचा दुवा" साठी स्रोत दुवा आवश्यक आहे.';return}
+  if(new Blob([txt]).size>900000){err.textContent='मजकूर खूप मोठा आहे. फाइल दुवा वापरा.';return}
+  if(st==='published'&&!d.license){err.textContent='प्रकाशित करण्यासाठी परवाना / हक्क माहिती भरा.';return}
+  if(st==='published'&&d.copyrightStatus==='link-only'&&fm!=='link'){err.textContent='"फक्त दुवा" स्थितीत वाचनाचा प्रकार "मूळ स्रोताचा दुवा" असावा.';return}
+  if(!editing){var nk=norm(d.title)+'|'+norm(d.author);if(books.some(function(b){return norm(b.title)+'|'+norm(b.author)===nk})&&!confirm('याच शीर्षक व लेखकाचे पुस्तक आधीच आहे. तरीही जोडायचे?'))return}
+  var btn=$('#fmSave');btn.disabled=true;var ts=firebase.firestore.FieldValue.serverTimestamp();d.updatedAt=ts;
+  var batch=db.batch(),ref=editing?db.collection('books').doc(editing.id):db.collection('books').doc(),tref=db.collection('bookTexts').doc(ref.id);
+  if(editing){batch.update(ref,d)}else{d.createdAt=ts;d.addedBy=(auth.currentUser&&auth.currentUser.email)||'';batch.set(ref,d)}
+  if(txt)batch.set(tref,{text:txt,updatedAt:ts});else if(editing&&editing.hasText)batch.delete(tref);
+  var op=batch.commit();
+  op.then(function(){btn.disabled=false;closeOv($('#formDlg'));toast('जतन झाले');load()}).catch(function(x){btn.disabled=false;console.error(x);err.textContent='जतन झाले नाही'+(x&&x.code==='permission-denied'?' (परवानगी नाही — Firestore rules तपासा).':'.')})});
+
+$('#impBtn').addEventListener('click',function(){
+  if(!isAdmin||!db)return;
+  if(!confirm('मंडळ आणि ई साहित्यची पुस्तके (दुवे) "मसुदा" म्हणून जोडायची? ती प्रकाशित केल्याशिवाय वाचकांना दिसणार नाहीत.'))return;
+  var btn=this;btn.disabled=true;
+  fetch('library-seed.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.json()}).then(function(list){
+    var have={};books.forEach(function(b){have[b.id]=1});
+    var todo=list.filter(function(x){return x&&x.id&&!have[x.id]});
+    if(!todo.length){toast('सर्व पुस्तके आधीच जोडलेली आहेत');return}
+    var ts=firebase.firestore.FieldValue.serverTimestamp(),email=(auth.currentUser&&auth.currentUser.email)||'',batch=db.batch();
+    todo.forEach(function(x){var d=Object.assign({},x);delete d.id;d.status='draft';d.hasText=false;d.createdAt=ts;d.updatedAt=ts;d.addedBy=email;batch.set(db.collection('books').doc(x.id),d)});
+    return batch.commit().then(function(){toast(todo.length+' पुस्तके मसुदा म्हणून जोडली');load()})
+  }).catch(function(e){console.error(e);toast('आयात झाली नाही')}).then(function(){btn.disabled=false})});
+function togglePub(b){var np=b.status==='published'?'draft':'published';if(np==='published'&&!b.license){toast('आधी संपादनात परवाना माहिती भरा');return}
+  db.collection('books').doc(b.id).update({status:np,updatedAt:firebase.firestore.FieldValue.serverTimestamp()}).then(function(){closeOv($('#detail'));toast(np==='published'?'प्रकाशित केले':'अप्रकाशित केले');load()}).catch(function(){toast('बदल झाला नाही')})}
+function delBook(b){if(!confirm('"'+b.title+'" कायमचे हटवायचे?'))return;var bt=db.batch();bt.delete(db.collection('books').doc(b.id));if(b.hasText)bt.delete(db.collection('bookTexts').doc(b.id));bt.commit().then(function(){closeOv($('#detail'));toast('हटवले');load()}).catch(function(){toast('हटवता आले नाही')})}
+
+document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;
+  var order=['formDlg','loginDlg','detail'];for(var i=0;i<order.length;i++){var n=document.getElementById(order[i]);if(!n.hidden){closeOv(n);return}}
+  if(!$('#reader').hidden){if(!$('#marks').hidden){$('#marks').hidden=true;return}closeReader()}});
+window.addEventListener('pagehide',function(){saveProg()});
+applyPrefs();
+})();
+</script>
+</body>
+</html>

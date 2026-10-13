@@ -161,6 +161,20 @@ service cloud.firestore {
     }
     match /pinLocks/{id} { allow read, write: if false; }
 
+    // ग्रंथालय (library.html): प्रकाशित पुस्तके सर्वांना वाचता येतात; मसुदे/संग्रहित व सर्व लेखन फक्त admin.
+    // (सूचीतील query मध्ये where('status','==','published') असणे आवश्यक — admin साठी नाही.)
+    match /books/{id} {
+      allow read: if resource.data.status == 'published' || isAdmin();
+      allow write: if isAdmin();
+    }
+    // पुस्तकाचा मजकूर वेगळ्या दस्तऐवजात (सूची हलकी राहावी म्हणून); वाचता येतो फक्त पुस्तक प्रकाशित असेल तर.
+    match /bookTexts/{id} {
+      allow read: if isAdmin()
+                  || (exists(/databases/$(database)/documents/books/$(id))
+                      && get(/databases/$(database)/documents/books/$(id)).data.status == 'published');
+      allow write: if isAdmin();
+    }
+
     // बाकी सर्व काही बंद
     match /{document=**} { allow read, write: if false; }
   }
